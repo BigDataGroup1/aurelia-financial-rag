@@ -1,0 +1,1 @@
+pip install fastapi uvicorn langchain openai chromadb pinecone-client instructor streamlit pydantic requests pdfplumber pymupdf python-dotenv
