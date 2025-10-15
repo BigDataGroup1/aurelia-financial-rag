@@ -62,7 +62,6 @@ def extract_figures(pdf_path:str):
 # ───────────────────────────────────────────────
 def convert_pdf_to_markdown(pdf_path:str) -> str:
     converter = DocumentConverter()
-    doc = converter.convert(pdf_path, max_pages=30)
     tmp_dir = tempfile.mkdtemp()
     md_path = os.path.join(tmp_dir, "fintbx.md")
     doc = converter.convert(pdf_path)
