@@ -7,7 +7,7 @@ import os
 import re
 from pathlib import Path
 import csv
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 import logging
 import json
 
@@ -28,47 +28,6 @@ OUT_META.mkdir(parents=True, exist_ok=True)
 
 COMBINED_MD = OUT_PROCESSED / "fintbx_parsed.md"
 MANIFEST_CSV = OUT_PROCESSED / "manifest.csv"
-
-
-def extract_images_pymupdf(pdf_path: Path, page_num: int, output_dir: Path) -> List[Dict]:
-    """Extract images from a specific page using PyMuPDF"""
-    try:
-        import fitz
-    except ImportError:
-        logger.warning("PyMuPDF not installed. Images will not be extracted. Run: pip install pymupdf")
-        return []
-    
-    doc = fitz.open(str(pdf_path))
-    page = doc[page_num]
-    image_list = page.get_images(full=True)
-    
-    extracted_images = []
-    
-    for img_index, img in enumerate(image_list):
-        try:
-            xref = img[0]
-            base_image = doc.extract_image(xref)
-            image_bytes = base_image["image"]
-            image_ext = base_image["ext"]
-            
-            # Save image
-            image_filename = f"page_{page_num + 1:03d}_img_{img_index + 1}.{image_ext}"
-            image_path = output_dir / image_filename
-            image_path.write_bytes(image_bytes)
-            
-            extracted_images.append({
-                'filename': image_filename,
-                'page': page_num + 1,
-                'index': img_index + 1,
-                'size': len(image_bytes),
-                'format': image_ext
-            })
-            
-        except Exception as e:
-            logger.debug(f"Could not extract image {img_index} from page {page_num + 1}: {e}")
-    
-    doc.close()
-    return extracted_images
 
 
 def detect_code_blocks(text: str) -> List[Tuple[int, int, str]]:
@@ -183,15 +142,33 @@ def extract_table_captions(text: str) -> List[Dict]:
 
 
 def extract_with_pdfplumber(pdf_path: Path):
-    """Main extraction using pdfplumber"""
+    """Main extraction using pdfplumber + PyMuPDF"""
     try:
         import pdfplumber
     except ImportError:
         logger.error("pdfplumber not installed. Run: pip install pdfplumber")
         raise
     
+    # Try to import PyMuPDF for images
+    try:
+        import fitz
+        has_pymupdf = True
+        logger.info("PyMuPDF available for image extraction")
+    except ImportError:
+        has_pymupdf = False
+        logger.warning("PyMuPDF not installed. Images will not be extracted. Run: pip install pymupdf")
+    
     logger.info(f"Opening PDF: {pdf_path}")
     logger.info(f"PDF size: {pdf_path.stat().st_size / 1e6:.2f} MB")
+    
+    # Open PyMuPDF document ONCE for all pages
+    pymupdf_doc = None
+    if has_pymupdf:
+        try:
+            pymupdf_doc = fitz.open(str(pdf_path))
+        except Exception as e:
+            logger.warning(f"Could not open PDF with PyMuPDF: {e}")
+            has_pymupdf = False
     
     pages_data = []
     
@@ -216,60 +193,115 @@ def extract_with_pdfplumber(pdf_path: Path):
         else:
             page_indices = range(total_pages)
         
+        logger.info(f"\n{'='*70}")
+        logger.info("Starting page-by-page extraction...")
+        logger.info('-'*70)
+        
         for i in page_indices:
-            page = pdf.pages[i]
-            
-            # Extract text
-            text = page.extract_text() or ""
-            
-            # Extract tables with aggressive settings
-            table_settings_strict = {
-                "vertical_strategy": "lines",
-                "horizontal_strategy": "lines",
-                "snap_tolerance": 3,
-                "join_tolerance": 3,
-            }
-            
-            tables = page.extract_tables(table_settings=table_settings_strict) or []
-            
-            # Try text-based if no tables found
-            if not tables:
-                table_settings_text = {
-                    "vertical_strategy": "text",
-                    "horizontal_strategy": "text",
+            try:
+                page = pdf.pages[i]
+                
+                # Extract text
+                text = page.extract_text() or ""
+                
+                # Extract tables with aggressive settings
+                table_settings_strict = {
+                    "vertical_strategy": "lines",
+                    "horizontal_strategy": "lines",
+                    "snap_tolerance": 3,
+                    "join_tolerance": 3,
                 }
-                tables = page.extract_tables(table_settings=table_settings_text) or []
+                
+                tables = page.extract_tables(table_settings=table_settings_strict) or []
+                
+                # Try text-based if no tables found
+                if not tables:
+                    table_settings_text = {
+                        "vertical_strategy": "text",
+                        "horizontal_strategy": "text",
+                    }
+                    tables = page.extract_tables(table_settings=table_settings_text) or []
+                
+                # Extract images from THIS page using PyMuPDF
+                images = []
+                if has_pymupdf and pymupdf_doc:
+                    try:
+                        pymupdf_page = pymupdf_doc[i]
+                        image_list = pymupdf_page.get_images(full=True)
+                        
+                        for img_index, img in enumerate(image_list):
+                            try:
+                                xref = img[0]
+                                base_image = pymupdf_doc.extract_image(xref)
+                                image_bytes = base_image["image"]
+                                image_ext = base_image["ext"]
+                                
+                                # Save image
+                                image_filename = f"page_{i + 1:03d}_img_{img_index + 1}.{image_ext}"
+                                image_path = OUT_FIGS / image_filename
+                                image_path.write_bytes(image_bytes)
+                                
+                                images.append({
+                                    'filename': image_filename,
+                                    'page': i + 1,
+                                    'index': img_index + 1,
+                                    'size': len(image_bytes),
+                                    'format': image_ext
+                                })
+                            except Exception as e:
+                                logger.debug(f"Could not extract image {img_index} from page {i + 1}: {e}")
+                    
+                    except Exception as e:
+                        logger.debug(f"Image extraction failed for page {i + 1}: {e}")
+                
+                # Detect code blocks
+                code_blocks = detect_code_blocks(text)
+                
+                # Detect formulas
+                formulas = detect_formulas(text)
+                
+                # Extract captions
+                figure_captions = extract_figure_captions(text)
+                table_captions = extract_table_captions(text)
+                
+                pages_data.append({
+                    'page_num': i + 1,
+                    'text': text,
+                    'tables': tables,
+                    'images': images,
+                    'code_blocks': code_blocks,
+                    'formulas': formulas,
+                    'figure_captions': figure_captions,
+                    'table_captions': table_captions,
+                    'char_count': len(text)
+                })
+                
+                # Progress update every 10 pages or for small batches
+                if (i + 1) % 10 == 0 or len(page_indices) <= 20:
+                    logger.info(
+                        f"✓ Page {i+1}/{len(page_indices)}: "
+                        f"{len(text)} chars, {len(tables)} tables, {len(images)} images, "
+                        f"{len(code_blocks)} code blocks, {len(formulas)} formulas"
+                    )
             
-            # Extract images using PyMuPDF
-            images = extract_images_pymupdf(pdf_path, i, OUT_FIGS)
-            
-            # Detect code blocks
-            code_blocks = detect_code_blocks(text)
-            
-            # Detect formulas
-            formulas = detect_formulas(text)
-            
-            # Extract captions
-            figure_captions = extract_figure_captions(text)
-            table_captions = extract_table_captions(text)
-            
-            pages_data.append({
-                'page_num': i + 1,
-                'text': text,
-                'tables': tables,
-                'images': images,
-                'code_blocks': code_blocks,
-                'formulas': formulas,
-                'figure_captions': figure_captions,
-                'table_captions': table_captions,
-                'char_count': len(text)
-            })
-            
-            logger.info(
-                f"✓ Page {i+1}/{len(page_indices)}: "
-                f"{len(text)} chars, {len(tables)} tables, {len(images)} images, "
-                f"{len(code_blocks)} code blocks, {len(formulas)} formulas"
-            )
+            except Exception as e:
+                logger.error(f"ERROR processing page {i+1}: {e}")
+                # Add empty page data to maintain page numbering
+                pages_data.append({
+                    'page_num': i + 1,
+                    'text': '',
+                    'tables': [],
+                    'images': [],
+                    'code_blocks': [],
+                    'formulas': [],
+                    'figure_captions': [],
+                    'table_captions': [],
+                    'char_count': 0
+                })
+    
+    # Close PyMuPDF document
+    if pymupdf_doc:
+        pymupdf_doc.close()
     
     return pages_data
 
@@ -320,7 +352,7 @@ def format_page_as_markdown(page_data: Dict) -> str:
     if images:
         parts.append("**Images:**")
         for img in images:
-            parts.append(f"![Image {img['index']}]({OUT_FIGS.name}/{img['filename']})")
+            parts.append(f"![Image {img['index']}](../figures/{img['filename']})")
             parts.append(f"*File: {img['filename']} ({img['size'] / 1024:.1f} KB)*")
             parts.append("")
     
@@ -328,7 +360,6 @@ def format_page_as_markdown(page_data: Dict) -> str:
     if text and text.strip():
         lines = text.split('\n')
         processed_lines = []
-        code_block_indices = {(cb[0], cb[1]) for cb in code_blocks}
         
         current_line = 0
         for cb_start, cb_end, cb_content in code_blocks:
@@ -439,6 +470,7 @@ def main():
     
     if not RAW_PDF.exists():
         logger.error(f"PDF not found: {RAW_PDF}")
+        logger.error(f"Expected location: {RAW_PDF}")
         return
     
     # Extract all content
@@ -446,6 +478,8 @@ def main():
         pages_data = extract_with_pdfplumber(RAW_PDF)
     except Exception as e:
         logger.error(f"Extraction failed: {e}")
+        import traceback
+        traceback.print_exc()
         raise
     
     if not pages_data:
@@ -461,23 +495,26 @@ def main():
     manifest_rows = []
     
     for page_data in pages_data:
-        md_content = format_page_as_markdown(page_data)
-        
-        page_num = page_data['page_num']
-        page_fname = OUT_PAGES / f"page_{page_num:03d}.md"
-        page_fname.write_text(md_content, encoding="utf-8")
-        
-        written_pages.append(page_fname)
-        manifest_rows.append({
-            "page": page_num,
-            "path": str(page_fname.relative_to(PROJECT_ROOT)),
-            "bytes": page_fname.stat().st_size,
-            "images": len(page_data['images']),
-            "tables": len(page_data['tables']),
-            "code_blocks": len(page_data['code_blocks'])
-        })
+        try:
+            md_content = format_page_as_markdown(page_data)
+            
+            page_num = page_data['page_num']
+            page_fname = OUT_PAGES / f"page_{page_num:03d}.md"
+            page_fname.write_text(md_content, encoding="utf-8")
+            
+            written_pages.append(page_fname)
+            manifest_rows.append({
+                "page": page_num,
+                "path": str(page_fname.relative_to(PROJECT_ROOT)),
+                "bytes": page_fname.stat().st_size,
+                "images": len(page_data['images']),
+                "tables": len(page_data['tables']),
+                "code_blocks": len(page_data['code_blocks'])
+            })
+        except Exception as e:
+            logger.error(f"Error writing page {page_data['page_num']}: {e}")
     
-    logger.info(f"✓ Wrote {len(written_pages)} page files")
+    logger.info(f"✓ Wrote {len(written_pages)} page files to {OUT_PAGES}")
     
     # Create combined markdown
     combined_parts = [
@@ -528,6 +565,9 @@ def main():
     logger.info(f"   - Pages: {OUT_PAGES}")
     logger.info(f"   - Figures: {OUT_FIGS}")
     logger.info(f"   - Metadata: {OUT_META}")
+    logger.info(f"\nVerify output:")
+    logger.info(f"   ls {OUT_PAGES}")
+    logger.info(f"   cat {OUT_PAGES}/page_001.md")
     logger.info("="*70)
 
 
