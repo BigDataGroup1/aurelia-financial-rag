@@ -1,0 +1,84 @@
+CODE BLOCKS FROM PAGE 50
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+'17-May-1999, 18:30'
+'5/17/99/6:30 pm'
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+With 
+datenum
+, you can convert dates into serial date format, store them in a matrix variable, and
+then later pass the variable to a function. Alternatively, you can use 
+datenum
+ directly in a function
+input argument list.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+For example, consider the function 
+bndprice
+ that computes the price of a bond given the yield to
+maturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Yield       = 0.07;
+CouponRate  = 0.08;
+Settle      = datenum(
+'17-May-2000'
+);
+Maturity    = datenum(
+'01-Oct-2000'
+);
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+bndprice(Yield,CouponRate,Settle,Maturity)
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+bndprice(0.07,0.08,datenum(
+'17-May-2000'
+),
+...
+ 
+datenum(
+'01-Oct-2000'
+))
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+bndprice
+ is an example of a function designed to detect the presence of date character vectors and
+make the conversion automatically. For functions like 
+bndprice
+, date character vectors can be
+passed directly.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+bndprice(0.07,0.08,
+'17-May-2000'
+,
+'01-Oct-2000'
+)
+
+======================================================================
+

@@ -1,0 +1,22 @@
+FORMULAS FROM PAGE 48
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+S = char(t)
+
+Context:
+rent date and time to a timestamp to append to a file name.
+t = datetime('now','Format','yyyy-MM-dd''T''HHmmss')
+t = 
+  datetime
+   2016-12-11T125628
+S = char(t);
+filename = ['myTest_',S]
+filename =
+    'myTest_2016-12-11T125628'
+Convert Serial Date Numbers to Datetime Arrays
+Serial time can represent fraction
+
+======================================================================
+

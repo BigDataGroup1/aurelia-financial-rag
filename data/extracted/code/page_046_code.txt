@@ -1,0 +1,79 @@
+CODE BLOCKS FROM PAGE 46
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+•
+Date character vectors are text that represent date and time, which you can use with multiple
+formats. For example, 
+'dd-mmm-yyyy HH:MM:SS'
+, 
+'dd-mmm-yyyy'
+, and 
+'mm/dd/yyyy'
+ are all
+supported text formats for a date character vector. Most often, you work with date character
+vectors (such as 
+14-Sep-1999
+) when dealing with dates.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+•
+Datetime arrays, created using 
+datetime
+, are the best data type for representing points in time.
+datetime
+ values have flexible display formats and up to nanosecond precision, and can account
+for time zones, daylight saving time, and leap seconds. When 
+datetime
+ objects are used as inputs
+to other Financial Toolbox functions, the format of the input 
+datetime
+ object is preserved. For
+example:
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+originalDate = datetime('now','Format','yyyy-MM-dd HH:mm:ss'); 
+  % Find the next business day 
+  b = busdate(originalDate)
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+•
+Serial date numbers represent a calendar date as the number of days that have passed since a
+fixed base date. In MATLAB software, serial date number 
+1
+ is January 1,0000 A.D. Financial
+Toolbox works internally with serial date numbers (such as, 
+730377
+). MATLAB also uses serial
+time to represent fractions of days beginning at midnight. For example, 6 p.m. equals 
+0.75
+ serial
+days, so 6:00 p.m. on 
+14-Sep-1999
+, in MATLAB, is serial date number 
+730377.75
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Note
+ If you specify a two-digit year, MATLAB assumes that the year lies within the 100-year period
+centered on the current year. See the function 
+datenum
+ for specific information. MATLAB internal
+date handling and calculations generate no ambiguous values. However, whenever possible, use
+serial date numbers or date character vectors containing four-digit years.
+
+======================================================================
+

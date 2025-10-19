@@ -1,0 +1,93 @@
+CODE BLOCKS FROM PAGE 37
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Portfolios = [100   200
+              500   400
+              300   150];
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+DoublePort = Portfolios * 2
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+DoublePort =
+        200           400
+       1000           800
+        600           300
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+In ordinary algebra, you would divide both sides of the equation by 
+A
+, and 
+X
+ would equal 
+B/A
+.
+However, since matrix algebra is not commutative 
+(A
+*
+X
+ ≠ 
+X
+*
+A)
+, different processes apply. In formal
+matrix algebra, the solution involves matrix inversion. MATLAB, however, simplifies the process by
+providing two matrix division symbols, left and right (
+\
+ and 
+/
+). In general,
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+X = A\B
+ solves for 
+X
+ in 
+A
+*
+X = B
+ and
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+X = B/A
+ solves for 
+X
+ in 
+X
+*
+A = B
+.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+In general, matrix 
+A
+ must be a nonsingular square matrix; that is, it must be invertible and it must
+have the same number of rows and columns. (Generally, a matrix is invertible if the matrix times its
+inverse equals the identity matrix. To understand the theory and proofs, consult a textbook on linear
+algebra such as 
+Elementary Linear Algebra
+ by Hill listed in “Bibliography” on page A-2.) MATLAB
+gives a warning message if the matrix is singular or nearly so.
+
+======================================================================
+

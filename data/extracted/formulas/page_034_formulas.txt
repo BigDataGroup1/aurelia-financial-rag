@@ -1,0 +1,86 @@
+FORMULAS FROM PAGE 34
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+SmallerPortf = NewPortfolios-10
+SmallerPortf =
+        265
+
+Context:
+Adding or subtracting a scalar and a matrix is allowed and also operates element-by-element.
+SmallerPortf = NewPortfolios-10
+SmallerPortf =
+        265.00        315.00
+        690.00        590.00
+        390.00        640.00
+Multiplying Matrices
+Matrix multiplication does not operate element-by-ele
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+ClosePrices = [42
+
+Context:
+ows the same rules and helps illustrate the principles. For example, a stock
+portfolio has three different stocks and their closing prices today are:
+ClosePrices = [42.5   15   78.875]
+The portfolio contains these numbers of shares of each stock.
+NumShares = [100
+             500
+             300]
+To find the value
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+NumShares = [100
+             500
+             300]
+To find the value of the portfolio, multiply the vectors
+PortfValue = ClosePrices * NumShares
+which yields:
+PortfValue =
+            3
+
+Context:
+different stocks and their closing prices today are:
+ClosePrices = [42.5   15   78.875]
+The portfolio contains these numbers of shares of each stock.
+NumShares = [100
+             500
+             300]
+To find the value of the portfolio, multiply the vectors
+PortfValue = ClosePrices * NumShares
+which yields:
+PortfValue =
+            3.5413e+004
+The vectors are 1-by-3 and 3-by-1; the resulting vector is 1-by-1, a scalar. Multiplying these vectors
+thus means multiplying each closing
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Values = NumShares * ClosePrices
+Values =
+  1
+
+Context:
+iplying each closing price by its respective number of shares and summing the result.
+To illustrate order dependence, switch the order of the vectors
+Values = NumShares * ClosePrices
+Values =
+  1.0e+004 *
+    0.4250    0.1500    0.7887
+    2.1250    0.7500    3.9438
+    1.2750    0.4500    2.3663
+1
+Getting Started
+1-8
+
+======================================================================
+

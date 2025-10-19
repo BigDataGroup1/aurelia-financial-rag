@@ -1,0 +1,30 @@
+CODE BLOCKS FROM PAGE 88
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Although primarily designed for life insurance applications, the life tables functions
+(
+lifetableconv
+, 
+lifetablefit
+, and 
+lifetablegen
+ can also be used by social scientists,
+behavioral psychologists, public health officials, and medical researchers.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+The survival function, (
+s(x)
+), which characterizes the probability that an individual lives beyond a
+specified age
+ x
+ > 
+0
+, is
+
+======================================================================
+

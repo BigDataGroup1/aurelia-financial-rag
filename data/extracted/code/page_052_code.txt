@@ -1,0 +1,84 @@
+CODE BLOCKS FROM PAGE 52
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+The MATLAB function 
+date
+ returns a character vector for the current date.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Financial Toolbox provides many functions for determining specific dates. For example, assume that
+you schedule an accounting procedure for the last Friday of every month. Use the 
+lweekdate
+function to return those dates for the year 2000. The input argument 
+6
+ specifies Friday.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Fridates = lweekdate(6,2000,1:12);
+Fridays = datestr(Fridates)
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+'28-Jan-2000'
+    '25-Feb-2000'
+    '31-Mar-2000'
+    '28-Apr-2000'
+    '26-May-2000'
+    '30-Jun-2000'
+    '28-Jul-2000'
+    '25-Aug-2000'
+    '29-Sep-2000'
+    '27-Oct-2000'
+    '24-Nov-2000'
+    '29-Dec-2000'
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Another example of needing specific dates could be that your company closes on Martin Luther King
+Jr. Day, which is the third Monday in January. You can use the 
+nweekdate
+ function to determine those
+specific dates for 2011 through 2014.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+MLKDates = nweekdate(3,2,2011:2014,1);
+MLKDays = datestr(MLKDates)
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+'17-Jan-2011'
+    '16-Jan-2012'
+    '21-Jan-2013'
+    '20-Jan-2014'
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+Accounting for holidays and other nontrading days is important when you examine financial dates.
+Financial Toolbox provides the 
+holidays
+ function, which contains holidays and special nontrading
+days for the New York Stock Exchange from 1950 through 2030, inclusive. In addition, you can use
+nyseclosures
+ to evaluate all known or anticipated closures of the New York Stock Exchange from
+
+======================================================================
+

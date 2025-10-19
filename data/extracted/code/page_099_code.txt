@@ -1,0 +1,106 @@
+CODE BLOCKS FROM PAGE 99
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+clearvars 
+-except
+ 
+DTT
+ 
+whos
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Name            Size            Bytes  Class    Attributes
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+DTT       581,030x12             5056  tall
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+sampleTimeTarget = seconds(11*60*60);               
+% Seconds after midnight
+sampleTimes = withtol(sampleTimeTarget,seconds(1)); 
+% 1 second tolerance
+sampleLOB = DTT(sampleTimes,:);
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+numTimes = gather(size(sampleLOB,1))
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+Evaluating tall expression using the Local MATLAB Session:
+- Pass 1 of 1: Completed in 4.1 sec
+Evaluation completed in 4.4 sec
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+sampleLOB = sampleLOB(round(numTimes/2),:);
+sampleTime = sampleLOB.Time;
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+sampleBidPrices = [sampleLOB.BidPrice1,sampleLOB.BidPrice2,sampleLOB.BidPrice3];
+sampleBidSizes  = [sampleLOB.BidSize1,sampleLOB.BidSize2,sampleLOB.BidSize3];
+sampleAskPrices = [sampleLOB.AskPrice1,sampleLOB.AskPrice2,sampleLOB.AskPrice3];
+sampleAskSizes  = [sampleLOB.AskSize1,sampleLOB.AskSize2,sampleLOB.AskSize3];
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+[sampleTime,sampleBidPrices,sampleBidSizes,sampleAskPrices,sampleAskSizes] = 
+...
+    gather(sampleTime,sampleBidPrices,sampleBidSizes,sampleAskPrices,sampleAskSizes);
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+Evaluating tall expression using the Local MATLAB Session:
+- Pass 1 of 2: Completed in 3.7 sec
+- Pass 2 of 2: Completed in 4 sec
+Evaluation completed in 8.6 sec
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+Visualize the limited data sample returned by 
+gather
+ by using 
+bar
+.
+
+======================================================================
+
+Code Block 12:
+----------------------------------------------------------------------
+bar((sampleBidPrices/10000),sampleBidSizes,
+'r'
+)
+bar((sampleAskPrices/10000),sampleAskSizes,
+'g'
+)
+hold 
+off
+
+======================================================================
+

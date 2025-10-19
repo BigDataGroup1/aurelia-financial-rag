@@ -1,0 +1,77 @@
+CODE BLOCKS FROM PAGE 41
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+One example of such a function is the 
+irr
+ function, which computes the internal rate of return of a
+cash flow stream. If you input a vector of cash flows from a single cash flow stream, then 
+irr
+ returns
+a scalar rate of return. If you input a matrix of cash flows from multiple cash flow streams, where
+each matrix column represents a different stream, then 
+irr
+ returns a vector of internal rates of
+return, where the columns correspond to the columns of the input matrix. Many other Financial
+Toolbox functions work similarly.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+CashFlows = [-100 10 20 30 40 50]'
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Use the 
+irr
+ function to compute the internal rate of return of the cash flow stream.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Rate = irr(CashFlows)
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+For the single cash flow stream 
+CashFlows
+, the function returns a scalar rate of return of 
+0.1201
+, or
+12.01%.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+Now, use the 
+irr
+ function to compute internal rates of return for multiple cash flow streams.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+Rate = irr([CashFlows CashFlows CashFlows])
+
+======================================================================
+

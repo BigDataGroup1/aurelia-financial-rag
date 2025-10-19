@@ -1,0 +1,22 @@
+CODE BLOCKS FROM PAGE 82
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Complex continuous returns are a necessary intermediary when considering logarithms of negative
+price ratios. 
+tick2ret
+ computes a continuous complex extension of the function on the positive real
+axis. The logarithm maintains the additivity property, used when computing multiperiod returns.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+See Also
+tick2ret
+ | 
+ret2tick
+
+======================================================================
+

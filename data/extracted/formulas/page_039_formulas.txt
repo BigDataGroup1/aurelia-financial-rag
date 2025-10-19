@@ -1,0 +1,277 @@
+FORMULAS FROM PAGE 39
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$7000 if the prime rate stays flat and $
+
+Context:
+1600
+Now the investor asks this question: Given these two portfolios and their characteristics, how many
+units of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime
+drops one percentage point? Find the answer by solving two linear equations.
+ 
+M1
+M2
+Prime flat:
+$100 * x units
++ $70 * y units = $7
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$100 * x units
++ $
+
+Context:
+if the prime rate stays flat and $5000 if the prime
+drops one percentage point? Find the answer by solving two linear equations.
+ 
+M1
+M2
+Prime flat:
+$100 * x units
++ $70 * y units = $7000
+receipts
+Prime down:
+$80 * x units
++ $40 * y units = $5000
+receipts
+In other words, solve for U (units) in the equation R (receip
+
+======================================================================
+
+Formula 3 [latex_inline]:
+----------------------------------------------------------------------
+$7000
+receipts
+Prime down:
+$
+
+Context:
+$5000 if the prime
+drops one percentage point? Find the answer by solving two linear equations.
+ 
+M1
+M2
+Prime flat:
+$100 * x units
++ $70 * y units = $7000
+receipts
+Prime down:
+$80 * x units
++ $40 * y units = $5000
+receipts
+In other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB
+le
+
+======================================================================
+
+Formula 4 [latex_inline]:
+----------------------------------------------------------------------
+$40 * y units = $
+
+Context:
+int? Find the answer by solving two linear equations.
+ 
+M1
+M2
+Prime flat:
+$100 * x units
++ $70 * y units = $7000
+receipts
+Prime down:
+$80 * x units
++ $40 * y units = $5000
+receipts
+In other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB
+left division
+Cash = [100  70
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Cash = [100  70
+         80  40]
+
+Context:
+Cash = [100  70
+         80  40];
+Units = [10
+        20];
+Receipts = Cash * Units
+Receipts =
+       2400
+       1600
+Now the investor asks this question: Given these two portfolios
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+Units = [10
+        20]
+
+Context:
+Cash = [100  70
+         80  40];
+Units = [10
+        20];
+Receipts = Cash * Units
+Receipts =
+       2400
+       1600
+Now the investor asks this question: Given these two portfolios and their characteristics
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Receipts = Cash * Units
+Receipts =
+       2400
+       1600
+Now the investor asks this question: Given these two portfolios and their characteristics, how many
+units of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime
+drops one percentage point? Find the answer by solving two linear equations
+
+Context:
+Cash = [100  70
+         80  40];
+Units = [10
+        20];
+Receipts = Cash * Units
+Receipts =
+       2400
+       1600
+Now the investor asks this question: Given these two portfolios and their characteristics, how many
+units of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime
+drops one percentage point? Find the answer by solving two linear equations.
+ 
+M1
+M2
+Prime flat:
+$100 * x units
++ $70 * y units = $7000
+receipts
+Prime down:
+$80 * x units
++ $40 * y units = $5000
+receipts
+In other words, solve
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+Cash = [100  70
+         80  40]
+
+Context:
++ $40 * y units = $5000
+receipts
+In other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB
+left division
+Cash = [100  70
+         80  40];
+Receipts = [7000
+            5000];
+Units = Cash \ Receipts
+Units =
+         43.7500
+         37.5000
+The investor should hold 43.75 units of portfo
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+Receipts = [7000
+            5000]
+
+Context:
+In other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB
+left division
+Cash = [100  70
+         80  40];
+Receipts = [7000
+            5000];
+Units = Cash \ Receipts
+Units =
+         43.7500
+         37.5000
+The investor should hold 43.75 units of portfolio M1 and 37.5 units of portfolio M
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+Units = Cash \ Receipts
+Units =
+         43
+
+Context:
+in the equation R (receipts) = C (cash) * U (units). Using MATLAB
+left division
+Cash = [100  70
+         80  40];
+Receipts = [7000
+            5000];
+Units = Cash \ Receipts
+Units =
+         43.7500
+         37.5000
+The investor should hold 43.75 units of portfolio M1 and 37.5 units of portfolio M2 to achieve the
+annual receipts desired.
+Ope
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+Dividends = [1
+
+Context:
+g array
+operations on two matrices, the dimensions of the matrices must be the same. For example, given
+vectors of stock dividends and closing prices
+Dividends = [1.90  0.40  1.56  4.50];
+Prices = [25.625  17.75  26.125  60.50];
+Yields = Dividends ./ Prices
+ Matrix Algebra Refresher
+1-13
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+Prices = [25
+
+Context:
+e dimensions of the matrices must be the same. For example, given
+vectors of stock dividends and closing prices
+Dividends = [1.90  0.40  1.56  4.50];
+Prices = [25.625  17.75  26.125  60.50];
+Yields = Dividends ./ Prices
+ Matrix Algebra Refresher
+1-13
+
+======================================================================
+
+Formula 13 [simple_equation]:
+----------------------------------------------------------------------
+Yields = Dividends
+
+Context:
+same. For example, given
+vectors of stock dividends and closing prices
+Dividends = [1.90  0.40  1.56  4.50];
+Prices = [25.625  17.75  26.125  60.50];
+Yields = Dividends ./ Prices
+ Matrix Algebra Refresher
+1-13
+
+======================================================================
+

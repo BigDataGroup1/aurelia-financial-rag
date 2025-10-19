@@ -1,0 +1,203 @@
+FORMULAS FROM PAGE 67
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+ModDuration = 
+1
+
+Context:
+ModDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+YearDuration = 
+1
+
+Context:
+ModDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3.2940 (semiannual perio
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+PerDuration = 
+3
+
+Context:
+ModDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3.2940 (semiannual periods)
+Note that the semi
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+ModDuration = 1
+
+Context:
+ModDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3.2940 (semiannual periods)
+Note that the semiannual periodic Macaulay duration (PerDura
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+YearDuration = 1
+
+Context:
+ModDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3.2940 (semiannual periods)
+Note that the semiannual periodic Macaulay duration (PerDuration) is twice the annualized
+Ma
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+PerDuration = 3
+
+Context:
+odDuration = 
+1.6107
+YearDuration = 
+1.6470
+PerDuration = 
+3.2940
+The durations are:
+•
+ModDuration = 1.6107 (years)
+•
+YearDuration = 1.6470 (years)
+•
+PerDuration = 3.2940 (semiannual periods)
+Note that the semiannual periodic Macaulay duration (PerDuration) is twice the annualized
+Macaulay duration (YearDuration).
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Settle = datenum('18-Nov-2008')
+
+Context:
+equal the duration of the bond.
+Compute the key rate duration of the US Treasury Bond with maturity date of August 15, 2028 and
+coupon rate of 5.5%.
+Settle = datenum('18-Nov-2008'); 
+CouponRate = 5.500/100;
+Maturity = datenum('15-Aug-2028'); 
+Price = 114.83;
+ Pricing and Computing Yields for Fixed-Income Securities
+2-23
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+CouponRate = 5
+
+Context:
+ompute the key rate duration of the US Treasury Bond with maturity date of August 15, 2028 and
+coupon rate of 5.5%.
+Settle = datenum('18-Nov-2008'); 
+CouponRate = 5.500/100;
+Maturity = datenum('15-Aug-2028'); 
+Price = 114.83;
+ Pricing and Computing Yields for Fixed-Income Securities
+2-23
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+Maturity = datenum('15-Aug-2028')
+
+Context:
+tion of the US Treasury Bond with maturity date of August 15, 2028 and
+coupon rate of 5.5%.
+Settle = datenum('18-Nov-2008'); 
+CouponRate = 5.500/100;
+Maturity = datenum('15-Aug-2028'); 
+Price = 114.83;
+ Pricing and Computing Yields for Fixed-Income Securities
+2-23
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+Price = 114
+
+Context:
+turity date of August 15, 2028 and
+coupon rate of 5.5%.
+Settle = datenum('18-Nov-2008'); 
+CouponRate = 5.500/100;
+Maturity = datenum('15-Aug-2028'); 
+Price = 114.83;
+ Pricing and Computing Yields for Fixed-Income Securities
+2-23
+
+======================================================================
+

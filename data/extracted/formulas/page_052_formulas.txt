@@ -1,0 +1,118 @@
+FORMULAS FROM PAGE 52
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Fridates = lweekdate(6,2000,1:12)
+
+Context:
+cedure for the last Friday of every month. Use the lweekdate
+function to return those dates for the year 2000. The input argument 6 specifies Friday.
+Fridates = lweekdate(6,2000,1:12);
+Fridays = datestr(Fridates)
+Fridays =
+  12×11 char array
+    '28-Jan-2000'
+    '25-Feb-2000'
+    '31-Mar-2000'
+    '28-Apr-2000'
+    '26-May-2000'
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Fridays = datestr(Fridates)
+Fridays =
+  12×11 char array
+    '28-Jan-2000'
+    '25-Feb-2000'
+    '31-Mar-2000'
+    '28-Apr-2000'
+    '26-May-2000'
+    '30-Jun-2000'
+    '28-Jul-2000'
+    '25-Aug-2000'
+    '29-Sep-2000'
+    '27-Oct-2000'
+    '24-Nov-2000'
+    '29-Dec-2000'
+Another example of needing specific dates could be that your company closes on Martin Luther King
+Jr
+
+Context:
+month. Use the lweekdate
+function to return those dates for the year 2000. The input argument 6 specifies Friday.
+Fridates = lweekdate(6,2000,1:12);
+Fridays = datestr(Fridates)
+Fridays =
+  12×11 char array
+    '28-Jan-2000'
+    '25-Feb-2000'
+    '31-Mar-2000'
+    '28-Apr-2000'
+    '26-May-2000'
+    '30-Jun-2000'
+    '28-Jul-2000'
+    '25-Aug-2000'
+    '29-Sep-2000'
+    '27-Oct-2000'
+    '24-Nov-2000'
+    '29-Dec-2000'
+Another example of needing specific dates could be that your company closes on Martin Luther King
+Jr. Day, which is the third Monday in January. You can use the nweekdate function to determine those
+specific dates for 2011 through 2014.
+MLKDates = nw
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+MLKDates = nweekdate(3,2,2011:2014,1)
+
+Context:
+uther King
+Jr. Day, which is the third Monday in January. You can use the nweekdate function to determine those
+specific dates for 2011 through 2014.
+MLKDates = nweekdate(3,2,2011:2014,1);
+MLKDays = datestr(MLKDates)
+MLKDays =
+  4×11 char array
+    '17-Jan-2011'
+    '16-Jan-2012'
+    '21-Jan-2013'
+    '20-Jan-2014'
+Determining Holidays
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+MLKDays = datestr(MLKDates)
+MLKDays =
+  4×11 char array
+    '17-Jan-2011'
+    '16-Jan-2012'
+    '21-Jan-2013'
+    '20-Jan-2014'
+Determining Holidays
+Accounting for holidays and other nontrading days is important when you examine financial dates
+
+Context:
+Monday in January. You can use the nweekdate function to determine those
+specific dates for 2011 through 2014.
+MLKDates = nweekdate(3,2,2011:2014,1);
+MLKDays = datestr(MLKDates)
+MLKDays =
+  4×11 char array
+    '17-Jan-2011'
+    '16-Jan-2012'
+    '21-Jan-2013'
+    '20-Jan-2014'
+Determining Holidays
+Accounting for holidays and other nontrading days is important when you examine financial dates.
+Financial Toolbox provides the holidays function, which contains holidays and special nontrading
+days for the New York Stock Exchange from 1950 thro
+
+======================================================================
+

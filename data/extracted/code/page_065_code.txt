@@ -1,0 +1,135 @@
+CODE BLOCKS FROM PAGE 65
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+There are two yield and time factor conventions that are used in the Financial Toolbox software –
+these are determined by the input 
+basis
+. Specifically, bases 
+0
+ to 
+7
+ are assumed to have semiannual
+compounding, while bases 
+8
+ to 
+12
+ are assumed to have annual compounding regardless of the period
+of the bond's coupon payments (including zero-coupon bonds). In addition, any yield-related
+sensitivity (that is, duration and convexity), when quoted on a periodic basis, follows this same
+convention. (See 
+bndconvp
+, 
+bndconvy
+, 
+bnddurp
+, 
+bnddury
+, and 
+bndkrdur
+.)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+This example shows how to compute the price of a bond with an odd first period using 
+bndprice
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Settle          = 
+'11-Nov-1992'
+;
+Maturity        = 
+'01-Mar-2005'
+;
+IssueDate       = 
+'15-Oct-1992'
+;
+FirstCouponDate = 
+'01-Mar-1993'
+;
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Allow coupon payment period (
+Period
+ = 
+2
+), day-count basis (
+Basis
+ = 
+0
+), and end-of-month rule
+(
+EndMonthRule
+ = 
+1
+) to assume the default values. Also, assume that there is no odd last coupon date
+and that the face value of the bond is $100. Calling the function:
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, 
+...
+ 
+Maturity, [], [], [], IssueDate, FirstCouponDate)
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+bndprice
+ returns a price of $113.60 and accrued interest of $0.59.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+Note, 
+bndprice
+ uses nonlinear formulas to compute the price of a security. For this reason, Financial
+Toolbox™ software uses Newton's method when solving for an independent variable within a formula.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+This example shows how to use 
+bndyield
+ compute the yield of a bond that has odd first and last
+periods and settlement in the first period.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+Settle          = 
+'12-Jan-2000'
+;
+Maturity        = 
+'01-Oct-2001'
+;
+IssueDate       = 
+'01-Jan-2000'
+;
+FirstCouponDate = 
+'15-Jan-2000'
+;
+LastCouponDate  = 
+'15-Apr-2000'
+;
+
+======================================================================
+

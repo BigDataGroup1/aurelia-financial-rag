@@ -1,0 +1,137 @@
+FORMULAS FROM PAGE 41
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100, from which you then receive by
+a series of annual cash receipts of $
+
+Context:
+the columns of the input matrix. Many other Financial
+Toolbox functions work similarly.
+As an example, suppose that you make an initial investment of $100, from which you then receive by
+a series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a
+vector
+CashFlows = [-100 10 20 30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$20, $
+
+Context:
+imilarly.
+As an example, suppose that you make an initial investment of $100, from which you then receive by
+a series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a
+vector
+CashFlows = [-100 10 20 30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+
+======================================================================
+
+Formula 3 [latex_inline]:
+----------------------------------------------------------------------
+$40, and $
+
+Context:
+As an example, suppose that you make an initial investment of $100, from which you then receive by
+a series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a
+vector
+CashFlows = [-100 10 20 30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+Use the irr f
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+CashFlows = [-100 10 20 30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+Use the irr function to compute the internal rate of return of the cash flow stream
+
+Context:
+of $100, from which you then receive by
+a series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a
+vector
+CashFlows = [-100 10 20 30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+Use the irr function to compute the internal rate of return of the cash flow stream.
+Rate = irr(CashFlows)
+Rate =
+    0.1201
+For the single cash flow stream CashFlows, the function returns a scalar rate of return of 0.1201, or
+12.01%
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Rate = irr(CashFlows)
+Rate =
+    0
+
+Context:
+30 40 50]'
+CashFlows =
+  -100
+    10
+    20
+    30
+    40
+    50
+Use the irr function to compute the internal rate of return of the cash flow stream.
+Rate = irr(CashFlows)
+Rate =
+    0.1201
+For the single cash flow stream CashFlows, the function returns a scalar rate of return of 0.1201, or
+12.01%.
+Now, use the irr function to compu
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+Rate = irr([CashFlows CashFlows CashFlows])
+ Using Input and Output Arguments with Functions
+1-15
+
+Context:
+n returns a scalar rate of return of 0.1201, or
+12.01%.
+Now, use the irr function to compute internal rates of return for multiple cash flow streams.
+Rate = irr([CashFlows CashFlows CashFlows])
+ Using Input and Output Arguments with Functions
+1-15
+
+======================================================================
+

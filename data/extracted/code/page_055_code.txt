@@ -1,0 +1,67 @@
+CODE BLOCKS FROM PAGE 55
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500,
+...
+            9500,  9500,  9500];
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+This example shows how to compute the internal rate of return of the cash stream using 
+irr
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500, 
+...
+            9500,  9500,  9500];
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Use 
+irr
+ to compute the internal rate of return of the cash stream.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+The internal rate of return of a cash flow may not have a unique value. Every time the sign changes in
+a cash flow, the equation defining 
+irr
+ can give up to two additional answers. An 
+irr
+ computation
+requires solving a polynomial equation, and the number of real roots of such an equation can depend
+on the number of sign changes in the coefficients. The equation for internal rate of return is
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+where 
+Investment
+ is a (negative) initial cash outlay at time 0, 
+cf
+n is the cash flow in the 
+n
+th period,
+and 
+n
+ is the number of periods. 
+irr
+ finds the rate 
+r
+ such that the present value of the cash flow
+
+======================================================================
+

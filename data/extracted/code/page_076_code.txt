@@ -1,0 +1,45 @@
+CODE BLOCKS FROM PAGE 76
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Financial Toolbox functions 
+ret2tick
+ and 
+tick2ret
+ support converting between price series 
+p
+(
+t
+)
+and return series 
+r
+(
+t
+).
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+The functions 
+price2ret
+ and 
+ret2price
+ implement the same formulas, but they divide by Δ
+t
+ in the
+return formulas and they multiply by Δ
+t
+ in the price formulas. A positive factor of Δ
+t
+ (enforced by
+required monotonic observation times) does not affect the behavior of the functions. Econometrics
+Toolbox™ calls simple returns 
+periodic
+, and continuous returns are the default. Otherwise, the
+functionality between the set of functions is identical. This example concentrates on the Financial
+Toolbox functions.
+
+======================================================================
+

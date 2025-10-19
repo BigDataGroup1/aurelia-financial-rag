@@ -1,0 +1,129 @@
+CODE BLOCKS FROM PAGE 48
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+t = datetime(d,
+'InputFormat'
+,
+'dd-MMM-yyyy HH:mm:ss'
+)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Although the date string, 
+d
+, and the 
+datetime
+ scalar, 
+t
+, look similar, they are not equal. View the
+size and data type of each variable.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Name      Size            Bytes  Class       Attributes
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+d         1x20               40  char                  
+  t         1x1               121  datetime
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Convert a 
+datetime
+ array to a character vector that uses 
+char
+ or 
+cellstr
+. For example, convert
+the current date and time to a timestamp to append to a file name.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+t = datetime(
+'now'
+,
+'Format'
+,
+'yyyy-MM-dd''T''HHmmss'
+)
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+S = char(t);
+filename = [
+'myTest_'
+,S]
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+'myTest_2016-12-11T125628'
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+Serial time can represent fractions of days beginning at midnight. For example, 6 p.m. equals 
+0.75
+serial days, so the character vector 
+'31-Oct-2003, 6:00 PM'
+ in MATLAB is date number
+731885.75
+.
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+Convert one or more serial date numbers to a 
+datetime
+ array using the 
+datetime
+ function. Specify
+the type of date number that is being converted:
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+t = datetime(731885.75,
+'ConvertFrom'
+,
+'datenum'
+)
+
+======================================================================
+
+Code Block 12:
+----------------------------------------------------------------------
+Some MATLAB functions accept numeric data types but not datetime values as inputs. To apply these
+functions to your date and time data, first, convert datetime values to meaningful numeric values, and
+then call the function. For example, the 
+log
+ function accepts 
+double
+ inputs but not 
+datetime
+inputs. Suppose that you have a 
+datetime
+ array of dates spanning the course of a research study or
+experiment.
+
+======================================================================
+

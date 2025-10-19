@@ -1,0 +1,25 @@
+FORMULAS FROM PAGE 81
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Method="continuous",StartPrice=3)
+pc =
+   3
+
+Context:
+0.5000 + 0.0000i
+  -2.0000 - 0.0000i
+You can complete the round trip, which results in the expected price series, by the computation
+pc = ret2tick(rc,Method="continuous",StartPrice=3)
+pc =
+   3.0000 + 0.0000i
+   1.0000 + 0.0000i
+  -2.0000 + 0.0000i
+  -1.0000 + 0.0000i
+   1.0000 + 0.0000i
+ Returns with Negative Prices
+2-37
+
+======================================================================
+

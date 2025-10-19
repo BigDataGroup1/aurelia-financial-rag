@@ -1,0 +1,120 @@
+CODE BLOCKS FROM PAGE 66
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Assume a face value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (
+Basis
+ = 
+1
+).
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Call the 
+bndyield
+ function.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, 
+...
+ 
+Basis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+The function returns a Yield = 
+0.0659
+ (6.60%).
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+•
+bnddurp
+ and 
+bnddury
+ support duration and convexity analysis based on market quotes and
+assume parallel shifts in the bond yield curve.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+•
+bndkrdur
+ supports key rate duration based on a market yield curve and can model nonparallel
+shifts in the bond yield curve.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+The Macaulay duration of an income stream, such as a coupon bond, measures how long, on average,
+the owner waits before receiving a payment. It is the weighted average of the times payments are
+made, with the weights at time 
+T
+ equal to the present value of the money received at time 
+T
+. The
+modified duration is the Macaulay duration discounted by the per-period interest rate; that is, divided
+by (1+rate/frequency). The 
+Macaulay duration
+ is a measure of price sensitivity to yield changes. This
+duration is measured in years and is a weighted average-time-to-maturity of an instrument.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+To illustrate, the following code computes the annualized Macaulay and modified durations and the
+periodic Macaulay duration for a bond with settlement (
+12-Jan-2000
+) and maturity (
+01-Oct-2001
+)
+dates, a 5% coupon rate, and a 4.5% yield to maturity. For simplicity, any optional input arguments
+assume default values (that is, semiannual coupons, and day-count basis = 
+0
+ (actual/actual), coupon
+payment structure synchronized to the maturity date, and end-of-month payment rule in effect).
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+CouponRate = 0.05;
+Yield = 0.045;
+Settle = datetime(2000,1,12);
+Maturity = datetime(2001,10,1);
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+[ModDuration, YearDuration, PerDuration] = bnddury(Yield, 
+...
+ 
+CouponRate, Settle, Maturity)
+
+======================================================================
+

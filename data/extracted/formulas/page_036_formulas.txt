@@ -1,0 +1,92 @@
+FORMULAS FROM PAGE 36
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+A =
+a11 a12 ⋯a1n
+⋮
+⋮
+⋮
+ai1
+ai2 ⋯ain
+⋮
+⋮
+⋮
+am1 am2 ⋯amn
+,   B =
+b11 ⋯b1 j ⋯b1p
+b21 ⋯b2 j ⋯b2p
+⋮
+⋮
+⋮
+bn1 ⋯bn j ⋯bnp
+then C = A*B is an m-by-p matrix
+
+Context:
+rices
+Matrix multiplication also follows the rules of matrix algebra. In matrix algebra notation, if A is an m-
+by-n matrix and B is an n-by-p matrix
+A =
+a11 a12 ⋯a1n
+⋮
+⋮
+⋮
+ai1
+ai2 ⋯ain
+⋮
+⋮
+⋮
+am1 am2 ⋯amn
+,   B =
+b11 ⋯b1 j ⋯b1p
+b21 ⋯b2 j ⋯b2p
+⋮
+⋮
+⋮
+bn1 ⋯bn j ⋯bnp
+then C = A*B is an m-by-p matrix; and the element cij in the ith row and jth column of C is
+ci j = ai1b1 j + ai2b12 + … + ainbn j .
+To illustrate, assume that there are two portfolio
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Portfolios = [100   200
+              500   400
+              300   150]
+
+Context:
+2b12 + … + ainbn j .
+To illustrate, assume that there are two portfolios of the same three stocks previously mentioned but
+with different quantities.
+Portfolios = [100   200
+              500   400
+              300   150];
+Multiplying the 5-by-3 week's closing prices matrix by the 3-by-2 portfolios matrix yields a 5-by-2
+matrix showing each day's closing value for both
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+PortfolioValues = WeekClosePr * Portfolios
+PortfolioValues =
+1
+
+Context:
+the 5-by-3 week's closing prices matrix by the 3-by-2 portfolios matrix yields a 5-by-2
+matrix showing each day's closing value for both portfolios.
+PortfolioValues = WeekClosePr * Portfolios
+PortfolioValues =
+1.0e+004 *
+    3.5412    2.6331
+    3.5587    2.6437
+    3.5475    2.6325
+    3.5550    2.6456
+    3.5513    2.6494
+Monday's values result from multipl
+
+======================================================================
+

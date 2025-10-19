@@ -1,0 +1,20 @@
+FORMULAS FROM PAGE 40
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Yields =
+    0
+
+Context:
+Yields =
+    0.0741    0.0225    0.0597    0.0744
+See Also
+More About
+•
+“Analyze Sets of Numbers Using Matrix Functions” on page 1-4
+•
+“Using Input and Output Argum
+
+======================================================================
+

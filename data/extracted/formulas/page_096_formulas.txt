@@ -1,0 +1,97 @@
+FORMULAS FROM PAGE 96
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+DT = tall(DS)
+
+Context:
+mapreducer(0)
+DT = tall(DS);
+DTPreview = DT(:,1:5)
+DTPreview =
+  M×5 tall table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+DTPreview = DT(:,1:5)
+DTPreview =
+  M×5 tall table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________    _________    ________
+    34200    2
+
+Context:
+mapreducer(0)
+DT = tall(DS);
+DTPreview = DT(:,1:5)
+DTPreview =
+  M×5 tall table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________    _________    ________
+    34200    2.752e+05       66       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      400   
+    34200    2.752e+05      166       2.751e
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Time = seconds(DT
+
+Context:
+ations specific to time series (see “Create Timetables”). Because
+the LOB data consists of concurrent time series, convert DT to a tall timetable.
+DT.Time = seconds(DT.Time); % Cast time as a duration from midnight.
+DTT = table2timetable(DT);
+DTTPreview = DTT(:,1:4)
+DTTPreview =
+  M×4 tall timetable
+      Time
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+DTT = table2timetable(DT)
+
+Context:
+the LOB data consists of concurrent time series, convert DT to a tall timetable.
+DT.Time = seconds(DT.Time); % Cast time as a duration from midnight.
+DTT = table2timetable(DT);
+DTTPreview = DTT(:,1:4)
+DTTPreview =
+  M×4 tall timetable
+      Time       AskPrice1    AskSize1    BidPrice1    BidSize1
+    _________    _________
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+DTTPreview = DTT(:,1:4)
+DTTPreview =
+  M×4 tall timetable
+      Time       AskPrice1    AskSize1    BidPrice1    BidSize1
+    _________    _________    ________    _________    ________
+    34200 sec    2
+
+Context:
+ncurrent time series, convert DT to a tall timetable.
+DT.Time = seconds(DT.Time); % Cast time as a duration from midnight.
+DTT = table2timetable(DT);
+DTTPreview = DTT(:,1:4)
+DTTPreview =
+  M×4 tall timetable
+      Time       AskPrice1    AskSize1    BidPrice1    BidSize1
+    _________    _________    ________    _________    ________
+    34200 sec    2.752e+05       66       2.751e+05      400   
+    34200 sec    2.752e+05      166       2.751e+05      400   
+    34200 sec    2.752e+05      166
+
+======================================================================
+

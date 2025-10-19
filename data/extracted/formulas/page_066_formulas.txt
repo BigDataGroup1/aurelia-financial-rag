@@ -1,0 +1,243 @@
+FORMULAS FROM PAGE 66
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100. Specify a purchase price of $
+
+Context:
+Assume a face value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Basis = 1)
+
+Context:
+Assume a face value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price,
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Price        = 95
+
+Context:
+ace value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle,
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+CouponRate   = 0
+
+Context:
+ecify a purchase price of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, .
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Period       = 4
+
+Context:
+e of $95.70, a coupon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRu
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+Basis        = 1
+
+Context:
+pon rate of 4%, quarterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRule, IssueDate, Fir
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+EndMonthRule = 1
+
+Context:
+arterly
+coupon payments, and a 30/360 day-count convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRule, IssueDate, FirstCouponDate, Last
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period,
+
+Context:
+t convention (Basis = 1).
+Price        = 95.7;
+CouponRate   = 0.04;
+Period       = 4;
+Basis        = 1;
+EndMonthRule = 1;
+Call the bndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+Yield = 
+0.0659
+The function returns a Yield = 0.0659 (6.60%).
+Fixed-Income Sens
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+Yield = 
+0
+
+Context:
+ndyield function.
+Yield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+Yield = 
+0.0659
+The function returns a Yield = 0.0659 (6.60%).
+Fixed-Income Sensitivities
+Financial Toolbox software supports the following options for managing
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+Yield = 0
+
+Context:
+e, CouponRate, Settle, Maturity, Period, ... 
+Basis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+Yield = 
+0.0659
+The function returns a Yield = 0.0659 (6.60%).
+Fixed-Income Sensitivities
+Financial Toolbox software supports the following options for managing interest-rate risk for one or
+more bo
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+CouponRate = 0
+
+Context:
+upons, and day-count basis = 0 (actual/actual), coupon
+payment structure synchronized to the maturity date, and end-of-month payment rule in effect).
+CouponRate = 0.05;
+Yield = 0.045;
+Settle = datetime(2000,1,12);
+Maturity = datetime(2001,10,1);
+[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... 
+Coupo
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+Yield = 0
+
+Context:
+t basis = 0 (actual/actual), coupon
+payment structure synchronized to the maturity date, and end-of-month payment rule in effect).
+CouponRate = 0.05;
+Yield = 0.045;
+Settle = datetime(2000,1,12);
+Maturity = datetime(2001,10,1);
+[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... 
+CouponRate, Settle,
+
+======================================================================
+
+Formula 13 [simple_equation]:
+----------------------------------------------------------------------
+Settle = datetime(2000,1,12)
+
+Context:
+tual/actual), coupon
+payment structure synchronized to the maturity date, and end-of-month payment rule in effect).
+CouponRate = 0.05;
+Yield = 0.045;
+Settle = datetime(2000,1,12);
+Maturity = datetime(2001,10,1);
+[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... 
+CouponRate, Settle, Maturity)
+2
+Performing Common Fin
+
+======================================================================
+
+Formula 14 [simple_equation]:
+----------------------------------------------------------------------
+Maturity = datetime(2001,10,1)
+
+Context:
+tructure synchronized to the maturity date, and end-of-month payment rule in effect).
+CouponRate = 0.05;
+Yield = 0.045;
+Settle = datetime(2000,1,12);
+Maturity = datetime(2001,10,1);
+[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... 
+CouponRate, Settle, Maturity)
+2
+Performing Common Financial Tasks
+2-22
+
+======================================================================
+

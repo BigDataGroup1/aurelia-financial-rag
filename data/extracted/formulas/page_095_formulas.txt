@@ -1,0 +1,152 @@
+FORMULAS FROM PAGE 95
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+DSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file')
+
+Context:
+the 'ReadSize' name-value argument to 'file' to
+allow similarly formatted files to be appended to existing datastores at the end of each trading day.
+DSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');
+DSMSG.VariableNames = ["Time","Type","OrderID","Size","Price","Direction"];
+DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'Read
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+VariableNames = ["Time","Type","OrderID","Size","Price","Direction"]
+
+Context:
+d to existing datastores at the end of each trading day.
+DSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');
+DSMSG.VariableNames = ["Time","Type","OrderID","Size","Price","Direction"];
+DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');
+DSLOB.VariableNames = ["AskPrice1","AskSize1","BidPrice1","Bi
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file')
+
+Context:
+arTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');
+DSMSG.VariableNames = ["Time","Type","OrderID","Size","Price","Direction"];
+DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');
+DSLOB.VariableNames = ["AskPrice1","AskSize1","BidPrice1","BidSize1",...
+                       "AskPrice2","AskSize2","BidPrice2","BidSize2",...
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+VariableNames = ["AskPrice1","AskSize1","BidPrice1","BidSize1",
+
+Context:
+= ["Time","Type","OrderID","Size","Price","Direction"];
+DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');
+DSLOB.VariableNames = ["AskPrice1","AskSize1","BidPrice1","BidSize1",...
+                       "AskPrice2","AskSize2","BidPrice2","BidSize2",...
+                       "AskPrice3","AskSize3","BidPrice3","BidSize3",...
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+TimeVariable = "Time"
+
+Context:
+Size4",...
+                       "AskPrice5","AskSize5","BidPrice5","BidSize5"];
+Create a combined datastore by selecting Time and the level 3 data.
+TimeVariable = "Time";
+DSMSG.SelectedVariableNames = TimeVariable;
+LOB3Variables = ["AskPrice1","AskSize1","BidPrice1","BidSize1",...
+                 "AskPrice2","AskSize
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+SelectedVariableNames = TimeVariable
+
+Context:
+"AskPrice5","AskSize5","BidPrice5","BidSize5"];
+Create a combined datastore by selecting Time and the level 3 data.
+TimeVariable = "Time";
+DSMSG.SelectedVariableNames = TimeVariable;
+LOB3Variables = ["AskPrice1","AskSize1","BidPrice1","BidSize1",...
+                 "AskPrice2","AskSize2","BidPrice2","BidSize2",...
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+SelectedVariableNames = LOB3Variables
+
+Context:
+dSize1",...
+                 "AskPrice2","AskSize2","BidPrice2","BidSize2",...
+                 "AskPrice3","AskSize3","BidPrice3","BidSize3"];
+DSLOB.SelectedVariableNames = LOB3Variables;
+                               
+DS = combine(DSMSG,DSLOB);         
+You can preview the first few rows in the combined datastore without loading dat
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+DS = combine(DSMSG,DSLOB)
+
+Context:
+e2",...
+                 "AskPrice3","AskSize3","BidPrice3","BidSize3"];
+DSLOB.SelectedVariableNames = LOB3Variables;
+                               
+DS = combine(DSMSG,DSLOB);         
+You can preview the first few rows in the combined datastore without loading data into memory.
+DSPreview = preview(DS);
+LOBPreview = DSPrev
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+DSPreview = preview(DS)
+
+Context:
+DS = combine(DSMSG,DSLOB);         
+You can preview the first few rows in the combined datastore without loading data into memory.
+DSPreview = preview(DS);
+LOBPreview = DSPreview(:,1:5)
+LOBPreview=8×5 table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+LOBPreview = DSPreview(:,1:5)
+LOBPreview=8×5 table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________    _________    ________
+    34200    2
+
+Context:
+ombine(DSMSG,DSLOB);         
+You can preview the first few rows in the combined datastore without loading data into memory.
+DSPreview = preview(DS);
+LOBPreview = DSPreview(:,1:5)
+LOBPreview=8×5 table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________    _________    ________
+    34200    2.752e+05       66       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      400   
+    34200    2.752e+05      166       2.751e
+
+======================================================================
+

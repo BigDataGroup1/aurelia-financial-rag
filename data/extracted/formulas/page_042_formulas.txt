@@ -1,0 +1,77 @@
+FORMULAS FROM PAGE 42
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Rate =
+    0
+
+Context:
+Rate =
+    0.1201    0.1201    0.1201
+MATLAB performs the same computation on all the assets at once. For the three cash flow streams,
+the irr function returns a
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+DateCharacterVector = '9/16/2017'
+This date character vector is actually a 1-by-9 vector
+
+Context:
+e quotes ('character vector').
+A character vector is stored as a character array, one ASCII character per element. Thus, the date
+character vector is
+DateCharacterVector = '9/16/2017'
+This date character vector is actually a 1-by-9 vector. If you create a vector or matrix of character
+vectors, each character vector must have the same length. Using a column vector to create a vector
+of
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+DateFields = ['01/12/2017'
+              '02/14/2017'
+              '03/03/2017'
+              '06/14/2017'
+              '12/01/2017']
+
+Context:
+s are the same length. If
+your character vectors are not the same length, use spaces or zeros to make them the same length, as
+in the following code.
+DateFields = ['01/12/2017'
+              '02/14/2017'
+              '03/03/2017'
+              '06/14/2017'
+              '12/01/2017'];
+DateFields is a 5-by-10 array of character vectors.
+You cannot mix numbers and character vectors in a vector or matrix. If you input a vector or mat
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Item = [83  90  99 '14-Sep-1999']
+Item =
+SZc14-Sep-1999
+The software understands the input not as a 1-by-4 vector, but as a 1-by-14 character array with the
+value SZc14-Sep-1999
+
+Context:
+tor or matrix
+that contains a mix of numbers and character vectors, MATLAB treats every entry as a character. As
+an example, input the following code
+Item = [83  90  99 '14-Sep-1999']
+Item =
+SZc14-Sep-1999
+The software understands the input not as a 1-by-4 vector, but as a 1-by-14 character array with the
+value SZc14-Sep-1999.
+Output Arguments
+Some functions return no arguments, some return just one, and some return multiple arguments.
+Functions that return multiple argume
+
+======================================================================
+

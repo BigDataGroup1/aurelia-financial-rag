@@ -1,0 +1,116 @@
+CODE BLOCKS FROM PAGE 53
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+January 1, 1885, to December 31, 2050. 
+nyseclosures
+ returns a vector of serial date numbers
+corresponding to market closures between the dates 
+StartDate
+ and 
+EndDate
+, inclusive.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+In this example, use 
+holidays
+ to determine the standard holidays in the last half of 2012.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+LHHDates = holidays(
+'1-Jul-2012'
+,
+'31-Dec-2012'
+);
+LHHDays = datestr(LHHDates)
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+'04-Jul-2012'
+    '03-Sep-2012'
+    '29-Oct-2012'
+    '30-Oct-2012'
+    '22-Nov-2012'
+    '25-Dec-2012'
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+You can then use the 
+busdate
+ function to determine the next business day in 2012 after these
+holidays.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+LHNextDates = busdate(LHHDates);
+LHNextDays = datestr(LHNextDates)
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+'05-Jul-2012'
+    '04-Sep-2012'
+    '31-Oct-2012'
+    '31-Oct-2012'
+    '23-Nov-2012'
+    '26-Dec-2012'
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+To determine cash-flow dates for securities with periodic payments, use 
+cfdates
+. This function
+accounts for the coupons per year, the day-count basis, and the end-of-month rule. For example, you
+can determine the cash-flow dates for a security that pays four coupons per year on the last day of
+the month using an 
+actual/365
+ day-count basis. To do so, enter the settlement date, the maturity
+date, and the parameters for 
+Period
+, 
+Basis
+, and 
+EndMonthRule
+.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+PayDates = cfdates(
+'14-Mar-2000'
+,
+'30-Nov-2001'
+,4,3,1);
+PayDays = datestr(PayDates)
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+'31-May-2000'
+    '31-Aug-2000'
+    '30-Nov-2000'
+    '28-Feb-2001'
+    '31-May-2001'
+    '31-Aug-2001'
+    '30-Nov-2001'
+
+======================================================================
+

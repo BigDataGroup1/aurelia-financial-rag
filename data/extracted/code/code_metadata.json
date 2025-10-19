@@ -1,0 +1,386 @@
+[
+  {
+    "page": 2,
+    "filename": "page_002_code.txt",
+    "filepath": "data/extracted/code/page_002_code.txt",
+    "count": 6
+  },
+  {
+    "page": 30,
+    "filename": "page_030_code.txt",
+    "filepath": "data/extracted/code/page_030_code.txt",
+    "count": 5
+  },
+  {
+    "page": 31,
+    "filename": "page_031_code.txt",
+    "filepath": "data/extracted/code/page_031_code.txt",
+    "count": 10
+  },
+  {
+    "page": 33,
+    "filename": "page_033_code.txt",
+    "filepath": "data/extracted/code/page_033_code.txt",
+    "count": 5
+  },
+  {
+    "page": 34,
+    "filename": "page_034_code.txt",
+    "filepath": "data/extracted/code/page_034_code.txt",
+    "count": 10
+  },
+  {
+    "page": 35,
+    "filename": "page_035_code.txt",
+    "filepath": "data/extracted/code/page_035_code.txt",
+    "count": 6
+  },
+  {
+    "page": 36,
+    "filename": "page_036_code.txt",
+    "filepath": "data/extracted/code/page_036_code.txt",
+    "count": 6
+  },
+  {
+    "page": 37,
+    "filename": "page_037_code.txt",
+    "filepath": "data/extracted/code/page_037_code.txt",
+    "count": 7
+  },
+  {
+    "page": 38,
+    "filename": "page_038_code.txt",
+    "filepath": "data/extracted/code/page_038_code.txt",
+    "count": 2
+  },
+  {
+    "page": 39,
+    "filename": "page_039_code.txt",
+    "filepath": "data/extracted/code/page_039_code.txt",
+    "count": 10
+  },
+  {
+    "page": 40,
+    "filename": "page_040_code.txt",
+    "filepath": "data/extracted/code/page_040_code.txt",
+    "count": 1
+  },
+  {
+    "page": 41,
+    "filename": "page_041_code.txt",
+    "filepath": "data/extracted/code/page_041_code.txt",
+    "count": 8
+  },
+  {
+    "page": 42,
+    "filename": "page_042_code.txt",
+    "filepath": "data/extracted/code/page_042_code.txt",
+    "count": 11
+  },
+  {
+    "page": 43,
+    "filename": "page_043_code.txt",
+    "filepath": "data/extracted/code/page_043_code.txt",
+    "count": 3
+  },
+  {
+    "page": 46,
+    "filename": "page_046_code.txt",
+    "filepath": "data/extracted/code/page_046_code.txt",
+    "count": 5
+  },
+  {
+    "page": 47,
+    "filename": "page_047_code.txt",
+    "filepath": "data/extracted/code/page_047_code.txt",
+    "count": 11
+  },
+  {
+    "page": 48,
+    "filename": "page_048_code.txt",
+    "filepath": "data/extracted/code/page_048_code.txt",
+    "count": 12
+  },
+  {
+    "page": 49,
+    "filename": "page_049_code.txt",
+    "filepath": "data/extracted/code/page_049_code.txt",
+    "count": 13
+  },
+  {
+    "page": 50,
+    "filename": "page_050_code.txt",
+    "filepath": "data/extracted/code/page_050_code.txt",
+    "count": 8
+  },
+  {
+    "page": 51,
+    "filename": "page_051_code.txt",
+    "filepath": "data/extracted/code/page_051_code.txt",
+    "count": 15
+  },
+  {
+    "page": 52,
+    "filename": "page_052_code.txt",
+    "filepath": "data/extracted/code/page_052_code.txt",
+    "count": 8
+  },
+  {
+    "page": 53,
+    "filename": "page_053_code.txt",
+    "filepath": "data/extracted/code/page_053_code.txt",
+    "count": 10
+  },
+  {
+    "page": 54,
+    "filename": "page_054_code.txt",
+    "filepath": "data/extracted/code/page_054_code.txt",
+    "count": 1
+  },
+  {
+    "page": 55,
+    "filename": "page_055_code.txt",
+    "filepath": "data/extracted/code/page_055_code.txt",
+    "count": 6
+  },
+  {
+    "page": 56,
+    "filename": "page_056_code.txt",
+    "filepath": "data/extracted/code/page_056_code.txt",
+    "count": 8
+  },
+  {
+    "page": 57,
+    "filename": "page_057_code.txt",
+    "filepath": "data/extracted/code/page_057_code.txt",
+    "count": 13
+  },
+  {
+    "page": 58,
+    "filename": "page_058_code.txt",
+    "filepath": "data/extracted/code/page_058_code.txt",
+    "count": 7
+  },
+  {
+    "page": 60,
+    "filename": "page_060_code.txt",
+    "filepath": "data/extracted/code/page_060_code.txt",
+    "count": 3
+  },
+  {
+    "page": 61,
+    "filename": "page_061_code.txt",
+    "filepath": "data/extracted/code/page_061_code.txt",
+    "count": 14
+  },
+  {
+    "page": 62,
+    "filename": "page_062_code.txt",
+    "filepath": "data/extracted/code/page_062_code.txt",
+    "count": 14
+  },
+  {
+    "page": 63,
+    "filename": "page_063_code.txt",
+    "filepath": "data/extracted/code/page_063_code.txt",
+    "count": 9
+  },
+  {
+    "page": 64,
+    "filename": "page_064_code.txt",
+    "filepath": "data/extracted/code/page_064_code.txt",
+    "count": 9
+  },
+  {
+    "page": 65,
+    "filename": "page_065_code.txt",
+    "filepath": "data/extracted/code/page_065_code.txt",
+    "count": 9
+  },
+  {
+    "page": 66,
+    "filename": "page_066_code.txt",
+    "filepath": "data/extracted/code/page_066_code.txt",
+    "count": 11
+  },
+  {
+    "page": 67,
+    "filename": "page_067_code.txt",
+    "filepath": "data/extracted/code/page_067_code.txt",
+    "count": 9
+  },
+  {
+    "page": 68,
+    "filename": "page_068_code.txt",
+    "filepath": "data/extracted/code/page_068_code.txt",
+    "count": 7
+  },
+  {
+    "page": 69,
+    "filename": "page_069_code.txt",
+    "filepath": "data/extracted/code/page_069_code.txt",
+    "count": 1
+  },
+  {
+    "page": 70,
+    "filename": "page_070_code.txt",
+    "filepath": "data/extracted/code/page_070_code.txt",
+    "count": 9
+  },
+  {
+    "page": 71,
+    "filename": "page_071_code.txt",
+    "filepath": "data/extracted/code/page_071_code.txt",
+    "count": 10
+  },
+  {
+    "page": 72,
+    "filename": "page_072_code.txt",
+    "filepath": "data/extracted/code/page_072_code.txt",
+    "count": 2
+  },
+  {
+    "page": 73,
+    "filename": "page_073_code.txt",
+    "filepath": "data/extracted/code/page_073_code.txt",
+    "count": 12
+  },
+  {
+    "page": 74,
+    "filename": "page_074_code.txt",
+    "filepath": "data/extracted/code/page_074_code.txt",
+    "count": 7
+  },
+  {
+    "page": 75,
+    "filename": "page_075_code.txt",
+    "filepath": "data/extracted/code/page_075_code.txt",
+    "count": 3
+  },
+  {
+    "page": 76,
+    "filename": "page_076_code.txt",
+    "filepath": "data/extracted/code/page_076_code.txt",
+    "count": 2
+  },
+  {
+    "page": 77,
+    "filename": "page_077_code.txt",
+    "filepath": "data/extracted/code/page_077_code.txt",
+    "count": 3
+  },
+  {
+    "page": 78,
+    "filename": "page_078_code.txt",
+    "filepath": "data/extracted/code/page_078_code.txt",
+    "count": 5
+  },
+  {
+    "page": 79,
+    "filename": "page_079_code.txt",
+    "filepath": "data/extracted/code/page_079_code.txt",
+    "count": 1
+  },
+  {
+    "page": 80,
+    "filename": "page_080_code.txt",
+    "filepath": "data/extracted/code/page_080_code.txt",
+    "count": 1
+  },
+  {
+    "page": 81,
+    "filename": "page_081_code.txt",
+    "filepath": "data/extracted/code/page_081_code.txt",
+    "count": 3
+  },
+  {
+    "page": 82,
+    "filename": "page_082_code.txt",
+    "filepath": "data/extracted/code/page_082_code.txt",
+    "count": 2
+  },
+  {
+    "page": 85,
+    "filename": "page_085_code.txt",
+    "filepath": "data/extracted/code/page_085_code.txt",
+    "count": 13
+  },
+  {
+    "page": 86,
+    "filename": "page_086_code.txt",
+    "filepath": "data/extracted/code/page_086_code.txt",
+    "count": 7
+  },
+  {
+    "page": 87,
+    "filename": "page_087_code.txt",
+    "filepath": "data/extracted/code/page_087_code.txt",
+    "count": 1
+  },
+  {
+    "page": 88,
+    "filename": "page_088_code.txt",
+    "filepath": "data/extracted/code/page_088_code.txt",
+    "count": 2
+  },
+  {
+    "page": 89,
+    "filename": "page_089_code.txt",
+    "filepath": "data/extracted/code/page_089_code.txt",
+    "count": 3
+  },
+  {
+    "page": 90,
+    "filename": "page_090_code.txt",
+    "filepath": "data/extracted/code/page_090_code.txt",
+    "count": 5
+  },
+  {
+    "page": 91,
+    "filename": "page_091_code.txt",
+    "filepath": "data/extracted/code/page_091_code.txt",
+    "count": 3
+  },
+  {
+    "page": 94,
+    "filename": "page_094_code.txt",
+    "filepath": "data/extracted/code/page_094_code.txt",
+    "count": 5
+  },
+  {
+    "page": 95,
+    "filename": "page_095_code.txt",
+    "filepath": "data/extracted/code/page_095_code.txt",
+    "count": 11
+  },
+  {
+    "page": 96,
+    "filename": "page_096_code.txt",
+    "filepath": "data/extracted/code/page_096_code.txt",
+    "count": 11
+  },
+  {
+    "page": 97,
+    "filename": "page_097_code.txt",
+    "filepath": "data/extracted/code/page_097_code.txt",
+    "count": 10
+  },
+  {
+    "page": 98,
+    "filename": "page_098_code.txt",
+    "filepath": "data/extracted/code/page_098_code.txt",
+    "count": 13
+  },
+  {
+    "page": 99,
+    "filename": "page_099_code.txt",
+    "filepath": "data/extracted/code/page_099_code.txt",
+    "count": 12
+  },
+  {
+    "page": 100,
+    "filename": "page_100_code.txt",
+    "filepath": "data/extracted/code/page_100_code.txt",
+    "count": 5
+  }
+]

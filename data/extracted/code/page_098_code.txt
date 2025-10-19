@@ -1,0 +1,131 @@
+CODE BLOCKS FROM PAGE 98
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Prepend the time base with the date, and cast the result as a datetime array. Save the resulting
+datetime array, 
+MidPrice
+, and 
+ImbalanceIndex
+ to a MAT-file in a specified location.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+dateTimeBase = datetime(date) + timeBase; 
+Today = timetable(dateTimeBase,MidPrice,ImbalanceIndex)
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+581,030×2 tall timetable
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+dateTimeBase         MidPrice     ImbalanceIndex
+    ____________________    __________    ______________
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+21-Jun-2012 09:30:00    2.7515e+05         -0.205   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   
+    21-Jun-2012 09:30:00    2.7515e+05      -0.086772   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.15581   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.35382   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.19084   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.19084   
+             :                  :               :
+             :                  :               :
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+location = fullfile(pwd,
+"ExchangeData"
+,ticker,date);
+write(location,Today,
+'FileType'
+,
+'mat'
+)
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+Writing tall data to folder C:\TEMP\tp5b508469\finance-ex97702880\ExchangeData\INTC\2012-06-21
+Evaluating tall expression using the Local MATLAB Session:
+- Pass 1 of 1: Completed in 5.8 sec
+Evaluation completed in 6.7 sec
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+The file is written once, at the end of each trading day. The code saves the data to a file in a date-
+stamped folder. The series of 
+ExchangeData
+ subfolders serves as a historical data repository.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+Alternatively, you can save workspace variables evaluated with 
+gather
+ directly to a MAT-file in the
+current folder.
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+save(
+"LOBVars.mat"
+,
+"t"
+,
+"S"
+,
+"I"
+)
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+[MOBid,MOAsk] = gather(DTT.BidPrice1,DTT.AskPrice1);
+
+======================================================================
+
+Code Block 12:
+----------------------------------------------------------------------
+Evaluating tall expression using the Local MATLAB Session:
+- Pass 1 of 1: Completed in 4.1 sec
+Evaluation completed in 4.2 sec
+
+======================================================================
+
+Code Block 13:
+----------------------------------------------------------------------
+save(
+"LOBVars.mat"
+,
+"MOBid"
+,
+"MOAsk"
+,
+"-append"
+)
+
+======================================================================
+

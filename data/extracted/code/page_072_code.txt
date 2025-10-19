@@ -1,0 +1,39 @@
+CODE BLOCKS FROM PAGE 72
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+[BEYield, MMYield] = 
+...
+tbilldisc2yield([InitialDiscount; BreakevenDiscount], 
+...
+ 
+[PurchaseDate; SaleDate], Maturity)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+See Also
+tbilldisc2yield
+ | 
+tbillprice
+ | 
+tbillrepo
+ | 
+tbillyield
+ | 
+tbillyield2disc
+ | 
+tbillval01
+ |
+tbl2bond
+ | 
+tr2bonds
+ | 
+zbtprice
+ | 
+zbtyield
+
+======================================================================
+

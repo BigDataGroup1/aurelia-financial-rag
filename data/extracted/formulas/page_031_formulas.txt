@@ -1,0 +1,161 @@
+FORMULAS FROM PAGE 31
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+AddBond = [1000   0
+
+Context:
+Cash(3)
+ans =
+       5280.00
+You can enlarge matrices using small matrices or vectors as elements. For example,
+AddBond = [1000   0.065   2];
+Bonds = [Bonds; AddBond]
+adds another row to the matrix and creates
+Bonds =
+       1000   0.06    2
+        500   0.055   4
+       1000   0
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Bonds = [Bonds
+
+Context:
+Cash(3)
+ans =
+       5280.00
+You can enlarge matrices using small matrices or vectors as elements. For example,
+AddBond = [1000   0.065   2];
+Bonds = [Bonds; AddBond]
+adds another row to the matrix and creates
+Bonds =
+       1000   0.06    2
+        500   0.055   4
+       1000   0.065   2
+Likewise,
+Prices
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Bonds =
+       1000   0
+
+Context:
+small matrices or vectors as elements. For example,
+AddBond = [1000   0.065   2];
+Bonds = [Bonds; AddBond]
+adds another row to the matrix and creates
+Bonds =
+       1000   0.06    2
+        500   0.055   4
+       1000   0.065   2
+Likewise,
+Prices = [987.50
+          475.00
+          995.00]
+Bonds = [Prices, Bonds]
+adds an
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Prices = [987
+
+Context:
+[Bonds; AddBond]
+adds another row to the matrix and creates
+Bonds =
+       1000   0.06    2
+        500   0.055   4
+       1000   0.065   2
+Likewise,
+Prices = [987.50
+          475.00
+          995.00]
+Bonds = [Prices, Bonds]
+adds another column and creates
+Bonds =
+    987.50   1000   0.06    2
+    475.00    500
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Bonds = [Prices, Bonds]
+adds another column and creates
+Bonds =
+    987
+
+Context:
+creates
+Bonds =
+       1000   0.06    2
+        500   0.055   4
+       1000   0.065   2
+Likewise,
+Prices = [987.50
+          475.00
+          995.00]
+Bonds = [Prices, Bonds]
+adds another column and creates
+Bonds =
+    987.50   1000   0.06    2
+    475.00    500   0.055   4
+    995.00   1000   0.065   2
+Finally, the colon (:) is important in generating and referencing m
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+BondItems = Bonds(2, 2:4)
+BondItems =
+    500
+
+Context:
+portant in generating and referencing matrix elements. For example, to
+reference the par value, coupon rate, and coupon frequency of the second bond:
+BondItems = Bonds(2, 2:4)
+BondItems =
+    500.00   0.055   4
+Transposing Matrices
+Sometimes matrices are in the wrong configuration for an operation. In MATLAB, the apostrophe or
+prime character
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Cash = [1500   4470   5280   -1299]'
+produces
+Cash =
+        1500
+        4470
+        5280
+       -1299
+ Analyze Sets of Numbers Using Matrix Functions
+1-5
+
+Context:
+ration for an operation. In MATLAB, the apostrophe or
+prime character (') transposes a matrix: columns become rows, rows become columns. For example,
+Cash = [1500   4470   5280   -1299]'
+produces
+Cash =
+        1500
+        4470
+        5280
+       -1299
+ Analyze Sets of Numbers Using Matrix Functions
+1-5
+
+======================================================================
+

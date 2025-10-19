@@ -1,0 +1,80 @@
+FORMULAS FROM PAGE 37
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Portfolios = [100   200
+              500   400
+              300   150]
+
+Context:
+Portfolios = [100   200
+              500   400
+              300   150];
+DoublePort = Portfolios * 2
+DoublePort =
+        200           400
+       1000           800
+        600           300
+Dividing Matrices
+Matrix divi
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+DoublePort = Portfolios * 2
+DoublePort =
+        200           400
+       1000           800
+        600           300
+Dividing Matrices
+Matrix division is useful primarily for solving equations, and especially for solving simultaneous linear
+equations (see “Solving Simultaneous Linear Equations” on page 1-11)
+
+Context:
+Portfolios = [100   200
+              500   400
+              300   150];
+DoublePort = Portfolios * 2
+DoublePort =
+        200           400
+       1000           800
+        600           300
+Dividing Matrices
+Matrix division is useful primarily for solving equations, and especially for solving simultaneous linear
+equations (see “Solving Simultaneous Linear Equations” on page 1-11). For example, you want to
+solve for X in A*X = B.
+In ordinary algebra, you would divide both sides of the equation by A, and X would equal B/A.
+Howev
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+X = B
+
+Context:
+ially for solving simultaneous linear
+equations (see “Solving Simultaneous Linear Equations” on page 1-11). For example, you want to
+solve for X in A*X = B.
+In ordinary algebra, you would divide both sides of the equation by A, and X would equal B/A.
+However, since matrix algebra is not commutative (A*X
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+X = A\B solves for X in A*X = B and
+X = B/A solves for X in X*A = B
+
+Context:
+on involves matrix inversion. MATLAB, however, simplifies the process by
+providing two matrix division symbols, left and right (\ and /). In general,
+X = A\B solves for X in A*X = B and
+X = B/A solves for X in X*A = B.
+In general, matrix A must be a nonsingular square matrix; that is, it must be invertible and it must
+have the same number of rows and columns. (Gene
+
+======================================================================
+

@@ -1,0 +1,117 @@
+CODE BLOCKS FROM PAGE 62
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+1
+ (default)
+Rule in effect.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+0
+Rule not in effect.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Settle
+Settlement date
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Maturity
+Maturity date
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Period
+Coupon payment period
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+Basis
+Day-count basis
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+EndMonthRule
+End-of-month payment rule
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+IssueDate
+Bond issue date
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+FirstCouponDate
+First coupon payment date
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+LastCouponDate
+Last coupon payment date
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+Of the common input arguments, only 
+Settle
+ and 
+Maturity
+ are required. All others are optional.
+They are set to the default values if you do not explicitly set them. By default, the 
+FirstCouponDate
+and 
+LastCouponDate
+ are nonapplicable. In other words, if you do not specify 
+FirstCouponDate
+and 
+LastCouponDate
+, the bond is assumed to have no odd first or last coupon periods. In this case,
+the bond is a standard bond with a coupon payment structure based solely on the maturity date.
+
+======================================================================
+
+Code Block 12:
+----------------------------------------------------------------------
+To illustrate the use of default values in Financial Toolbox functions, consider the 
+cfdates
+ function,
+which computes actual cash flow payment dates for a portfolio of fixed income securities regardless
+of whether the first and/or last coupon periods are normal, long, or short.
+
+======================================================================
+
+Code Block 13:
+----------------------------------------------------------------------
+CFlowDates = cfdates(Settle, Maturity, Period, Basis, ... 
+EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+
+======================================================================
+
+Code Block 14:
+----------------------------------------------------------------------
+CFlowDates = cfdates(Settle, Maturity)
+
+======================================================================
+

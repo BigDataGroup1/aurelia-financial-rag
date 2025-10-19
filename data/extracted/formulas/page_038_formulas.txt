@@ -1,0 +1,311 @@
+FORMULAS FROM PAGE 38
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100 and $
+
+Context:
+To illustrate, consider this situation. There are two portfolios of mortgage-based instruments, M1 and
+M2. They have current annual cash payments of $100 and $70 per unit, respectively, based on today's
+prime rate. If the prime rate moves down one percentage point, their payments would be $80 and
+$40. An inv
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$80 and
+$
+
+Context:
+ments of $100 and $70 per unit, respectively, based on today's
+prime rate. If the prime rate moves down one percentage point, their payments would be $80 and
+$40. An investor holds 10 units of M1 and 20 units of M2. The investor's receipts equal cash
+payments times units, or R = C * U, for each prime-rate sc
+
+======================================================================
+
+Formula 3 [latex_inline]:
+----------------------------------------------------------------------
+$100 * 10 units
++ $
+
+Context:
+ts of M2. The investor's receipts equal cash
+payments times units, or R = C * U, for each prime-rate scenario. As word equations:
+ 
+M1
+M2
+Prime flat:
+$100 * 10 units
++ $70 * 20 units = $2400
+receipts
+Prime down:
+$80 * 10 units
++ $40 * 20 units = $1600
+receipts
+As MATLAB matrices:
+1
+Getting Started
+1-12
+
+======================================================================
+
+Formula 4 [latex_inline]:
+----------------------------------------------------------------------
+$2400
+receipts
+Prime down:
+$
+
+Context:
+qual cash
+payments times units, or R = C * U, for each prime-rate scenario. As word equations:
+ 
+M1
+M2
+Prime flat:
+$100 * 10 units
++ $70 * 20 units = $2400
+receipts
+Prime down:
+$80 * 10 units
++ $40 * 20 units = $1600
+receipts
+As MATLAB matrices:
+1
+Getting Started
+1-12
+
+======================================================================
+
+Formula 5 [latex_inline]:
+----------------------------------------------------------------------
+$40 * 20 units = $
+
+Context:
+, for each prime-rate scenario. As word equations:
+ 
+M1
+M2
+Prime flat:
+$100 * 10 units
++ $70 * 20 units = $2400
+receipts
+Prime down:
+$80 * 10 units
++ $40 * 20 units = $1600
+receipts
+As MATLAB matrices:
+1
+Getting Started
+1-12
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+A = 2
+1
+1 −3 ,     X = x
+y ,     B =
+13
+−18 ,
+where A*X = B
+
+Context:
+epresents this system as an equation
+involving three matrices: A for the left-side constants, X for the variables, and B for the right-side
+constants
+A = 2
+1
+1 −3 ,     X = x
+y ,     B =
+13
+−18 ,
+where A*X = B.
+Solving the system simultaneously means solving for X. Using MATLAB,
+A = [2  1
+     1 -3];
+B = [13
+    -18];
+X = A \ B
+solves for X in A * X = B.
+X
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+A = [2  1
+     1 -3]
+
+Context:
+ight-side
+constants
+A = 2
+1
+1 −3 ,     X = x
+y ,     B =
+13
+−18 ,
+where A*X = B.
+Solving the system simultaneously means solving for X. Using MATLAB,
+A = [2  1
+     1 -3];
+B = [13
+    -18];
+X = A \ B
+solves for X in A * X = B.
+X = [3 7]
+So x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+B = [13
+    -18]
+
+Context:
+= 2
+1
+1 −3 ,     X = x
+y ,     B =
+13
+−18 ,
+where A*X = B.
+Solving the system simultaneously means solving for X. Using MATLAB,
+A = [2  1
+     1 -3];
+B = [13
+    -18];
+X = A \ B
+solves for X in A * X = B.
+X = [3 7]
+So x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of
+lin
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+X = A \ B
+solves for X in A * X = B
+
+Context:
+= x
+y ,     B =
+13
+−18 ,
+where A*X = B.
+Solving the system simultaneously means solving for X. Using MATLAB,
+A = [2  1
+     1 -3];
+B = [13
+    -18];
+X = A \ B
+solves for X in A * X = B.
+X = [3 7]
+So x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of
+linear equations such as
+a11x1 + a12x2 +
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+X = [3 7]
+So x = 3 and y = 7 in this example
+
+Context:
+B.
+Solving the system simultaneously means solving for X. Using MATLAB,
+A = [2  1
+     1 -3];
+B = [13
+    -18];
+X = A \ B
+solves for X in A * X = B.
+X = [3 7]
+So x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of
+linear equations such as
+a11x1 + a12x2 + … + a1nxn = b1
+a21x1 + a22x2 + … + a2nxn = b2
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+A =
+a11 a12 ⋯a1n
+a21 a22 ⋯a2n
+⋮
+⋮
+⋮
+am1 am2 ⋯amn
+,      X =
+x1
+x2
+⋮
+xn
+,      B =
+b1
+b2
+⋮
+bm
+and solving for X in A*X = B
+
+Context:
+ear equations such as
+a11x1 + a12x2 + … + a1nxn = b1
+a21x1 + a22x2 + … + a2nxn = b2
+⋮
+am1x1 + am2x2 + … + amnxn = bm
+by representing them as matrices
+A =
+a11 a12 ⋯a1n
+a21 a22 ⋯a2n
+⋮
+⋮
+⋮
+am1 am2 ⋯amn
+,      X =
+x1
+x2
+⋮
+xn
+,      B =
+b1
+b2
+⋮
+bm
+and solving for X in A*X = B.
+To illustrate, consider this situation. There are two portfolios of mortgage-based instruments, M1 and
+M2. They have current annual cash payments of
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+R = C * U, for each prime-rate scenario
+
+Context:
+their payments would be $80 and
+$40. An investor holds 10 units of M1 and 20 units of M2. The investor's receipts equal cash
+payments times units, or R = C * U, for each prime-rate scenario. As word equations:
+ 
+M1
+M2
+Prime flat:
+$100 * 10 units
++ $70 * 20 units = $2400
+receipts
+Prime down:
+$80 * 10 units
++ $40 * 20 units = $1600
+receipt
+
+======================================================================
+

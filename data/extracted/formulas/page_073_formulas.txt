@@ -1,0 +1,121 @@
+FORMULAS FROM PAGE 73
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+TBill = [datenum('12/26/2000')  53    0
+
+Context:
+First, capture Treasury bill quotes and Reasury bond quotes in their reported format.
+%        Maturity               Days  Bid     Ask     AskYield
+TBill = [datenum('12/26/2000')  53    0.0503  0.0499  0.0510];
+%        Coupon   Maturity           Bid       Ask       AskYield
+TBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+TBond = [0
+
+Context:
+Ask     AskYield
+TBill = [datenum('12/26/2000')  53    0.0503  0.0499  0.0510];
+%        Coupon   Maturity           Bid       Ask       AskYield
+TBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0564];
+Note that these quotes are based on a November 3, 2000 settlement date.
+Settle = datenum('3-No
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Settle = datenum('3-Nov-2000')
+
+Context:
+AskYield
+TBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0564];
+Note that these quotes are based on a November 3, 2000 settlement date.
+Settle = datenum('3-Nov-2000');
+Use the tbl2bond to convert the Treasury bill data to Treasury bond format.
+TBTBond = tbl2bond(TBill)
+TBTBond = 1×5
+105 ×
+         0    7.3085    0.
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+TBTBond = tbl2bond(TBill)
+TBTBond = 1×5
+105 ×
+         0    7
+
+Context:
+ed on a November 3, 2000 settlement date.
+Settle = datenum('3-Nov-2000');
+Use the tbl2bond to convert the Treasury bill data to Treasury bond format.
+TBTBond = tbl2bond(TBill)
+TBTBond = 1×5
+105 ×
+         0    7.3085    0.0010    0.0010    0.0000
+The second element of TBTBond is the serial date number for December 26, 2000.
+Combine short-term (Treasury bill)
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+TBondsAll = [TBTBond
+
+Context:
+erial date number for December 26, 2000.
+Combine short-term (Treasury bill) with long-term (Treasury bond) data to set up the overall term
+structure.
+TBondsAll = [TBTBond; TBond]
+TBondsAll = 2×5
+105 ×
+         0    7.3085    0.0010    0.0010    0.0000
+    0.0000    7.3116    0.0010    0.0010    0.0000
+Use tr2bonds to c
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+TBondsAll = 2×5
+105 ×
+         0    7
+
+Context:
+r 26, 2000.
+Combine short-term (Treasury bill) with long-term (Treasury bond) data to set up the overall term
+structure.
+TBondsAll = [TBTBond; TBond]
+TBondsAll = 2×5
+105 ×
+         0    7.3085    0.0010    0.0010    0.0000
+    0.0000    7.3116    0.0010    0.0010    0.0000
+Use tr2bonds to convert the bond data into a form ready for the
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Bonds = 2×6
+105 ×
+ Term Structure of Interest Rates
+2-29
+
+Context:
+onds
+generates a matrix of bond information sorted by maturity date, plus vectors of prices and yields.
+[Bonds, Prices, Yields] = tr2bonds(TBondsAll)
+Bonds = 2×6
+105 ×
+ Term Structure of Interest Rates
+2-29
+
+======================================================================
+

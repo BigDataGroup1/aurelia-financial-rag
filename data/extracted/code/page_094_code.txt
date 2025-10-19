@@ -1,0 +1,64 @@
+CODE BLOCKS FROM PAGE 94
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+This example uses one trading day of NASDAQ exchange data [2] on one security (INTC) in a sample
+provided by LOBSTER [1] and included with Financial Toolbox™ documentation in the zip file
+LOBSTER_SampleFile_INTC_2012-06-21_5.zip
+. Extract the contents of the zip file into your
+current folder. The expanded files, including two CSV files of data and the text file
+LOBSTER_SampleFiles_ReadMe.txt
+, consume 93.7 MB of memory.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+unzip(
+"LOBSTER_SampleFile_INTC_2012-06-21_5.zip"
+);
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+MSGFileName = 
+"INTC_2012-06-21_34200000_57600000_message_5.csv"
+;   
+% Message file (description of
+LOBFileName = 
+"INTC_2012-06-21_34200000_57600000_orderbook_5.csv"
+; 
+% Data file
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+[ticker,rem] = strtok(MSGFileName,
+'_'
+);
+date = strtok(rem,
+'_'
+);
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Use 
+tabularTextDatastore
+ to create datastores for the message and data files. Because the files
+contain data with different formats, create the datastores separately. Ignore generic column headers
+(for example, 
+VarName1
+) by setting the 
+'ReadVariableNames'
+ name-value argument to 
+false
+.
+Replace the headers with descriptive variable names obtained from
+
+======================================================================
+

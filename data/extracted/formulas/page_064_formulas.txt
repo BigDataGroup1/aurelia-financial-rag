@@ -1,0 +1,34 @@
+FORMULAS FROM PAGE 64
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Period = 2
+
+Context:
+ettle, Maturity, [])
+cfdates(Settle, Maturity, NaN)
+cfdates(Settle, Maturity, [NaN NaN])
+cfdates(Settle, Maturity)
+The first two calls explicitly set Period = 2. Since Maturity is a 2-by-1 vector of maturity dates,
+cfdates knows that you have a two-bond portfolio.
+The first call specifies a single (that is, s
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Period = 4 for the first bond and implicitly sets the default Period = 2
+for the second bond
+
+Context:
+calls to cfdates for the same two-bond portfolio.
+cfdates(Settle, Maturity, [4 NaN])
+cfdates(Settle, Maturity, [4 2])
+The first call explicitly sets Period = 4 for the first bond and implicitly sets the default Period = 2
+for the second bond. The second call has the same effect as the first but explicitly sets the periodicity
+for both bonds.
+The optional input Period has been used for ill
+
+======================================================================
+

@@ -1,0 +1,210 @@
+CODE BLOCKS FROM PAGE 95
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+LOBSTER_SampleFiles_ReadMe.txt
+. Set the 
+'ReadSize'
+ name-value argument to 
+'file'
+ to
+allow similarly formatted files to be appended to existing datastores at the end of each trading day.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+DSMSG = tabularTextDatastore(MSGFileName,
+'ReadVariableNames'
+,false,
+'ReadSize'
+,
+'file'
+);
+DSMSG.VariableNames = [
+"Time"
+,
+"Type"
+,
+"OrderID"
+,
+"Size"
+,
+"Price"
+,
+"Direction"
+];
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+DSLOB = tabularTextDatastore(LOBFileName,
+'ReadVariableNames'
+,false,
+'ReadSize'
+,
+'file'
+);
+DSLOB.VariableNames = [
+"AskPrice1"
+,
+"AskSize1"
+,
+"BidPrice1"
+,
+"BidSize1"
+,
+...
+                       
+"AskPrice2"
+,
+"AskSize2"
+,
+"BidPrice2"
+,
+"BidSize2"
+,
+...
+                       
+"AskPrice3"
+,
+"AskSize3"
+,
+"BidPrice3"
+,
+"BidSize3"
+,
+...
+                       
+"AskPrice4"
+,
+"AskSize4"
+,
+"BidPrice4"
+,
+"BidSize4"
+,
+...
+                       
+"AskPrice5"
+,
+"AskSize5"
+,
+"BidPrice5"
+,
+"BidSize5"
+];
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Create a combined datastore by selecting 
+Time
+ and the level 3 data.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+TimeVariable = 
+"Time"
+;
+DSMSG.SelectedVariableNames = TimeVariable;
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+LOB3Variables = [
+"AskPrice1"
+,
+"AskSize1"
+,
+"BidPrice1"
+,
+"BidSize1"
+,
+...
+                 
+"AskPrice2"
+,
+"AskSize2"
+,
+"BidPrice2"
+,
+"BidSize2"
+,
+...
+                 
+"AskPrice3"
+,
+"AskSize3"
+,
+"BidPrice3"
+,
+"BidSize3"
+];
+DSLOB.SelectedVariableNames = LOB3Variables;
+                               
+DS = combine(DSMSG,DSLOB);
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+DSPreview = preview(DS);
+LOBPreview = DSPreview(:,1:5)
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+LOBPreview=
+8×5 table
+    Time     AskPrice1    AskSize1    BidPrice1    BidSize1
+    _____    _________    ________    _________    ________
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+34200    2.752e+05       66       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      400   
+    34200    2.752e+05      166       2.751e+05      300   
+    34200    2.752e+05      166       2.751e+05      300   
+    34200    2.752e+05      166       2.751e+05      300   
+    34200    2.752e+05      166       2.751e+05      300
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+The preview shows asks and bids 
+at the touch
+, meaning the level 1 data, which is closest to the
+midprice. Time units are seconds after midnight, price units are dollar amounts times 10,000, and
+size units are the number of shares (see 
+LOBSTER_SampleFiles_ReadMe.txt
+).
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+Set the execution environment for MapReduce to the local MATLAB session, instead of using Parallel
+Computing Toolbox™, by calling 
+mapreducer(0)
+. Then, create a tall array from the datastore 
+DS
+ by
+using 
+tall
+. Preview the data in the tall array.
+
+======================================================================
+

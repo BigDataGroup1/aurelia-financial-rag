@@ -1,0 +1,84 @@
+CODE BLOCKS FROM PAGE 56
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Another toolbox rate function, 
+effrr
+, calculates the effective rate of return given an annual interest
+rate (also known as nominal rate or annual percentage rate, APR) and number of compounding
+periods per year. To find the effective rate of a 9% APR compounded monthly, enter
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Rate = effrr(0.09, 12)
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+A companion function 
+nomrr
+ computes the nominal rate of return given the effective annual rate and
+the number of compounding periods.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+To compute the present or future value, you can use the following functuions: 
+fvfix
+, 
+fvvar
+, 
+pvfix
+,
+and 
+pvvar
+. The 
+-fix
+ functions assume equal cash flows at regular intervals, while the 
+-var
+functions allow irregular cash flows at irregular periods.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500, 
+...
+            9500,  9500,  9500];
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+Use 
+irr
+ to compute the internal rate of return of the cash stream.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+NPV = pvvar(Stream, ROR)
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+The 
+NPV
+ is very close to zero. The answer usually is not 
+exactly
+ zero due to rounding errors and the
+computational precision of the computer. Note, other toolbox functions behave similarly. The
+functions that compute a bond's yield, for example, often must solve a nonlinear equation. If you then
+use that yield to compute the net present value of the bond's income stream, it usually does not
+exactly
+ equal the purchase price, but the difference is negligible for practical applications.
+
+======================================================================
+

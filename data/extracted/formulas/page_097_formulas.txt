@@ -1,0 +1,62 @@
+FORMULAS FROM PAGE 97
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+MidPrice = (DTT
+
+Context:
+imbalance index I are used to model LOB dynamics. To queue their computations,
+define them, and the time base, in terms of DTT.
+timeBase = DTT.Time;
+MidPrice = (DTT.BidPrice1 + DTT.AskPrice1)/2;
+% LOB level 3 imbalance index:
+lambda  = 0.5; % Hyperparameter
+weights = exp(-(lambda)*[0 1 2]);
+VAsk = weights(1)*DTT.
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+VAsk = weights(1)*DTT
+
+Context:
+.Time;
+MidPrice = (DTT.BidPrice1 + DTT.AskPrice1)/2;
+% LOB level 3 imbalance index:
+lambda  = 0.5; % Hyperparameter
+weights = exp(-(lambda)*[0 1 2]);
+VAsk = weights(1)*DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;
+VBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;
+Imb
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+VBid = weights(1)*DTT
+
+Context:
+lambda  = 0.5; % Hyperparameter
+weights = exp(-(lambda)*[0 1 2]);
+VAsk = weights(1)*DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;
+VBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;
+ImbalanceIndex = (VBid-VAsk)./(VBid+VAsk);
+The imbalance index is a weighted average of
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+ImbalanceIndex = (VBid-VAsk)
+
+Context:
+DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;
+VBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;
+ImbalanceIndex = (VBid-VAsk)./(VBid+VAsk);
+The imbalance index is a weighted average of ask and bid volumes on either side of the midprice [3].
+The imbalance index is a potential
+
+======================================================================
+

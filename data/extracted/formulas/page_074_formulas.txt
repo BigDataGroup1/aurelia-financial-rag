@@ -1,0 +1,106 @@
+FORMULAS FROM PAGE 74
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Prices = 2×1
+   99
+
+Context:
+7.3085         0    0.0010         0         0    0.0000
+    7.3116    0.0000    0.0010    0.0000         0    0.0000
+Prices = 2×1
+   99.2654
+  103.1875
+Yields = 2×1
+    0.0510
+    0.0564
+Use a bootstrapping function to derive an implied zero curve. Bootstrapping is a process whereby y
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Yields = 2×1
+    0
+
+Context:
+085         0    0.0010         0         0    0.0000
+    7.3116    0.0000    0.0010    0.0000         0    0.0000
+Prices = 2×1
+   99.2654
+  103.1875
+Yields = 2×1
+    0.0510
+    0.0564
+Use a bootstrapping function to derive an implied zero curve. Bootstrapping is a process whereby you
+begin with known data points and
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+ZeroRates = 2×1
+    0
+
+Context:
+ata and prices, and zbtyield derives a zero curve from bond data and yields. Using
+zbtprice
+[ZeroRates, CurveDates] = zbtprice(Bonds, Prices, Settle)
+ZeroRates = 2×1
+    0.0516
+    0.0558
+CurveDates = 2×1
+      730846
+      731160
+CurveDates gives the investment horizon.
+datestr(CurveDates)
+ans = 2×11 char array
+    '26
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+CurveDates = 2×1
+      730846
+      731160
+CurveDates gives the investment horizon
+
+Context:
+zero curve from bond data and yields. Using
+zbtprice
+[ZeroRates, CurveDates] = zbtprice(Bonds, Prices, Settle)
+ZeroRates = 2×1
+    0.0516
+    0.0558
+CurveDates = 2×1
+      730846
+      731160
+CurveDates gives the investment horizon.
+datestr(CurveDates)
+ans = 2×11 char array
+    '26-Dec-2000'
+    '05-Nov-2001'
+Use the functions zero2disc, zero2fwd, and zero2pyld to construct disc
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+DiscRates = 2×1
+    0
+
+Context:
+truct discount, forward, and par
+yield curves from the zero curve, and vice versa.
+[DiscRates, CurveDates] = zero2disc(ZeroRates, CurveDates, Settle)
+DiscRates = 2×1
+    0.9926
+    0.9462
+2
+Performing Common Financial Tasks
+2-30
+
+======================================================================
+

@@ -1,0 +1,129 @@
+FORMULAS FROM PAGE 70
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Maturity = '26-Dec-2002'
+
+Context:
+o compute the break-even discount rate. This is the rate that correctly
+prices the Treasury bill such that the profit from selling the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, Initial
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+InitialDiscount = 0
+
+Context:
+iscount rate. This is the rate that correctly
+prices the Treasury bill such that the profit from selling the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+Purcha
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+PurchaseDate = '26-Sep-2002'
+
+Context:
+rate that correctly
+prices the Treasury bill such that the profit from selling the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+Breakev
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+SaleDate = '26-Oct-2002'
+
+Context:
+Treasury bill such that the profit from selling the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+You c
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+RepoRate = 0
+
+Context:
+he profit from selling the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+You can check the r
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount,
+
+Context:
+ing the tail equals 0.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+You can check the result of this computation by examining the cash flows in and out
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+BreakevenDiscount = 
+0
+
+Context:
+p-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+You can check the result of this computation by examining the cash flows in and out from the
+repurchase transaction. First compute the price of
+
+======================================================================
+

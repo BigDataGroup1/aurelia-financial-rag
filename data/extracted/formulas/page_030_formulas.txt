@@ -1,0 +1,37 @@
+FORMULAS FROM PAGE 30
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Bonds = [1000   0
+
+Context:
+of two bonds (the rows) with different par values, coupon rates, and
+coupon payment frequencies per year (the columns) entered using MATLAB notation:
+Bonds = [1000   0.06   2
+          500   0.055  4]
+Vector
+A matrix with only one row or column. Described as a “1-by-n” or “m-by-1” matrix. The description is
+always “
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Cash = [1500   4470   5280   -1299]
+Scalar
+A 1-by-1 matrix
+
+Context:
+d as a “1-by-n” or “m-by-1” matrix. The description is
+always “row-by-column.” For example, here is a 1-by-4 vector of cash flows in MATLAB notation:
+Cash = [1500   4470   5280   -1299]
+Scalar
+A 1-by-1 matrix; that is, a single number.
+Referencing Matrix Elements
+To reference specific matrix elements, use (row, column) notation. For example:
+Bonds(1,2)
+ans
+
+======================================================================
+

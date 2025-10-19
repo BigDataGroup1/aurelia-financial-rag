@@ -1,0 +1,14 @@
+FORMULAS FROM PAGE 43
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+X = function(input_arguments
+
+Context:
+X = function(input_arguments...)
+the function returns a value for A, but not for B or C.
+Some functions that return vectors accept only scalars as arguments. Such functions canno
+
+======================================================================
+

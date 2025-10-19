@@ -1,0 +1,265 @@
+FORMULAS FROM PAGE 65
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100. Calling the function:
+[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... 
+Maturity, [], [], [], IssueDate, FirstCouponDate)
+Price = 
+113.5977
+AccruedInt = 
+0.5855
+bndprice returns a price of $
+
+Context:
+month rule
+(EndMonthRule = 1) to assume the default values. Also, assume that there is no odd last coupon date
+and that the face value of the bond is $100. Calling the function:
+[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... 
+Maturity, [], [], [], IssueDate, FirstCouponDate)
+Price = 
+113.5977
+AccruedInt = 
+0.5855
+bndprice returns a price of $113.60 and accrued interest of $0.59.
+Note, bndprice uses nonlinear formulas to compute the price of a security. For this reason, Financial
+Toolbox™ s
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Settle          = '11-Nov-1992'
+
+Context:
+his example shows how to compute the price of a bond with an odd first period using bndprice.
+Assume that you have a bond with these characteristics:
+Settle          = '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.062
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Maturity        = '01-Mar-2005'
+
+Context:
+the price of a bond with an odd first period using bndprice.
+Assume that you have a bond with these characteristics:
+Settle          = '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (P
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+IssueDate       = '15-Oct-1992'
+
+Context:
+irst period using bndprice.
+Assume that you have a bond with these characteristics:
+Settle          = '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (Period = 2), day-count basis (Basi
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+FirstCouponDate = '01-Mar-1993'
+
+Context:
+e that you have a bond with these characteristics:
+Settle          = '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule
+(En
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+CouponRate      = 0
+
+Context:
+characteristics:
+Settle          = '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule
+(EndMonthRule = 1) to as
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Yield           = 0
+
+Context:
+= '11-Nov-1992';
+Maturity        = '01-Mar-2005';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule
+(EndMonthRule = 1) to assume the default values. A
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+Period = 2), day-count basis (Basis = 0), and end-of-month rule
+(EndMonthRule = 1) to assume the default values
+
+Context:
+';
+IssueDate       = '15-Oct-1992';
+FirstCouponDate = '01-Mar-1993';
+CouponRate      = 0.0785;
+Yield           = 0.0625;
+Allow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule
+(EndMonthRule = 1) to assume the default values. Also, assume that there is no odd last coupon date
+and that the face value of the bond is $100. Calling the function:
+[Price, AccruedInt] = bndprice
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+Price = 
+113
+
+Context:
+bond is $100. Calling the function:
+[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... 
+Maturity, [], [], [], IssueDate, FirstCouponDate)
+Price = 
+113.5977
+AccruedInt = 
+0.5855
+bndprice returns a price of $113.60 and accrued interest of $0.59.
+Note, bndprice uses nonlinear formulas to compute the pr
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+AccruedInt = 
+0
+
+Context:
+ling the function:
+[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... 
+Maturity, [], [], [], IssueDate, FirstCouponDate)
+Price = 
+113.5977
+AccruedInt = 
+0.5855
+bndprice returns a price of $113.60 and accrued interest of $0.59.
+Note, bndprice uses nonlinear formulas to compute the price of a security. Fo
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+Settle          = '12-Jan-2000'
+
+Context:
+rst and last
+periods and settlement in the first period.
+Set up variables for settlement, maturity date, issue, first coupon, and a last coupon date.
+Settle          = '12-Jan-2000';
+Maturity        = '01-Oct-2001';
+IssueDate       = '01-Jan-2000';
+FirstCouponDate = '15-Jan-2000';
+LastCouponDate  = '15-Apr-2000';
+ Pricing and Com
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+Maturity        = '01-Oct-2001'
+
+Context:
+nt in the first period.
+Set up variables for settlement, maturity date, issue, first coupon, and a last coupon date.
+Settle          = '12-Jan-2000';
+Maturity        = '01-Oct-2001';
+IssueDate       = '01-Jan-2000';
+FirstCouponDate = '15-Jan-2000';
+LastCouponDate  = '15-Apr-2000';
+ Pricing and Computing Yields for Fixed-Income Se
+
+======================================================================
+
+Formula 13 [simple_equation]:
+----------------------------------------------------------------------
+IssueDate       = '01-Jan-2000'
+
+Context:
+riables for settlement, maturity date, issue, first coupon, and a last coupon date.
+Settle          = '12-Jan-2000';
+Maturity        = '01-Oct-2001';
+IssueDate       = '01-Jan-2000';
+FirstCouponDate = '15-Jan-2000';
+LastCouponDate  = '15-Apr-2000';
+ Pricing and Computing Yields for Fixed-Income Securities
+2-21
+
+======================================================================
+
+Formula 14 [simple_equation]:
+----------------------------------------------------------------------
+FirstCouponDate = '15-Jan-2000'
+
+Context:
+date, issue, first coupon, and a last coupon date.
+Settle          = '12-Jan-2000';
+Maturity        = '01-Oct-2001';
+IssueDate       = '01-Jan-2000';
+FirstCouponDate = '15-Jan-2000';
+LastCouponDate  = '15-Apr-2000';
+ Pricing and Computing Yields for Fixed-Income Securities
+2-21
+
+======================================================================
+
+Formula 15 [simple_equation]:
+----------------------------------------------------------------------
+LastCouponDate  = '15-Apr-2000'
+
+Context:
+last coupon date.
+Settle          = '12-Jan-2000';
+Maturity        = '01-Oct-2001';
+IssueDate       = '01-Jan-2000';
+FirstCouponDate = '15-Jan-2000';
+LastCouponDate  = '15-Apr-2000';
+ Pricing and Computing Yields for Fixed-Income Securities
+2-21
+
+======================================================================
+

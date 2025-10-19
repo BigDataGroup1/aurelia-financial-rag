@@ -1,0 +1,104 @@
+FORMULAS FROM PAGE 56
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$20,000 followed by three annual return
+payments, a second investment of $
+
+Context:
+at regular intervals, while the -var
+functions allow irregular cash flows at irregular periods.
+Specify the income stream as an initial investment of $20,000 followed by three annual return
+payments, a second investment of $5,000, then four more returns. Investments are negative cash
+flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Rate = effrr(0
+
+Context:
+nal rate or annual percentage rate, APR) and number of compounding
+periods per year. To find the effective rate of a 9% APR compounded monthly, enter
+Rate = effrr(0.09, 12)
+Rate = 
+0.0938
+The Rate is 9.38%.
+A companion function nomrr computes the nominal rate of return given the effective annual rate and
+the numb
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Rate = 
+0
+
+Context:
+entage rate, APR) and number of compounding
+periods per year. To find the effective rate of a 9% APR compounded monthly, enter
+Rate = effrr(0.09, 12)
+Rate = 
+0.0938
+The Rate is 9.38%.
+A companion function nomrr computes the nominal rate of return given the effective annual rate and
+the number of compounding
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500,
+
+Context:
+return
+payments, a second investment of $5,000, then four more returns. Investments are negative cash
+flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500, ...
+            9500,  9500,  9500];
+Use irr to compute the internal rate of return of the cash stream.
+ROR = irr(Stream)
+ROR = 
+0.1172
+Compute the ne
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+ROR = irr(Stream)
+ROR = 
+0
+
+Context:
+= [-20000,  2000,  2500,  3500, -5000,  6500, ...
+            9500,  9500,  9500];
+Use irr to compute the internal rate of return of the cash stream.
+ROR = irr(Stream)
+ROR = 
+0.1172
+Compute the net present value of the sample income stream for which you computed the internal rate
+of return. This exercise also serves as a che
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+NPV = pvvar(Stream, ROR)
+NPV = 
+5
+
+Context:
+ercise also serves as a check on that calculation because the net present value of a
+cash stream at its internal rate of return should be zero. Enter
+NPV = pvvar(Stream, ROR)
+NPV = 
+5.9117e-12
+The NPV is very close to zero. The answer usually is not exactly zero due to rounding errors and the
+computational precision of the computer
+
+======================================================================
+

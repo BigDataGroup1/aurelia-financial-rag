@@ -1,0 +1,36 @@
+FORMULAS FROM PAGE 62
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+CFlowDates = cfdates(Settle, Maturity, Period, Basis,
+
+Context:
+gardless
+of whether the first and/or last coupon periods are normal, long, or short.
+The complete calling syntax with the full input argument list is
+CFlowDates = cfdates(Settle, Maturity, Period, Basis, ... 
+EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+while the minimal calling syntax requires only settlement and maturity dates
+CFlowDates
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+CFlowDates = cfdates(Settle, Maturity)
+2
+Performing Common Financial Tasks
+2-18
+
+Context:
+d, Basis, ... 
+EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)
+while the minimal calling syntax requires only settlement and maturity dates
+CFlowDates = cfdates(Settle, Maturity)
+2
+Performing Common Financial Tasks
+2-18
+
+======================================================================
+

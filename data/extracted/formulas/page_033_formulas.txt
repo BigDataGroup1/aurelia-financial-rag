@@ -1,0 +1,30 @@
+FORMULAS FROM PAGE 33
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+NewPortfolios = Portfolios_PQ + Portfolios_RS
+NewPortfolios =
+        275           325
+        700           600
+        400           650
+ Matrix Algebra Refresher
+1-7
+
+Context:
+[100   200
+                 500   400
+                 300   150];
+Portfolios_RS = [175   125
+                 200   200
+                 100   500];
+NewPortfolios = Portfolios_PQ + Portfolios_RS
+NewPortfolios =
+        275           325
+        700           600
+        400           650
+ Matrix Algebra Refresher
+1-7
+
+======================================================================
+

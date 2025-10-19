@@ -1,0 +1,55 @@
+CODE BLOCKS FROM PAGE 43
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+X = 
+function
+(input_arguments
+...
+)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+the 
+function
+ returns a value for 
+A
+, but not for 
+B
+ or 
+C
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+For example, most functions that require asset life as an input, and return values corresponding to
+different periods over the asset life, cannot handle vectors or matrices as input arguments. These
+functions include 
+amortize
+, 
+depfixdb
+, 
+depgendb
+, and 
+depsoyd
+. For example, consider a car for
+which you want to compute the depreciation schedule. Use the 
+depfixdb
+ function to compute a
+stream of declining-balance depreciation values for the asset. Set the initial value of the asset and the
+lifetime of the asset. Note that in the returned vector, the asset lifetime determines the number of
+rows. Now consider a collection of cars with different lifetimes. Because 
+depfixdb
+ cannot output a
+matrix with an unequal number of rows in each column, 
+depfixdb
+ cannot accept a single input
+vector with values for each asset in the collection.
+
+======================================================================
+

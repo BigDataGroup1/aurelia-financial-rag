@@ -1,0 +1,116 @@
+CODE BLOCKS FROM PAGE 42
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+0.1201    0.1201    0.1201
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+MATLAB performs the same computation on all the assets at once. For the three cash flow streams,
+the 
+irr
+ function returns a vector of three internal rates of return.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Enter MATLAB character vectors surrounded by single quotes (
+'character vector'
+).
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+DateCharacterVector = 
+'9/16/2017'
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+This date character vector is actually a 
+1
+-by-
+9
+ vector. If you create a vector or matrix of character
+vectors, each character vector must have the same length. Using a column vector to create a vector
+of character vectors can allow you to visually check that all character vectors are the same length. If
+your character vectors are not the same length, use spaces or zeros to make them the same length, as
+in the following code.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+DateFields = ['01/12/2017'
+              '02/14/2017'
+              '03/03/2017'
+              '06/14/2017'
+              '12/01/2017'];
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+DateFields
+ is a 
+5
+-by-
+10
+ array of character vectors.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+Item = [83  90  99 
+'14-Sep-1999'
+]
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+The software understands the input not as a 
+1
+-by-
+4
+ vector, but as a 
+1
+-by-
+14
+ character array with the
+value 
+SZc14-Sep-1999
+.
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+[A, B, C] = 
+function
+(input_arguments
+...
+)
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+to return arguments 
+A
+, 
+B
+, and 
+C
+. If you omit all but one, the function returns the first argument. Thus,
+for this example if you use the syntax
+
+======================================================================
+

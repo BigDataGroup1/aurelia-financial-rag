@@ -1,0 +1,49 @@
+CODE BLOCKS FROM PAGE 91
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Plot the 
+qx
+ series and display the legend. The series 
+qx
+ is the conditional probability that a person at
+age 
+x
+ will die between age 
+x
+ and the next age in the series
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+plot((0:100), log(qx));
+legend(series, 
+'location'
+, 
+'southeast'
+);
+title(
+'Conditional Probability of Dying within One Year of Current Age'
+);
+xlabel(
+'Age'
+);
+ylabel(
+'Log Probability'
+);
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+See Also
+lifetableconv
+ | 
+lifetablefit
+ | 
+lifetablegen
+
+======================================================================
+

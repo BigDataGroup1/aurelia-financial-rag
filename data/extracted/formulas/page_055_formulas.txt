@@ -1,0 +1,84 @@
+FORMULAS FROM PAGE 55
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$20,000 followed by
+three annual return payments, a second investment of $
+
+Context:
+return, present or future
+values, depreciation streams, and annuities.
+Some examples in this section use this income stream: an initial investment of $20,000 followed by
+three annual return payments, a second investment of $5,000, then four more returns. Investments
+are negative cash flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$20,000 followed by three annual return
+payments, a second investment of $
+
+Context:
+urn
+This example shows how to compute the internal rate of return of the cash stream using irr.
+Specify the income stream as an initial investment of $20,000 followed by three annual return
+payments, a second investment of $5,000, then four more returns. Investments are negative cash
+flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500,
+
+Context:
+return payments, a second investment of $5,000, then four more returns. Investments
+are negative cash flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500,...
+            9500,  9500,  9500];
+Interest Rates/Rates of Return
+This example shows how to compute the internal rate of return of the cash stream u
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500,
+
+Context:
+return
+payments, a second investment of $5,000, then four more returns. Investments are negative cash
+flows, return payments are positive cash flows.
+Stream = [-20000,  2000,  2500,  3500, -5000,  6500, ...
+            9500,  9500,  9500];
+Use irr to compute the internal rate of return of the cash stream.
+ROR = irr(Stream)
+ROR = 
+0.1172
+The rate of re
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+ROR = irr(Stream)
+ROR = 
+0
+
+Context:
+= [-20000,  2000,  2500,  3500, -5000,  6500, ...
+            9500,  9500,  9500];
+Use irr to compute the internal rate of return of the cash stream.
+ROR = irr(Stream)
+ROR = 
+0.1172
+The rate of return is 11.72%.
+The internal rate of return of a cash flow may not have a unique value. Every time the sign changes in
+a cash flow
+
+======================================================================
+

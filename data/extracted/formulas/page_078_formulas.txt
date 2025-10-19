@@ -1,0 +1,57 @@
+FORMULAS FROM PAGE 78
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+StartPrice=3)
+ps =
+     3
+     1
+    -2
+    -1
+     1
+Also, the following computations shows that time aggregation holds
+
+Context:
+produces
+a positive price movement. The returns are correct.
+The round trip produced by ret2tick returns the original price series.
+ps = ret2tick(rs,StartPrice=3)
+ps =
+     3
+     1
+    -2
+    -1
+     1
+Also, the following computations shows that time aggregation holds.
+p(5)/p(1) - 1
+ans =
+   -0.6667
+prod(rs + 1) - 1
+ans =
+   -0.6667
+For continuous returns, negative price ratios pc(t)/pc(t − 1) are interpreted as co
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Method="continuous")
+rc =
+  -1
+
+Context:
+negative price ratios pc(t)/pc(t − 1) are interpreted as complex numbers with
+phase angles ±π, and the complex logarithm is invoked.
+rc = tick2ret(p,Method="continuous")
+rc =
+  -1.0986 + 0.0000i
+   0.6931 + 3.1416i
+  -0.6931 + 0.0000i
+   0.0000 - 3.1416i
+This table summarizes the recursions.
+2
+Performing Common Financial Tasks
+
+======================================================================
+

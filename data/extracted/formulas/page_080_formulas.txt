@@ -1,0 +1,25 @@
+FORMULAS FROM PAGE 80
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+MarkerFaceColor="b")
+plot(p,imag(log(p)),"ro-",MarkerFaceColor="r")
+hold off
+2
+Performing Common Financial Tasks
+2-36
+
+Context:
+d imaginary parts of the logarithm at prices p =
+−4 and p = 2, with lines to help visualize their differences.
+p = [-4; 2];
+plot(p,real(log(p)),"bo-",MarkerFaceColor="b")
+plot(p,imag(log(p)),"ro-",MarkerFaceColor="r")
+hold off
+2
+Performing Common Financial Tasks
+2-36
+
+======================================================================
+

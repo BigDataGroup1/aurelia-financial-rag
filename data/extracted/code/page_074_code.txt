@@ -1,0 +1,72 @@
+CODE BLOCKS FROM PAGE 74
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+7.3085         0    0.0010         0         0    0.0000
+    7.3116    0.0000    0.0010    0.0000         0    0.0000
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Use a bootstrapping function to derive an implied zero curve. Bootstrapping is a process whereby you
+begin with known data points and solve for unknown data points using an underlying arbitrage
+theory. Every coupon bond can be valued as a package of zero-coupon bonds which mimic its cash
+flow and risk characteristics. By mapping yields-to-maturity for each theoretical zero-coupon bond, to
+the dates spanning the investment horizon, you can create a theoretical zero-rate curve. The
+Financial Toolbox™ software provides two bootstrapping functions: 
+zbtprice
+ derives a zero curve
+from bond data and 
+prices
+, and 
+zbtyield
+ derives a zero curve from bond data and 
+yields
+. Using
+zbtprice
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+[ZeroRates, CurveDates] = zbtprice(Bonds, Prices, Settle)
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+CurveDates
+ gives the investment horizon.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+ans = 
+2×11 char array
+    '26-Dec-2000'
+    '05-Nov-2001'
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+Use the functions 
+zero2disc
+, 
+zero2fwd
+, and 
+zero2pyld
+ to construct discount, forward, and par
+yield curves from the zero curve, and vice versa.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+[DiscRates, CurveDates] = zero2disc(ZeroRates, CurveDates, Settle)
+
+======================================================================
+

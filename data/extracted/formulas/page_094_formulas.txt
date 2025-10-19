@@ -1,0 +1,32 @@
+FORMULAS FROM PAGE 94
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+MSGFileName = "INTC_2012-06-21_34200000_57600000_message_5
+
+Context:
+Level 5 data (five levels away from the midprice on either side) is contained in two CSV files. Extract
+the trading date from the message file name.
+MSGFileName = "INTC_2012-06-21_34200000_57600000_message_5.csv";   % Message file (description of
+LOBFileName = "INTC_2012-06-21_34200000_57600000_orderbook_5.csv"; % Data file
+[ticker,rem] = strtok(MSGFileNa
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+LOBFileName = "INTC_2012-06-21_34200000_57600000_orderbook_5
+
+Context:
+xtract
+the trading date from the message file name.
+MSGFileName = "INTC_2012-06-21_34200000_57600000_message_5.csv";   % Message file (description of
+LOBFileName = "INTC_2012-06-21_34200000_57600000_orderbook_5.csv"; % Data file
+[ticker,rem] = strtok(MSGFileName,'_');
+date = strtok(rem,'_'); 
+Data Storage
+Daily data streams accumulate and need to be stored.
+
+======================================================================
+

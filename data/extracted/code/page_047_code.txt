@@ -1,0 +1,107 @@
+CODE BLOCKS FROM PAGE 47
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+datedisp
+Displays a numeric matrix with date entries formatted as date character
+vectors.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+datenum
+Converts a date character vector to a serial date number.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+datestr
+Converts a serial date number to a date character vector.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+datetime
+Converts from date character vectors or serial date numbers to create a
+datetime array.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+datevec
+Converts a serial date number or date character vector to a date vector
+whose elements are 
+[Year Month Day Hour Minute Second]
+.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+m2xdate
+Converts MATLAB serial date number to Excel
+®
+ serial date number.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+x2mdate
+Converts Microsoft
+®
+ Excel serial date number to MATLAB serial date
+number.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+'23-Aug-2010 04:35:06 PM'
+'Wednesday, August 23'
+'08/23/10 16:35'
+'Aug 23 16:35:42.946'
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+d = 
+'23-Aug-2010 16:35:42'
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+Convert one or more date character vectors to a 
+datetime
+ array using the 
+datetime
+ function. For
+the best performance, specify the format of the input character vectors as an input to 
+datetime
+.
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+Note
+ The specifiers that 
+datetime
+ uses to describe date and time formats differ from the specifiers
+that the 
+datestr
+, 
+datevec
+, and 
+datenum
+ functions accept.
+
+======================================================================
+

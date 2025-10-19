@@ -1,0 +1,470 @@
+FORMULAS FROM PAGE 85
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100.00, the exercise price is $
+
+Context:
+lslambda) this example computes the call and put prices of a European option and its delta,
+gamma, lambda, and implied volatility. The asset price is $100.00, the exercise price is $95.00, the
+risk-free interest rate is 10%, the time to maturity is 0.25 years, the volatility is 0.50, and the
+dividend rate is 0.
+[OptCall, OptPut] =
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$13.70
+•
+The option put price OptPut = $
+
+Context:
+.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call L
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+OptCall = 
+13
+
+Context:
+%, the time to maturity is 0.25 years, the volatility is 0.50, and the
+dividend rate is 0.
+[OptCall, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)
+OptCall = 
+13.6953
+OptPut = 
+6.3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.1
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+OptPut = 
+6
+
+Context:
+rity is 0.25 years, the volatility is 0.50, and the
+dividend rate is 0.
+[OptCall, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)
+OptCall = 
+13.6953
+OptPut = 
+6.3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+CallVal = 
+0
+
+Context:
+Call, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)
+OptCall = 
+13.6953
+OptPut = 
+6.3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal =
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+PutVal = 
+-0
+
+Context:
+sprice(100, 95, 0.10, 0.25, 0.50, 0)
+OptCall = 
+13.6953
+OptPut = 
+6.3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+GammaVal = blsgamma(100, 95, 0
+
+Context:
+10, 0.25, 0.50, 0)
+OptCall = 
+13.6953
+OptPut = 
+6.3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10,
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+GammaVal = 
+0
+
+Context:
+3497
+[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+VegaVal = blsvega(100, 95, 0
+
+Context:
+al] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)
+CallVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+VegaVal = 
+18
+
+Context:
+lVal = 
+0.6665
+PutVal = 
+-0.3335
+GammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall =
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+LamCall = 
+4
+
+Context:
+0)
+GammaVal = 
+0.0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.66
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+LamPut = 
+-5
+
+Context:
+0145
+VegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)
+VegaVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a
+
+======================================================================
+
+Formula 13 [simple_equation]:
+----------------------------------------------------------------------
+OptCall = $13
+
+Context:
+aVal = 
+18.1843
+[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega Ve
+
+======================================================================
+
+Formula 14 [simple_equation]:
+----------------------------------------------------------------------
+OptPut = $6
+
+Context:
+ambda(100, 95, 0.10, 0.25, 0.50, 0)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call La
+
+======================================================================
+
+Formula 15 [simple_equation]:
+----------------------------------------------------------------------
+CallVal = 0
+
+Context:
+)
+LamCall = 
+4.8664
+LamPut = 
+-5.2528
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a pu
+
+======================================================================
+
+Formula 16 [simple_equation]:
+----------------------------------------------------------------------
+PutVal = -0
+
+Context:
+To summarize:
+•
+The option call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a put LamPut = –5.2528
+As a computation c
+
+======================================================================
+
+Formula 17 [simple_equation]:
+----------------------------------------------------------------------
+GammaVal = 0
+
+Context:
+on call price OptCall = $13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a put LamPut = –5.2528
+As a computation check, find the implied vol
+
+======================================================================
+
+Formula 18 [simple_equation]:
+----------------------------------------------------------------------
+VegaVal = 18
+
+Context:
+13.70
+•
+The option put price OptPut = $6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a put LamPut = –5.2528
+As a computation check, find the implied volatility of the option usi
+
+======================================================================
+
+Formula 19 [simple_equation]:
+----------------------------------------------------------------------
+LamCall = 4
+
+Context:
+$6.35
+•
+delta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a put LamPut = –5.2528
+As a computation check, find the implied volatility of the option using the call option price from
+blspric
+
+======================================================================
+
+Formula 20 [simple_equation]:
+----------------------------------------------------------------------
+LamPut = –5
+
+Context:
+665 and delta for a put PutVal = -0.3335
+•
+gamma GammaVal = 0.0145
+•
+vega VegaVal = 18.1843
+•
+lambda for a call LamCall = 4.8664 and lambda for a put LamPut = –5.2528
+As a computation check, find the implied volatility of the option using the call option price from
+blsprice.
+ Pricing and Analyzing Equity Deriv
+
+======================================================================
+

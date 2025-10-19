@@ -1,0 +1,158 @@
+FORMULAS FROM PAGE 35
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Y = y1, y2, …, yn
+X = x1, x2, …, xn
+then the dot product
+X · Y = x1y1 + x2y2 + … + xnyn
+is the scalar product of the two vectors
+
+Context:
+folio value, and
+this is meaningless for this example.
+Computing Dot Products of Vectors
+In matrix algebra, if X and Y are vectors of the same length
+Y = y1, y2, …, yn
+X = x1, x2, …, xn
+then the dot product
+X · Y = x1y1 + x2y2 + … + xnyn
+is the scalar product of the two vectors. It is an exception to the commutative rule. To compute the
+dot product in MATLAB, use sum(X .* Y) or sum(Y .* X). Be sure that the two vectors have
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Value = sum(NumShares
+
+Context:
+ot product in MATLAB, use sum(X .* Y) or sum(Y .* X). Be sure that the two vectors have the
+same dimensions. To illustrate, use the previous vectors.
+Value = sum(NumShares .* ClosePrices')
+Value =
+      3.5413e+004
+Value = sum(ClosePrices .* NumShares')
+Value =
+      3.5413e+004
+As expected, the value in these cases matc
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Value =
+      3
+
+Context:
+r sum(Y .* X). Be sure that the two vectors have the
+same dimensions. To illustrate, use the previous vectors.
+Value = sum(NumShares .* ClosePrices')
+Value =
+      3.5413e+004
+Value = sum(ClosePrices .* NumShares')
+Value =
+      3.5413e+004
+As expected, the value in these cases matches the PortfValue computed prev
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Value = sum(ClosePrices
+
+Context:
+t the two vectors have the
+same dimensions. To illustrate, use the previous vectors.
+Value = sum(NumShares .* ClosePrices')
+Value =
+      3.5413e+004
+Value = sum(ClosePrices .* NumShares')
+Value =
+      3.5413e+004
+As expected, the value in these cases matches the PortfValue computed previously.
+Multiplying Vectors and Mat
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Value =
+      3
+
+Context:
+ons. To illustrate, use the previous vectors.
+Value = sum(NumShares .* ClosePrices')
+Value =
+      3.5413e+004
+Value = sum(ClosePrices .* NumShares')
+Value =
+      3.5413e+004
+As expected, the value in these cases matches the PortfValue computed previously.
+Multiplying Vectors and Matrices
+Multiplying vectors and
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+WeekClosePr = [42
+
+Context:
+process. For example, a
+portfolio matrix contains closing prices for a week. A second matrix (vector) contains the stock
+quantities in the portfolio.
+WeekClosePr = [42.5     15      78.875
+               42.125   15.5    78.75
+               42.125   15.125  79
+               42.625   15.25   78.875
+               4
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+PortQuan = [100
+            500
+            300]
+
+Context:
+42.125   15.5    78.75
+               42.125   15.125  79
+               42.625   15.25   78.875
+               43       15.25   78.625];
+PortQuan = [100
+            500
+            300];
+To see the closing portfolio value for each day, simply multiply
+WeekPortValue = WeekClosePr * PortQuan
+WeekPortValue =
+1.0e+004 *
+    3.5412
+    3.
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+WeekPortValue = WeekClosePr * PortQuan
+WeekPortValue =
+1
+
+Context:
+43       15.25   78.625];
+PortQuan = [100
+            500
+            300];
+To see the closing portfolio value for each day, simply multiply
+WeekPortValue = WeekClosePr * PortQuan
+WeekPortValue =
+1.0e+004 *
+    3.5412
+    3.5587
+ Matrix Algebra Refresher
+1-9
+
+======================================================================
+

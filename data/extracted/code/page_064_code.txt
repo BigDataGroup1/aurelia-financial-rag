@@ -1,0 +1,129 @@
+CODE BLOCKS FROM PAGE 64
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+cfdates(Settle, Maturity, 2)
+cfdates(Settle, Maturity, [2 2])
+cfdates(Settle, Maturity, [])
+cfdates(Settle, Maturity, NaN)
+cfdates(Settle, Maturity, [NaN NaN])
+cfdates(Settle, Maturity)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+The first two calls explicitly set 
+Period = 2
+. Since 
+Maturity
+ is a 
+2
+-by-
+1
+ vector of maturity dates,
+cfdates
+ knows that you have a two-bond portfolio.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+The first call specifies a single (that is, scalar) 2 for 
+Period
+. Passing a scalar tells 
+cfdates
+ to apply
+the scalar-valued input to all bonds in the portfolio. This is an example of implicit scalar-expansion.
+The settlement date has been implicit scalar-expanded as well.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+The second call also applies the default coupon period by explicitly passing a two-element vector of
+2's. The third call passes an empty matrix, which 
+cfdates
+ interprets as an invalid period, for which
+the default value is used. The fourth call is similar, except that a 
+NaN
+ has been passed. The fifth call
+passes two 
+NaN
+'s, and has the same effect as the third. The last call passes the minimal input set.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+Finally, consider the following calls to 
+cfdates
+ for the same two-bond portfolio.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+cfdates(Settle, Maturity, [4 NaN])
+cfdates(Settle, Maturity, [4 2])
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+The first call explicitly sets 
+Period = 4
+ for the first bond and implicitly sets the default 
+Period = 2
+for the second bond. The second call has the same effect as the first but explicitly sets the periodicity
+for both bonds.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+The optional input 
+Period
+ has been used for illustrative purpose only. The default-handling process
+illustrated in the examples applies to any of the optional input arguments.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+In other words, a Financial Toolbox function first examines the 
+FirstCouponDate
+ input. If
+FirstCouponDate
+ is specified, coupon payment dates and quasi-coupon dates are computed with
+respect to 
+FirstCouponDate
+; if 
+FirstCouponDate
+ is unspecified, empty (
+[]
+), or 
+NaN
+, then the
+LastCouponDate
+ is examined. If 
+LastCouponDate
+ is specified, coupon payment dates and quasi-
+coupon dates are computed with respect to 
+LastCouponDate
+. If both 
+FirstCouponDate
+ and
+LastCouponDate
+ are unspecified, empty (
+[]
+), or 
+NaN
+, the 
+Maturity
+ (a required input argument)
+serves as the synchronization date.
+
+======================================================================
+

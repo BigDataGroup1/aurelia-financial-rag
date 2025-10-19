@@ -1,0 +1,64 @@
+FORMULAS FROM PAGE 63
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Settle          = '20-Sep-1999'
+Maturity        = '15-Oct-2007'
+Period          = 2
+Basis           = 0
+EndMonthRule    = 1
+IssueDate       = NaN
+FirstCouponDate = NaN
+LastCouponDate  = NaN
+Period, Basis, and EndMonthRule are set to their default values, and IssueDate,
+FirstCouponDate, and LastCouponDate are set to NaN
+
+Context:
+Single Bond Example
+As an example, suppose that you have a bond with these characteristics:
+Settle          = '20-Sep-1999'
+Maturity        = '15-Oct-2007'
+Period          = 2
+Basis           = 0
+EndMonthRule    = 1
+IssueDate       = NaN
+FirstCouponDate = NaN
+LastCouponDate  = NaN
+Period, Basis, and EndMonthRule are set to their default values, and IssueDate,
+FirstCouponDate, and LastCouponDate are set to NaN.
+Formally, a NaN is an IEEE® arithmetic standard for Not-a-Number and is used to indicate the result
+of an undefined operation (for example, zero div
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Settle   = '20-Sep-1999'
+Maturity = ['15-Oct-2007'
+
+Context:
+r some bonds while
+explicitly setting nondefault values for the remaining bonds in the portfolio.
+Now suppose that you have a portfolio of two bonds.
+Settle   = '20-Sep-1999'
+Maturity = ['15-Oct-2007'; '15-Oct-2010']
+These calls to cfdates all set the coupon period to its default value (Period = 2) for both bonds.
+ Pricing and Computing Yields for
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Period = 2) for both bonds
+
+Context:
+two bonds.
+Settle   = '20-Sep-1999'
+Maturity = ['15-Oct-2007'; '15-Oct-2010']
+These calls to cfdates all set the coupon period to its default value (Period = 2) for both bonds.
+ Pricing and Computing Yields for Fixed-Income Securities
+2-19
+
+======================================================================
+

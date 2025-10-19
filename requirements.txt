@@ -1,1 +1,47 @@
-pip install fastapi uvicorn langchain openai chromadb pinecone-client instructor streamlit pydantic requests pdfplumber pymupdf python-dotenv
+
+# ──────────────────────────────────────────────────────────────────────────────
+# File: requirements.txt  (pin conservative versions for cloud stability)
+# ──────────────────────────────────────────────────────────────────────────────
+# Core
+# Python 3.10+ recommended
+PyMuPDF==1.24.9
+openai==1.43.0
+pinecone-client==5.0.1
+langchain-text-splitters==0.0.1
+
+# Optional
+chromadb==0.5.5
+
+# Airflow side managed by Composer/MWAA image
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# File: README_LAB1.md  (short runbook)
+# ──────────────────────────────────────────────────────────────────────────────
+"""
+# AURELIA – Lab 1 Runbook
+
+## 1) Configure environment
+export AURELIA_PDF_PATH=data/fintbx.pdf
+export OPENAI_API_KEY=sk-...
+export AURELIA_VECTOR_BACKEND=pinecone   # or chroma
+export PINECONE_API_KEY=pc-...
+export PINECONE_ENV=us-east-1
+export PINECONE_INDEX=aurelia-fintbx
+export PINECONE_NAMESPACE=fintbx
+
+## 2) Local test run (before Composer)
+python -m aurelia_lab1.parse_pdf
+python -m aurelia_lab1.chunk_markdown
+python -m aurelia_lab1.embed_and_store
+
+## 3) Airflow (Composer/MWAA)
+- Add these modules under a package `aurelia_lab1/` in your DAGs folder or as a shared wheel.
+- Create DAG `fintbx_ingest_dag` (included).
+- Trigger the DAG; check logs for counts and timing.
+
+## Notes
+- This pipeline preserves figure files (PNG) and attaches captions as metadata.
+- If you run an external Docling PDF→Markdown, you can enhance `assemble_page_record` to inject richer markdown per page.
+- Lab 5 benchmarking: flip `AURELIA_VECTOR_BACKEND` to `chroma` and compare latency and cost.
+"""

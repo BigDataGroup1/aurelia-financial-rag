@@ -1,0 +1,1570 @@
+[
+  {
+    "page": 30,
+    "filename": "page_030_formulas.txt",
+    "filepath": "data/extracted/formulas/page_030_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "Bonds = [1000   0",
+        "type": "simple_equation",
+        "context": "of two bonds (the rows) with different par values, coupon rates, and\ncoupon payment frequencies per year (the columns) entered using MATLAB notation:\nBonds = [1000   0.06   2\n          500   0.055  4]\nVector\nA matrix with only one row or column. Described as a \u201c1-by-n\u201d or \u201cm-by-1\u201d matrix. The description is\nalways \u201c"
+      },
+      {
+        "formula": "Cash = [1500   4470   5280   -1299]\nScalar\nA 1-by-1 matrix",
+        "type": "simple_equation",
+        "context": "d as a \u201c1-by-n\u201d or \u201cm-by-1\u201d matrix. The description is\nalways \u201crow-by-column.\u201d For example, here is a 1-by-4 vector of cash flows in MATLAB notation:\nCash = [1500   4470   5280   -1299]\nScalar\nA 1-by-1 matrix; that is, a single number.\nReferencing Matrix Elements\nTo reference specific matrix elements, use (row, column) notation. For example:\nBonds(1,2)\nans"
+      }
+    ]
+  },
+  {
+    "page": 31,
+    "filename": "page_031_formulas.txt",
+    "filepath": "data/extracted/formulas/page_031_formulas.txt",
+    "count": 7,
+    "formulas": [
+      {
+        "formula": "AddBond = [1000   0",
+        "type": "simple_equation",
+        "context": "Cash(3)\nans =\n       5280.00\nYou can enlarge matrices using small matrices or vectors as elements. For example,\nAddBond = [1000   0.065   2];\nBonds = [Bonds; AddBond]\nadds another row to the matrix and creates\nBonds =\n       1000   0.06    2\n        500   0.055   4\n       1000   0"
+      },
+      {
+        "formula": "Bonds = [Bonds",
+        "type": "simple_equation",
+        "context": "Cash(3)\nans =\n       5280.00\nYou can enlarge matrices using small matrices or vectors as elements. For example,\nAddBond = [1000   0.065   2];\nBonds = [Bonds; AddBond]\nadds another row to the matrix and creates\nBonds =\n       1000   0.06    2\n        500   0.055   4\n       1000   0.065   2\nLikewise,\nPrices"
+      },
+      {
+        "formula": "Bonds =\n       1000   0",
+        "type": "simple_equation",
+        "context": "small matrices or vectors as elements. For example,\nAddBond = [1000   0.065   2];\nBonds = [Bonds; AddBond]\nadds another row to the matrix and creates\nBonds =\n       1000   0.06    2\n        500   0.055   4\n       1000   0.065   2\nLikewise,\nPrices = [987.50\n          475.00\n          995.00]\nBonds = [Prices, Bonds]\nadds an"
+      },
+      {
+        "formula": "Prices = [987",
+        "type": "simple_equation",
+        "context": "[Bonds; AddBond]\nadds another row to the matrix and creates\nBonds =\n       1000   0.06    2\n        500   0.055   4\n       1000   0.065   2\nLikewise,\nPrices = [987.50\n          475.00\n          995.00]\nBonds = [Prices, Bonds]\nadds another column and creates\nBonds =\n    987.50   1000   0.06    2\n    475.00    500"
+      },
+      {
+        "formula": "Bonds = [Prices, Bonds]\nadds another column and creates\nBonds =\n    987",
+        "type": "simple_equation",
+        "context": "creates\nBonds =\n       1000   0.06    2\n        500   0.055   4\n       1000   0.065   2\nLikewise,\nPrices = [987.50\n          475.00\n          995.00]\nBonds = [Prices, Bonds]\nadds another column and creates\nBonds =\n    987.50   1000   0.06    2\n    475.00    500   0.055   4\n    995.00   1000   0.065   2\nFinally, the colon (:) is important in generating and referencing m"
+      },
+      {
+        "formula": "BondItems = Bonds(2, 2:4)\nBondItems =\n    500",
+        "type": "simple_equation",
+        "context": "portant in generating and referencing matrix elements. For example, to\nreference the par value, coupon rate, and coupon frequency of the second bond:\nBondItems = Bonds(2, 2:4)\nBondItems =\n    500.00   0.055   4\nTransposing Matrices\nSometimes matrices are in the wrong configuration for an operation. In MATLAB, the apostrophe or\nprime character"
+      },
+      {
+        "formula": "Cash = [1500   4470   5280   -1299]'\nproduces\nCash =\n        1500\n        4470\n        5280\n       -1299\n Analyze Sets of Numbers Using Matrix Functions\n1-5",
+        "type": "simple_equation",
+        "context": "ration for an operation. In MATLAB, the apostrophe or\nprime character (') transposes a matrix: columns become rows, rows become columns. For example,\nCash = [1500   4470   5280   -1299]'\nproduces\nCash =\n        1500\n        4470\n        5280\n       -1299\n Analyze Sets of Numbers Using Matrix Functions\n1-5"
+      }
+    ]
+  },
+  {
+    "page": 33,
+    "filename": "page_033_formulas.txt",
+    "filepath": "data/extracted/formulas/page_033_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "NewPortfolios = Portfolios_PQ + Portfolios_RS\nNewPortfolios =\n        275           325\n        700           600\n        400           650\n Matrix Algebra Refresher\n1-7",
+        "type": "simple_equation",
+        "context": "[100   200\n                 500   400\n                 300   150];\nPortfolios_RS = [175   125\n                 200   200\n                 100   500];\nNewPortfolios = Portfolios_PQ + Portfolios_RS\nNewPortfolios =\n        275           325\n        700           600\n        400           650\n Matrix Algebra Refresher\n1-7"
+      }
+    ]
+  },
+  {
+    "page": 34,
+    "filename": "page_034_formulas.txt",
+    "filepath": "data/extracted/formulas/page_034_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "SmallerPortf = NewPortfolios-10\nSmallerPortf =\n        265",
+        "type": "simple_equation",
+        "context": "Adding or subtracting a scalar and a matrix is allowed and also operates element-by-element.\nSmallerPortf = NewPortfolios-10\nSmallerPortf =\n        265.00        315.00\n        690.00        590.00\n        390.00        640.00\nMultiplying Matrices\nMatrix multiplication does not operate element-by-ele"
+      },
+      {
+        "formula": "ClosePrices = [42",
+        "type": "simple_equation",
+        "context": "ows the same rules and helps illustrate the principles. For example, a stock\nportfolio has three different stocks and their closing prices today are:\nClosePrices = [42.5   15   78.875]\nThe portfolio contains these numbers of shares of each stock.\nNumShares = [100\n             500\n             300]\nTo find the value"
+      },
+      {
+        "formula": "NumShares = [100\n             500\n             300]\nTo find the value of the portfolio, multiply the vectors\nPortfValue = ClosePrices * NumShares\nwhich yields:\nPortfValue =\n            3",
+        "type": "simple_equation",
+        "context": "different stocks and their closing prices today are:\nClosePrices = [42.5   15   78.875]\nThe portfolio contains these numbers of shares of each stock.\nNumShares = [100\n             500\n             300]\nTo find the value of the portfolio, multiply the vectors\nPortfValue = ClosePrices * NumShares\nwhich yields:\nPortfValue =\n            3.5413e+004\nThe vectors are 1-by-3 and 3-by-1; the resulting vector is 1-by-1, a scalar. Multiplying these vectors\nthus means multiplying each closing"
+      },
+      {
+        "formula": "Values = NumShares * ClosePrices\nValues =\n  1",
+        "type": "simple_equation",
+        "context": "iplying each closing price by its respective number of shares and summing the result.\nTo illustrate order dependence, switch the order of the vectors\nValues = NumShares * ClosePrices\nValues =\n  1.0e+004 *\n    0.4250    0.1500    0.7887\n    2.1250    0.7500    3.9438\n    1.2750    0.4500    2.3663\n1\nGetting Started\n1-8"
+      }
+    ]
+  },
+  {
+    "page": 35,
+    "filename": "page_035_formulas.txt",
+    "filepath": "data/extracted/formulas/page_035_formulas.txt",
+    "count": 8,
+    "formulas": [
+      {
+        "formula": "Y = y1, y2, \u2026, yn\nX = x1, x2, \u2026, xn\nthen the dot product\nX \u00b7 Y = x1y1 + x2y2 + \u2026 + xnyn\nis the scalar product of the two vectors",
+        "type": "simple_equation",
+        "context": "folio value, and\nthis is meaningless for this example.\nComputing Dot Products of Vectors\nIn matrix algebra, if X and Y are vectors of the same length\nY = y1, y2, \u2026, yn\nX = x1, x2, \u2026, xn\nthen the dot product\nX \u00b7 Y = x1y1 + x2y2 + \u2026 + xnyn\nis the scalar product of the two vectors. It is an exception to the commutative rule. To compute the\ndot product in MATLAB, use sum(X .* Y) or sum(Y .* X). Be sure that the two vectors have"
+      },
+      {
+        "formula": "Value = sum(NumShares",
+        "type": "simple_equation",
+        "context": "ot product in MATLAB, use sum(X .* Y) or sum(Y .* X). Be sure that the two vectors have the\nsame dimensions. To illustrate, use the previous vectors.\nValue = sum(NumShares .* ClosePrices')\nValue =\n      3.5413e+004\nValue = sum(ClosePrices .* NumShares')\nValue =\n      3.5413e+004\nAs expected, the value in these cases matc"
+      },
+      {
+        "formula": "Value =\n      3",
+        "type": "simple_equation",
+        "context": "r sum(Y .* X). Be sure that the two vectors have the\nsame dimensions. To illustrate, use the previous vectors.\nValue = sum(NumShares .* ClosePrices')\nValue =\n      3.5413e+004\nValue = sum(ClosePrices .* NumShares')\nValue =\n      3.5413e+004\nAs expected, the value in these cases matches the PortfValue computed prev"
+      },
+      {
+        "formula": "Value = sum(ClosePrices",
+        "type": "simple_equation",
+        "context": "t the two vectors have the\nsame dimensions. To illustrate, use the previous vectors.\nValue = sum(NumShares .* ClosePrices')\nValue =\n      3.5413e+004\nValue = sum(ClosePrices .* NumShares')\nValue =\n      3.5413e+004\nAs expected, the value in these cases matches the PortfValue computed previously.\nMultiplying Vectors and Mat"
+      },
+      {
+        "formula": "Value =\n      3",
+        "type": "simple_equation",
+        "context": "ons. To illustrate, use the previous vectors.\nValue = sum(NumShares .* ClosePrices')\nValue =\n      3.5413e+004\nValue = sum(ClosePrices .* NumShares')\nValue =\n      3.5413e+004\nAs expected, the value in these cases matches the PortfValue computed previously.\nMultiplying Vectors and Matrices\nMultiplying vectors and"
+      },
+      {
+        "formula": "WeekClosePr = [42",
+        "type": "simple_equation",
+        "context": "process. For example, a\nportfolio matrix contains closing prices for a week. A second matrix (vector) contains the stock\nquantities in the portfolio.\nWeekClosePr = [42.5     15      78.875\n               42.125   15.5    78.75\n               42.125   15.125  79\n               42.625   15.25   78.875\n               4"
+      },
+      {
+        "formula": "PortQuan = [100\n            500\n            300]",
+        "type": "simple_equation",
+        "context": "42.125   15.5    78.75\n               42.125   15.125  79\n               42.625   15.25   78.875\n               43       15.25   78.625];\nPortQuan = [100\n            500\n            300];\nTo see the closing portfolio value for each day, simply multiply\nWeekPortValue = WeekClosePr * PortQuan\nWeekPortValue =\n1.0e+004 *\n    3.5412\n    3."
+      },
+      {
+        "formula": "WeekPortValue = WeekClosePr * PortQuan\nWeekPortValue =\n1",
+        "type": "simple_equation",
+        "context": "43       15.25   78.625];\nPortQuan = [100\n            500\n            300];\nTo see the closing portfolio value for each day, simply multiply\nWeekPortValue = WeekClosePr * PortQuan\nWeekPortValue =\n1.0e+004 *\n    3.5412\n    3.5587\n Matrix Algebra Refresher\n1-9"
+      }
+    ]
+  },
+  {
+    "page": 36,
+    "filename": "page_036_formulas.txt",
+    "filepath": "data/extracted/formulas/page_036_formulas.txt",
+    "count": 3,
+    "formulas": [
+      {
+        "formula": "A =\na11 a12 \u22efa1n\n\u22ee\n\u22ee\n\u22ee\nai1\nai2 \u22efain\n\u22ee\n\u22ee\n\u22ee\nam1 am2 \u22efamn\n, \u00a0\u00a0B =\nb11 \u22efb1 j \u22efb1p\nb21 \u22efb2 j \u22efb2p\n\u22ee\n\u22ee\n\u22ee\nbn1 \u22efbn j \u22efbnp\nthen C = A*B is an m-by-p matrix",
+        "type": "simple_equation",
+        "context": "rices\nMatrix multiplication also follows the rules of matrix algebra. In matrix algebra notation, if A is an m-\nby-n matrix and B is an n-by-p matrix\nA =\na11 a12 \u22efa1n\n\u22ee\n\u22ee\n\u22ee\nai1\nai2 \u22efain\n\u22ee\n\u22ee\n\u22ee\nam1 am2 \u22efamn\n, \u00a0\u00a0B =\nb11 \u22efb1 j \u22efb1p\nb21 \u22efb2 j \u22efb2p\n\u22ee\n\u22ee\n\u22ee\nbn1 \u22efbn j \u22efbnp\nthen C = A*B is an m-by-p matrix; and the element cij in the ith row and jth column of C is\nci j = ai1b1 j + ai2b12 + \u2026 + ainbn j .\nTo illustrate, assume that there are two portfolio"
+      },
+      {
+        "formula": "Portfolios = [100   200\n              500   400\n              300   150]",
+        "type": "simple_equation",
+        "context": "2b12 + \u2026 + ainbn j .\nTo illustrate, assume that there are two portfolios of the same three stocks previously mentioned but\nwith different quantities.\nPortfolios = [100   200\n              500   400\n              300   150];\nMultiplying the 5-by-3 week's closing prices matrix by the 3-by-2 portfolios matrix yields a 5-by-2\nmatrix showing each day's closing value for both"
+      },
+      {
+        "formula": "PortfolioValues = WeekClosePr * Portfolios\nPortfolioValues =\n1",
+        "type": "simple_equation",
+        "context": "the 5-by-3 week's closing prices matrix by the 3-by-2 portfolios matrix yields a 5-by-2\nmatrix showing each day's closing value for both portfolios.\nPortfolioValues = WeekClosePr * Portfolios\nPortfolioValues =\n1.0e+004 *\n    3.5412    2.6331\n    3.5587    2.6437\n    3.5475    2.6325\n    3.5550    2.6456\n    3.5513    2.6494\nMonday's values result from multipl"
+      }
+    ]
+  },
+  {
+    "page": 37,
+    "filename": "page_037_formulas.txt",
+    "filepath": "data/extracted/formulas/page_037_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "Portfolios = [100   200\n              500   400\n              300   150]",
+        "type": "simple_equation",
+        "context": "Portfolios = [100   200\n              500   400\n              300   150];\nDoublePort = Portfolios * 2\nDoublePort =\n        200           400\n       1000           800\n        600           300\nDividing Matrices\nMatrix divi"
+      },
+      {
+        "formula": "DoublePort = Portfolios * 2\nDoublePort =\n        200           400\n       1000           800\n        600           300\nDividing Matrices\nMatrix division is useful primarily for solving equations, and especially for solving simultaneous linear\nequations (see \u201cSolving Simultaneous Linear Equations\u201d on page 1-11)",
+        "type": "simple_equation",
+        "context": "Portfolios = [100   200\n              500   400\n              300   150];\nDoublePort = Portfolios * 2\nDoublePort =\n        200           400\n       1000           800\n        600           300\nDividing Matrices\nMatrix division is useful primarily for solving equations, and especially for solving simultaneous linear\nequations (see \u201cSolving Simultaneous Linear Equations\u201d on page 1-11). For example, you want to\nsolve for X in A*X = B.\nIn ordinary algebra, you would divide both sides of the equation by A, and X would equal B/A.\nHowev"
+      },
+      {
+        "formula": "X = B",
+        "type": "simple_equation",
+        "context": "ially for solving simultaneous linear\nequations (see \u201cSolving Simultaneous Linear Equations\u201d on page 1-11). For example, you want to\nsolve for X in A*X = B.\nIn ordinary algebra, you would divide both sides of the equation by A, and X would equal B/A.\nHowever, since matrix algebra is not commutative (A*X"
+      },
+      {
+        "formula": "X = A\\B solves for X in A*X = B and\nX = B/A solves for X in X*A = B",
+        "type": "simple_equation",
+        "context": "on involves matrix inversion. MATLAB, however, simplifies the process by\nproviding two matrix division symbols, left and right (\\ and /). In general,\nX = A\\B solves for X in A*X = B and\nX = B/A solves for X in X*A = B.\nIn general, matrix A must be a nonsingular square matrix; that is, it must be invertible and it must\nhave the same number of rows and columns. (Gene"
+      }
+    ]
+  },
+  {
+    "page": 38,
+    "filename": "page_038_formulas.txt",
+    "filepath": "data/extracted/formulas/page_038_formulas.txt",
+    "count": 12,
+    "formulas": [
+      {
+        "formula": "$100 and $",
+        "type": "latex_inline",
+        "context": "To illustrate, consider this situation. There are two portfolios of mortgage-based instruments, M1 and\nM2. They have current annual cash payments of $100 and $70 per unit, respectively, based on today's\nprime rate. If the prime rate moves down one percentage point, their payments would be $80 and\n$40. An inv"
+      },
+      {
+        "formula": "$80 and\n$",
+        "type": "latex_inline",
+        "context": "ments of $100 and $70 per unit, respectively, based on today's\nprime rate. If the prime rate moves down one percentage point, their payments would be $80 and\n$40. An investor holds 10 units of M1 and 20 units of M2. The investor's receipts equal cash\npayments times units, or R = C * U, for each prime-rate sc"
+      },
+      {
+        "formula": "$100 * 10 units\n+ $",
+        "type": "latex_inline",
+        "context": "ts of M2. The investor's receipts equal cash\npayments times units, or R = C * U, for each prime-rate scenario. As word equations:\n \nM1\nM2\nPrime flat:\n$100 * 10 units\n+ $70 * 20 units = $2400\nreceipts\nPrime down:\n$80 * 10 units\n+ $40 * 20 units = $1600\nreceipts\nAs MATLAB matrices:\n1\nGetting Started\n1-12"
+      },
+      {
+        "formula": "$2400\nreceipts\nPrime down:\n$",
+        "type": "latex_inline",
+        "context": "qual cash\npayments times units, or R = C * U, for each prime-rate scenario. As word equations:\n \nM1\nM2\nPrime flat:\n$100 * 10 units\n+ $70 * 20 units = $2400\nreceipts\nPrime down:\n$80 * 10 units\n+ $40 * 20 units = $1600\nreceipts\nAs MATLAB matrices:\n1\nGetting Started\n1-12"
+      },
+      {
+        "formula": "$40 * 20 units = $",
+        "type": "latex_inline",
+        "context": ", for each prime-rate scenario. As word equations:\n \nM1\nM2\nPrime flat:\n$100 * 10 units\n+ $70 * 20 units = $2400\nreceipts\nPrime down:\n$80 * 10 units\n+ $40 * 20 units = $1600\nreceipts\nAs MATLAB matrices:\n1\nGetting Started\n1-12"
+      },
+      {
+        "formula": "A = 2\n1\n1 \u22123 ,\u00a0\u00a0\u00a0\u00a0\u00a0X = x\ny ,\u00a0\u00a0\u00a0\u00a0\u00a0B =\n13\n\u221218 ,\nwhere A*X = B",
+        "type": "simple_equation",
+        "context": "epresents this system as an equation\ninvolving three matrices: A for the left-side constants, X for the variables, and B for the right-side\nconstants\nA = 2\n1\n1 \u22123 ,\u00a0\u00a0\u00a0\u00a0\u00a0X = x\ny ,\u00a0\u00a0\u00a0\u00a0\u00a0B =\n13\n\u221218 ,\nwhere A*X = B.\nSolving the system simultaneously means solving for X. Using MATLAB,\nA = [2  1\n     1 -3];\nB = [13\n    -18];\nX = A \\ B\nsolves for X in A * X = B.\nX"
+      },
+      {
+        "formula": "A = [2  1\n     1 -3]",
+        "type": "simple_equation",
+        "context": "ight-side\nconstants\nA = 2\n1\n1 \u22123 ,\u00a0\u00a0\u00a0\u00a0\u00a0X = x\ny ,\u00a0\u00a0\u00a0\u00a0\u00a0B =\n13\n\u221218 ,\nwhere A*X = B.\nSolving the system simultaneously means solving for X. Using MATLAB,\nA = [2  1\n     1 -3];\nB = [13\n    -18];\nX = A \\ B\nsolves for X in A * X = B.\nX = [3 7]\nSo x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve"
+      },
+      {
+        "formula": "B = [13\n    -18]",
+        "type": "simple_equation",
+        "context": "= 2\n1\n1 \u22123 ,\u00a0\u00a0\u00a0\u00a0\u00a0X = x\ny ,\u00a0\u00a0\u00a0\u00a0\u00a0B =\n13\n\u221218 ,\nwhere A*X = B.\nSolving the system simultaneously means solving for X. Using MATLAB,\nA = [2  1\n     1 -3];\nB = [13\n    -18];\nX = A \\ B\nsolves for X in A * X = B.\nX = [3 7]\nSo x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of\nlin"
+      },
+      {
+        "formula": "X = A \\ B\nsolves for X in A * X = B",
+        "type": "simple_equation",
+        "context": "= x\ny ,\u00a0\u00a0\u00a0\u00a0\u00a0B =\n13\n\u221218 ,\nwhere A*X = B.\nSolving the system simultaneously means solving for X. Using MATLAB,\nA = [2  1\n     1 -3];\nB = [13\n    -18];\nX = A \\ B\nsolves for X in A * X = B.\nX = [3 7]\nSo x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of\nlinear equations such as\na11x1 + a12x2 +"
+      },
+      {
+        "formula": "X = [3 7]\nSo x = 3 and y = 7 in this example",
+        "type": "simple_equation",
+        "context": "B.\nSolving the system simultaneously means solving for X. Using MATLAB,\nA = [2  1\n     1 -3];\nB = [13\n    -18];\nX = A \\ B\nsolves for X in A * X = B.\nX = [3 7]\nSo x = 3 and y = 7 in this example. In general, you can use matrix algebra to solve any system of\nlinear equations such as\na11x1 + a12x2 + \u2026 + a1nxn = b1\na21x1 + a22x2 + \u2026 + a2nxn = b2"
+      },
+      {
+        "formula": "A =\na11 a12 \u22efa1n\na21 a22 \u22efa2n\n\u22ee\n\u22ee\n\u22ee\nam1 am2 \u22efamn\n, \u00a0\u00a0\u00a0\u00a0\u00a0X =\nx1\nx2\n\u22ee\nxn\n, \u00a0\u00a0\u00a0\u00a0\u00a0B =\nb1\nb2\n\u22ee\nbm\nand solving for X in A*X = B",
+        "type": "simple_equation",
+        "context": "ear equations such as\na11x1 + a12x2 + \u2026 + a1nxn = b1\na21x1 + a22x2 + \u2026 + a2nxn = b2\n\u22ee\nam1x1 + am2x2 + \u2026 + amnxn = bm\nby representing them as matrices\nA =\na11 a12 \u22efa1n\na21 a22 \u22efa2n\n\u22ee\n\u22ee\n\u22ee\nam1 am2 \u22efamn\n, \u00a0\u00a0\u00a0\u00a0\u00a0X =\nx1\nx2\n\u22ee\nxn\n, \u00a0\u00a0\u00a0\u00a0\u00a0B =\nb1\nb2\n\u22ee\nbm\nand solving for X in A*X = B.\nTo illustrate, consider this situation. There are two portfolios of mortgage-based instruments, M1 and\nM2. They have current annual cash payments of"
+      },
+      {
+        "formula": "R = C * U, for each prime-rate scenario",
+        "type": "simple_equation",
+        "context": "their payments would be $80 and\n$40. An investor holds 10 units of M1 and 20 units of M2. The investor's receipts equal cash\npayments times units, or R = C * U, for each prime-rate scenario. As word equations:\n \nM1\nM2\nPrime flat:\n$100 * 10 units\n+ $70 * 20 units = $2400\nreceipts\nPrime down:\n$80 * 10 units\n+ $40 * 20 units = $1600\nreceipt"
+      }
+    ]
+  },
+  {
+    "page": 39,
+    "filename": "page_039_formulas.txt",
+    "filepath": "data/extracted/formulas/page_039_formulas.txt",
+    "count": 13,
+    "formulas": [
+      {
+        "formula": "$7000 if the prime rate stays flat and $",
+        "type": "latex_inline",
+        "context": "1600\nNow the investor asks this question: Given these two portfolios and their characteristics, how many\nunits of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime\ndrops one percentage point? Find the answer by solving two linear equations.\n \nM1\nM2\nPrime flat:\n$100 * x units\n+ $70 * y units = $7"
+      },
+      {
+        "formula": "$100 * x units\n+ $",
+        "type": "latex_inline",
+        "context": "if the prime rate stays flat and $5000 if the prime\ndrops one percentage point? Find the answer by solving two linear equations.\n \nM1\nM2\nPrime flat:\n$100 * x units\n+ $70 * y units = $7000\nreceipts\nPrime down:\n$80 * x units\n+ $40 * y units = $5000\nreceipts\nIn other words, solve for U (units) in the equation R (receip"
+      },
+      {
+        "formula": "$7000\nreceipts\nPrime down:\n$",
+        "type": "latex_inline",
+        "context": "$5000 if the prime\ndrops one percentage point? Find the answer by solving two linear equations.\n \nM1\nM2\nPrime flat:\n$100 * x units\n+ $70 * y units = $7000\nreceipts\nPrime down:\n$80 * x units\n+ $40 * y units = $5000\nreceipts\nIn other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB\nle"
+      },
+      {
+        "formula": "$40 * y units = $",
+        "type": "latex_inline",
+        "context": "int? Find the answer by solving two linear equations.\n \nM1\nM2\nPrime flat:\n$100 * x units\n+ $70 * y units = $7000\nreceipts\nPrime down:\n$80 * x units\n+ $40 * y units = $5000\nreceipts\nIn other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB\nleft division\nCash = [100  70"
+      },
+      {
+        "formula": "Cash = [100  70\n         80  40]",
+        "type": "simple_equation",
+        "context": "Cash = [100  70\n         80  40];\nUnits = [10\n        20];\nReceipts = Cash * Units\nReceipts =\n       2400\n       1600\nNow the investor asks this question: Given these two portfolios"
+      },
+      {
+        "formula": "Units = [10\n        20]",
+        "type": "simple_equation",
+        "context": "Cash = [100  70\n         80  40];\nUnits = [10\n        20];\nReceipts = Cash * Units\nReceipts =\n       2400\n       1600\nNow the investor asks this question: Given these two portfolios and their characteristics"
+      },
+      {
+        "formula": "Receipts = Cash * Units\nReceipts =\n       2400\n       1600\nNow the investor asks this question: Given these two portfolios and their characteristics, how many\nunits of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime\ndrops one percentage point? Find the answer by solving two linear equations",
+        "type": "simple_equation",
+        "context": "Cash = [100  70\n         80  40];\nUnits = [10\n        20];\nReceipts = Cash * Units\nReceipts =\n       2400\n       1600\nNow the investor asks this question: Given these two portfolios and their characteristics, how many\nunits of each should they hold to receive $7000 if the prime rate stays flat and $5000 if the prime\ndrops one percentage point? Find the answer by solving two linear equations.\n \nM1\nM2\nPrime flat:\n$100 * x units\n+ $70 * y units = $7000\nreceipts\nPrime down:\n$80 * x units\n+ $40 * y units = $5000\nreceipts\nIn other words, solve"
+      },
+      {
+        "formula": "Cash = [100  70\n         80  40]",
+        "type": "simple_equation",
+        "context": "+ $40 * y units = $5000\nreceipts\nIn other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB\nleft division\nCash = [100  70\n         80  40];\nReceipts = [7000\n            5000];\nUnits = Cash \\ Receipts\nUnits =\n         43.7500\n         37.5000\nThe investor should hold 43.75 units of portfo"
+      },
+      {
+        "formula": "Receipts = [7000\n            5000]",
+        "type": "simple_equation",
+        "context": "In other words, solve for U (units) in the equation R (receipts) = C (cash) * U (units). Using MATLAB\nleft division\nCash = [100  70\n         80  40];\nReceipts = [7000\n            5000];\nUnits = Cash \\ Receipts\nUnits =\n         43.7500\n         37.5000\nThe investor should hold 43.75 units of portfolio M1 and 37.5 units of portfolio M"
+      },
+      {
+        "formula": "Units = Cash \\ Receipts\nUnits =\n         43",
+        "type": "simple_equation",
+        "context": "in the equation R (receipts) = C (cash) * U (units). Using MATLAB\nleft division\nCash = [100  70\n         80  40];\nReceipts = [7000\n            5000];\nUnits = Cash \\ Receipts\nUnits =\n         43.7500\n         37.5000\nThe investor should hold 43.75 units of portfolio M1 and 37.5 units of portfolio M2 to achieve the\nannual receipts desired.\nOpe"
+      },
+      {
+        "formula": "Dividends = [1",
+        "type": "simple_equation",
+        "context": "g array\noperations on two matrices, the dimensions of the matrices must be the same. For example, given\nvectors of stock dividends and closing prices\nDividends = [1.90  0.40  1.56  4.50];\nPrices = [25.625  17.75  26.125  60.50];\nYields = Dividends ./ Prices\n Matrix Algebra Refresher\n1-13"
+      },
+      {
+        "formula": "Prices = [25",
+        "type": "simple_equation",
+        "context": "e dimensions of the matrices must be the same. For example, given\nvectors of stock dividends and closing prices\nDividends = [1.90  0.40  1.56  4.50];\nPrices = [25.625  17.75  26.125  60.50];\nYields = Dividends ./ Prices\n Matrix Algebra Refresher\n1-13"
+      },
+      {
+        "formula": "Yields = Dividends",
+        "type": "simple_equation",
+        "context": "same. For example, given\nvectors of stock dividends and closing prices\nDividends = [1.90  0.40  1.56  4.50];\nPrices = [25.625  17.75  26.125  60.50];\nYields = Dividends ./ Prices\n Matrix Algebra Refresher\n1-13"
+      }
+    ]
+  },
+  {
+    "page": 40,
+    "filename": "page_040_formulas.txt",
+    "filepath": "data/extracted/formulas/page_040_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "Yields =\n    0",
+        "type": "simple_equation",
+        "context": "Yields =\n    0.0741    0.0225    0.0597    0.0744\nSee Also\nMore About\n\u2022\n\u201cAnalyze Sets of Numbers Using Matrix Functions\u201d on page 1-4\n\u2022\n\u201cUsing Input and Output Argum"
+      }
+    ]
+  },
+  {
+    "page": 41,
+    "filename": "page_041_formulas.txt",
+    "filepath": "data/extracted/formulas/page_041_formulas.txt",
+    "count": 6,
+    "formulas": [
+      {
+        "formula": "$100, from which you then receive by\na series of annual cash receipts of $",
+        "type": "latex_inline",
+        "context": "the columns of the input matrix. Many other Financial\nToolbox functions work similarly.\nAs an example, suppose that you make an initial investment of $100, from which you then receive by\na series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a\nvector\nCashFlows = [-100 10 20 30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30"
+      },
+      {
+        "formula": "$20, $",
+        "type": "latex_inline",
+        "context": "imilarly.\nAs an example, suppose that you make an initial investment of $100, from which you then receive by\na series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a\nvector\nCashFlows = [-100 10 20 30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30\n    40\n    50"
+      },
+      {
+        "formula": "$40, and $",
+        "type": "latex_inline",
+        "context": "As an example, suppose that you make an initial investment of $100, from which you then receive by\na series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a\nvector\nCashFlows = [-100 10 20 30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30\n    40\n    50\nUse the irr f"
+      },
+      {
+        "formula": "CashFlows = [-100 10 20 30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30\n    40\n    50\nUse the irr function to compute the internal rate of return of the cash flow stream",
+        "type": "simple_equation",
+        "context": "of $100, from which you then receive by\na series of annual cash receipts of $10, $20, $30, $40, and $50. This cash flow stream is stored in a\nvector\nCashFlows = [-100 10 20 30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30\n    40\n    50\nUse the irr function to compute the internal rate of return of the cash flow stream.\nRate = irr(CashFlows)\nRate =\n    0.1201\nFor the single cash flow stream CashFlows, the function returns a scalar rate of return of 0.1201, or\n12.01%"
+      },
+      {
+        "formula": "Rate = irr(CashFlows)\nRate =\n    0",
+        "type": "simple_equation",
+        "context": "30 40 50]'\nCashFlows =\n  -100\n    10\n    20\n    30\n    40\n    50\nUse the irr function to compute the internal rate of return of the cash flow stream.\nRate = irr(CashFlows)\nRate =\n    0.1201\nFor the single cash flow stream CashFlows, the function returns a scalar rate of return of 0.1201, or\n12.01%.\nNow, use the irr function to compu"
+      },
+      {
+        "formula": "Rate = irr([CashFlows CashFlows CashFlows])\n Using Input and Output Arguments with Functions\n1-15",
+        "type": "simple_equation",
+        "context": "n returns a scalar rate of return of 0.1201, or\n12.01%.\nNow, use the irr function to compute internal rates of return for multiple cash flow streams.\nRate = irr([CashFlows CashFlows CashFlows])\n Using Input and Output Arguments with Functions\n1-15"
+      }
+    ]
+  },
+  {
+    "page": 42,
+    "filename": "page_042_formulas.txt",
+    "filepath": "data/extracted/formulas/page_042_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "Rate =\n    0",
+        "type": "simple_equation",
+        "context": "Rate =\n    0.1201    0.1201    0.1201\nMATLAB performs the same computation on all the assets at once. For the three cash flow streams,\nthe irr function returns a"
+      },
+      {
+        "formula": "DateCharacterVector = '9/16/2017'\nThis date character vector is actually a 1-by-9 vector",
+        "type": "simple_equation",
+        "context": "e quotes ('character vector').\nA character vector is stored as a character array, one ASCII character per element. Thus, the date\ncharacter vector is\nDateCharacterVector = '9/16/2017'\nThis date character vector is actually a 1-by-9 vector. If you create a vector or matrix of character\nvectors, each character vector must have the same length. Using a column vector to create a vector\nof"
+      },
+      {
+        "formula": "DateFields = ['01/12/2017'\n              '02/14/2017'\n              '03/03/2017'\n              '06/14/2017'\n              '12/01/2017']",
+        "type": "simple_equation",
+        "context": "s are the same length. If\nyour character vectors are not the same length, use spaces or zeros to make them the same length, as\nin the following code.\nDateFields = ['01/12/2017'\n              '02/14/2017'\n              '03/03/2017'\n              '06/14/2017'\n              '12/01/2017'];\nDateFields is a 5-by-10 array of character vectors.\nYou cannot mix numbers and character vectors in a vector or matrix. If you input a vector or mat"
+      },
+      {
+        "formula": "Item = [83  90  99 '14-Sep-1999']\nItem =\nSZc14-Sep-1999\nThe software understands the input not as a 1-by-4 vector, but as a 1-by-14 character array with the\nvalue SZc14-Sep-1999",
+        "type": "simple_equation",
+        "context": "tor or matrix\nthat contains a mix of numbers and character vectors, MATLAB treats every entry as a character. As\nan example, input the following code\nItem = [83  90  99 '14-Sep-1999']\nItem =\nSZc14-Sep-1999\nThe software understands the input not as a 1-by-4 vector, but as a 1-by-14 character array with the\nvalue SZc14-Sep-1999.\nOutput Arguments\nSome functions return no arguments, some return just one, and some return multiple arguments.\nFunctions that return multiple argume"
+      }
+    ]
+  },
+  {
+    "page": 43,
+    "filename": "page_043_formulas.txt",
+    "filepath": "data/extracted/formulas/page_043_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "X = function(input_arguments",
+        "type": "simple_equation",
+        "context": "X = function(input_arguments...)\nthe function returns a value for A, but not for B or C.\nSome functions that return vectors accept only scalars as arguments. Such functions canno"
+      }
+    ]
+  },
+  {
+    "page": 48,
+    "filename": "page_048_formulas.txt",
+    "filepath": "data/extracted/formulas/page_048_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "S = char(t)",
+        "type": "simple_equation",
+        "context": "rent date and time to a timestamp to append to a file name.\nt = datetime('now','Format','yyyy-MM-dd''T''HHmmss')\nt = \n  datetime\n   2016-12-11T125628\nS = char(t);\nfilename = ['myTest_',S]\nfilename =\n    'myTest_2016-12-11T125628'\nConvert Serial Date Numbers to Datetime Arrays\nSerial time can represent fraction"
+      }
+    ]
+  },
+  {
+    "page": 50,
+    "filename": "page_050_formulas.txt",
+    "filepath": "data/extracted/formulas/page_050_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "Yield       = 0",
+        "type": "simple_equation",
+        "context": "hat computes the price of a bond given the yield to\nmaturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.\nYield       = 0.07;\nCouponRate  = 0.08;\nSettle      = datenum('17-May-2000');\nMaturity    = datenum('01-Oct-2000');\nThen call the function with the variables.\nbndpri"
+      },
+      {
+        "formula": "CouponRate  = 0",
+        "type": "simple_equation",
+        "context": "ce of a bond given the yield to\nmaturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.\nYield       = 0.07;\nCouponRate  = 0.08;\nSettle      = datenum('17-May-2000');\nMaturity    = datenum('01-Oct-2000');\nThen call the function with the variables.\nbndprice(Yield,CouponRate,"
+      },
+      {
+        "formula": "Settle      = datenum('17-May-2000')",
+        "type": "simple_equation",
+        "context": "he yield to\nmaturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.\nYield       = 0.07;\nCouponRate  = 0.08;\nSettle      = datenum('17-May-2000');\nMaturity    = datenum('01-Oct-2000');\nThen call the function with the variables.\nbndprice(Yield,CouponRate,Settle,Maturity)\nans =\n  100.3503\nAlterna"
+      },
+      {
+        "formula": "Maturity    = datenum('01-Oct-2000')",
+        "type": "simple_equation",
+        "context": "iables for the yield to maturity, coupon rate, and the necessary dates.\nYield       = 0.07;\nCouponRate  = 0.08;\nSettle      = datenum('17-May-2000');\nMaturity    = datenum('01-Oct-2000');\nThen call the function with the variables.\nbndprice(Yield,CouponRate,Settle,Maturity)\nans =\n  100.3503\nAlternatively, convert date character vectors"
+      }
+    ]
+  },
+  {
+    "page": 52,
+    "filename": "page_052_formulas.txt",
+    "filepath": "data/extracted/formulas/page_052_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "Fridates = lweekdate(6,2000,1:12)",
+        "type": "simple_equation",
+        "context": "cedure for the last Friday of every month. Use the lweekdate\nfunction to return those dates for the year 2000. The input argument 6 specifies Friday.\nFridates = lweekdate(6,2000,1:12);\nFridays = datestr(Fridates)\nFridays =\n  12\u00d711 char array\n    '28-Jan-2000'\n    '25-Feb-2000'\n    '31-Mar-2000'\n    '28-Apr-2000'\n    '26-May-2000'"
+      },
+      {
+        "formula": "Fridays = datestr(Fridates)\nFridays =\n  12\u00d711 char array\n    '28-Jan-2000'\n    '25-Feb-2000'\n    '31-Mar-2000'\n    '28-Apr-2000'\n    '26-May-2000'\n    '30-Jun-2000'\n    '28-Jul-2000'\n    '25-Aug-2000'\n    '29-Sep-2000'\n    '27-Oct-2000'\n    '24-Nov-2000'\n    '29-Dec-2000'\nAnother example of needing specific dates could be that your company closes on Martin Luther King\nJr",
+        "type": "simple_equation",
+        "context": "month. Use the lweekdate\nfunction to return those dates for the year 2000. The input argument 6 specifies Friday.\nFridates = lweekdate(6,2000,1:12);\nFridays = datestr(Fridates)\nFridays =\n  12\u00d711 char array\n    '28-Jan-2000'\n    '25-Feb-2000'\n    '31-Mar-2000'\n    '28-Apr-2000'\n    '26-May-2000'\n    '30-Jun-2000'\n    '28-Jul-2000'\n    '25-Aug-2000'\n    '29-Sep-2000'\n    '27-Oct-2000'\n    '24-Nov-2000'\n    '29-Dec-2000'\nAnother example of needing specific dates could be that your company closes on Martin Luther King\nJr. Day, which is the third Monday in January. You can use the nweekdate function to determine those\nspecific dates for 2011 through 2014.\nMLKDates = nw"
+      },
+      {
+        "formula": "MLKDates = nweekdate(3,2,2011:2014,1)",
+        "type": "simple_equation",
+        "context": "uther King\nJr. Day, which is the third Monday in January. You can use the nweekdate function to determine those\nspecific dates for 2011 through 2014.\nMLKDates = nweekdate(3,2,2011:2014,1);\nMLKDays = datestr(MLKDates)\nMLKDays =\n  4\u00d711 char array\n    '17-Jan-2011'\n    '16-Jan-2012'\n    '21-Jan-2013'\n    '20-Jan-2014'\nDetermining Holidays"
+      },
+      {
+        "formula": "MLKDays = datestr(MLKDates)\nMLKDays =\n  4\u00d711 char array\n    '17-Jan-2011'\n    '16-Jan-2012'\n    '21-Jan-2013'\n    '20-Jan-2014'\nDetermining Holidays\nAccounting for holidays and other nontrading days is important when you examine financial dates",
+        "type": "simple_equation",
+        "context": "Monday in January. You can use the nweekdate function to determine those\nspecific dates for 2011 through 2014.\nMLKDates = nweekdate(3,2,2011:2014,1);\nMLKDays = datestr(MLKDates)\nMLKDays =\n  4\u00d711 char array\n    '17-Jan-2011'\n    '16-Jan-2012'\n    '21-Jan-2013'\n    '20-Jan-2014'\nDetermining Holidays\nAccounting for holidays and other nontrading days is important when you examine financial dates.\nFinancial Toolbox provides the holidays function, which contains holidays and special nontrading\ndays for the New York Stock Exchange from 1950 thro"
+      }
+    ]
+  },
+  {
+    "page": 53,
+    "filename": "page_053_formulas.txt",
+    "filepath": "data/extracted/formulas/page_053_formulas.txt",
+    "count": 6,
+    "formulas": [
+      {
+        "formula": "LHHDates = holidays('1-Jul-2012','31-Dec-2012')",
+        "type": "simple_equation",
+        "context": "osures between the dates StartDate and EndDate, inclusive.\nIn this example, use holidays to determine the standard holidays in the last half of 2012.\nLHHDates = holidays('1-Jul-2012','31-Dec-2012');\nLHHDays = datestr(LHHDates)\nLHHDays =\n  6\u00d711 char array\n    '04-Jul-2012'\n    '03-Sep-2012'\n    '29-Oct-2012'\n    '30-Oct-2012'\n    '22-Nov-2012'"
+      },
+      {
+        "formula": "LHHDays = datestr(LHHDates)\nLHHDays =\n  6\u00d711 char array\n    '04-Jul-2012'\n    '03-Sep-2012'\n    '29-Oct-2012'\n    '30-Oct-2012'\n    '22-Nov-2012'\n    '25-Dec-2012'\nYou can then use the busdate function to determine the next business day in 2012 after these\nholidays",
+        "type": "simple_equation",
+        "context": "nclusive.\nIn this example, use holidays to determine the standard holidays in the last half of 2012.\nLHHDates = holidays('1-Jul-2012','31-Dec-2012');\nLHHDays = datestr(LHHDates)\nLHHDays =\n  6\u00d711 char array\n    '04-Jul-2012'\n    '03-Sep-2012'\n    '29-Oct-2012'\n    '30-Oct-2012'\n    '22-Nov-2012'\n    '25-Dec-2012'\nYou can then use the busdate function to determine the next business day in 2012 after these\nholidays.\nLHNextDates = busdate(LHHDates);\nLHNextDays = datestr(LHNextDates)\nLHNextDays =\n  6\u00d711 char array\n    '05-Jul-2012'\n    '04-Sep-2012'\n    '31-Oct-20"
+      },
+      {
+        "formula": "LHNextDates = busdate(LHHDates)",
+        "type": "simple_equation",
+        "context": "-Oct-2012'\n    '22-Nov-2012'\n    '25-Dec-2012'\nYou can then use the busdate function to determine the next business day in 2012 after these\nholidays.\nLHNextDates = busdate(LHHDates);\nLHNextDays = datestr(LHNextDates)\nLHNextDays =\n  6\u00d711 char array\n    '05-Jul-2012'\n    '04-Sep-2012'\n    '31-Oct-2012'\n    '31-Oct-2012'\n    '23-Nov"
+      },
+      {
+        "formula": "LHNextDays = datestr(LHNextDates)\nLHNextDays =\n  6\u00d711 char array\n    '05-Jul-2012'\n    '04-Sep-2012'\n    '31-Oct-2012'\n    '31-Oct-2012'\n    '23-Nov-2012'\n    '26-Dec-2012'\nDetermining Cash-Flow Dates\nTo determine cash-flow dates for securities with periodic payments, use cfdates",
+        "type": "simple_equation",
+        "context": "'25-Dec-2012'\nYou can then use the busdate function to determine the next business day in 2012 after these\nholidays.\nLHNextDates = busdate(LHHDates);\nLHNextDays = datestr(LHNextDates)\nLHNextDays =\n  6\u00d711 char array\n    '05-Jul-2012'\n    '04-Sep-2012'\n    '31-Oct-2012'\n    '31-Oct-2012'\n    '23-Nov-2012'\n    '26-Dec-2012'\nDetermining Cash-Flow Dates\nTo determine cash-flow dates for securities with periodic payments, use cfdates. This function\naccounts for the coupons per year, the day-count basis, and the end-of-month rule. For example, you\ncan determine the cash-flow dates"
+      },
+      {
+        "formula": "PayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1)",
+        "type": "simple_equation",
+        "context": "using an actual/365 day-count basis. To do so, enter the settlement date, the maturity\ndate, and the parameters for Period, Basis, and EndMonthRule.\nPayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1);\nPayDays = datestr(PayDates)\nPayDays =\n  7\u00d711 char array\n    '31-May-2000'\n    '31-Aug-2000'\n    '30-Nov-2000'\n    '28-Feb-2001'\n    '31-May-2001'"
+      },
+      {
+        "formula": "PayDays = datestr(PayDates)\nPayDays =\n  7\u00d711 char array\n    '31-May-2000'\n    '31-Aug-2000'\n    '30-Nov-2000'\n    '28-Feb-2001'\n    '31-May-2001'\n    '31-Aug-2001'\n    '30-Nov-2001'\n Handle and Convert Dates\n2-9",
+        "type": "simple_equation",
+        "context": "he settlement date, the maturity\ndate, and the parameters for Period, Basis, and EndMonthRule.\nPayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1);\nPayDays = datestr(PayDates)\nPayDays =\n  7\u00d711 char array\n    '31-May-2000'\n    '31-Aug-2000'\n    '30-Nov-2000'\n    '28-Feb-2001'\n    '31-May-2001'\n    '31-Aug-2001'\n    '30-Nov-2001'\n Handle and Convert Dates\n2-9"
+      }
+    ]
+  },
+  {
+    "page": 55,
+    "filename": "page_055_formulas.txt",
+    "filepath": "data/extracted/formulas/page_055_formulas.txt",
+    "count": 5,
+    "formulas": [
+      {
+        "formula": "$20,000 followed by\nthree annual return payments, a second investment of $",
+        "type": "latex_inline",
+        "context": "return, present or future\nvalues, depreciation streams, and annuities.\nSome examples in this section use this income stream: an initial investment of $20,000 followed by\nthree annual return payments, a second investment of $5,000, then four more returns. Investments\nare negative cash flows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5"
+      },
+      {
+        "formula": "$20,000 followed by three annual return\npayments, a second investment of $",
+        "type": "latex_inline",
+        "context": "urn\nThis example shows how to compute the internal rate of return of the cash stream using irr.\nSpecify the income stream as an initial investment of $20,000 followed by three annual return\npayments, a second investment of $5,000, then four more returns. Investments are negative cash\nflows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5"
+      },
+      {
+        "formula": "Stream = [-20000,  2000,  2500,  3500, -5000,  6500,",
+        "type": "simple_equation",
+        "context": "return payments, a second investment of $5,000, then four more returns. Investments\nare negative cash flows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5000,  6500,...\n            9500,  9500,  9500];\nInterest Rates/Rates of Return\nThis example shows how to compute the internal rate of return of the cash stream u"
+      },
+      {
+        "formula": "Stream = [-20000,  2000,  2500,  3500, -5000,  6500,",
+        "type": "simple_equation",
+        "context": "return\npayments, a second investment of $5,000, then four more returns. Investments are negative cash\nflows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5000,  6500, ...\n            9500,  9500,  9500];\nUse irr to compute the internal rate of return of the cash stream.\nROR = irr(Stream)\nROR = \n0.1172\nThe rate of re"
+      },
+      {
+        "formula": "ROR = irr(Stream)\nROR = \n0",
+        "type": "simple_equation",
+        "context": "= [-20000,  2000,  2500,  3500, -5000,  6500, ...\n            9500,  9500,  9500];\nUse irr to compute the internal rate of return of the cash stream.\nROR = irr(Stream)\nROR = \n0.1172\nThe rate of return is 11.72%.\nThe internal rate of return of a cash flow may not have a unique value. Every time the sign changes in\na cash flow"
+      }
+    ]
+  },
+  {
+    "page": 56,
+    "filename": "page_056_formulas.txt",
+    "filepath": "data/extracted/formulas/page_056_formulas.txt",
+    "count": 6,
+    "formulas": [
+      {
+        "formula": "$20,000 followed by three annual return\npayments, a second investment of $",
+        "type": "latex_inline",
+        "context": "at regular intervals, while the -var\nfunctions allow irregular cash flows at irregular periods.\nSpecify the income stream as an initial investment of $20,000 followed by three annual return\npayments, a second investment of $5,000, then four more returns. Investments are negative cash\nflows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5"
+      },
+      {
+        "formula": "Rate = effrr(0",
+        "type": "simple_equation",
+        "context": "nal rate or annual percentage rate, APR) and number of compounding\nperiods per year. To find the effective rate of a 9% APR compounded monthly, enter\nRate = effrr(0.09, 12)\nRate = \n0.0938\nThe Rate is 9.38%.\nA companion function nomrr computes the nominal rate of return given the effective annual rate and\nthe numb"
+      },
+      {
+        "formula": "Rate = \n0",
+        "type": "simple_equation",
+        "context": "entage rate, APR) and number of compounding\nperiods per year. To find the effective rate of a 9% APR compounded monthly, enter\nRate = effrr(0.09, 12)\nRate = \n0.0938\nThe Rate is 9.38%.\nA companion function nomrr computes the nominal rate of return given the effective annual rate and\nthe number of compounding"
+      },
+      {
+        "formula": "Stream = [-20000,  2000,  2500,  3500, -5000,  6500,",
+        "type": "simple_equation",
+        "context": "return\npayments, a second investment of $5,000, then four more returns. Investments are negative cash\nflows, return payments are positive cash flows.\nStream = [-20000,  2000,  2500,  3500, -5000,  6500, ...\n            9500,  9500,  9500];\nUse irr to compute the internal rate of return of the cash stream.\nROR = irr(Stream)\nROR = \n0.1172\nCompute the ne"
+      },
+      {
+        "formula": "ROR = irr(Stream)\nROR = \n0",
+        "type": "simple_equation",
+        "context": "= [-20000,  2000,  2500,  3500, -5000,  6500, ...\n            9500,  9500,  9500];\nUse irr to compute the internal rate of return of the cash stream.\nROR = irr(Stream)\nROR = \n0.1172\nCompute the net present value of the sample income stream for which you computed the internal rate\nof return. This exercise also serves as a che"
+      },
+      {
+        "formula": "NPV = pvvar(Stream, ROR)\nNPV = \n5",
+        "type": "simple_equation",
+        "context": "ercise also serves as a check on that calculation because the net present value of a\ncash stream at its internal rate of return should be zero. Enter\nNPV = pvvar(Stream, ROR)\nNPV = \n5.9117e-12\nThe NPV is very close to zero. The answer usually is not exactly zero due to rounding errors and the\ncomputational precision of the computer"
+      }
+    ]
+  },
+  {
+    "page": 57,
+    "filename": "page_057_formulas.txt",
+    "filepath": "data/extracted/formulas/page_057_formulas.txt",
+    "count": 6,
+    "formulas": [
+      {
+        "formula": "$15,000 over five years with a salvage value of\n$",
+        "type": "latex_inline",
+        "context": "Depreciation\nThis example shows how to compute standard depreciation schedules using depgendb.\nThe following code depreciates an automobile worth $15,000 over five years with a salvage value of\n$1,500. It computes the general declining balance using two different depreciation rates: 50% (or\n1.5), and 100% (or 2.0, also known as double declinin"
+      },
+      {
+        "formula": "$5000.00 and which was paid back monthly over four years at $",
+        "type": "latex_inline",
+        "context": "he interest rate associated with a series of loan payments\nwhen only the payment amounts and principal are known. For a loan whose original value was\n$5000.00 and which was paid back monthly over four years at $130.00/month:\nRate = annurate(4*12, 130, 5000, 0, 0)\nRate = \n0.0094\nThe function returns a rate of 0.0094 monthly, or about 11.28% annually.\nYou can u"
+      },
+      {
+        "formula": "$300.00/month over four years at 11% annual interest:\nPrincipal = pvfix(0.11/12, 4*12, 300, 0, 0)\nPrincipal = \n1.1607e+04\nThe function returns the original principal value of $",
+        "type": "latex_inline",
+        "context": "1.28% annually.\nYou can use a present-value function (pvfix) to compute the initial principal when the payment and\nrate are known. For a loan paid at $300.00/month over four years at 11% annual interest:\nPrincipal = pvfix(0.11/12, 4*12, 300, 0, 0)\nPrincipal = \n1.1607e+04\nThe function returns the original principal value of $11,607.43.\n Analyzing and Computing Cash Flows\n2-13"
+      },
+      {
+        "formula": "Rate = annurate(4*12, 130, 5000, 0, 0)\nRate = \n0",
+        "type": "simple_equation",
+        "context": "yment amounts and principal are known. For a loan whose original value was\n$5000.00 and which was paid back monthly over four years at $130.00/month:\nRate = annurate(4*12, 130, 5000, 0, 0)\nRate = \n0.0094\nThe function returns a rate of 0.0094 monthly, or about 11.28% annually.\nYou can use a present-value function (pvfix) to compute the initial pri"
+      },
+      {
+        "formula": "Principal = pvfix(0",
+        "type": "simple_equation",
+        "context": "pvfix) to compute the initial principal when the payment and\nrate are known. For a loan paid at $300.00/month over four years at 11% annual interest:\nPrincipal = pvfix(0.11/12, 4*12, 300, 0, 0)\nPrincipal = \n1.1607e+04\nThe function returns the original principal value of $11,607.43.\n Analyzing and Computing Cash Flows"
+      },
+      {
+        "formula": "Principal = \n1",
+        "type": "simple_equation",
+        "context": "the payment and\nrate are known. For a loan paid at $300.00/month over four years at 11% annual interest:\nPrincipal = pvfix(0.11/12, 4*12, 300, 0, 0)\nPrincipal = \n1.1607e+04\nThe function returns the original principal value of $11,607.43.\n Analyzing and Computing Cash Flows\n2-13"
+      }
+    ]
+  },
+  {
+    "page": 58,
+    "filename": "page_058_formulas.txt",
+    "filepath": "data/extracted/formulas/page_058_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "Prpmt = 1\u00d712\n  399",
+        "type": "simple_equation",
+        "context": "al value was $5000.00 and was paid back over 12 months at an annual rate of 9%.\n[Prpmt, Intpmt, Balance, Payment] = amortize(0.09/12, 12, 5000, 0, 0)\nPrpmt = 1\u00d712\n  399.7574  402.7556  405.7762  408.8196  411.8857  414.9748  418.0872  421.2228  424.3820  427.5\nIntpmt = 1\u00d712\n   37.5000   34.5018   31.4812   28.4378"
+      },
+      {
+        "formula": "Intpmt = 1\u00d712\n   37",
+        "type": "simple_equation",
+        "context": "t] = amortize(0.09/12, 12, 5000, 0, 0)\nPrpmt = 1\u00d712\n  399.7574  402.7556  405.7762  408.8196  411.8857  414.9748  418.0872  421.2228  424.3820  427.5\nIntpmt = 1\u00d712\n   37.5000   34.5018   31.4812   28.4378   25.3717   22.2825   19.1702   16.0346   12.8754    9.6\nBalance = 1\u00d712\n103 \u00d7\n    4.6002    4.1975    3.7917    3."
+      },
+      {
+        "formula": "Balance = 1\u00d712\n103 \u00d7\n    4",
+        "type": "simple_equation",
+        "context": "418.0872  421.2228  424.3820  427.5\nIntpmt = 1\u00d712\n   37.5000   34.5018   31.4812   28.4378   25.3717   22.2825   19.1702   16.0346   12.8754    9.6\nBalance = 1\u00d712\n103 \u00d7\n    4.6002    4.1975    3.7917    3.3829    2.9710    2.5560    2.1379    1.7167    1.2923    0.8\nPayment = \n437.2574\nSee Also\nirr | effrr | nomrr | fvfix"
+      },
+      {
+        "formula": "Payment = \n437",
+        "type": "simple_equation",
+        "context": "702   16.0346   12.8754    9.6\nBalance = 1\u00d712\n103 \u00d7\n    4.6002    4.1975    3.7917    3.3829    2.9710    2.5560    2.1379    1.7167    1.2923    0.8\nPayment = \n437.2574\nSee Also\nirr | effrr | nomrr | fvfix | fvvar | pvfix | pvvar\nRelated Examples\n\u2022\n\u201cHandle and Convert Dates\u201d on page 2-2\n\u2022\n\u201cPricing and Computing"
+      }
+    ]
+  },
+  {
+    "page": 62,
+    "filename": "page_062_formulas.txt",
+    "filepath": "data/extracted/formulas/page_062_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "CFlowDates = cfdates(Settle, Maturity, Period, Basis,",
+        "type": "simple_equation",
+        "context": "gardless\nof whether the first and/or last coupon periods are normal, long, or short.\nThe complete calling syntax with the full input argument list is\nCFlowDates = cfdates(Settle, Maturity, Period, Basis, ... \nEndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)\nwhile the minimal calling syntax requires only settlement and maturity dates\nCFlowDates"
+      },
+      {
+        "formula": "CFlowDates = cfdates(Settle, Maturity)\n2\nPerforming Common Financial Tasks\n2-18",
+        "type": "simple_equation",
+        "context": "d, Basis, ... \nEndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)\nwhile the minimal calling syntax requires only settlement and maturity dates\nCFlowDates = cfdates(Settle, Maturity)\n2\nPerforming Common Financial Tasks\n2-18"
+      }
+    ]
+  },
+  {
+    "page": 63,
+    "filename": "page_063_formulas.txt",
+    "filepath": "data/extracted/formulas/page_063_formulas.txt",
+    "count": 3,
+    "formulas": [
+      {
+        "formula": "Settle          = '20-Sep-1999'\nMaturity        = '15-Oct-2007'\nPeriod          = 2\nBasis           = 0\nEndMonthRule    = 1\nIssueDate       = NaN\nFirstCouponDate = NaN\nLastCouponDate  = NaN\nPeriod, Basis, and EndMonthRule are set to their default values, and IssueDate,\nFirstCouponDate, and LastCouponDate are set to NaN",
+        "type": "simple_equation",
+        "context": "Single Bond Example\nAs an example, suppose that you have a bond with these characteristics:\nSettle          = '20-Sep-1999'\nMaturity        = '15-Oct-2007'\nPeriod          = 2\nBasis           = 0\nEndMonthRule    = 1\nIssueDate       = NaN\nFirstCouponDate = NaN\nLastCouponDate  = NaN\nPeriod, Basis, and EndMonthRule are set to their default values, and IssueDate,\nFirstCouponDate, and LastCouponDate are set to NaN.\nFormally, a NaN is an IEEE\u00ae arithmetic standard for Not-a-Number and is used to indicate the result\nof an undefined operation (for example, zero div"
+      },
+      {
+        "formula": "Settle   = '20-Sep-1999'\nMaturity = ['15-Oct-2007'",
+        "type": "simple_equation",
+        "context": "r some bonds while\nexplicitly setting nondefault values for the remaining bonds in the portfolio.\nNow suppose that you have a portfolio of two bonds.\nSettle   = '20-Sep-1999'\nMaturity = ['15-Oct-2007'; '15-Oct-2010']\nThese calls to cfdates all set the coupon period to its default value (Period = 2) for both bonds.\n Pricing and Computing Yields for"
+      },
+      {
+        "formula": "Period = 2) for both bonds",
+        "type": "simple_equation",
+        "context": "two bonds.\nSettle   = '20-Sep-1999'\nMaturity = ['15-Oct-2007'; '15-Oct-2010']\nThese calls to cfdates all set the coupon period to its default value (Period = 2) for both bonds.\n Pricing and Computing Yields for Fixed-Income Securities\n2-19"
+      }
+    ]
+  },
+  {
+    "page": 64,
+    "filename": "page_064_formulas.txt",
+    "filepath": "data/extracted/formulas/page_064_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "Period = 2",
+        "type": "simple_equation",
+        "context": "ettle, Maturity, [])\ncfdates(Settle, Maturity, NaN)\ncfdates(Settle, Maturity, [NaN NaN])\ncfdates(Settle, Maturity)\nThe first two calls explicitly set Period = 2. Since Maturity is a 2-by-1 vector of maturity dates,\ncfdates knows that you have a two-bond portfolio.\nThe first call specifies a single (that is, s"
+      },
+      {
+        "formula": "Period = 4 for the first bond and implicitly sets the default Period = 2\nfor the second bond",
+        "type": "simple_equation",
+        "context": "calls to cfdates for the same two-bond portfolio.\ncfdates(Settle, Maturity, [4 NaN])\ncfdates(Settle, Maturity, [4 2])\nThe first call explicitly sets Period = 4 for the first bond and implicitly sets the default Period = 2\nfor the second bond. The second call has the same effect as the first but explicitly sets the periodicity\nfor both bonds.\nThe optional input Period has been used for ill"
+      }
+    ]
+  },
+  {
+    "page": 65,
+    "filename": "page_065_formulas.txt",
+    "filepath": "data/extracted/formulas/page_065_formulas.txt",
+    "count": 15,
+    "formulas": [
+      {
+        "formula": "$100. Calling the function:\n[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... \nMaturity, [], [], [], IssueDate, FirstCouponDate)\nPrice = \n113.5977\nAccruedInt = \n0.5855\nbndprice returns a price of $",
+        "type": "latex_inline",
+        "context": "month rule\n(EndMonthRule = 1) to assume the default values. Also, assume that there is no odd last coupon date\nand that the face value of the bond is $100. Calling the function:\n[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... \nMaturity, [], [], [], IssueDate, FirstCouponDate)\nPrice = \n113.5977\nAccruedInt = \n0.5855\nbndprice returns a price of $113.60 and accrued interest of $0.59.\nNote, bndprice uses nonlinear formulas to compute the price of a security. For this reason, Financial\nToolbox\u2122 s"
+      },
+      {
+        "formula": "Settle          = '11-Nov-1992'",
+        "type": "simple_equation",
+        "context": "his example shows how to compute the price of a bond with an odd first period using bndprice.\nAssume that you have a bond with these characteristics:\nSettle          = '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.062"
+      },
+      {
+        "formula": "Maturity        = '01-Mar-2005'",
+        "type": "simple_equation",
+        "context": "the price of a bond with an odd first period using bndprice.\nAssume that you have a bond with these characteristics:\nSettle          = '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (P"
+      },
+      {
+        "formula": "IssueDate       = '15-Oct-1992'",
+        "type": "simple_equation",
+        "context": "irst period using bndprice.\nAssume that you have a bond with these characteristics:\nSettle          = '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (Period = 2), day-count basis (Basi"
+      },
+      {
+        "formula": "FirstCouponDate = '01-Mar-1993'",
+        "type": "simple_equation",
+        "context": "e that you have a bond with these characteristics:\nSettle          = '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule\n(En"
+      },
+      {
+        "formula": "CouponRate      = 0",
+        "type": "simple_equation",
+        "context": "characteristics:\nSettle          = '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule\n(EndMonthRule = 1) to as"
+      },
+      {
+        "formula": "Yield           = 0",
+        "type": "simple_equation",
+        "context": "= '11-Nov-1992';\nMaturity        = '01-Mar-2005';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule\n(EndMonthRule = 1) to assume the default values. A"
+      },
+      {
+        "formula": "Period = 2), day-count basis (Basis = 0), and end-of-month rule\n(EndMonthRule = 1) to assume the default values",
+        "type": "simple_equation",
+        "context": "';\nIssueDate       = '15-Oct-1992';\nFirstCouponDate = '01-Mar-1993';\nCouponRate      = 0.0785;\nYield           = 0.0625;\nAllow coupon payment period (Period = 2), day-count basis (Basis = 0), and end-of-month rule\n(EndMonthRule = 1) to assume the default values. Also, assume that there is no odd last coupon date\nand that the face value of the bond is $100. Calling the function:\n[Price, AccruedInt] = bndprice"
+      },
+      {
+        "formula": "Price = \n113",
+        "type": "simple_equation",
+        "context": "bond is $100. Calling the function:\n[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... \nMaturity, [], [], [], IssueDate, FirstCouponDate)\nPrice = \n113.5977\nAccruedInt = \n0.5855\nbndprice returns a price of $113.60 and accrued interest of $0.59.\nNote, bndprice uses nonlinear formulas to compute the pr"
+      },
+      {
+        "formula": "AccruedInt = \n0",
+        "type": "simple_equation",
+        "context": "ling the function:\n[Price, AccruedInt] = bndprice(Yield, CouponRate, Settle, ... \nMaturity, [], [], [], IssueDate, FirstCouponDate)\nPrice = \n113.5977\nAccruedInt = \n0.5855\nbndprice returns a price of $113.60 and accrued interest of $0.59.\nNote, bndprice uses nonlinear formulas to compute the price of a security. Fo"
+      },
+      {
+        "formula": "Settle          = '12-Jan-2000'",
+        "type": "simple_equation",
+        "context": "rst and last\nperiods and settlement in the first period.\nSet up variables for settlement, maturity date, issue, first coupon, and a last coupon date.\nSettle          = '12-Jan-2000';\nMaturity        = '01-Oct-2001';\nIssueDate       = '01-Jan-2000';\nFirstCouponDate = '15-Jan-2000';\nLastCouponDate  = '15-Apr-2000';\n Pricing and Com"
+      },
+      {
+        "formula": "Maturity        = '01-Oct-2001'",
+        "type": "simple_equation",
+        "context": "nt in the first period.\nSet up variables for settlement, maturity date, issue, first coupon, and a last coupon date.\nSettle          = '12-Jan-2000';\nMaturity        = '01-Oct-2001';\nIssueDate       = '01-Jan-2000';\nFirstCouponDate = '15-Jan-2000';\nLastCouponDate  = '15-Apr-2000';\n Pricing and Computing Yields for Fixed-Income Se"
+      },
+      {
+        "formula": "IssueDate       = '01-Jan-2000'",
+        "type": "simple_equation",
+        "context": "riables for settlement, maturity date, issue, first coupon, and a last coupon date.\nSettle          = '12-Jan-2000';\nMaturity        = '01-Oct-2001';\nIssueDate       = '01-Jan-2000';\nFirstCouponDate = '15-Jan-2000';\nLastCouponDate  = '15-Apr-2000';\n Pricing and Computing Yields for Fixed-Income Securities\n2-21"
+      },
+      {
+        "formula": "FirstCouponDate = '15-Jan-2000'",
+        "type": "simple_equation",
+        "context": "date, issue, first coupon, and a last coupon date.\nSettle          = '12-Jan-2000';\nMaturity        = '01-Oct-2001';\nIssueDate       = '01-Jan-2000';\nFirstCouponDate = '15-Jan-2000';\nLastCouponDate  = '15-Apr-2000';\n Pricing and Computing Yields for Fixed-Income Securities\n2-21"
+      },
+      {
+        "formula": "LastCouponDate  = '15-Apr-2000'",
+        "type": "simple_equation",
+        "context": "last coupon date.\nSettle          = '12-Jan-2000';\nMaturity        = '01-Oct-2001';\nIssueDate       = '01-Jan-2000';\nFirstCouponDate = '15-Jan-2000';\nLastCouponDate  = '15-Apr-2000';\n Pricing and Computing Yields for Fixed-Income Securities\n2-21"
+      }
+    ]
+  },
+  {
+    "page": 66,
+    "filename": "page_066_formulas.txt",
+    "filepath": "data/extracted/formulas/page_066_formulas.txt",
+    "count": 14,
+    "formulas": [
+      {
+        "formula": "$100. Specify a purchase price of $",
+        "type": "latex_inline",
+        "context": "Assume a face value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod"
+      },
+      {
+        "formula": "Basis = 1)",
+        "type": "simple_equation",
+        "context": "Assume a face value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price,"
+      },
+      {
+        "formula": "Price        = 95",
+        "type": "simple_equation",
+        "context": "ace value of $100. Specify a purchase price of $95.70, a coupon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle,"
+      },
+      {
+        "formula": "CouponRate   = 0",
+        "type": "simple_equation",
+        "context": "ecify a purchase price of $95.70, a coupon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ."
+      },
+      {
+        "formula": "Period       = 4",
+        "type": "simple_equation",
+        "context": "e of $95.70, a coupon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRu"
+      },
+      {
+        "formula": "Basis        = 1",
+        "type": "simple_equation",
+        "context": "pon rate of 4%, quarterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRule, IssueDate, Fir"
+      },
+      {
+        "formula": "EndMonthRule = 1",
+        "type": "simple_equation",
+        "context": "arterly\ncoupon payments, and a 30/360 day-count convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRule, IssueDate, FirstCouponDate, Last"
+      },
+      {
+        "formula": "Yield = bndyield(Price, CouponRate, Settle, Maturity, Period,",
+        "type": "simple_equation",
+        "context": "t convention (Basis = 1).\nPrice        = 95.7;\nCouponRate   = 0.04;\nPeriod       = 4;\nBasis        = 1;\nEndMonthRule = 1;\nCall the bndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)\nYield = \n0.0659\nThe function returns a Yield = 0.0659 (6.60%).\nFixed-Income Sens"
+      },
+      {
+        "formula": "Yield = \n0",
+        "type": "simple_equation",
+        "context": "ndyield function.\nYield = bndyield(Price, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)\nYield = \n0.0659\nThe function returns a Yield = 0.0659 (6.60%).\nFixed-Income Sensitivities\nFinancial Toolbox software supports the following options for managing"
+      },
+      {
+        "formula": "Yield = 0",
+        "type": "simple_equation",
+        "context": "e, CouponRate, Settle, Maturity, Period, ... \nBasis, EndMonthRule, IssueDate, FirstCouponDate, LastCouponDate)\nYield = \n0.0659\nThe function returns a Yield = 0.0659 (6.60%).\nFixed-Income Sensitivities\nFinancial Toolbox software supports the following options for managing interest-rate risk for one or\nmore bo"
+      },
+      {
+        "formula": "CouponRate = 0",
+        "type": "simple_equation",
+        "context": "upons, and day-count basis = 0 (actual/actual), coupon\npayment structure synchronized to the maturity date, and end-of-month payment rule in effect).\nCouponRate = 0.05;\nYield = 0.045;\nSettle = datetime(2000,1,12);\nMaturity = datetime(2001,10,1);\n[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... \nCoupo"
+      },
+      {
+        "formula": "Yield = 0",
+        "type": "simple_equation",
+        "context": "t basis = 0 (actual/actual), coupon\npayment structure synchronized to the maturity date, and end-of-month payment rule in effect).\nCouponRate = 0.05;\nYield = 0.045;\nSettle = datetime(2000,1,12);\nMaturity = datetime(2001,10,1);\n[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... \nCouponRate, Settle,"
+      },
+      {
+        "formula": "Settle = datetime(2000,1,12)",
+        "type": "simple_equation",
+        "context": "tual/actual), coupon\npayment structure synchronized to the maturity date, and end-of-month payment rule in effect).\nCouponRate = 0.05;\nYield = 0.045;\nSettle = datetime(2000,1,12);\nMaturity = datetime(2001,10,1);\n[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... \nCouponRate, Settle, Maturity)\n2\nPerforming Common Fin"
+      },
+      {
+        "formula": "Maturity = datetime(2001,10,1)",
+        "type": "simple_equation",
+        "context": "tructure synchronized to the maturity date, and end-of-month payment rule in effect).\nCouponRate = 0.05;\nYield = 0.045;\nSettle = datetime(2000,1,12);\nMaturity = datetime(2001,10,1);\n[ModDuration, YearDuration, PerDuration] = bnddury(Yield, ... \nCouponRate, Settle, Maturity)\n2\nPerforming Common Financial Tasks\n2-22"
+      }
+    ]
+  },
+  {
+    "page": 67,
+    "filename": "page_067_formulas.txt",
+    "filepath": "data/extracted/formulas/page_067_formulas.txt",
+    "count": 10,
+    "formulas": [
+      {
+        "formula": "ModDuration = \n1",
+        "type": "simple_equation",
+        "context": "ModDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3"
+      },
+      {
+        "formula": "YearDuration = \n1",
+        "type": "simple_equation",
+        "context": "ModDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3.2940 (semiannual perio"
+      },
+      {
+        "formula": "PerDuration = \n3",
+        "type": "simple_equation",
+        "context": "ModDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3.2940 (semiannual periods)\nNote that the semi"
+      },
+      {
+        "formula": "ModDuration = 1",
+        "type": "simple_equation",
+        "context": "ModDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3.2940 (semiannual periods)\nNote that the semiannual periodic Macaulay duration (PerDura"
+      },
+      {
+        "formula": "YearDuration = 1",
+        "type": "simple_equation",
+        "context": "ModDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3.2940 (semiannual periods)\nNote that the semiannual periodic Macaulay duration (PerDuration) is twice the annualized\nMa"
+      },
+      {
+        "formula": "PerDuration = 3",
+        "type": "simple_equation",
+        "context": "odDuration = \n1.6107\nYearDuration = \n1.6470\nPerDuration = \n3.2940\nThe durations are:\n\u2022\nModDuration = 1.6107 (years)\n\u2022\nYearDuration = 1.6470 (years)\n\u2022\nPerDuration = 3.2940 (semiannual periods)\nNote that the semiannual periodic Macaulay duration (PerDuration) is twice the annualized\nMacaulay duration (YearDuration)."
+      },
+      {
+        "formula": "Settle = datenum('18-Nov-2008')",
+        "type": "simple_equation",
+        "context": "equal the duration of the bond.\nCompute the key rate duration of the US Treasury Bond with maturity date of August 15, 2028 and\ncoupon rate of 5.5%.\nSettle = datenum('18-Nov-2008'); \nCouponRate = 5.500/100;\nMaturity = datenum('15-Aug-2028'); \nPrice = 114.83;\n Pricing and Computing Yields for Fixed-Income Securities\n2-23"
+      },
+      {
+        "formula": "CouponRate = 5",
+        "type": "simple_equation",
+        "context": "ompute the key rate duration of the US Treasury Bond with maturity date of August 15, 2028 and\ncoupon rate of 5.5%.\nSettle = datenum('18-Nov-2008'); \nCouponRate = 5.500/100;\nMaturity = datenum('15-Aug-2028'); \nPrice = 114.83;\n Pricing and Computing Yields for Fixed-Income Securities\n2-23"
+      },
+      {
+        "formula": "Maturity = datenum('15-Aug-2028')",
+        "type": "simple_equation",
+        "context": "tion of the US Treasury Bond with maturity date of August 15, 2028 and\ncoupon rate of 5.5%.\nSettle = datenum('18-Nov-2008'); \nCouponRate = 5.500/100;\nMaturity = datenum('15-Aug-2028'); \nPrice = 114.83;\n Pricing and Computing Yields for Fixed-Income Securities\n2-23"
+      },
+      {
+        "formula": "Price = 114",
+        "type": "simple_equation",
+        "context": "turity date of August 15, 2028 and\ncoupon rate of 5.5%.\nSettle = datenum('18-Nov-2008'); \nCouponRate = 5.500/100;\nMaturity = datenum('15-Aug-2028'); \nPrice = 114.83;\n Pricing and Computing Yields for Fixed-Income Securities\n2-23"
+      }
+    ]
+  },
+  {
+    "page": 68,
+    "filename": "page_068_formulas.txt",
+    "filepath": "data/extracted/formulas/page_068_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "ZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5",
+        "type": "simple_equation",
+        "context": "current spot curve for this bond, refer to https://\nwww.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield.\nZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5 ...\n360*7 360*10 360*20 360*30]);\nZeroRates = ([0.06 0.12 0.81 1.08 1.22 1.53 2.32 2.92 3.68 4.42 4.20]/100)';\nCompute the key rate duration using bnd"
+      },
+      {
+        "formula": "ZeroRates = ([0",
+        "type": "simple_equation",
+        "context": "-center/interest-rates/Pages/TextView.aspx?data=yield.\nZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5 ...\n360*7 360*10 360*20 360*30]);\nZeroRates = ([0.06 0.12 0.81 1.08 1.22 1.53 2.32 2.92 3.68 4.42 4.20]/100)';\nCompute the key rate duration using bndkrdur for a specific set of rates (choose this ba"
+      }
+    ]
+  },
+  {
+    "page": 70,
+    "filename": "page_070_formulas.txt",
+    "filepath": "data/extracted/formulas/page_070_formulas.txt",
+    "count": 7,
+    "formulas": [
+      {
+        "formula": "Maturity = '26-Dec-2002'",
+        "type": "simple_equation",
+        "context": "o compute the break-even discount rate. This is the rate that correctly\nprices the Treasury bill such that the profit from selling the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, Initial"
+      },
+      {
+        "formula": "InitialDiscount = 0",
+        "type": "simple_equation",
+        "context": "iscount rate. This is the rate that correctly\nprices the Treasury bill such that the profit from selling the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurcha"
+      },
+      {
+        "formula": "PurchaseDate = '26-Sep-2002'",
+        "type": "simple_equation",
+        "context": "rate that correctly\nprices the Treasury bill such that the profit from selling the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakev"
+      },
+      {
+        "formula": "SaleDate = '26-Oct-2002'",
+        "type": "simple_equation",
+        "context": "Treasury bill such that the profit from selling the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\nYou c"
+      },
+      {
+        "formula": "RepoRate = 0",
+        "type": "simple_equation",
+        "context": "he profit from selling the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\nYou can check the r"
+      },
+      {
+        "formula": "BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount,",
+        "type": "simple_equation",
+        "context": "ing the tail equals 0.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\nYou can check the result of this computation by examining the cash flows in and out"
+      },
+      {
+        "formula": "BreakevenDiscount = \n0",
+        "type": "simple_equation",
+        "context": "p-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\nYou can check the result of this computation by examining the cash flows in and out from the\nrepurchase transaction. First compute the price of"
+      }
+    ]
+  },
+  {
+    "page": 71,
+    "filename": "page_071_formulas.txt",
+    "filepath": "data/extracted/formulas/page_071_formulas.txt",
+    "count": 13,
+    "formulas": [
+      {
+        "formula": "PriceOnPurchaseDate = tbillprice(InitialDiscount,",
+        "type": "simple_equation",
+        "context": "PriceOnPurchaseDate = tbillprice(InitialDiscount, ... \nPurchaseDate, Maturity, 3)\nPriceOnPurchaseDate = \n99.5930\nCompute the interest due on the repurchase agreement.\nRepoInterest = ... \nRepoRate*Pric"
+      },
+      {
+        "formula": "PriceOnPurchaseDate = \n99",
+        "type": "simple_equation",
+        "context": "PriceOnPurchaseDate = tbillprice(InitialDiscount, ... \nPurchaseDate, Maturity, 3)\nPriceOnPurchaseDate = \n99.5930\nCompute the interest due on the repurchase agreement.\nRepoInterest = ... \nRepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360\nRepoIn"
+      },
+      {
+        "formula": "RepoInterest =",
+        "type": "simple_equation",
+        "context": "te = tbillprice(InitialDiscount, ... \nPurchaseDate, Maturity, 3)\nPriceOnPurchaseDate = \n99.5930\nCompute the interest due on the repurchase agreement.\nRepoInterest = ... \nRepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360\nRepoInterest = \n0.1237\nRepoInterest for a 1.49% 30-day term repurchase agreement"
+      },
+      {
+        "formula": "RepoInterest = \n0",
+        "type": "simple_equation",
+        "context": "= \n99.5930\nCompute the interest due on the repurchase agreement.\nRepoInterest = ... \nRepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360\nRepoInterest = \n0.1237\nRepoInterest for a 1.49% 30-day term repurchase agreement (30/360 basis) is 0.1237.\nCompute the price of the Treasury bill on the sale date (Oct"
+      },
+      {
+        "formula": "PriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate,",
+        "type": "simple_equation",
+        "context": "Interest for a 1.49% 30-day term repurchase agreement (30/360 basis) is 0.1237.\nCompute the price of the Treasury bill on the sale date (October 26).\nPriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate, ... \nMaturity, 3)\nPriceOnSaleDate = \n99.7167\nExamining the cash flows, observe that the break-even discount causes the sum of the price on the\npurchas"
+      },
+      {
+        "formula": "PriceOnSaleDate = \n99",
+        "type": "simple_equation",
+        "context": "37.\nCompute the price of the Treasury bill on the sale date (October 26).\nPriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate, ... \nMaturity, 3)\nPriceOnSaleDate = \n99.7167\nExamining the cash flows, observe that the break-even discount causes the sum of the price on the\npurchase date plus the accrued 30-day interest"
+      },
+      {
+        "formula": "Maturity = '26-Dec-2002'",
+        "type": "simple_equation",
+        "context": "d bond-equivalent yields of a Treasury bill at the time of\npurchase and sale. The function tbilldisc2yield can perform both computations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, Initial"
+      },
+      {
+        "formula": "InitialDiscount = 0",
+        "type": "simple_equation",
+        "context": "f a Treasury bill at the time of\npurchase and sale. The function tbilldisc2yield can perform both computations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurcha"
+      },
+      {
+        "formula": "PurchaseDate = '26-Sep-2002'",
+        "type": "simple_equation",
+        "context": "ime of\npurchase and sale. The function tbilldisc2yield can perform both computations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakev"
+      },
+      {
+        "formula": "SaleDate = '26-Oct-2002'",
+        "type": "simple_equation",
+        "context": "function tbilldisc2yield can perform both computations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\n Comp"
+      },
+      {
+        "formula": "RepoRate = 0",
+        "type": "simple_equation",
+        "context": "an perform both computations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\n Computing Treasury"
+      },
+      {
+        "formula": "BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount,",
+        "type": "simple_equation",
+        "context": "putations at one time.\nMaturity = '26-Dec-2002';\nInitialDiscount = 0.0161;\nPurchaseDate = '26-Sep-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\n Computing Treasury Bill Price and Yield\n2-27"
+      },
+      {
+        "formula": "BreakevenDiscount = \n0",
+        "type": "simple_equation",
+        "context": "p-2002';\nSaleDate = '26-Oct-2002';\nRepoRate = 0.0149;\nBreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... \nPurchaseDate, SaleDate, Maturity)\nBreakevenDiscount = \n0.0167\n Computing Treasury Bill Price and Yield\n2-27"
+      }
+    ]
+  },
+  {
+    "page": 72,
+    "filename": "page_072_formulas.txt",
+    "filepath": "data/extracted/formulas/page_072_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "BEYield = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "[BEYield, MMYield] = ...\ntbilldisc2yield([InitialDiscount; BreakevenDiscount], ... \n[PurchaseDate; SaleDate], Maturity)\nBEYield = 2\u00d71\n    0.0164\n    0.0170\nMMYield = 2\u00d71\n    0.0162\n    0.0168\nFor the short Treasury bill (fewer than 182 days to maturity), the money-market yield is 360/365"
+      },
+      {
+        "formula": "MMYield = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "ld, MMYield] = ...\ntbilldisc2yield([InitialDiscount; BreakevenDiscount], ... \n[PurchaseDate; SaleDate], Maturity)\nBEYield = 2\u00d71\n    0.0164\n    0.0170\nMMYield = 2\u00d71\n    0.0162\n    0.0168\nFor the short Treasury bill (fewer than 182 days to maturity), the money-market yield is 360/365 of\nthe bond-equivalent yield, as thi"
+      }
+    ]
+  },
+  {
+    "page": 73,
+    "filename": "page_073_formulas.txt",
+    "filepath": "data/extracted/formulas/page_073_formulas.txt",
+    "count": 7,
+    "formulas": [
+      {
+        "formula": "TBill = [datenum('12/26/2000')  53    0",
+        "type": "simple_equation",
+        "context": "First, capture Treasury bill quotes and Reasury bond quotes in their reported format.\n%        Maturity               Days  Bid     Ask     AskYield\nTBill = [datenum('12/26/2000')  53    0.0503  0.0499  0.0510];\n%        Coupon   Maturity           Bid       Ask       AskYield\nTBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0"
+      },
+      {
+        "formula": "TBond = [0",
+        "type": "simple_equation",
+        "context": "Ask     AskYield\nTBill = [datenum('12/26/2000')  53    0.0503  0.0499  0.0510];\n%        Coupon   Maturity           Bid       Ask       AskYield\nTBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0564];\nNote that these quotes are based on a November 3, 2000 settlement date.\nSettle = datenum('3-No"
+      },
+      {
+        "formula": "Settle = datenum('3-Nov-2000')",
+        "type": "simple_equation",
+        "context": "AskYield\nTBond = [0.08875  datenum(2001,11,5) 103+4/32  103+6/32  0.0564];\nNote that these quotes are based on a November 3, 2000 settlement date.\nSettle = datenum('3-Nov-2000');\nUse the tbl2bond to convert the Treasury bill data to Treasury bond format.\nTBTBond = tbl2bond(TBill)\nTBTBond = 1\u00d75\n105 \u00d7\n         0    7.3085    0."
+      },
+      {
+        "formula": "TBTBond = tbl2bond(TBill)\nTBTBond = 1\u00d75\n105 \u00d7\n         0    7",
+        "type": "simple_equation",
+        "context": "ed on a November 3, 2000 settlement date.\nSettle = datenum('3-Nov-2000');\nUse the tbl2bond to convert the Treasury bill data to Treasury bond format.\nTBTBond = tbl2bond(TBill)\nTBTBond = 1\u00d75\n105 \u00d7\n         0    7.3085    0.0010    0.0010    0.0000\nThe second element of TBTBond is the serial date number for December 26, 2000.\nCombine short-term (Treasury bill)"
+      },
+      {
+        "formula": "TBondsAll = [TBTBond",
+        "type": "simple_equation",
+        "context": "erial date number for December 26, 2000.\nCombine short-term (Treasury bill) with long-term (Treasury bond) data to set up the overall term\nstructure.\nTBondsAll = [TBTBond; TBond]\nTBondsAll = 2\u00d75\n105 \u00d7\n         0    7.3085    0.0010    0.0010    0.0000\n    0.0000    7.3116    0.0010    0.0010    0.0000\nUse tr2bonds to c"
+      },
+      {
+        "formula": "TBondsAll = 2\u00d75\n105 \u00d7\n         0    7",
+        "type": "simple_equation",
+        "context": "r 26, 2000.\nCombine short-term (Treasury bill) with long-term (Treasury bond) data to set up the overall term\nstructure.\nTBondsAll = [TBTBond; TBond]\nTBondsAll = 2\u00d75\n105 \u00d7\n         0    7.3085    0.0010    0.0010    0.0000\n    0.0000    7.3116    0.0010    0.0010    0.0000\nUse tr2bonds to convert the bond data into a form ready for the"
+      },
+      {
+        "formula": "Bonds = 2\u00d76\n105 \u00d7\n Term Structure of Interest Rates\n2-29",
+        "type": "simple_equation",
+        "context": "onds\ngenerates a matrix of bond information sorted by maturity date, plus vectors of prices and yields.\n[Bonds, Prices, Yields] = tr2bonds(TBondsAll)\nBonds = 2\u00d76\n105 \u00d7\n Term Structure of Interest Rates\n2-29"
+      }
+    ]
+  },
+  {
+    "page": 74,
+    "filename": "page_074_formulas.txt",
+    "filepath": "data/extracted/formulas/page_074_formulas.txt",
+    "count": 5,
+    "formulas": [
+      {
+        "formula": "Prices = 2\u00d71\n   99",
+        "type": "simple_equation",
+        "context": "7.3085         0    0.0010         0         0    0.0000\n    7.3116    0.0000    0.0010    0.0000         0    0.0000\nPrices = 2\u00d71\n   99.2654\n  103.1875\nYields = 2\u00d71\n    0.0510\n    0.0564\nUse a bootstrapping function to derive an implied zero curve. Bootstrapping is a process whereby y"
+      },
+      {
+        "formula": "Yields = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "085         0    0.0010         0         0    0.0000\n    7.3116    0.0000    0.0010    0.0000         0    0.0000\nPrices = 2\u00d71\n   99.2654\n  103.1875\nYields = 2\u00d71\n    0.0510\n    0.0564\nUse a bootstrapping function to derive an implied zero curve. Bootstrapping is a process whereby you\nbegin with known data points and"
+      },
+      {
+        "formula": "ZeroRates = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "ata and prices, and zbtyield derives a zero curve from bond data and yields. Using\nzbtprice\n[ZeroRates, CurveDates] = zbtprice(Bonds, Prices, Settle)\nZeroRates = 2\u00d71\n    0.0516\n    0.0558\nCurveDates = 2\u00d71\n      730846\n      731160\nCurveDates gives the investment horizon.\ndatestr(CurveDates)\nans = 2\u00d711 char array\n    '26"
+      },
+      {
+        "formula": "CurveDates = 2\u00d71\n      730846\n      731160\nCurveDates gives the investment horizon",
+        "type": "simple_equation",
+        "context": "zero curve from bond data and yields. Using\nzbtprice\n[ZeroRates, CurveDates] = zbtprice(Bonds, Prices, Settle)\nZeroRates = 2\u00d71\n    0.0516\n    0.0558\nCurveDates = 2\u00d71\n      730846\n      731160\nCurveDates gives the investment horizon.\ndatestr(CurveDates)\nans = 2\u00d711 char array\n    '26-Dec-2000'\n    '05-Nov-2001'\nUse the functions zero2disc, zero2fwd, and zero2pyld to construct disc"
+      },
+      {
+        "formula": "DiscRates = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "truct discount, forward, and par\nyield curves from the zero curve, and vice versa.\n[DiscRates, CurveDates] = zero2disc(ZeroRates, CurveDates, Settle)\nDiscRates = 2\u00d71\n    0.9926\n    0.9462\n2\nPerforming Common Financial Tasks\n2-30"
+      }
+    ]
+  },
+  {
+    "page": 75,
+    "filename": "page_075_formulas.txt",
+    "filepath": "data/extracted/formulas/page_075_formulas.txt",
+    "count": 3,
+    "formulas": [
+      {
+        "formula": "CurveDates = 2\u00d71\n      730846\n      731160\n[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)\nFwdRates = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "CurveDates = 2\u00d71\n      730846\n      731160\n[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)\nFwdRates = 2\u00d71\n    0.0516\n    0.0565\nCurveDates = 2\u00d71\n      730846\n      731160\n[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)\nPYldRates = 2\u00d71\n    0.0"
+      },
+      {
+        "formula": "CurveDates = 2\u00d71\n      730846\n      731160\n[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)\nPYldRates = 2\u00d71\n    0",
+        "type": "simple_equation",
+        "context": "CurveDates = 2\u00d71\n      730846\n      731160\n[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)\nFwdRates = 2\u00d71\n    0.0516\n    0.0565\nCurveDates = 2\u00d71\n      730846\n      731160\n[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)\nPYldRates = 2\u00d71\n    0.0522\n    0.0557\nCurveDates = 2\u00d71\n      730846\n      731160\nSee Also\ntbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillva"
+      },
+      {
+        "formula": "CurveDates = 2\u00d71\n      730846\n      731160\nSee Also\ntbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillval01 |\ntbl2bond | tr2bonds | zbtprice | zbtyield\nRelated Examples\n\u2022\n\u201cHandle and Convert Dates\u201d on page 2-2\n\u2022\n\u201cComputing Treasury Bill Price and Yield\u201d on page 2-26\nMore About\n\u2022\n\u201cTreasury Bills Defined\u201d on page 2-25\n Term Structure of Interest Rates\n2-31",
+        "type": "simple_equation",
+        "context": "5\nCurveDates = 2\u00d71\n      730846\n      731160\n[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)\nPYldRates = 2\u00d71\n    0.0522\n    0.0557\nCurveDates = 2\u00d71\n      730846\n      731160\nSee Also\ntbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillval01 |\ntbl2bond | tr2bonds | zbtprice | zbtyield\nRelated Examples\n\u2022\n\u201cHandle and Convert Dates\u201d on page 2-2\n\u2022\n\u201cComputing Treasury Bill Price and Yield\u201d on page 2-26\nMore About\n\u2022\n\u201cTreasury Bills Defined\u201d on page 2-25\n Term Structure of Interest Rates\n2-31"
+      }
+    ]
+  },
+  {
+    "page": 76,
+    "filename": "page_076_formulas.txt",
+    "filepath": "data/extracted/formulas/page_076_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "PC =\nps(t)\nps(t \u22121) \u22121\nps(t) = ps(t \u22121) + PC \u22c5ps(t \u22121)",
+        "type": "simple_equation",
+        "context": "trates on the Financial\nToolbox functions.\nIn the simple return formula, rs(t) is the percentage change (PC) in ps(t \u2212 1) over the interval [t \u2212 1,t]\nPC =\nps(t)\nps(t \u22121) \u22121\nps(t) = ps(t \u22121) + PC \u22c5ps(t \u22121) .\nFor positive prices, the range of PC is (\u22121,\u221e), that is, anything from a 100% loss (ps: ps(t \u2212 1) \u2192 0) to\nunlimited gain. The recursion in the secon"
+      }
+    ]
+  },
+  {
+    "page": 78,
+    "filename": "page_078_formulas.txt",
+    "filepath": "data/extracted/formulas/page_078_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "StartPrice=3)\nps =\n     3\n     1\n    -2\n    -1\n     1\nAlso, the following computations shows that time aggregation holds",
+        "type": "simple_equation",
+        "context": "produces\na positive price movement. The returns are correct.\nThe round trip produced by ret2tick returns the original price series.\nps = ret2tick(rs,StartPrice=3)\nps =\n     3\n     1\n    -2\n    -1\n     1\nAlso, the following computations shows that time aggregation holds.\np(5)/p(1) - 1\nans =\n   -0.6667\nprod(rs + 1) - 1\nans =\n   -0.6667\nFor continuous returns, negative price ratios pc(t)/pc(t \u2212 1) are interpreted as co"
+      },
+      {
+        "formula": "Method=\"continuous\")\nrc =\n  -1",
+        "type": "simple_equation",
+        "context": "negative price ratios pc(t)/pc(t \u2212 1) are interpreted as complex numbers with\nphase angles \u00b1\u03c0, and the complex logarithm is invoked.\nrc = tick2ret(p,Method=\"continuous\")\nrc =\n  -1.0986 + 0.0000i\n   0.6931 + 3.1416i\n  -0.6931 + 0.0000i\n   0.0000 - 3.1416i\nThis table summarizes the recursions.\n2\nPerforming Common Financial Tasks"
+      }
+    ]
+  },
+  {
+    "page": 79,
+    "filename": "page_079_formulas.txt",
+    "filepath": "data/extracted/formulas/page_079_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "AutoUpdate=false)\ngrid minor\n Returns with Negative Prices\n2-35",
+        "type": "simple_equation",
+        "context": "hold on\nplot(p,real(log(p)),\"b\")\nplot(p,imag(log(p)),\"r\")\nxticks(-5:5)\nxlabel(\"Price (p)\")\nylabel(\"Ordinate\")\nlegend([\"real(log(p))\" \"imag(log(p))\"],AutoUpdate=false)\ngrid minor\n Returns with Negative Prices\n2-35"
+      }
+    ]
+  },
+  {
+    "page": 80,
+    "filename": "page_080_formulas.txt",
+    "filepath": "data/extracted/formulas/page_080_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "MarkerFaceColor=\"b\")\nplot(p,imag(log(p)),\"ro-\",MarkerFaceColor=\"r\")\nhold off\n2\nPerforming Common Financial Tasks\n2-36",
+        "type": "simple_equation",
+        "context": "d imaginary parts of the logarithm at prices p =\n\u22124 and p = 2, with lines to help visualize their differences.\np = [-4; 2];\nplot(p,real(log(p)),\"bo-\",MarkerFaceColor=\"b\")\nplot(p,imag(log(p)),\"ro-\",MarkerFaceColor=\"r\")\nhold off\n2\nPerforming Common Financial Tasks\n2-36"
+      }
+    ]
+  },
+  {
+    "page": 81,
+    "filename": "page_081_formulas.txt",
+    "filepath": "data/extracted/formulas/page_081_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "Method=\"continuous\",StartPrice=3)\npc =\n   3",
+        "type": "simple_equation",
+        "context": "0.5000 + 0.0000i\n  -2.0000 - 0.0000i\nYou can complete the round trip, which results in the expected price series, by the computation\npc = ret2tick(rc,Method=\"continuous\",StartPrice=3)\npc =\n   3.0000 + 0.0000i\n   1.0000 + 0.0000i\n  -2.0000 + 0.0000i\n  -1.0000 + 0.0000i\n   1.0000 + 0.0000i\n Returns with Negative Prices\n2-37"
+      }
+    ]
+  },
+  {
+    "page": 85,
+    "filename": "page_085_formulas.txt",
+    "filepath": "data/extracted/formulas/page_085_formulas.txt",
+    "count": 20,
+    "formulas": [
+      {
+        "formula": "$100.00, the exercise price is $",
+        "type": "latex_inline",
+        "context": "lslambda) this example computes the call and put prices of a European option and its delta,\ngamma, lambda, and implied volatility. The asset price is $100.00, the exercise price is $95.00, the\nrisk-free interest rate is 10%, the time to maturity is 0.25 years, the volatility is 0.50, and the\ndividend rate is 0.\n[OptCall, OptPut] ="
+      },
+      {
+        "formula": "$13.70\n\u2022\nThe option put price OptPut = $",
+        "type": "latex_inline",
+        "context": ".1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call L"
+      },
+      {
+        "formula": "OptCall = \n13",
+        "type": "simple_equation",
+        "context": "%, the time to maturity is 0.25 years, the volatility is 0.50, and the\ndividend rate is 0.\n[OptCall, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)\nOptCall = \n13.6953\nOptPut = \n6.3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.1"
+      },
+      {
+        "formula": "OptPut = \n6",
+        "type": "simple_equation",
+        "context": "rity is 0.25 years, the volatility is 0.50, and the\ndividend rate is 0.\n[OptCall, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)\nOptCall = \n13.6953\nOptPut = \n6.3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)"
+      },
+      {
+        "formula": "CallVal = \n0",
+        "type": "simple_equation",
+        "context": "Call, OptPut] = blsprice(100, 95, 0.10, 0.25, 0.50, 0)\nOptCall = \n13.6953\nOptPut = \n6.3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal ="
+      },
+      {
+        "formula": "PutVal = \n-0",
+        "type": "simple_equation",
+        "context": "sprice(100, 95, 0.10, 0.25, 0.50, 0)\nOptCall = \n13.6953\nOptPut = \n6.3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall"
+      },
+      {
+        "formula": "GammaVal = blsgamma(100, 95, 0",
+        "type": "simple_equation",
+        "context": "10, 0.25, 0.50, 0)\nOptCall = \n13.6953\nOptPut = \n6.3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10,"
+      },
+      {
+        "formula": "GammaVal = \n0",
+        "type": "simple_equation",
+        "context": "3497\n[CallVal, PutVal] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664"
+      },
+      {
+        "formula": "VegaVal = blsvega(100, 95, 0",
+        "type": "simple_equation",
+        "context": "al] = blsdelta(100, 95, 0.10, 0.25, 0.50, 0)\nCallVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022"
+      },
+      {
+        "formula": "VegaVal = \n18",
+        "type": "simple_equation",
+        "context": "lVal = \n0.6665\nPutVal = \n-0.3335\nGammaVal = blsgamma(100, 95, 0.10, 0.25, 0.50, 0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall ="
+      },
+      {
+        "formula": "LamCall = \n4",
+        "type": "simple_equation",
+        "context": "0)\nGammaVal = \n0.0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.66"
+      },
+      {
+        "formula": "LamPut = \n-5",
+        "type": "simple_equation",
+        "context": "0145\nVegaVal = blsvega(100, 95, 0.10, 0.25, 0.50, 0)\nVegaVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a"
+      },
+      {
+        "formula": "OptCall = $13",
+        "type": "simple_equation",
+        "context": "aVal = \n18.1843\n[LamCall, LamPut] = blslambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega Ve"
+      },
+      {
+        "formula": "OptPut = $6",
+        "type": "simple_equation",
+        "context": "ambda(100, 95, 0.10, 0.25, 0.50, 0)\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call La"
+      },
+      {
+        "formula": "CallVal = 0",
+        "type": "simple_equation",
+        "context": ")\nLamCall = \n4.8664\nLamPut = \n-5.2528\nTo summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a pu"
+      },
+      {
+        "formula": "PutVal = -0",
+        "type": "simple_equation",
+        "context": "To summarize:\n\u2022\nThe option call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a put LamPut = \u20135.2528\nAs a computation c"
+      },
+      {
+        "formula": "GammaVal = 0",
+        "type": "simple_equation",
+        "context": "on call price OptCall = $13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a put LamPut = \u20135.2528\nAs a computation check, find the implied vol"
+      },
+      {
+        "formula": "VegaVal = 18",
+        "type": "simple_equation",
+        "context": "13.70\n\u2022\nThe option put price OptPut = $6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a put LamPut = \u20135.2528\nAs a computation check, find the implied volatility of the option usi"
+      },
+      {
+        "formula": "LamCall = 4",
+        "type": "simple_equation",
+        "context": "$6.35\n\u2022\ndelta for a call CallVal = 0.6665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a put LamPut = \u20135.2528\nAs a computation check, find the implied volatility of the option using the call option price from\nblspric"
+      },
+      {
+        "formula": "LamPut = \u20135",
+        "type": "simple_equation",
+        "context": "665 and delta for a put PutVal = -0.3335\n\u2022\ngamma GammaVal = 0.0145\n\u2022\nvega VegaVal = 18.1843\n\u2022\nlambda for a call LamCall = 4.8664 and lambda for a put LamPut = \u20135.2528\nAs a computation check, find the implied volatility of the option using the call option price from\nblsprice.\n Pricing and Analyzing Equity Deriv"
+      }
+    ]
+  },
+  {
+    "page": 86,
+    "filename": "page_086_formulas.txt",
+    "filepath": "data/extracted/formulas/page_086_formulas.txt",
+    "count": 5,
+    "formulas": [
+      {
+        "formula": "$100.00, the\nexercise price is $",
+        "type": "latex_inline",
+        "context": "exercised any time up to and including their expiration date.\nThis example prices an American call option using a binomial model. The asset price is $100.00, the\nexercise price is $95.00, the risk-free interest rate is 10%, and the time to maturity is 0.25 years. The\nfunction binprice computes the tree in increments of 0.05 years"
+      },
+      {
+        "formula": "Volatility = blsimpv(100, 95, 0",
+        "type": "simple_equation",
+        "context": "Volatility = blsimpv(100, 95, 0.10, 0.25, OptCall)\nVolatility = \n0.5000\nThe function returns an implied volatility of 0.500, the original blsprice input.\nBinomial Model\nThis example"
+      },
+      {
+        "formula": "Volatility = \n0",
+        "type": "simple_equation",
+        "context": "Volatility = blsimpv(100, 95, 0.10, 0.25, OptCall)\nVolatility = \n0.5000\nThe function returns an implied volatility of 0.500, the original blsprice input.\nBinomial Model\nThis example shows how to price an American cal"
+      },
+      {
+        "formula": "StockPrice = 6\u00d76\n  100",
+        "type": "simple_equation",
+        "context": "ividend of $5.00 after three periods (an ex-dividend date).\n[StockPrice, OptionPrice] = binprice(100, 95, 0.10, 0.25, ... \n0.05,  0.50, 1, 0, 5.0, 3)\nStockPrice = 6\u00d76\n  100.0000  111.2713  123.8732  137.9629  148.6915  166.2807\n         0   89.9677  100.0495  111.3211  118.8981  132.9629\n         0         0   80.9994"
+      },
+      {
+        "formula": "OptionPrice = 6\u00d76\n   12",
+        "type": "simple_equation",
+        "context": "72.9825   76.0243   85.0175\n         0         0         0         0   60.7913   67.9825\n         0         0         0         0         0   54.3608\nOptionPrice = 6\u00d76\n   12.1011   19.1708   29.3470   42.9629   54.1653   71.2807\n         0    5.3068    9.4081   16.3211   24.3719   37.9629\n         0         0    1.3481"
+      }
+    ]
+  },
+  {
+    "page": 94,
+    "filename": "page_094_formulas.txt",
+    "filepath": "data/extracted/formulas/page_094_formulas.txt",
+    "count": 2,
+    "formulas": [
+      {
+        "formula": "MSGFileName = \"INTC_2012-06-21_34200000_57600000_message_5",
+        "type": "simple_equation",
+        "context": "Level 5 data (five levels away from the midprice on either side) is contained in two CSV files. Extract\nthe trading date from the message file name.\nMSGFileName = \"INTC_2012-06-21_34200000_57600000_message_5.csv\";   % Message file (description of\nLOBFileName = \"INTC_2012-06-21_34200000_57600000_orderbook_5.csv\"; % Data file\n[ticker,rem] = strtok(MSGFileNa"
+      },
+      {
+        "formula": "LOBFileName = \"INTC_2012-06-21_34200000_57600000_orderbook_5",
+        "type": "simple_equation",
+        "context": "xtract\nthe trading date from the message file name.\nMSGFileName = \"INTC_2012-06-21_34200000_57600000_message_5.csv\";   % Message file (description of\nLOBFileName = \"INTC_2012-06-21_34200000_57600000_orderbook_5.csv\"; % Data file\n[ticker,rem] = strtok(MSGFileName,'_');\ndate = strtok(rem,'_'); \nData Storage\nDaily data streams accumulate and need to be stored."
+      }
+    ]
+  },
+  {
+    "page": 95,
+    "filename": "page_095_formulas.txt",
+    "filepath": "data/extracted/formulas/page_095_formulas.txt",
+    "count": 10,
+    "formulas": [
+      {
+        "formula": "DSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file')",
+        "type": "simple_equation",
+        "context": "the 'ReadSize' name-value argument to 'file' to\nallow similarly formatted files to be appended to existing datastores at the end of each trading day.\nDSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');\nDSMSG.VariableNames = [\"Time\",\"Type\",\"OrderID\",\"Size\",\"Price\",\"Direction\"];\nDSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'Read"
+      },
+      {
+        "formula": "VariableNames = [\"Time\",\"Type\",\"OrderID\",\"Size\",\"Price\",\"Direction\"]",
+        "type": "simple_equation",
+        "context": "d to existing datastores at the end of each trading day.\nDSMSG = tabularTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');\nDSMSG.VariableNames = [\"Time\",\"Type\",\"OrderID\",\"Size\",\"Price\",\"Direction\"];\nDSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');\nDSLOB.VariableNames = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"Bi"
+      },
+      {
+        "formula": "DSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file')",
+        "type": "simple_equation",
+        "context": "arTextDatastore(MSGFileName,'ReadVariableNames',false,'ReadSize','file');\nDSMSG.VariableNames = [\"Time\",\"Type\",\"OrderID\",\"Size\",\"Price\",\"Direction\"];\nDSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');\nDSLOB.VariableNames = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"BidSize1\",...\n                       \"AskPrice2\",\"AskSize2\",\"BidPrice2\",\"BidSize2\",..."
+      },
+      {
+        "formula": "VariableNames = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"BidSize1\",",
+        "type": "simple_equation",
+        "context": "= [\"Time\",\"Type\",\"OrderID\",\"Size\",\"Price\",\"Direction\"];\nDSLOB = tabularTextDatastore(LOBFileName,'ReadVariableNames',false,'ReadSize','file');\nDSLOB.VariableNames = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"BidSize1\",...\n                       \"AskPrice2\",\"AskSize2\",\"BidPrice2\",\"BidSize2\",...\n                       \"AskPrice3\",\"AskSize3\",\"BidPrice3\",\"BidSize3\",..."
+      },
+      {
+        "formula": "TimeVariable = \"Time\"",
+        "type": "simple_equation",
+        "context": "Size4\",...\n                       \"AskPrice5\",\"AskSize5\",\"BidPrice5\",\"BidSize5\"];\nCreate a combined datastore by selecting Time and the level 3 data.\nTimeVariable = \"Time\";\nDSMSG.SelectedVariableNames = TimeVariable;\nLOB3Variables = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"BidSize1\",...\n                 \"AskPrice2\",\"AskSize"
+      },
+      {
+        "formula": "SelectedVariableNames = TimeVariable",
+        "type": "simple_equation",
+        "context": "\"AskPrice5\",\"AskSize5\",\"BidPrice5\",\"BidSize5\"];\nCreate a combined datastore by selecting Time and the level 3 data.\nTimeVariable = \"Time\";\nDSMSG.SelectedVariableNames = TimeVariable;\nLOB3Variables = [\"AskPrice1\",\"AskSize1\",\"BidPrice1\",\"BidSize1\",...\n                 \"AskPrice2\",\"AskSize2\",\"BidPrice2\",\"BidSize2\",..."
+      },
+      {
+        "formula": "SelectedVariableNames = LOB3Variables",
+        "type": "simple_equation",
+        "context": "dSize1\",...\n                 \"AskPrice2\",\"AskSize2\",\"BidPrice2\",\"BidSize2\",...\n                 \"AskPrice3\",\"AskSize3\",\"BidPrice3\",\"BidSize3\"];\nDSLOB.SelectedVariableNames = LOB3Variables;\n                               \nDS = combine(DSMSG,DSLOB);         \nYou can preview the first few rows in the combined datastore without loading dat"
+      },
+      {
+        "formula": "DS = combine(DSMSG,DSLOB)",
+        "type": "simple_equation",
+        "context": "e2\",...\n                 \"AskPrice3\",\"AskSize3\",\"BidPrice3\",\"BidSize3\"];\nDSLOB.SelectedVariableNames = LOB3Variables;\n                               \nDS = combine(DSMSG,DSLOB);         \nYou can preview the first few rows in the combined datastore without loading data into memory.\nDSPreview = preview(DS);\nLOBPreview = DSPrev"
+      },
+      {
+        "formula": "DSPreview = preview(DS)",
+        "type": "simple_equation",
+        "context": "DS = combine(DSMSG,DSLOB);         \nYou can preview the first few rows in the combined datastore without loading data into memory.\nDSPreview = preview(DS);\nLOBPreview = DSPreview(:,1:5)\nLOBPreview=8\u00d75 table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________"
+      },
+      {
+        "formula": "LOBPreview = DSPreview(:,1:5)\nLOBPreview=8\u00d75 table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________    _________    ________\n    34200    2",
+        "type": "simple_equation",
+        "context": "ombine(DSMSG,DSLOB);         \nYou can preview the first few rows in the combined datastore without loading data into memory.\nDSPreview = preview(DS);\nLOBPreview = DSPreview(:,1:5)\nLOBPreview=8\u00d75 table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________    _________    ________\n    34200    2.752e+05       66       2.751e+05      400   \n    34200    2.752e+05      166       2.751e+05      400   \n    34200    2.752e+05      166       2.751e"
+      }
+    ]
+  },
+  {
+    "page": 96,
+    "filename": "page_096_formulas.txt",
+    "filepath": "data/extracted/formulas/page_096_formulas.txt",
+    "count": 5,
+    "formulas": [
+      {
+        "formula": "DT = tall(DS)",
+        "type": "simple_equation",
+        "context": "mapreducer(0)\nDT = tall(DS);\nDTPreview = DT(:,1:5)\nDTPreview =\n  M\u00d75 tall table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________"
+      },
+      {
+        "formula": "DTPreview = DT(:,1:5)\nDTPreview =\n  M\u00d75 tall table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________    _________    ________\n    34200    2",
+        "type": "simple_equation",
+        "context": "mapreducer(0)\nDT = tall(DS);\nDTPreview = DT(:,1:5)\nDTPreview =\n  M\u00d75 tall table\n    Time     AskPrice1    AskSize1    BidPrice1    BidSize1\n    _____    _________    ________    _________    ________\n    34200    2.752e+05       66       2.751e+05      400   \n    34200    2.752e+05      166       2.751e+05      400   \n    34200    2.752e+05      166       2.751e"
+      },
+      {
+        "formula": "Time = seconds(DT",
+        "type": "simple_equation",
+        "context": "ations specific to time series (see \u201cCreate Timetables\u201d). Because\nthe LOB data consists of concurrent time series, convert DT to a tall timetable.\nDT.Time = seconds(DT.Time); % Cast time as a duration from midnight.\nDTT = table2timetable(DT);\nDTTPreview = DTT(:,1:4)\nDTTPreview =\n  M\u00d74 tall timetable\n      Time"
+      },
+      {
+        "formula": "DTT = table2timetable(DT)",
+        "type": "simple_equation",
+        "context": "the LOB data consists of concurrent time series, convert DT to a tall timetable.\nDT.Time = seconds(DT.Time); % Cast time as a duration from midnight.\nDTT = table2timetable(DT);\nDTTPreview = DTT(:,1:4)\nDTTPreview =\n  M\u00d74 tall timetable\n      Time       AskPrice1    AskSize1    BidPrice1    BidSize1\n    _________    _________"
+      },
+      {
+        "formula": "DTTPreview = DTT(:,1:4)\nDTTPreview =\n  M\u00d74 tall timetable\n      Time       AskPrice1    AskSize1    BidPrice1    BidSize1\n    _________    _________    ________    _________    ________\n    34200 sec    2",
+        "type": "simple_equation",
+        "context": "ncurrent time series, convert DT to a tall timetable.\nDT.Time = seconds(DT.Time); % Cast time as a duration from midnight.\nDTT = table2timetable(DT);\nDTTPreview = DTT(:,1:4)\nDTTPreview =\n  M\u00d74 tall timetable\n      Time       AskPrice1    AskSize1    BidPrice1    BidSize1\n    _________    _________    ________    _________    ________\n    34200 sec    2.752e+05       66       2.751e+05      400   \n    34200 sec    2.752e+05      166       2.751e+05      400   \n    34200 sec    2.752e+05      166"
+      }
+    ]
+  },
+  {
+    "page": 97,
+    "filename": "page_097_formulas.txt",
+    "filepath": "data/extracted/formulas/page_097_formulas.txt",
+    "count": 4,
+    "formulas": [
+      {
+        "formula": "MidPrice = (DTT",
+        "type": "simple_equation",
+        "context": "imbalance index I are used to model LOB dynamics. To queue their computations,\ndefine them, and the time base, in terms of DTT.\ntimeBase = DTT.Time;\nMidPrice = (DTT.BidPrice1 + DTT.AskPrice1)/2;\n% LOB level 3 imbalance index:\nlambda  = 0.5; % Hyperparameter\nweights = exp(-(lambda)*[0 1 2]);\nVAsk = weights(1)*DTT."
+      },
+      {
+        "formula": "VAsk = weights(1)*DTT",
+        "type": "simple_equation",
+        "context": ".Time;\nMidPrice = (DTT.BidPrice1 + DTT.AskPrice1)/2;\n% LOB level 3 imbalance index:\nlambda  = 0.5; % Hyperparameter\nweights = exp(-(lambda)*[0 1 2]);\nVAsk = weights(1)*DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;\nVBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;\nImb"
+      },
+      {
+        "formula": "VBid = weights(1)*DTT",
+        "type": "simple_equation",
+        "context": "lambda  = 0.5; % Hyperparameter\nweights = exp(-(lambda)*[0 1 2]);\nVAsk = weights(1)*DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;\nVBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;\nImbalanceIndex = (VBid-VAsk)./(VBid+VAsk);\nThe imbalance index is a weighted average of"
+      },
+      {
+        "formula": "ImbalanceIndex = (VBid-VAsk)",
+        "type": "simple_equation",
+        "context": "DTT.AskSize1 + weights(2)*DTT.AskSize2 + weights(3)*DTT.AskSize3;\nVBid = weights(1)*DTT.BidSize1 + weights(2)*DTT.BidSize2 + weights(3)*DTT.BidSize3;\nImbalanceIndex = (VBid-VAsk)./(VBid+VAsk);\nThe imbalance index is a weighted average of ask and bid volumes on either side of the midprice [3].\nThe imbalance index is a potential"
+      }
+    ]
+  },
+  {
+    "page": 98,
+    "filename": "page_098_formulas.txt",
+    "filepath": "data/extracted/formulas/page_098_formulas.txt",
+    "count": 1,
+    "formulas": [
+      {
+        "formula": "Today = timetable(dateTimeBase,MidPrice,ImbalanceIndex)\nToday =\n  581,030\u00d72 tall timetable\n        dateTimeBase         MidPrice     ImbalanceIndex\n    ____________________    __________    ______________\n    21-Jun-2012 09:30:00    2",
+        "type": "simple_equation",
+        "context": "ay. Save the resulting\ndatetime array, MidPrice, and ImbalanceIndex to a MAT-file in a specified location.\ndateTimeBase = datetime(date) + timeBase; \nToday = timetable(dateTimeBase,MidPrice,ImbalanceIndex)\nToday =\n  581,030\u00d72 tall timetable\n        dateTimeBase         MidPrice     ImbalanceIndex\n    ____________________    __________    ______________\n    21-Jun-2012 09:30:00    2.7515e+05         -0.205   \n    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   \n    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   \n    21-J"
+      }
+    ]
+  }
+]

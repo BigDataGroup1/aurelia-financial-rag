@@ -1,0 +1,171 @@
+FORMULAS FROM PAGE 53
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+LHHDates = holidays('1-Jul-2012','31-Dec-2012')
+
+Context:
+osures between the dates StartDate and EndDate, inclusive.
+In this example, use holidays to determine the standard holidays in the last half of 2012.
+LHHDates = holidays('1-Jul-2012','31-Dec-2012');
+LHHDays = datestr(LHHDates)
+LHHDays =
+  6×11 char array
+    '04-Jul-2012'
+    '03-Sep-2012'
+    '29-Oct-2012'
+    '30-Oct-2012'
+    '22-Nov-2012'
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+LHHDays = datestr(LHHDates)
+LHHDays =
+  6×11 char array
+    '04-Jul-2012'
+    '03-Sep-2012'
+    '29-Oct-2012'
+    '30-Oct-2012'
+    '22-Nov-2012'
+    '25-Dec-2012'
+You can then use the busdate function to determine the next business day in 2012 after these
+holidays
+
+Context:
+nclusive.
+In this example, use holidays to determine the standard holidays in the last half of 2012.
+LHHDates = holidays('1-Jul-2012','31-Dec-2012');
+LHHDays = datestr(LHHDates)
+LHHDays =
+  6×11 char array
+    '04-Jul-2012'
+    '03-Sep-2012'
+    '29-Oct-2012'
+    '30-Oct-2012'
+    '22-Nov-2012'
+    '25-Dec-2012'
+You can then use the busdate function to determine the next business day in 2012 after these
+holidays.
+LHNextDates = busdate(LHHDates);
+LHNextDays = datestr(LHNextDates)
+LHNextDays =
+  6×11 char array
+    '05-Jul-2012'
+    '04-Sep-2012'
+    '31-Oct-20
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+LHNextDates = busdate(LHHDates)
+
+Context:
+-Oct-2012'
+    '22-Nov-2012'
+    '25-Dec-2012'
+You can then use the busdate function to determine the next business day in 2012 after these
+holidays.
+LHNextDates = busdate(LHHDates);
+LHNextDays = datestr(LHNextDates)
+LHNextDays =
+  6×11 char array
+    '05-Jul-2012'
+    '04-Sep-2012'
+    '31-Oct-2012'
+    '31-Oct-2012'
+    '23-Nov
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+LHNextDays = datestr(LHNextDates)
+LHNextDays =
+  6×11 char array
+    '05-Jul-2012'
+    '04-Sep-2012'
+    '31-Oct-2012'
+    '31-Oct-2012'
+    '23-Nov-2012'
+    '26-Dec-2012'
+Determining Cash-Flow Dates
+To determine cash-flow dates for securities with periodic payments, use cfdates
+
+Context:
+'25-Dec-2012'
+You can then use the busdate function to determine the next business day in 2012 after these
+holidays.
+LHNextDates = busdate(LHHDates);
+LHNextDays = datestr(LHNextDates)
+LHNextDays =
+  6×11 char array
+    '05-Jul-2012'
+    '04-Sep-2012'
+    '31-Oct-2012'
+    '31-Oct-2012'
+    '23-Nov-2012'
+    '26-Dec-2012'
+Determining Cash-Flow Dates
+To determine cash-flow dates for securities with periodic payments, use cfdates. This function
+accounts for the coupons per year, the day-count basis, and the end-of-month rule. For example, you
+can determine the cash-flow dates
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+PayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1)
+
+Context:
+using an actual/365 day-count basis. To do so, enter the settlement date, the maturity
+date, and the parameters for Period, Basis, and EndMonthRule.
+PayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1);
+PayDays = datestr(PayDates)
+PayDays =
+  7×11 char array
+    '31-May-2000'
+    '31-Aug-2000'
+    '30-Nov-2000'
+    '28-Feb-2001'
+    '31-May-2001'
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+PayDays = datestr(PayDates)
+PayDays =
+  7×11 char array
+    '31-May-2000'
+    '31-Aug-2000'
+    '30-Nov-2000'
+    '28-Feb-2001'
+    '31-May-2001'
+    '31-Aug-2001'
+    '30-Nov-2001'
+ Handle and Convert Dates
+2-9
+
+Context:
+he settlement date, the maturity
+date, and the parameters for Period, Basis, and EndMonthRule.
+PayDates = cfdates('14-Mar-2000','30-Nov-2001',4,3,1);
+PayDays = datestr(PayDates)
+PayDays =
+  7×11 char array
+    '31-May-2000'
+    '31-Aug-2000'
+    '30-Nov-2000'
+    '28-Feb-2001'
+    '31-May-2001'
+    '31-Aug-2001'
+    '30-Nov-2001'
+ Handle and Convert Dates
+2-9
+
+======================================================================
+

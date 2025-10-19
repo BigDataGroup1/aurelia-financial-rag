@@ -1,0 +1,42 @@
+CODE BLOCKS FROM PAGE 60
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+0
+No coupons (Zero coupon bond)
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+For example, the numerator of 
+actual/actual
+ means that when determining the number of days
+between two dates, count the actual number of days; the denominator means that you use the actual
+number of days in the given year in any calculations (either 365 or 366 days depending on whether
+the given year is a leap year). The calculation of accrued interest for dates between payments also
+uses day count basis. Day count basis is a fraction of 
+Number of interest accrual days
+ / 
+Days
+in the relevant coupon period
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Note
+ Although the concept of day count sounds deceptively simple, the actual calculation of day
+counts can be complex. You can find a good discussion of day counts and the formulas for calculating
+them in Chapter 5 of Stigum and Robinson, 
+Money Market and Bond Calculations
+ in “Bibliography”
+on page A-2. For more information on 
+Basis
+, see EMU and Market Conventions: Recent
+Developments.
+
+======================================================================
+

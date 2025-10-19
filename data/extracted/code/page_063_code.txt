@@ -1,0 +1,144 @@
+CODE BLOCKS FROM PAGE 63
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Settle          = 
+'20-Sep-1999'
+Maturity        = 
+'15-Oct-2007'
+Period          = 2
+Basis           = 0
+EndMonthRule    = 1
+IssueDate       = NaN
+FirstCouponDate = NaN
+LastCouponDate  = NaN
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Period
+, 
+Basis
+, and 
+EndMonthRule
+ are set to their default values, and 
+IssueDate
+,
+FirstCouponDate
+, and 
+LastCouponDate
+ are set to 
+NaN
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Formally, a 
+NaN
+ is an IEEE
+®
+ arithmetic standard for 
+Not-a-Number
+ and is used to indicate the result
+of an undefined operation (for example, zero divided by zero). However, 
+NaN
+ is also a convenient
+placeholder. In the SIA functions of Financial Toolbox software, 
+NaN
+ indicates the presence of a
+nonapplicable value. It tells the Financial Toolbox functions to ignore the input value and apply the
+default. Setting 
+IssueDate
+, 
+FirstCouponDate
+, and 
+LastCouponDate
+ to 
+NaN
+ in this example tells
+cfdates
+ to assume that the bond has been issued before settlement and that no odd first or last
+coupon periods exist.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Having set these values, all these calls to 
+cfdates
+ produce the same result.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+cfdates(Settle, Maturity)
+cfdates(Settle, Maturity, Period)
+cfdates(Settle, Maturity, Period, [])
+cfdates(Settle, Maturity, [], Basis)
+cfdates(Settle, Maturity, [], [])
+cfdates(Settle, Maturity, Period, [], EndMonthRule)
+cfdates(Settle, Maturity, Period, [], NaN)
+cfdates(Settle, Maturity, Period, [], [], IssueDate)
+cfdates(Settle, Maturity, Period, [], [], IssueDate, [], [])
+cfdates(Settle, Maturity, Period, [], [], [], [],LastCouponDate)
+cfdates(Settle, Maturity, Period, Basis, EndMonthRule, 
+...
+ 
+IssueDate, FirstCouponDate, LastCouponDate)
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+Thus, leaving a particular input unspecified has the same effect as passing an empty matrix (
+[]
+) or
+passing a 
+NaN
+ – all three tell 
+cfdates
+ (and other Financial Toolbox functions) to use the default value
+for a particular input parameter.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+Since the previous example included only a single bond, there was no difference between passing an
+empty matrix or passing a 
+NaN
+ for an optional input argument. For a portfolio of bonds, however,
+using 
+NaN
+ as a placeholder is the only way to specify default acceptance for some bonds while
+explicitly setting nondefault values for the remaining bonds in the portfolio.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+Settle   = 
+'20-Sep-1999'
+Maturity = [
+'15-Oct-2007'
+; 
+'15-Oct-2010'
+]
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+These calls to 
+cfdates
+ all set the coupon period to its default value (
+Period = 2
+) for both bonds.
+
+======================================================================
+

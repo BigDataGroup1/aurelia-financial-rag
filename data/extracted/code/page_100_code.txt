@@ -1,0 +1,120 @@
+CODE BLOCKS FROM PAGE 100
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+xlabel(
+"Price (Dollars)"
+)
+ylabel(
+"Number of Shares"
+)
+legend([
+"Bid"
+,
+"Ask"
+],
+'Location'
+,
+'North'
+)
+title(strcat(
+"Level 3 Limit Order Book: "
+,datestr(sampleTime,
+"HH:MM:SS"
+)))
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Some visualization functions work directly with tall arrays and do not require the use of 
+gather
+ 
+(
+see
+“Visualization of Tall Arrays”). The functions automatically sample data to decrease pixel density.
+Visualize the level 3 intraday 
+depth of market
+, which shows the time evolution of liquidity, by using
+plot
+ with the tall timetable 
+DTT
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+plot(DTT.Time,-DTT.BidSize1,
+'Color'
+,[1.0 0 0],
+'LineWidth'
+,2)
+plot(DTT.Time,-DTT.BidSize2,
+'Color'
+,[0.8 0 0],
+'LineWidth'
+,2)
+plot(DTT.Time,-DTT.BidSize3,
+'Color'
+,[0.6 0 0],
+'LineWidth'
+,2)
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+plot(DTT.Time,DTT.AskSize1,
+'Color'
+,[0 1.0 0],
+'LineWidth'
+,2)
+plot(DTT.Time,DTT.AskSize2,
+'Color'
+,[0 0.8 0],
+'LineWidth'
+,2)
+plot(DTT.Time,DTT.AskSize3,
+'Color'
+,[0 0.6 0],
+'LineWidth'
+,2)
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+xlabel(
+"Time"
+)
+ylabel(
+"Number of Shares"
+)
+title(
+"Depth of Market: Intraday Evolution"
+)
+legend([
+"Bid1"
+,
+"Bid2"
+,
+"Bid3"
+,
+"Ask1"
+,
+"Ask2"
+,
+"Ask3"
+],
+'Location'
+,
+'NorthOutside'
+,
+'Orientation'
+,
+'Horiz
+
+======================================================================
+

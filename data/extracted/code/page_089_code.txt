@@ -1,0 +1,47 @@
+CODE BLOCKS FROM PAGE 89
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+which is the probability a person at age 
+x
+ dies by age 
+x
+ + 
+1
+ (where 
+x
+ is in years). The discrete survival
+function is presented in terms of an initial number of survivors at birth called the life table radix
+(which is usually 100,000 individuals) and is denoted as
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+with radix 
+l
+0
+ = 
+100000
+. This number, 
+l
+x
+, represents the number of individuals out of 100,000 at birth
+who are still alive at age 
+x
+.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+See Also
+lifetableconv
+ | 
+lifetablefit
+ | 
+lifetablegen
+
+======================================================================
+

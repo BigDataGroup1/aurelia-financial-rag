@@ -1,0 +1,81 @@
+CODE BLOCKS FROM PAGE 70
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+tbilldisc2yield
+Convert discount rate to yield.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+tbillprice
+Price Treasury bill given its yield or discount rate.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+tbillrepo
+Break-even discount of repurchase agreement.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+tbillyield
+Yield and discount of Treasury bill given its price.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+tbillyield2disc
+Convert yield to discount rate.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+tbillval01
+The value of 1 basis point (one hundredth of one percentage point,
+or 0.0001) given the characteristics of the Treasury bill, as
+represented by its settlement and maturity dates. You can relate
+the basis point to discount, money-market, or bond-equivalent
+yield.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+Maturity = 
+'26-Dec-2002'
+;
+InitialDiscount = 0.0161;
+PurchaseDate = 
+'26-Sep-2002'
+;
+SaleDate = 
+'26-Oct-2002'
+;
+RepoRate = 0.0149;
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, 
+...
+ 
+PurchaseDate, SaleDate, Maturity)
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+BreakevenDiscount = 
+0.0167
+
+======================================================================
+

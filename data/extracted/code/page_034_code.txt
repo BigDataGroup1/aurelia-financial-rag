@@ -1,0 +1,121 @@
+CODE BLOCKS FROM PAGE 34
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+SmallerPortf = NewPortfolios-10
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+SmallerPortf =
+        265.00        315.00
+        690.00        590.00
+        390.00        640.00
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+Matrix multiplication does 
+not
+ operate element-by-element. It operates according to the rules of
+linear algebra. In multiplying matrices, it helps to remember this key rule: the inner dimensions must
+be the same. That is, if the first matrix is 
+m
+-by-
+3
+, the second must be 
+3
+-by-
+n
+. The resulting matrix is
+m
+-by-
+n
+. It also helps to “talk through” the units of each matrix, as mentioned in “Analyze Sets of
+Numbers Using Matrix Functions” on page 1-4.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Matrix multiplication also is 
+not
+ commutative; that is, it is not independent of order. A*B does 
+not
+equal B*A. The dimension rule illustrates this property. If A is 
+1
+-by-
+3
+ matrix and B is 
+3
+-by-
+1
+ matrix,
+A*B yields a scalar (
+1
+-by-
+1
+) matrix but B*A yields a 
+3
+-by-
+3
+ matrix.
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+ClosePrices = [42.5   15   78.875]
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+NumShares = [100
+             500
+             300]
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+PortfValue = ClosePrices * NumShares
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+The vectors are 
+1
+-by-
+3
+ and 
+3
+-by-
+1
+; the resulting vector is 
+1
+-by-
+1
+, a scalar. Multiplying these vectors
+thus means multiplying each closing price by its respective number of shares and summing the result.
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+Values = NumShares * ClosePrices
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+0.4250    0.1500    0.7887
+    2.1250    0.7500    3.9438
+    1.2750    0.4500    2.3663
+
+======================================================================
+

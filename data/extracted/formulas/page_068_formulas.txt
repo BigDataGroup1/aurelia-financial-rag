@@ -1,0 +1,30 @@
+FORMULAS FROM PAGE 68
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+ZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5
+
+Context:
+current spot curve for this bond, refer to https://
+www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield.
+ZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5 ...
+360*7 360*10 360*20 360*30]);
+ZeroRates = ([0.06 0.12 0.81 1.08 1.22 1.53 2.32 2.92 3.68 4.42 4.20]/100)';
+Compute the key rate duration using bnd
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+ZeroRates = ([0
+
+Context:
+-center/interest-rates/Pages/TextView.aspx?data=yield.
+ZeroDates = daysadd(Settle ,[30 90 180 360 360*2 360*3 360*5 ...
+360*7 360*10 360*20 360*30]);
+ZeroRates = ([0.06 0.12 0.81 1.08 1.22 1.53 2.32 2.92 3.68 4.42 4.20]/100)';
+Compute the key rate duration using bndkrdur for a specific set of rates (choose this ba
+
+======================================================================
+

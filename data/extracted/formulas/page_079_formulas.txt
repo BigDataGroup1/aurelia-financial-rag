@@ -1,0 +1,24 @@
+FORMULAS FROM PAGE 79
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+AutoUpdate=false)
+grid minor
+ Returns with Negative Prices
+2-35
+
+Context:
+hold on
+plot(p,real(log(p)),"b")
+plot(p,imag(log(p)),"r")
+xticks(-5:5)
+xlabel("Price (p)")
+ylabel("Ordinate")
+legend(["real(log(p))" "imag(log(p))"],AutoUpdate=false)
+grid minor
+ Returns with Negative Prices
+2-35
+
+======================================================================
+

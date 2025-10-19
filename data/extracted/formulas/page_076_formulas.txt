@@ -1,0 +1,23 @@
+FORMULAS FROM PAGE 76
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+PC =
+ps(t)
+ps(t −1) −1
+ps(t) = ps(t −1) + PC ⋅ps(t −1)
+
+Context:
+trates on the Financial
+Toolbox functions.
+In the simple return formula, rs(t) is the percentage change (PC) in ps(t − 1) over the interval [t − 1,t]
+PC =
+ps(t)
+ps(t −1) −1
+ps(t) = ps(t −1) + PC ⋅ps(t −1) .
+For positive prices, the range of PC is (−1,∞), that is, anything from a 100% loss (ps: ps(t − 1) → 0) to
+unlimited gain. The recursion in the secon
+
+======================================================================
+

@@ -1,0 +1,150 @@
+CODE BLOCKS FROM PAGE 61
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+0
+actual/actual
+ (default) — Number of days in both a period and a year is the actual
+number of days. Also, another common actual/actual basis is basis 
+12
+.
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+1
+30/360 SIA
+ — Year fraction is calculated based on a 360 day year with 30-day months,
+after applying the following rules: If the first date and the second date are the last day
+of February, the second date is changed to the 30th. If the first date falls on the 31st or
+is the last day of February, it is changed to the 30th. If after the preceding test, the first
+day is the 30th and the second day is the 31st, then the second day is changed to the
+30th.
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+2
+actual/360
+ — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 360.
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+3
+actual/365
+ — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 365 (even in a leap year).
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+4
+30/360 PSA
+ — Number of days in every month is set to 30 (including February). If the
+start date of the period is either the 31st of a month or the last day of February, the start
+date is set to the 30th, while if the start date is the 30th of a month and the end date is
+the 31st, the end date is set to the 30th. The number of days in a year is 360.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+5
+30/360 ISDA
+ — Number of days in every month is set to 30, except for February where
+it is the actual number of days. If the start date of the period is the 31st of a month, the
+start date is set to the 30th while if the start date is the 30th of a month and the end
+date is the 31st, the end date is set to the 30th. The number of days in a year is 360.
+
+======================================================================
+
+Code Block 7:
+----------------------------------------------------------------------
+6
+30E /360
+ — Number of days in every month is set to 30 except for February where it is
+equal to the actual number of days. If the start date or the end date of the period is the
+31st of a month, that date is set to the 30th. The number of days in a year is 360.
+
+======================================================================
+
+Code Block 8:
+----------------------------------------------------------------------
+7
+actual/365 Japanese
+ — Number of days in a period is equal to the actual number of
+days, except for leap days (29th February) which are ignored. The number of days in a
+year is 365 (even in a leap year).
+
+======================================================================
+
+Code Block 9:
+----------------------------------------------------------------------
+8
+actual/actual ICMA
+ — Number of days in both a period and a year is the actual
+number of days and the compounding frequency is annual.
+
+======================================================================
+
+Code Block 10:
+----------------------------------------------------------------------
+9
+actual/360 ICMA
+ — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 360 and the compounding frequency is annual.
+
+======================================================================
+
+Code Block 11:
+----------------------------------------------------------------------
+10
+actual/365 ICMA
+ — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 365 (even in a leap year) and the compounding
+frequency is annual.
+
+======================================================================
+
+Code Block 12:
+----------------------------------------------------------------------
+11
+30/360 ICMA
+ — Number of days in every month is set to 30, except for February where
+it is equal to the actual number of days. If the start date or the end date of the period is
+the 31st of a month, that date is set to the 30th. The number of days in a year is 360 and
+the compounding frequency is annual.
+
+======================================================================
+
+Code Block 13:
+----------------------------------------------------------------------
+12
+actual/365 ISDA
+ — The day count fraction is calculated using the following formula:
+(Actual number of days in period that fall in a leap year / 366)
+ +
+(Actual number of days in period that fall in a normal year / 365)
+.
+Basis 
+12
+ is also referred to as actual/actual ISDA.
+
+======================================================================
+
+Code Block 14:
+----------------------------------------------------------------------
+13
+bus/252
+ — The number of days in a period is equal to the actual number of business
+days. The number of business days in a year is 252.
+
+======================================================================
+

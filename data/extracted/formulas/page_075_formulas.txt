@@ -1,0 +1,108 @@
+FORMULAS FROM PAGE 75
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+CurveDates = 2×1
+      730846
+      731160
+[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)
+FwdRates = 2×1
+    0
+
+Context:
+CurveDates = 2×1
+      730846
+      731160
+[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)
+FwdRates = 2×1
+    0.0516
+    0.0565
+CurveDates = 2×1
+      730846
+      731160
+[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)
+PYldRates = 2×1
+    0.0
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+CurveDates = 2×1
+      730846
+      731160
+[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)
+PYldRates = 2×1
+    0
+
+Context:
+CurveDates = 2×1
+      730846
+      731160
+[FwdRates, CurveDates] = zero2fwd(ZeroRates, CurveDates, Settle)
+FwdRates = 2×1
+    0.0516
+    0.0565
+CurveDates = 2×1
+      730846
+      731160
+[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)
+PYldRates = 2×1
+    0.0522
+    0.0557
+CurveDates = 2×1
+      730846
+      731160
+See Also
+tbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillva
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+CurveDates = 2×1
+      730846
+      731160
+See Also
+tbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillval01 |
+tbl2bond | tr2bonds | zbtprice | zbtyield
+Related Examples
+•
+“Handle and Convert Dates” on page 2-2
+•
+“Computing Treasury Bill Price and Yield” on page 2-26
+More About
+•
+“Treasury Bills Defined” on page 2-25
+ Term Structure of Interest Rates
+2-31
+
+Context:
+5
+CurveDates = 2×1
+      730846
+      731160
+[PYldRates, CurveDates] = zero2pyld(ZeroRates, CurveDates, Settle)
+PYldRates = 2×1
+    0.0522
+    0.0557
+CurveDates = 2×1
+      730846
+      731160
+See Also
+tbilldisc2yield | tbillprice | tbillrepo | tbillyield | tbillyield2disc | tbillval01 |
+tbl2bond | tr2bonds | zbtprice | zbtyield
+Related Examples
+•
+“Handle and Convert Dates” on page 2-2
+•
+“Computing Treasury Bill Price and Yield” on page 2-26
+More About
+•
+“Treasury Bills Defined” on page 2-25
+ Term Structure of Interest Rates
+2-31
+
+======================================================================
+

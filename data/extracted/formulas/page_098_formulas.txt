@@ -1,0 +1,28 @@
+FORMULAS FROM PAGE 98
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Today = timetable(dateTimeBase,MidPrice,ImbalanceIndex)
+Today =
+  581,030×2 tall timetable
+        dateTimeBase         MidPrice     ImbalanceIndex
+    ____________________    __________    ______________
+    21-Jun-2012 09:30:00    2
+
+Context:
+ay. Save the resulting
+datetime array, MidPrice, and ImbalanceIndex to a MAT-file in a specified location.
+dateTimeBase = datetime(date) + timeBase; 
+Today = timetable(dateTimeBase,MidPrice,ImbalanceIndex)
+Today =
+  581,030×2 tall timetable
+        dateTimeBase         MidPrice     ImbalanceIndex
+    ____________________    __________    ______________
+    21-Jun-2012 09:30:00    2.7515e+05         -0.205   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   
+    21-Jun-2012 09:30:00    2.7515e+05       -0.26006   
+    21-J
+
+======================================================================
+

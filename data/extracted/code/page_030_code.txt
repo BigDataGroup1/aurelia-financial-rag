@@ -1,0 +1,67 @@
+CODE BLOCKS FROM PAGE 30
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+A rectangular array of numeric or algebraic quantities subject to mathematical operations; the
+regular formation of elements into rows and columns. Described as a “
+m
+-by-
+n
+” matrix, with 
+m 
+the
+number of rows and 
+n 
+the number of columns. The description is always “row-by-column.” For
+example, here is a 
+2
+-by-
+3
+ matrix of two bonds (the rows) with different par values, coupon rates, and
+coupon payment frequencies per year (the columns) entered using MATLAB notation:
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Bonds = [1000   0.06   2
+          500   0.055  4]
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+A matrix with only one row or column. Described as a “
+1
+-by-
+n
+” or “
+m
+-by-
+1
+” matrix. The description is
+always “row-by-column.” For example, here is a 
+1
+-by-
+4
+ vector of cash flows in MATLAB notation:
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Cash = [1500   4470   5280   -1299]
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+A 
+1
+-by-
+1
+ matrix; that is, a single number.
+
+======================================================================
+

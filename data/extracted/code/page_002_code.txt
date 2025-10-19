@@ -1,0 +1,49 @@
+CODE BLOCKS FROM PAGE 2
+======================================================================
+
+Code Block 1:
+----------------------------------------------------------------------
+Latest news:
+www.mathworks.com
+
+======================================================================
+
+Code Block 2:
+----------------------------------------------------------------------
+Sales and services:
+www.mathworks.com/sales_and_services
+
+======================================================================
+
+Code Block 3:
+----------------------------------------------------------------------
+User community:
+www.mathworks.com/matlabcentral
+
+======================================================================
+
+Code Block 4:
+----------------------------------------------------------------------
+Technical support:
+www.mathworks.com/support/contact_us
+
+======================================================================
+
+Code Block 5:
+----------------------------------------------------------------------
+MATLAB and Simulink are registered trademarks of The MathWorks, Inc. See
+www.mathworks.com/trademarks
+ for a list of additional trademarks. Other product or brand names may be
+trademarks or registered trademarks of their respective holders.
+
+======================================================================
+
+Code Block 6:
+----------------------------------------------------------------------
+MathWorks products are protected by one or more U.S. patents. Please see 
+www.mathworks.com/patents
+ for
+more information.
+
+======================================================================
+

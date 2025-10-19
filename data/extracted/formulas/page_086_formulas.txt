@@ -1,0 +1,77 @@
+FORMULAS FROM PAGE 86
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$100.00, the
+exercise price is $
+
+Context:
+exercised any time up to and including their expiration date.
+This example prices an American call option using a binomial model. The asset price is $100.00, the
+exercise price is $95.00, the risk-free interest rate is 10%, and the time to maturity is 0.25 years. The
+function binprice computes the tree in increments of 0.05 years
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+Volatility = blsimpv(100, 95, 0
+
+Context:
+Volatility = blsimpv(100, 95, 0.10, 0.25, OptCall)
+Volatility = 
+0.5000
+The function returns an implied volatility of 0.500, the original blsprice input.
+Binomial Model
+This example
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Volatility = 
+0
+
+Context:
+Volatility = blsimpv(100, 95, 0.10, 0.25, OptCall)
+Volatility = 
+0.5000
+The function returns an implied volatility of 0.500, the original blsprice input.
+Binomial Model
+This example shows how to price an American cal
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+StockPrice = 6×6
+  100
+
+Context:
+ividend of $5.00 after three periods (an ex-dividend date).
+[StockPrice, OptionPrice] = binprice(100, 95, 0.10, 0.25, ... 
+0.05,  0.50, 1, 0, 5.0, 3)
+StockPrice = 6×6
+  100.0000  111.2713  123.8732  137.9629  148.6915  166.2807
+         0   89.9677  100.0495  111.3211  118.8981  132.9629
+         0         0   80.9994
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+OptionPrice = 6×6
+   12
+
+Context:
+72.9825   76.0243   85.0175
+         0         0         0         0   60.7913   67.9825
+         0         0         0         0         0   54.3608
+OptionPrice = 6×6
+   12.1011   19.1708   29.3470   42.9629   54.1653   71.2807
+         0    5.3068    9.4081   16.3211   24.3719   37.9629
+         0         0    1.3481
+
+======================================================================
+

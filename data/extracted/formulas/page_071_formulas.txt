@@ -1,0 +1,231 @@
+FORMULAS FROM PAGE 71
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+PriceOnPurchaseDate = tbillprice(InitialDiscount,
+
+Context:
+PriceOnPurchaseDate = tbillprice(InitialDiscount, ... 
+PurchaseDate, Maturity, 3)
+PriceOnPurchaseDate = 
+99.5930
+Compute the interest due on the repurchase agreement.
+RepoInterest = ... 
+RepoRate*Pric
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+PriceOnPurchaseDate = 
+99
+
+Context:
+PriceOnPurchaseDate = tbillprice(InitialDiscount, ... 
+PurchaseDate, Maturity, 3)
+PriceOnPurchaseDate = 
+99.5930
+Compute the interest due on the repurchase agreement.
+RepoInterest = ... 
+RepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360
+RepoIn
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+RepoInterest =
+
+Context:
+te = tbillprice(InitialDiscount, ... 
+PurchaseDate, Maturity, 3)
+PriceOnPurchaseDate = 
+99.5930
+Compute the interest due on the repurchase agreement.
+RepoInterest = ... 
+RepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360
+RepoInterest = 
+0.1237
+RepoInterest for a 1.49% 30-day term repurchase agreement
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+RepoInterest = 
+0
+
+Context:
+= 
+99.5930
+Compute the interest due on the repurchase agreement.
+RepoInterest = ... 
+RepoRate*PriceOnPurchaseDate*days360(PurchaseDate,SaleDate)/360
+RepoInterest = 
+0.1237
+RepoInterest for a 1.49% 30-day term repurchase agreement (30/360 basis) is 0.1237.
+Compute the price of the Treasury bill on the sale date (Oct
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+PriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate,
+
+Context:
+Interest for a 1.49% 30-day term repurchase agreement (30/360 basis) is 0.1237.
+Compute the price of the Treasury bill on the sale date (October 26).
+PriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate, ... 
+Maturity, 3)
+PriceOnSaleDate = 
+99.7167
+Examining the cash flows, observe that the break-even discount causes the sum of the price on the
+purchas
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+PriceOnSaleDate = 
+99
+
+Context:
+37.
+Compute the price of the Treasury bill on the sale date (October 26).
+PriceOnSaleDate = tbillprice(BreakevenDiscount, SaleDate, ... 
+Maturity, 3)
+PriceOnSaleDate = 
+99.7167
+Examining the cash flows, observe that the break-even discount causes the sum of the price on the
+purchase date plus the accrued 30-day interest
+
+======================================================================
+
+Formula 7 [simple_equation]:
+----------------------------------------------------------------------
+Maturity = '26-Dec-2002'
+
+Context:
+d bond-equivalent yields of a Treasury bill at the time of
+purchase and sale. The function tbilldisc2yield can perform both computations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, Initial
+
+======================================================================
+
+Formula 8 [simple_equation]:
+----------------------------------------------------------------------
+InitialDiscount = 0
+
+Context:
+f a Treasury bill at the time of
+purchase and sale. The function tbilldisc2yield can perform both computations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+Purcha
+
+======================================================================
+
+Formula 9 [simple_equation]:
+----------------------------------------------------------------------
+PurchaseDate = '26-Sep-2002'
+
+Context:
+ime of
+purchase and sale. The function tbilldisc2yield can perform both computations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+Breakev
+
+======================================================================
+
+Formula 10 [simple_equation]:
+----------------------------------------------------------------------
+SaleDate = '26-Oct-2002'
+
+Context:
+function tbilldisc2yield can perform both computations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+ Comp
+
+======================================================================
+
+Formula 11 [simple_equation]:
+----------------------------------------------------------------------
+RepoRate = 0
+
+Context:
+an perform both computations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+ Computing Treasury
+
+======================================================================
+
+Formula 12 [simple_equation]:
+----------------------------------------------------------------------
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount,
+
+Context:
+putations at one time.
+Maturity = '26-Dec-2002';
+InitialDiscount = 0.0161;
+PurchaseDate = '26-Sep-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+ Computing Treasury Bill Price and Yield
+2-27
+
+======================================================================
+
+Formula 13 [simple_equation]:
+----------------------------------------------------------------------
+BreakevenDiscount = 
+0
+
+Context:
+p-2002';
+SaleDate = '26-Oct-2002';
+RepoRate = 0.0149;
+BreakevenDiscount = tbillrepo(RepoRate, InitialDiscount, ... 
+PurchaseDate, SaleDate, Maturity)
+BreakevenDiscount = 
+0.0167
+ Computing Treasury Bill Price and Yield
+2-27
+
+======================================================================
+

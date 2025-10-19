@@ -1,0 +1,103 @@
+FORMULAS FROM PAGE 57
+======================================================================
+
+Formula 1 [latex_inline]:
+----------------------------------------------------------------------
+$15,000 over five years with a salvage value of
+$
+
+Context:
+Depreciation
+This example shows how to compute standard depreciation schedules using depgendb.
+The following code depreciates an automobile worth $15,000 over five years with a salvage value of
+$1,500. It computes the general declining balance using two different depreciation rates: 50% (or
+1.5), and 100% (or 2.0, also known as double declinin
+
+======================================================================
+
+Formula 2 [latex_inline]:
+----------------------------------------------------------------------
+$5000.00 and which was paid back monthly over four years at $
+
+Context:
+he interest rate associated with a series of loan payments
+when only the payment amounts and principal are known. For a loan whose original value was
+$5000.00 and which was paid back monthly over four years at $130.00/month:
+Rate = annurate(4*12, 130, 5000, 0, 0)
+Rate = 
+0.0094
+The function returns a rate of 0.0094 monthly, or about 11.28% annually.
+You can u
+
+======================================================================
+
+Formula 3 [latex_inline]:
+----------------------------------------------------------------------
+$300.00/month over four years at 11% annual interest:
+Principal = pvfix(0.11/12, 4*12, 300, 0, 0)
+Principal = 
+1.1607e+04
+The function returns the original principal value of $
+
+Context:
+1.28% annually.
+You can use a present-value function (pvfix) to compute the initial principal when the payment and
+rate are known. For a loan paid at $300.00/month over four years at 11% annual interest:
+Principal = pvfix(0.11/12, 4*12, 300, 0, 0)
+Principal = 
+1.1607e+04
+The function returns the original principal value of $11,607.43.
+ Analyzing and Computing Cash Flows
+2-13
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Rate = annurate(4*12, 130, 5000, 0, 0)
+Rate = 
+0
+
+Context:
+yment amounts and principal are known. For a loan whose original value was
+$5000.00 and which was paid back monthly over four years at $130.00/month:
+Rate = annurate(4*12, 130, 5000, 0, 0)
+Rate = 
+0.0094
+The function returns a rate of 0.0094 monthly, or about 11.28% annually.
+You can use a present-value function (pvfix) to compute the initial pri
+
+======================================================================
+
+Formula 5 [simple_equation]:
+----------------------------------------------------------------------
+Principal = pvfix(0
+
+Context:
+pvfix) to compute the initial principal when the payment and
+rate are known. For a loan paid at $300.00/month over four years at 11% annual interest:
+Principal = pvfix(0.11/12, 4*12, 300, 0, 0)
+Principal = 
+1.1607e+04
+The function returns the original principal value of $11,607.43.
+ Analyzing and Computing Cash Flows
+
+======================================================================
+
+Formula 6 [simple_equation]:
+----------------------------------------------------------------------
+Principal = 
+1
+
+Context:
+the payment and
+rate are known. For a loan paid at $300.00/month over four years at 11% annual interest:
+Principal = pvfix(0.11/12, 4*12, 300, 0, 0)
+Principal = 
+1.1607e+04
+The function returns the original principal value of $11,607.43.
+ Analyzing and Computing Cash Flows
+2-13
+
+======================================================================
+

@@ -1,0 +1,72 @@
+FORMULAS FROM PAGE 50
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+Yield       = 0
+
+Context:
+hat computes the price of a bond given the yield to
+maturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.
+Yield       = 0.07;
+CouponRate  = 0.08;
+Settle      = datenum('17-May-2000');
+Maturity    = datenum('01-Oct-2000');
+Then call the function with the variables.
+bndpri
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+CouponRate  = 0
+
+Context:
+ce of a bond given the yield to
+maturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.
+Yield       = 0.07;
+CouponRate  = 0.08;
+Settle      = datenum('17-May-2000');
+Maturity    = datenum('01-Oct-2000');
+Then call the function with the variables.
+bndprice(Yield,CouponRate,
+
+======================================================================
+
+Formula 3 [simple_equation]:
+----------------------------------------------------------------------
+Settle      = datenum('17-May-2000')
+
+Context:
+he yield to
+maturity. First set up variables for the yield to maturity, coupon rate, and the necessary dates.
+Yield       = 0.07;
+CouponRate  = 0.08;
+Settle      = datenum('17-May-2000');
+Maturity    = datenum('01-Oct-2000');
+Then call the function with the variables.
+bndprice(Yield,CouponRate,Settle,Maturity)
+ans =
+  100.3503
+Alterna
+
+======================================================================
+
+Formula 4 [simple_equation]:
+----------------------------------------------------------------------
+Maturity    = datenum('01-Oct-2000')
+
+Context:
+iables for the yield to maturity, coupon rate, and the necessary dates.
+Yield       = 0.07;
+CouponRate  = 0.08;
+Settle      = datenum('17-May-2000');
+Maturity    = datenum('01-Oct-2000');
+Then call the function with the variables.
+bndprice(Yield,CouponRate,Settle,Maturity)
+ans =
+  100.3503
+Alternatively, convert date character vectors
+
+======================================================================
+

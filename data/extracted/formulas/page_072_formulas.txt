@@ -1,0 +1,42 @@
+FORMULAS FROM PAGE 72
+======================================================================
+
+Formula 1 [simple_equation]:
+----------------------------------------------------------------------
+BEYield = 2×1
+    0
+
+Context:
+[BEYield, MMYield] = ...
+tbilldisc2yield([InitialDiscount; BreakevenDiscount], ... 
+[PurchaseDate; SaleDate], Maturity)
+BEYield = 2×1
+    0.0164
+    0.0170
+MMYield = 2×1
+    0.0162
+    0.0168
+For the short Treasury bill (fewer than 182 days to maturity), the money-market yield is 360/365
+
+======================================================================
+
+Formula 2 [simple_equation]:
+----------------------------------------------------------------------
+MMYield = 2×1
+    0
+
+Context:
+ld, MMYield] = ...
+tbilldisc2yield([InitialDiscount; BreakevenDiscount], ... 
+[PurchaseDate; SaleDate], Maturity)
+BEYield = 2×1
+    0.0164
+    0.0170
+MMYield = 2×1
+    0.0162
+    0.0168
+For the short Treasury bill (fewer than 182 days to maturity), the money-market yield is 360/365 of
+the bond-equivalent yield, as thi
+
+======================================================================
+
