@@ -11,6 +11,11 @@ from typing import List, Dict, Tuple, Optional
 import logging
 import json
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
@@ -569,7 +574,7 @@ def main():
     logger.info(f"   ls {OUT_PAGES}")
     logger.info(f"   cat {OUT_PAGES}/page_001.md")
     logger.info("="*70)
-#trying
+
 
 if __name__ == "__main__":
     main()
