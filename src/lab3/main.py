@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 import logging
 
+
 from .config import settings
 from .models import (
     QueryRequest, QueryResponse,
@@ -496,6 +497,9 @@ async def startup_event():
     logger.info("AURELIA Financial RAG Service Starting...")
     logger.info("="*70)
     
+    from .gcs_loader import ensure_chromadb_ready
+    ensure_chromadb_ready(settings.gcs_bucket, settings.chromadb_path)
+
     try:
         # Initialize services (triggers singleton creation)
         get_embedding_service()

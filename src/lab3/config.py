@@ -10,12 +10,13 @@ from pydantic import Field
 class Settings(BaseSettings):
     """Application settings loaded from environment variables"""
     
-    # Project paths
-    project_root: Path = Path(__file__).resolve().parents[2]
-    chromadb_path: Path = Field(
-        default_factory=lambda: Path(__file__).resolve().parents[2] / "data" / "chromadb"
-    )
-    
+    # GCS Configuration  
+    gcs_bucket: str = Field(default="aurelia-rag-data")
+    gcp_project_id: str = Field(default="aurelia-financial-rag")
+
+    # Paths (App Engine uses /tmp)
+    chromadb_path: Path = Field(default=Path("/tmp/chromadb"))
+        
     # API Keys
     openai_api_key: str = Field(..., description="OpenAI API key")
     
