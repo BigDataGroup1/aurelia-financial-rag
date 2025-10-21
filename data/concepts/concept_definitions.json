@@ -1,0 +1,21 @@
+[
+  {
+    "concept_name": "Duration",
+    "definition": "Duration is a measure of the sensitivity of a bond's price to changes in interest rates, representing the weighted average time until cash flows are received.",
+    "key_components": [
+      "Macaulay Duration",
+      "Modified Duration", 
+      "Effective Duration"
+    ],
+    "formula": "D = \\frac{\\sum_{t=1}^{n} t \\cdot PV(C_t)}{P}",
+    "example": "A 5-year bond with semiannual coupons has a Macaulay duration of approximately 4.5 years.",
+    "use_cases": [
+      "Interest rate risk management",
+      "Bond portfolio immunization"
+    ],
+    "related_concepts": ["Convexity", "Yield Curve"],
+    "source": "fintbx.pdf",
+    "page_references": [42, 43],
+    "confidence": 0.95
+  }
+]

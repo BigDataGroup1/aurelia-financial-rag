@@ -53,6 +53,159 @@ logger.info("Initializing AURELIA RAG Service...")
 # ============================================================================
 # Core RAG Logic
 # ============================================================================
+def load_concepts_from_json(file_path_or_gcs: str = None) -> int:
+    """
+    Load pre-generated concept definitions from JSON file into cache
+    Service continues normally even if loading fails
+    
+    Args:
+        file_path_or_gcs: Local file path or GCS URI (optional)
+        
+    Returns:
+        Number of concepts loaded into cache (0 if failed)
+    """
+    import json
+    from pathlib import Path
+    
+    try:
+        cache_service = get_cache_service()
+    except Exception as e:
+        logger.warning(f"Cache service not available: {e}")
+        return 0
+    
+    loaded_count = 0
+    concepts_data = None
+    
+    try:
+        # Determine where to load from
+        if file_path_or_gcs is None:
+            # Default: Try local first, then GCS
+            local_path = settings.project_root / "data" / "concepts" / "concept_definitions.json"
+            
+            if local_path.exists():
+                logger.info(f"Loading concepts from local file: {local_path}")
+                try:
+                    with open(local_path, 'r', encoding='utf-8') as f:
+                        concepts_data = json.load(f)
+                except json.JSONDecodeError as e:
+                    logger.warning(f"Invalid JSON in {local_path}: {e}")
+                    return 0
+                except Exception as e:
+                    logger.warning(f"Could not read {local_path}: {e}")
+                    return 0
+            else:
+                logger.info(f"Local concept file not found: {local_path}")
+                logger.info("Trying GCS (if configured)...")
+                
+                # Try GCS (gracefully fail if not configured)
+                try:
+                    from google.cloud import storage
+                    from datetime import datetime
+                    
+                    client = storage.Client()
+                    bucket = client.bucket('aurelia-rag-data')
+                    
+                    # Try today's date
+                    today = datetime.now().strftime('%Y-%m-%d')
+                    blob = bucket.blob(f'concepts/{today}/concept_definitions.json')
+                    
+                    if blob.exists():
+                        concepts_json = blob.download_as_text()
+                        concepts_data = json.loads(concepts_json)
+                        logger.info(f"Loaded from GCS: concepts/{today}/concept_definitions.json")
+                    else:
+                        logger.info(f"GCS file not found: concepts/{today}/concept_definitions.json")
+                        return 0
+                        
+                except ImportError:
+                    logger.info("GCS library not installed (google-cloud-storage)")
+                    return 0
+                except Exception as e:
+                    logger.info(f"GCS not available or configured: {e}")
+                    return 0
+        
+        elif file_path_or_gcs.startswith('gs://'):
+            # GCS path provided explicitly
+            logger.info(f"Loading concepts from GCS: {file_path_or_gcs}")
+            try:
+                from google.cloud import storage
+                
+                # Parse GCS URI: gs://bucket/path/to/file.json
+                parts = file_path_or_gcs.replace('gs://', '').split('/', 1)
+                bucket_name = parts[0]
+                blob_path = parts[1] if len(parts) > 1 else ''
+                
+                client = storage.Client()
+                bucket = client.bucket(bucket_name)
+                blob = bucket.blob(blob_path)
+                
+                if blob.exists():
+                    concepts_json = blob.download_as_text()
+                    concepts_data = json.loads(concepts_json)
+                else:
+                    logger.warning(f"GCS blob not found: {file_path_or_gcs}")
+                    return 0
+                    
+            except Exception as e:
+                logger.warning(f"Failed to load from GCS: {e}")
+                return 0
+        
+        else:
+            # Local file path provided explicitly
+            logger.info(f"Loading concepts from local file: {file_path_or_gcs}")
+            try:
+                with open(file_path_or_gcs, 'r', encoding='utf-8') as f:
+                    concepts_data = json.load(f)
+            except FileNotFoundError:
+                logger.warning(f"File not found: {file_path_or_gcs}")
+                return 0
+            except json.JSONDecodeError as e:
+                logger.warning(f"Invalid JSON: {e}")
+                return 0
+            except Exception as e:
+                logger.warning(f"Could not read file: {e}")
+                return 0
+        
+        # Validate we have data
+        if not concepts_data:
+            logger.info("No concept data to load (empty file)")
+            return 0
+        
+        if not isinstance(concepts_data, list):
+            logger.warning("Concept data must be a list of concept definitions")
+            return 0
+        
+        # Load concepts into cache
+        logger.info(f"Found {len(concepts_data)} concept(s) to load...")
+        
+        for idx, concept_dict in enumerate(concepts_data):
+            try:
+                # Validate required fields
+                if 'concept_name' not in concept_dict:
+                    logger.warning(f"Concept {idx+1} missing 'concept_name', skipping")
+                    continue
+                
+                # Convert dict to ConceptNote (with validation)
+                concept_note = ConceptNote(**concept_dict)
+                
+                # Save to cache
+                success = cache_service.save(concept_note)
+                if success:
+                    loaded_count += 1
+                    logger.debug(f"  ✓ Loaded: {concept_note.concept_name}")
+                else:
+                    logger.warning(f"  ✗ Failed to cache: {concept_dict.get('concept_name')}")
+                    
+            except Exception as e:
+                concept_name = concept_dict.get('concept_name', f'concept_{idx+1}')
+                logger.warning(f"Failed to load '{concept_name}': {e}")
+        
+        logger.info(f"✓ Successfully loaded {loaded_count}/{len(concepts_data)} concepts into cache")
+        return loaded_count
+        
+    except Exception as e:
+        logger.error(f"Unexpected error loading concepts: {e}")
+        return 0
 def is_finance_related(concept: str) -> bool:
     """
     Check if a concept is related to finance/economics
@@ -349,17 +502,45 @@ async def startup_event():
         get_vector_store_service()
         get_wikipedia_service()
         get_generation_service()
-        get_cache_service()  # ← ADD THIS
+        get_cache_service()
         
         # Initialize database
-        from .database.models import init_database  # ← ADD THIS
-        init_database()  # ← ADD THIS
-        logger.info("✓ Database initialized")  # ← ADD THIS
+        from .database.models import init_database
+        init_database()
+        logger.info("✓ Database initialized")
         
-        logger.info("✓ All services initialized successfully")
+        # Load pre-seeded concepts from JSON (optional - service works without it)
+        logger.info("\n" + "-"*70)
+        logger.info("Loading pre-seeded concepts from JSON...")
+        logger.info("-"*70)
+        
+        try:
+            loaded = load_concepts_from_json()
+            
+            if loaded > 0:
+                logger.info(f"✓ Pre-loaded {loaded} concept(s) into cache")
+                logger.info("  These concepts will have instant (<50ms) response times!")
+            else:
+                logger.info("ℹ️  No pre-seeded concepts loaded")
+                logger.info("  Service will generate concepts on-demand (first query ~15s)")
+        
+        except Exception as e:
+            logger.warning(f"Concept pre-loading failed (non-critical): {e}")
+            logger.info("  Service continues normally - concepts generated on-demand")
+        
+        logger.info("-"*70)
+        
+        # Continue with normal startup
+        logger.info("\n✓ All services initialized successfully")
         logger.info(f"✓ ChromaDB: {settings.chromadb_path}")
         logger.info(f"✓ LLM Model: {settings.llm_model}")
         logger.info(f"✓ Similarity Threshold: {settings.similarity_threshold}")
+        
+        # Show cache status
+        cache = get_cache_service()
+        cached_count = cache.count()
+        logger.info(f"✓ Cached concepts: {cached_count}")
+        
         logger.info("="*70)
         logger.info("Service Ready! Listening for requests...")
         logger.info("="*70)
@@ -367,7 +548,6 @@ async def startup_event():
     except Exception as e:
         logger.error(f"❌ Startup failed: {e}")
         raise
-
 @app.on_event("shutdown")
 async def shutdown_event():
     """Cleanup on shutdown"""
