@@ -53,14 +53,63 @@ logger.info("Initializing AURELIA RAG Service...")
 # ============================================================================
 # Core RAG Logic
 # ============================================================================
+def is_finance_related(concept: str) -> bool:
+    """
+    Check if a concept is related to finance/economics
+    Uses OpenAI to classify the query
+    
+    Returns:
+        True if finance-related, False otherwise
+    """
+    from openai import OpenAI
+    
+    client = OpenAI(api_key=settings.openai_api_key)
+    
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": """You are a classifier that determines if a query is related to finance, economics, or financial markets.
 
+Finance-related topics include: financial instruments, investment strategies, risk management, portfolio theory, derivatives, bonds, stocks, options, economic indicators, financial modeling, quantitative finance, corporate finance, banking, etc.
+
+Respond with ONLY 'yes' or 'no'."""
+                },
+                {
+                    "role": "user",
+                    "content": f"Is this concept related to finance or economics? Concept: {concept}"
+                }
+            ],
+            max_tokens=5,
+            temperature=0
+        )
+        
+        answer = response.choices[0].message.content.strip().lower()
+        is_relevant = answer == 'yes'
+        
+        logger.info(f"Finance relevance check for '{concept}': {is_relevant}")
+        return is_relevant
+        
+    except Exception as e:
+        logger.warning(f"Finance relevance check failed: {e}. Assuming relevant.")
+        return True  # Default to True if check fails
 def retrieve_context(concept: str):
     """
     Retrieve context for a concept from ChromaDB or Wikipedia fallback
+    ONLY for finance-related queries
     
-    Returns:
-        RetrievalResult with context and metadata
+    Raises HTTPException if concept is not finance-related
     """
+    # STEP 0: Check if query is finance-related
+    if not is_finance_related(concept):
+        logger.warning(f"Rejecting non-finance query: '{concept}'")
+        raise HTTPException(
+            status_code=400,
+            detail=f"This service only handles finance-related concepts. '{concept}' is not relevant to finance or economics."
+        )
+    
     # Get services
     embedding_service = get_embedding_service()
     vector_store = get_vector_store_service()
@@ -81,10 +130,10 @@ def retrieve_context(concept: str):
             logger.info(f"Using ChromaDB results (above threshold {settings.similarity_threshold})")
             return chromadb_results
     
-    # Step 4: Fallback to Wikipedia
+    # Step 4: Fallback to Wikipedia (but only for FINANCE terms)
     logger.warning(
         f"ChromaDB results below threshold or empty. "
-        f"Falling back to Wikipedia for '{concept}'"
+        f"Falling back to Wikipedia for finance concept '{concept}'"
     )
     try:
         wikipedia_results = wikipedia_service.search(concept)
@@ -93,9 +142,8 @@ def retrieve_context(concept: str):
         logger.error(f"Wikipedia fallback also failed: {e}")
         raise HTTPException(
             status_code=404,
-            detail=f"No information found for concept '{concept}' in either fintbx.pdf or Wikipedia"
+            detail=f"No information found for financial concept '{concept}' in either fintbx.pdf or Wikipedia"
         )
-
 
 def generate_note(concept: str, force_refresh: bool = False):
     """
