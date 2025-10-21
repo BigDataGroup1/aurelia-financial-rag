@@ -1,0 +1,63 @@
+# Google App Engine Configuration for AURELIA FastAPI Service
+# This tells App Engine how to run your Lab 3 application
+
+# Runtime environment
+runtime: python311  # Python 3.11
+
+# Entry point - what command to run
+entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
+
+# Instance configuration
+instance_class: F2  # F1 (256MB), F2 (512MB), F4 (1GB), F4_1G (2GB)
+
+# Automatic scaling configuration
+automatic_scaling:
+  min_instances: 0  # Scale down to 0 when no traffic (save money)
+  max_instances: 10  # Max 10 instances for high traffic
+  target_cpu_utilization: 0.65  # Scale up when CPU > 65%
+  target_throughput_utilization: 0.75  # Scale up when requests pile up
+
+# Environment variables
+env_variables:
+  # GCS Bucket for ChromaDB data
+  CHROMADB_GCS_BUCKET: "aurelia-rag-data"
+  
+  # Database (SQLite stored in /tmp for now)
+  DATABASE_URL: "sqlite:////tmp/concept_notes.db"
+  
+  # RAG Configuration
+  SIMILARITY_THRESHOLD: "0.45"
+  TOP_K_RESULTS: "5"
+  LLM_MODEL: "gpt-4o-mini"
+  EMBEDDING_MODEL: "text-embedding-3-large"
+  
+  # Logging
+  LOG_LEVEL: "INFO"
+  
+  # Python optimization
+  PYTHONUNBUFFERED: "1"
+
+# Handlers - how to route requests
+handlers:
+  # Serve everything through the FastAPI app
+  - url: /.*
+    script: auto
+    secure: always  # Force HTTPS
+
+# Additional settings
+app_engine_apis: true  # Enable App Engine APIs
+
+# Health checks
+readiness_check:
+  path: "/health"
+  check_interval_sec: 30
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
+
+liveness_check:
+  path: "/health"
+  check_interval_sec: 300
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
