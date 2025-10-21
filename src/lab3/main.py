@@ -98,18 +98,8 @@ Respond with ONLY 'yes' or 'no'."""
 def retrieve_context(concept: str):
     """
     Retrieve context for a concept from ChromaDB or Wikipedia fallback
-    ONLY for finance-related queries
-    
-    Raises HTTPException if concept is not finance-related
+    Only for finance-related queries
     """
-    # STEP 0: Check if query is finance-related
-    if not is_finance_related(concept):
-        logger.warning(f"Rejecting non-finance query: '{concept}'")
-        raise HTTPException(
-            status_code=400,
-            detail=f"This service only handles finance-related concepts. '{concept}' is not relevant to finance or economics."
-        )
-    
     # Get services
     embedding_service = get_embedding_service()
     vector_store = get_vector_store_service()
@@ -118,7 +108,7 @@ def retrieve_context(concept: str):
     # Step 1: Embed query
     query_embedding = embedding_service.embed_query(concept)
     
-    # Step 2: Query ChromaDB
+    # Step 2: Query ChromaDB FIRST
     chromadb_results = vector_store.query(query_embedding)
     
     # Step 3: Check if results are good enough
@@ -130,9 +120,19 @@ def retrieve_context(concept: str):
             logger.info(f"Using ChromaDB results (above threshold {settings.similarity_threshold})")
             return chromadb_results
     
-    # Step 4: Fallback to Wikipedia (but only for FINANCE terms)
+    # Step 4: No good match in PDF - check if query is finance-related
+    logger.info(f"No good PDF match for '{concept}'. Checking finance relevance...")
+    
+    if not is_finance_related(concept):
+        logger.warning(f"Rejecting non-finance query: '{concept}'")
+        raise HTTPException(
+            status_code=400,
+            detail=f"This service only handles finance-related concepts. '{concept}' is not found in fintbx.pdf and is not relevant to finance or economics."
+        )
+    
+    # Step 5: Finance-related but not in PDF - use Wikipedia fallback
     logger.warning(
-        f"ChromaDB results below threshold or empty. "
+        f"ChromaDB results below threshold. "
         f"Falling back to Wikipedia for finance concept '{concept}'"
     )
     try:
