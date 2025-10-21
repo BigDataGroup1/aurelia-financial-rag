@@ -1,52 +1,59 @@
-# Google App Engine Configuration for AURELIA FastAPI Service
-# This tells App Engine how to run your Lab 3 application
+# Google App Engine Configuration for AURELIA Lab 3
+# This file tells App Engine how to run your FastAPI service
 
-# Runtime environment
-runtime: python311  # Python 3.11
+runtime: python311
 
-# Entry point - what command to run
-# entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
-entrypoint: gunicorn -w 2 -k uvicorn.workers.UvicornWorker --bind :$PORT --timeout 300 src.lab3.main:app
+# Entry point
+entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
 
-# Instance configuration
-instance_class: F4  # F1 (256MB), F2 (512MB), F4 (1GB), F4_1G (2GB)
+# Instance class (512MB RAM, good for RAG operations)
+instance_class: F2
 
-# Automatic scaling configuration
+# Automatic scaling
 automatic_scaling:
-  min_instances: 0  # Scale down to 0 when no traffic (save money)
-  max_instances: 10  # Max 10 instances for high traffic
-  target_cpu_utilization: 0.65  # Scale up when CPU > 65%
-  target_throughput_utilization: 0.75  # Scale up when requests pile up
+  min_instances: 0  # Scale to 0 when no traffic (save money)
+  max_instances: 5  # Max 5 instances
+  target_cpu_utilization: 0.65
+  target_throughput_utilization: 0.75
 
 # Environment variables
 env_variables:
-  # GCS Bucket for ChromaDB data
+  # === CRITICAL: GCS Bucket Configuration ===
+  # This triggers cloud mode - Lab 3 will build ChromaDB from GCS embeddings
   CHROMADB_GCS_BUCKET: "aurelia-rag-data"
   
-  # Database (SQLite stored in /tmp for now)
+  # === Optional: Specify date (leave empty to auto-detect latest) ===
+  # EMBEDDINGS_DATE: "2025-10-21"  # Uncomment to use specific date
+  # CONCEPTS_DATE: "2025-10-21"    # Uncomment to use specific date
+  
+  # === Database Configuration ===
+  # SQLite in /tmp (App Engine provides temp storage)
   DATABASE_URL: "sqlite:////tmp/concept_notes.db"
   
-  # RAG Configuration
+  # === RAG Configuration ===
   SIMILARITY_THRESHOLD: "0.45"
   TOP_K_RESULTS: "5"
+  MAX_CONTEXT_TOKENS: "6000"
+  
+  # === OpenAI Configuration ===
   LLM_MODEL: "gpt-4o-mini"
   EMBEDDING_MODEL: "text-embedding-3-large"
+  EMBEDDING_DIMENSIONS: "3072"
   
-  # Logging
+  # === ChromaDB Configuration ===
+  CHROMADB_COLLECTION_NAME: "fintbx"
+  
+  # === Logging ===
   LOG_LEVEL: "INFO"
   
-  # Python optimization
+  # === Python Settings ===
   PYTHONUNBUFFERED: "1"
 
-# Handlers - how to route requests
+# Handlers
 handlers:
-  # Serve everything through the FastAPI app
   - url: /.*
     script: auto
-    secure: always  # Force HTTPS
-
-# Additional settings
-app_engine_apis: true  # Enable App Engine APIs
+    secure: always
 
 # Health checks
 readiness_check:
@@ -62,3 +69,6 @@ liveness_check:
   timeout_sec: 10
   failure_threshold: 3
   success_threshold: 1
+
+# Timeout settings (ChromaDB build can take time on first start)
+# Initial deployment might timeout - that's OK, subsequent starts are faster

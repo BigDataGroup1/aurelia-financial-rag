@@ -95,13 +95,30 @@ class EmbeddingService:
 # VECTOR STORE SERVICE
 # ============================================================================
 
+"""
+Replace VectorStoreService class in src/lab3/services.py
+Around line 95-250
+"""
+
 class VectorStoreService:
     """Service for querying ChromaDB vector store"""
     
-    def __init__(self):
-        """Initialize ChromaDB client and load collection"""
+    def __init__(self, chromadb_path: str = None):
+        """
+        Initialize ChromaDB client and load collection
+        
+        Args:
+            chromadb_path: Path to ChromaDB directory (optional)
+                          If None, uses settings.chromadb_path
+        """
         try:
-            self.client = chromadb.PersistentClient(path=str(settings.chromadb_path))
+            # Use provided path or default from settings
+            if chromadb_path is None:
+                chromadb_path = str(settings.chromadb_path)
+            
+            logger.info(f"Initializing ChromaDB from: {chromadb_path}")
+            
+            self.client = chromadb.PersistentClient(path=chromadb_path)
             self.collection = self.client.get_collection(
                 name=settings.chromadb_collection_name
             )
@@ -116,6 +133,153 @@ class VectorStoreService:
         except Exception as e:
             logger.error(f"Failed to initialize VectorStoreService: {e}")
             raise RuntimeError(f"ChromaDB initialization failed: {str(e)}")
+    
+    def query(
+        self,
+        query_embedding: List[float],
+        n_results: int = None,
+        metadata_filter: Optional[Dict] = None
+    ) -> RetrievalResult:
+        """
+        Query vector store with embedding
+        
+        Args:
+            query_embedding: Query embedding vector
+            n_results: Number of results to return (default from settings)
+            metadata_filter: Optional metadata filters
+            
+        Returns:
+            RetrievalResult with documents, metadata, and similarity scores
+        """
+        try:
+            n_results = n_results or settings.top_k_results
+            
+            logger.debug(f"Querying ChromaDB: n_results={n_results}, filter={metadata_filter}")
+            
+            # Build query parameters
+            query_params = {
+                "query_embeddings": [query_embedding],
+                "n_results": n_results * 2,  # Get extra for filtering
+            }
+            
+            if metadata_filter:
+                query_params["where"] = metadata_filter
+            
+            # Execute query
+            results = self.collection.query(**query_params)
+            
+            # Post-process: convert distances to similarities and filter
+            filtered_result = self._post_process_results(
+                results,
+                threshold=settings.similarity_threshold,
+                max_results=n_results
+            )
+            
+            if filtered_result.documents:
+                logger.info(
+                    f"Retrieved {len(filtered_result.documents)} chunks "
+                    f"(avg similarity: {sum(filtered_result.similarities)/len(filtered_result.similarities):.3f})"
+                )
+            else:
+                logger.warning("No results above threshold")
+            
+            return filtered_result
+            
+        except Exception as e:
+            logger.error(f"ChromaDB query failed: {e}")
+            raise Exception(f"Vector store query failed: {str(e)}")
+    
+    def _post_process_results(
+        self,
+        raw_results: Dict,
+        threshold: float,
+        max_results: int
+    ) -> RetrievalResult:
+        """Post-process ChromaDB results: convert distances, filter, deduplicate"""
+        
+        if not raw_results['ids'][0]:
+            return RetrievalResult(
+                documents=[],
+                metadatas=[],
+                similarities=[],
+                source='fintbx.pdf'
+            )
+        
+        # Convert L2 distances to similarities: similarity = 1 / (1 + distance)
+        distances = raw_results['distances'][0]
+        similarities = [1 / (1 + d) for d in distances]
+        
+        # Filter by threshold
+        good_indices = [i for i, sim in enumerate(similarities) if sim >= threshold]
+        
+        if not good_indices:
+            logger.warning(
+                f"No results above threshold {threshold}. "
+                f"Best similarity: {max(similarities):.3f}"
+            )
+            return RetrievalResult(
+                documents=[],
+                metadatas=[],
+                similarities=[],
+                source='fintbx.pdf'
+            )
+        
+        # Take top results
+        good_indices = good_indices[:max_results]
+        
+        # Extract filtered results
+        documents = [raw_results['documents'][0][i] for i in good_indices]
+        metadatas = [raw_results['metadatas'][0][i] for i in good_indices]
+        filtered_similarities = [similarities[i] for i in good_indices]
+        
+        # Deduplicate by content (keep highest similarity)
+        seen_content = {}
+        unique_docs = []
+        unique_metas = []
+        unique_sims = []
+        
+        for doc, meta, sim in zip(documents, metadatas, filtered_similarities):
+            key = doc[:200]  # First 200 chars as dedup key
+            if key not in seen_content or sim > seen_content[key]:
+                if key in seen_content:
+                    # Replace with higher similarity version
+                    idx = unique_docs.index(next(d for d in unique_docs if d[:200] == key))
+                    unique_docs[idx] = doc
+                    unique_metas[idx] = meta
+                    unique_sims[idx] = sim
+                else:
+                    unique_docs.append(doc)
+                    unique_metas.append(meta)
+                    unique_sims.append(sim)
+                    seen_content[key] = sim
+        
+        logger.debug(f"Post-processing: {len(documents)} → {len(unique_docs)} (after deduplication)")
+        
+        return RetrievalResult(
+            documents=unique_docs,
+            metadatas=unique_metas,
+            similarities=unique_sims,
+            source='fintbx.pdf'
+        )
+    
+    def health_check(self) -> bool:
+        """Check if vector store is accessible"""
+        try:
+            count = self.collection.count()
+            return count > 0
+        except:
+            return False
+
+
+# Update the singleton getter to accept path parameter
+_vector_store_service = None
+def get_vector_store_service(chromadb_path: str = None) -> VectorStoreService:
+    """Get or create the global VectorStoreService instance"""
+    global _vector_store_service
+    if _vector_store_service is None:
+        _vector_store_service = VectorStoreService(chromadb_path)
+    return _vector_store_service
+    
     
     def query(
         self,

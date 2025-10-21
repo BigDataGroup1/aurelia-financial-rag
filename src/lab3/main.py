@@ -50,7 +50,217 @@ app.add_middleware(
 
 logger.info("Initializing AURELIA RAG Service...")
 
+"""
+Add these functions to src/lab3/main.py
+Place them BEFORE the endpoint definitions, around line 60
+"""
 
+def get_latest_date_from_gcs(bucket_name: str, prefix: str) -> str:
+    """
+    Auto-detect latest date folder in GCS bucket
+    
+    Args:
+        bucket_name: GCS bucket name
+        prefix: Folder prefix (e.g., 'embeddings/')
+        
+    Returns:
+        Latest date string (e.g., '2025-10-21')
+    """
+    try:
+        from google.cloud import storage
+        from datetime import datetime
+        
+        client = storage.Client()
+        bucket = client.bucket(bucket_name)
+        
+        # List all "folders" (prefixes) under the given prefix
+        blobs = bucket.list_blobs(prefix=prefix, delimiter='/')
+        
+        # Extract dates from prefixes
+        dates = []
+        for prefix_name in blobs.prefixes:
+            # Extract date part (e.g., 'embeddings/2025-10-21/' → '2025-10-21')
+            date_str = prefix_name.rstrip('/').split('/')[-1]
+            try:
+                # Validate it's a date
+                datetime.strptime(date_str, '%Y-%m-%d')
+                dates.append(date_str)
+            except ValueError:
+                continue
+        
+        if not dates:
+            raise ValueError(f"No date folders found in gs://{bucket_name}/{prefix}")
+        
+        # Return latest date
+        latest = sorted(dates)[-1]
+        logger.info(f"Auto-detected latest date: {latest}")
+        return latest
+        
+    except Exception as e:
+        logger.error(f"Failed to detect latest date from GCS: {e}")
+        raise
+
+
+def download_and_build_chromadb_from_gcs(
+    bucket_name: str,
+    date: str = None,
+    local_chromadb_path: str = "/tmp/chromadb"
+) -> str:
+    """
+    Download embeddings from GCS and build ChromaDB locally
+    
+    Args:
+        bucket_name: GCS bucket name
+        date: Date folder (auto-detected if None)
+        local_chromadb_path: Where to create ChromaDB
+        
+    Returns:
+        Path to created ChromaDB directory
+    """
+    import json
+    import os
+    from pathlib import Path
+    
+    try:
+        from google.cloud import storage
+        import chromadb
+        
+        logger.info("="*70)
+        logger.info("BUILDING CHROMADB FROM GCS EMBEDDINGS")
+        logger.info("="*70)
+        
+        # Auto-detect latest date if not provided
+        if date is None:
+            date = get_latest_date_from_gcs(bucket_name, 'embeddings/')
+        
+        logger.info(f"Using date: {date}")
+        
+        # Download embeddings.json from GCS
+        client = storage.Client()
+        bucket = client.bucket(bucket_name)
+        
+        embeddings_path = f'embeddings/{date}/embeddings.json'
+        blob = bucket.blob(embeddings_path)
+        
+        if not blob.exists():
+            raise FileNotFoundError(f"Embeddings not found: gs://{bucket_name}/{embeddings_path}")
+        
+        logger.info(f"Downloading: gs://{bucket_name}/{embeddings_path}")
+        logger.info(f"Size: {blob.size / 1024 / 1024:.1f} MB")
+        
+        # Download to temp file
+        temp_embeddings = "/tmp/embeddings_download.json"
+        blob.download_to_filename(temp_embeddings)
+        logger.info(f"✓ Downloaded to {temp_embeddings}")
+        
+        # Load embeddings JSON
+        logger.info("Loading embeddings JSON...")
+        with open(temp_embeddings, 'r') as f:
+            embedded_chunks = json.load(f)
+        
+        logger.info(f"✓ Loaded {len(embedded_chunks)} embedded chunks")
+        
+        # Create ChromaDB directory
+        os.makedirs(local_chromadb_path, exist_ok=True)
+        logger.info(f"Creating ChromaDB at: {local_chromadb_path}")
+        
+        # Initialize ChromaDB client
+        chroma_client = chromadb.PersistentClient(path=local_chromadb_path)
+        
+        # Delete collection if exists
+        try:
+            chroma_client.delete_collection(name="fintbx")
+            logger.info("Deleted existing collection")
+        except:
+            pass
+        
+        # Create collection (CRITICAL: embedding_function=None for pre-computed embeddings)
+        collection = chroma_client.create_collection(
+            name="fintbx",
+            metadata={
+                "embedding_model": "text-embedding-3-large",
+                "embedding_dimensions": 3072,
+                "created_from": f"gs://{bucket_name}/{embeddings_path}"
+            },
+            embedding_function=None  # Pre-computed embeddings!
+        )
+        logger.info("✓ Created collection: fintbx")
+        
+        # Add vectors in batches
+        batch_size = 100
+        total_batches = (len(embedded_chunks) - 1) // batch_size + 1
+        
+        logger.info(f"Adding {len(embedded_chunks)} vectors in {total_batches} batches...")
+        
+        for i in range(0, len(embedded_chunks), batch_size):
+            batch = embedded_chunks[i:i+batch_size]
+            
+            collection.add(
+                ids=[f"chunk_{c['chunk_id']}" for c in batch],
+                embeddings=[c['embedding'] for c in batch],
+                documents=[c['content'] for c in batch],
+                metadatas=[c['metadata'] for c in batch]
+            )
+            
+            batch_num = i // batch_size + 1
+            if batch_num % 5 == 0 or batch_num == total_batches:
+                logger.info(f"  ✓ Batch {batch_num}/{total_batches}")
+        
+        # Verify
+        count = collection.count()
+        logger.info(f"\n✓ ChromaDB created successfully!")
+        logger.info(f"  Vectors: {count}")
+        logger.info(f"  Location: {local_chromadb_path}")
+        logger.info("="*70)
+        
+        # Clean up temp file
+        os.remove(temp_embeddings)
+        
+        return local_chromadb_path
+        
+    except Exception as e:
+        logger.error(f"Failed to build ChromaDB from GCS: {e}")
+        raise RuntimeError(f"ChromaDB build failed: {str(e)}")
+
+
+def initialize_chromadb_for_cloud():
+    """
+    Initialize ChromaDB based on environment (local vs cloud)
+    
+    Returns:
+        Path to ChromaDB directory
+    """
+    import os
+    from pathlib import Path
+    
+    # Check if running in cloud (GCS bucket configured)
+    gcs_bucket = os.getenv('CHROMADB_GCS_BUCKET')
+    
+    if gcs_bucket:
+        # Running in cloud - build from GCS embeddings
+        logger.info("Cloud environment detected - building ChromaDB from GCS")
+        
+        # Auto-detect latest date or use specified date
+        date = os.getenv('EMBEDDINGS_DATE', None)  # Optional: specify date
+        
+        chromadb_path = download_and_build_chromadb_from_gcs(
+            bucket_name=gcs_bucket,
+            date=date,
+            local_chromadb_path="/tmp/chromadb"
+        )
+        
+        return chromadb_path
+    
+    else:
+        # Running locally - use local ChromaDB
+        logger.info("Local environment detected - using local ChromaDB")
+        local_path = str(settings.chromadb_path)
+        
+        if not Path(local_path).exists():
+            raise RuntimeError(f"Local ChromaDB not found: {local_path}")
+        
+        logger.info(f"Using local ChromaDB: {local_path}")
+        return local_path
 # ============================================================================
 # Core RAG Logic
 # ============================================================================
@@ -493,65 +703,50 @@ async def seed_concepts(request: SeedRequest):
 @app.on_event("startup")
 async def startup_event():
     """Initialize services on startup"""
-    logger.info("="*70)
     logger.info("AURELIA Financial RAG Service Starting...")
-    logger.info("="*70)
     
-    from .gcs_loader import ensure_chromadb_ready
-    ensure_chromadb_ready(settings.gcs_bucket, settings.chromadb_path)
-
-    try:
-        # Initialize services (triggers singleton creation)
-        get_embedding_service()
-        get_vector_store_service()
-        get_wikipedia_service()
-        get_generation_service()
-        get_cache_service()
-        
-        # Initialize database
-        from .database.models import init_database
-        init_database()
-        logger.info("✓ Database initialized")
-        
-        # Load pre-seeded concepts from JSON (optional - service works without it)
-        logger.info("\n" + "-"*70)
-        logger.info("Loading pre-seeded concepts from JSON...")
-        logger.info("-"*70)
-        
-        try:
-            loaded = load_concepts_from_json()
-            
-            if loaded > 0:
-                logger.info(f"✓ Pre-loaded {loaded} concept(s) into cache")
-                logger.info("  These concepts will have instant (<50ms) response times!")
-            else:
-                logger.info("ℹ️  No pre-seeded concepts loaded")
-                logger.info("  Service will generate concepts on-demand (first query ~15s)")
-        
-        except Exception as e:
-            logger.warning(f"Concept pre-loading failed (non-critical): {e}")
-            logger.info("  Service continues normally - concepts generated on-demand")
-        
-        logger.info("-"*70)
-        
-        # Continue with normal startup
-        logger.info("\n✓ All services initialized successfully")
-        logger.info(f"✓ ChromaDB: {settings.chromadb_path}")
-        logger.info(f"✓ LLM Model: {settings.llm_model}")
-        logger.info(f"✓ Similarity Threshold: {settings.similarity_threshold}")
-        
-        # Show cache status
-        cache = get_cache_service()
-        cached_count = cache.count()
-        logger.info(f"✓ Cached concepts: {cached_count}")
-        
-        logger.info("="*70)
-        logger.info("Service Ready! Listening for requests...")
-        logger.info("="*70)
-        
-    except Exception as e:
-        logger.error(f"❌ Startup failed: {e}")
-        raise
+    # 🔍 STEP 1: Detect environment (local or cloud)
+    import os
+    gcs_bucket = os.getenv('CHROMADB_GCS_BUCKET')
+    is_cloud = gcs_bucket is not None
+    
+    logger.info(f"Environment: {'CLOUD' if is_cloud else 'LOCAL'}")
+    
+    # 🏗️ STEP 2: Initialize ChromaDB based on environment
+    chromadb_path = None
+    
+    if is_cloud:
+        # CLOUD MODE: Build ChromaDB from GCS embeddings
+        chromadb_path = download_and_build_chromadb_from_gcs(
+            bucket_name=gcs_bucket,
+            date=None  # Auto-detect latest date
+        )
+    else:
+        # LOCAL MODE: Use existing ChromaDB
+        chromadb_path = None  # Uses default from settings
+    
+    # 🚀 STEP 3: Initialize services (with ChromaDB path)
+    get_embedding_service()
+    get_vector_store_service(chromadb_path)  # ← Pass cloud path!
+    get_wikipedia_service()
+    get_generation_service()
+    get_cache_service()
+    
+    # Initialize database
+    from .database.models import init_database
+    init_database()
+    
+    # 📥 STEP 4: Load pre-seeded concepts (from GCS or local)
+    if is_cloud:
+        # Download from GCS
+        date = get_latest_date_from_gcs(gcs_bucket, 'concepts/')
+        concepts_path = f"gs://{gcs_bucket}/concepts/{date}/concept_definitions.json"
+        load_concepts_from_json(concepts_path)
+    else:
+        # Load from local file
+        load_concepts_from_json()
+    
+    logger.info("Service Ready!")
 @app.on_event("shutdown")
 async def shutdown_event():
     """Cleanup on shutdown"""
