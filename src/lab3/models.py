@@ -241,7 +241,7 @@ class RetrievalResult(BaseModel):
     
     def get_page_references(self) -> Optional[List[int]]:
         """Extract unique page numbers from metadata"""
-        if self.source != 'chromadb':
+        if self.source != 'fintbx.pdf':
             return None
         
         pages = set()
