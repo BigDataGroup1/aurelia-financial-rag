@@ -5,10 +5,11 @@
 runtime: python311  # Python 3.11
 
 # Entry point - what command to run
-entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
+# entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
+entrypoint: gunicorn -w 2 -k uvicorn.workers.UvicornWorker --bind :$PORT --timeout 300 src.lab3.main:app
 
 # Instance configuration
-instance_class: F2  # F1 (256MB), F2 (512MB), F4 (1GB), F4_1G (2GB)
+instance_class: F4  # F1 (256MB), F2 (512MB), F4 (1GB), F4_1G (2GB)
 
 # Automatic scaling configuration
 automatic_scaling:

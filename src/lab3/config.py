@@ -104,18 +104,22 @@ class Settings(BaseSettings):
 settings = Settings()
 
 
-# Validate critical paths on import
-if not settings.chromadb_path.exists():
-    raise RuntimeError(
-        f"ChromaDB path not found: {settings.chromadb_path}\n"
-        "Please ensure Lab 1 has been completed and ChromaDB data exists."
-    )
+# # Validate critical paths on import
+# if not settings.chromadb_path.exists():
+#     raise RuntimeError(
+#         f"ChromaDB path not found: {settings.chromadb_path}\n"
+#         "Please ensure Lab 1 has been completed and ChromaDB data exists."
+#     )
 
-print(f"✓ Configuration loaded successfully")
-print(f"  - ChromaDB: {settings.chromadb_path}")
+# Validation will happen in startup event, not on import
+print(f"✅ Configuration loaded successfully")
+print(f"  - ChromaDB path: {settings.chromadb_path}")
+print(f"  - GCS Bucket: {settings.gcs_bucket}")
 print(f"  - Database: {settings.database_url}")
 print(f"  - LLM Model: {settings.llm_model}")
 print(f"  - Similarity Threshold: {settings.similarity_threshold}")
+
+
 
 
 if __name__ == "__main__":
