@@ -72,20 +72,23 @@ def get_latest_date_from_gcs(bucket_name: str, prefix: str) -> str:
         client = storage.Client()
         bucket = client.bucket(bucket_name)
         
-        # List all "folders" (prefixes) under the given prefix
-        blobs = bucket.list_blobs(prefix=prefix, delimiter='/')
+        # List all blobs with the prefix
+        blobs = bucket.list_blobs(prefix=prefix)
         
-        # Extract dates from prefixes
-        dates = []
-        for prefix_name in blobs.prefixes:
-            # Extract date part (e.g., 'embeddings/2025-10-21/' → '2025-10-21')
-            date_str = prefix_name.rstrip('/').split('/')[-1]
-            try:
-                # Validate it's a date
-                datetime.strptime(date_str, '%Y-%m-%d')
-                dates.append(date_str)
-            except ValueError:
-                continue
+        # Extract unique date folders
+        dates = set()
+        for blob in blobs:
+            # blob.name format: 'embeddings/2025-10-21/embeddings.json'
+            # Split and get the date part
+            parts = blob.name.split('/')
+            if len(parts) >= 2 and parts[0] == prefix.rstrip('/'):
+                date_str = parts[1]
+                # Validate it's a date format (YYYY-MM-DD)
+                try:
+                    datetime.strptime(date_str, '%Y-%m-%d')
+                    dates.add(date_str)
+                except ValueError:
+                    continue
         
         if not dates:
             raise ValueError(f"No date folders found in gs://{bucket_name}/{prefix}")
@@ -98,7 +101,6 @@ def get_latest_date_from_gcs(bucket_name: str, prefix: str) -> str:
     except Exception as e:
         logger.error(f"Failed to detect latest date from GCS: {e}")
         raise
-
 
 def download_and_build_chromadb_from_gcs(
     bucket_name: str,
@@ -140,12 +142,18 @@ def download_and_build_chromadb_from_gcs(
         
         embeddings_path = f'embeddings/{date}/embeddings.json'
         blob = bucket.blob(embeddings_path)
-        
+
         if not blob.exists():
             raise FileNotFoundError(f"Embeddings not found: gs://{bucket_name}/{embeddings_path}")
-        
+
         logger.info(f"Downloading: gs://{bucket_name}/{embeddings_path}")
-        logger.info(f"Size: {blob.size / 1024 / 1024:.1f} MB")
+
+        # Reload blob to get size
+        blob.reload()
+        if blob.size:
+            logger.info(f"Size: {blob.size / 1024 / 1024:.1f} MB")
+        else:
+            logger.info("Size: Unknown (metadata not available)")   
         
         # Download to temp file
         temp_embeddings = "/tmp/embeddings_download.json"

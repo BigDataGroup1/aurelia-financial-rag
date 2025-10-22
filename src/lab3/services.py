@@ -656,13 +656,6 @@ def get_embedding_service() -> EmbeddingService:
     return _embedding_service
 
 
-def get_vector_store_service() -> VectorStoreService:
-    """Get or create the global VectorStoreService instance"""
-    global _vector_store_service
-    if _vector_store_service is None:
-        _vector_store_service = VectorStoreService()
-    return _vector_store_service
-
 
 def get_wikipedia_service() -> WikipediaService:
     """Get or create the global WikipediaService instance"""
