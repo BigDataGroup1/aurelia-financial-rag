@@ -1,0 +1,78 @@
+# Google App Engine Configuration for AURELIA Lab 3
+# This file tells App Engine how to run your FastAPI service
+
+runtime: python311
+
+# Entry point
+entrypoint: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+# Instance class (512MB RAM, good for RAG operations)
+instance_class: F2
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 0  # Scale to 0 when no traffic (save money)
+  max_instances: 5  # Max 5 instances
+  target_cpu_utilization: 0.65
+  target_throughput_utilization: 0.75
+
+# Environment variables
+env_variables:
+  # === CRITICAL: OpenAI API Key ===
+  OPENAI_API_KEY: "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"
+  
+  # === GCS Bucket Configuration ===
+  CHROMADB_GCS_BUCKET: "aurelia-rag-data"
+  
+  # ... rest of your existing env_variables ...
+  
+  # === Optional: Specify date (leave empty to auto-detect latest) ===
+  # EMBEDDINGS_DATE: "2025-10-21"  # Uncomment to use specific date
+  # CONCEPTS_DATE: "2025-10-21"    # Uncomment to use specific date
+  
+  # === Database Configuration ===
+  # SQLite in /tmp (App Engine provides temp storage)
+  DATABASE_URL: "sqlite:////tmp/concept_notes.db"
+  
+  # === RAG Configuration ===
+  SIMILARITY_THRESHOLD: "0.45"
+  TOP_K_RESULTS: "5"
+  MAX_CONTEXT_TOKENS: "6000"
+  
+  # === OpenAI Configuration ===
+  LLM_MODEL: "gpt-4o-mini"
+  EMBEDDING_MODEL: "text-embedding-3-large"
+  EMBEDDING_DIMENSIONS: "3072"
+  
+  # === ChromaDB Configuration ===
+  CHROMADB_COLLECTION_NAME: "fintbx"
+  
+  # === Logging ===
+  LOG_LEVEL: "INFO"
+  
+  # === Python Settings ===
+  PYTHONUNBUFFERED: "1"
+
+# Handlers
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
+# Health checks
+readiness_check:
+  path: "/health"
+  check_interval_sec: 30
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
+
+liveness_check:
+  path: "/health"
+  check_interval_sec: 300
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
+
+# Timeout settings (ChromaDB build can take time on first start)
+# Initial deployment might timeout - that's OK, subsequent starts are faster

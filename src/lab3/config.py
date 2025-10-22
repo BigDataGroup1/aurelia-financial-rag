@@ -10,12 +10,13 @@ from pydantic import Field
 class Settings(BaseSettings):
     """Application settings loaded from environment variables"""
     
-    # Project paths
-    project_root: Path = Path(__file__).resolve().parents[2]
-    chromadb_path: Path = Field(
-        default_factory=lambda: Path(__file__).resolve().parents[2] / "data" / "chromadb"
-    )
-    
+    # GCS Configuration  
+    gcs_bucket: str = Field(default="aurelia-rag-data")
+    gcp_project_id: str = Field(default="aurelia-financial-rag")
+
+    # Paths (App Engine uses /tmp)
+    chromadb_path: Path = Field(default=Path("/tmp/chromadb"))
+        
     # API Keys
     openai_api_key: str = Field(..., description="OpenAI API key")
     
@@ -93,7 +94,7 @@ class Settings(BaseSettings):
     )
     
     class Config:
-        env_file = str(Path(__file__).resolve().parents[2] / ".env")
+        env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = False
         extra = "ignore"  # Ignore extra fields in .env
@@ -103,18 +104,22 @@ class Settings(BaseSettings):
 settings = Settings()
 
 
-# Validate critical paths on import
-if not settings.chromadb_path.exists():
-    raise RuntimeError(
-        f"ChromaDB path not found: {settings.chromadb_path}\n"
-        "Please ensure Lab 1 has been completed and ChromaDB data exists."
-    )
+# # Validate critical paths on import
+# if not settings.chromadb_path.exists():
+#     raise RuntimeError(
+#         f"ChromaDB path not found: {settings.chromadb_path}\n"
+#         "Please ensure Lab 1 has been completed and ChromaDB data exists."
+#     )
 
-print(f"✓ Configuration loaded successfully")
-print(f"  - ChromaDB: {settings.chromadb_path}")
+# Validation will happen in startup event, not on import
+print(f"✅ Configuration loaded successfully")
+print(f"  - ChromaDB path: {settings.chromadb_path}")
+print(f"  - GCS Bucket: {settings.gcs_bucket}")
 print(f"  - Database: {settings.database_url}")
 print(f"  - LLM Model: {settings.llm_model}")
 print(f"  - Similarity Threshold: {settings.similarity_threshold}")
+
+
 
 
 if __name__ == "__main__":

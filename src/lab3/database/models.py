@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 from pathlib import Path
 
-from ..config import settings
+from config import settings
 
 Base = declarative_base()
 

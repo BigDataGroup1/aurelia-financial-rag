@@ -12,13 +12,16 @@ instructor==0.5.2
 
 # Vector Store
 chromadb==0.4.22
+numpy<2.0.0  # ← ADD THIS LINE! ChromaDB 0.4.22 needs NumPy 1.x
 
-# Database (for Phase 3)
+# Database
 sqlalchemy==2.0.25
-alembic==1.13.1
 
 # Wikipedia Fallback
 wikipedia==1.4.0
+
+# Google Cloud (for GCS)
+google-cloud-storage==2.14.0
 
 # Utilities
 python-dotenv==1.0.0
