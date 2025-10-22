@@ -7,21 +7,20 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 import logging
 
-
-from .config import settings
-from .models import (
+from config import settings
+from models import (
     QueryRequest, QueryResponse,
     SeedRequest, SeedResponse,
     HealthResponse,
     GenerationContext
 )
-from .services import (
+from services import (
     get_embedding_service,
     get_vector_store_service,
     get_wikipedia_service,
     get_generation_service
 )
-from .database.cache import get_cache_service
+from database.cache import get_cache_service
 
 # Configure logging
 logging.basicConfig(
@@ -733,7 +732,7 @@ async def startup_event():
     get_cache_service()
     
     # Initialize database
-    from .database.models import init_database
+    from database.models import init_database
     init_database()
     
     # 📥 STEP 4: Load pre-seeded concepts (from GCS or local)

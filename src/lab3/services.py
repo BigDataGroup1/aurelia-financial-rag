@@ -19,8 +19,8 @@ import chromadb
 import wikipedia
 
 # Local imports
-from .config import settings
-from .models import ConceptNote, GenerationContext, RetrievalResult
+from config import settings
+from models import ConceptNote, GenerationContext, RetrievalResult
 
 logger = logging.getLogger(__name__)
 

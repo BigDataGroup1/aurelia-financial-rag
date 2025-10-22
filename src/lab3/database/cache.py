@@ -5,8 +5,8 @@ from typing import Optional
 import logging
 from datetime import datetime
 
-from ..models import ConceptNote
-from .models import ConceptNoteCache, get_session
+from models import ConceptNote
+from database.models import ConceptNoteCache, get_session
 
 logger = logging.getLogger(__name__)
 

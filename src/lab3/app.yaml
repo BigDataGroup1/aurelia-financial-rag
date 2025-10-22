@@ -4,7 +4,7 @@
 runtime: python311
 
 # Entry point
-entrypoint: uvicorn src.lab3.main:app --host 0.0.0.0 --port $PORT
+entrypoint: uvicorn main:app --host 0.0.0.0 --port $PORT
 
 # Instance class (512MB RAM, good for RAG operations)
 instance_class: F2
@@ -18,9 +18,13 @@ automatic_scaling:
 
 # Environment variables
 env_variables:
-  # === CRITICAL: GCS Bucket Configuration ===
-  # This triggers cloud mode - Lab 3 will build ChromaDB from GCS embeddings
+  # === CRITICAL: OpenAI API Key ===
+  OPENAI_API_KEY: "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"
+  
+  # === GCS Bucket Configuration ===
   CHROMADB_GCS_BUCKET: "aurelia-rag-data"
+  
+  # ... rest of your existing env_variables ...
   
   # === Optional: Specify date (leave empty to auto-detect latest) ===
   # EMBEDDINGS_DATE: "2025-10-21"  # Uncomment to use specific date
