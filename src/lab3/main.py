@@ -2,16 +2,11 @@
 AURELIA Financial RAG Service - Main FastAPI Application
 Lab 3: FastAPI RAG Service with Retrieval, Generation, and Caching
 """
-import sys
-import time
-import logging
-from pathlib import Path
-
-# FASTAPI IMPORTS
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import time
+import logging
 
-# YOUR EXISTING IMPORTS
 from config import settings
 from models import (
     QueryRequest, QueryResponse,
@@ -27,19 +22,7 @@ from services import (
 )
 from database.cache import get_cache_service
 
-# LAB 5 EVALUATION IMPORTS (ADD AFTER ALL OTHER IMPORTS)
-try:
-    sys.path.insert(0, str(Path(__file__).parent.parent / "lab5"))
-    from evaluation_models import EvaluateRequest, EvaluateResponse, QueryEvaluationResult
-    from evaluation_service import get_evaluation_service
-    EVALUATION_ENABLED = True
-    logger = logging.getLogger(__name__)  # Get logger before using it
-except ImportError as e:
-    EVALUATION_ENABLED = False
-    logger = logging.getLogger(__name__)
-    logger.warning(f"Lab 5 Evaluation module not available: {e}")
-
-# Configure logging (your existing code)
+# Configure logging
 logging.basicConfig(
     level=getattr(logging, settings.log_level),
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -586,23 +569,16 @@ def generate_note(concept: str, force_refresh: bool = False):
 @app.get("/", tags=["Root"])
 async def root():
     """Root endpoint with service information"""
-    endpoints = {
-        "health": "/health",
-        "query": "POST /query",
-        "seed": "POST /seed",
-        "docs": "/docs"
-    }
-    
-    # Add evaluate endpoint if Lab 5 is available
-    if EVALUATION_ENABLED:
-        endpoints["evaluate"] = "POST /evaluate"
-    
     return {
         "service": settings.api_title,
         "version": settings.api_version,
         "status": "operational",
-        "lab5_evaluation": EVALUATION_ENABLED,
-        "endpoints": endpoints
+        "endpoints": {
+            "health": "/health",
+            "query": "POST /query",
+            "seed": "POST /seed",
+            "docs": "/docs"
+        }
     }
 
 
@@ -726,193 +702,6 @@ async def seed_concepts(request: SeedRequest):
             detail=f"Seed operation failed: {str(e)}"
         )
 
-@app.post("/evaluate", response_model=EvaluateResponse, tags=["Evaluation"])
-async def evaluate_system(request: EvaluateRequest):
-    """
-    Lab 5: Evaluate AURELIA system performance
-    
-    Comprehensive evaluation including:
-    - Concept note quality (accuracy, completeness, citation fidelity)
-    - Latency comparison (cached vs fresh queries)
-    - Token usage and cost analysis
-    - Retrieval performance metrics
-    
-    Returns:
-        Evaluation summary with detailed results and markdown report
-    """
-    if not EVALUATION_ENABLED:
-        raise HTTPException(
-            status_code=503,
-            detail="Evaluation module not available. Install lab5 dependencies."
-        )
-    
-    try:
-        logger.info("="*70)
-        logger.info("LAB 5 EVALUATION STARTED")
-        logger.info("="*70)
-        
-        eval_service = get_evaluation_service()
-        
-        # Determine test concepts
-        if request.test_queries is None:
-            test_concepts = list(eval_service.ground_truth.keys())
-            logger.info(f"Testing all {len(test_concepts)} ground truth concepts")
-        else:
-            test_concepts = [c.lower() for c in request.test_queries]
-            logger.info(f"Testing {len(test_concepts)} specified concepts")
-        
-        # Run queries and collect results
-        query_results: List[QueryEvaluationResult] = []
-        cached_count = 0
-        fresh_count = 0
-        
-        for i, concept in enumerate(test_concepts, 1):
-            try:
-                # Get proper concept name from GT
-                gt_concept = eval_service.ground_truth[concept]
-                proper_name = gt_concept.concept_name
-                
-                # Time the query
-                start_time = time.time()
-                
-                # Generate note (reuse existing function)
-                concept_note, retrieved_chunks, generation_time_ms, cached = generate_note(
-                    concept=proper_name,
-                    force_refresh=request.force_refresh
-                )
-                
-                total_latency_ms = (time.time() - start_time) * 1000
-                
-                # Component latencies for fresh queries
-                if not cached:
-                    retrieval_latency_ms = 50.0  # ChromaDB overhead estimate
-                    generation_latency_ms = generation_time_ms
-                else:
-                    retrieval_latency_ms = None
-                    generation_latency_ms = None
-                
-                # Evaluate quality
-                result = eval_service.evaluate_query(
-                    concept=proper_name,
-                    generated_note=concept_note,
-                    cached=cached,
-                    total_latency_ms=total_latency_ms,
-                    retrieval_latency_ms=retrieval_latency_ms,
-                    generation_latency_ms=generation_latency_ms,
-                    retrieved_chunks=retrieved_chunks
-                )
-                
-                query_results.append(result)
-                
-                if cached:
-                    cached_count += 1
-                else:
-                    fresh_count += 1
-                
-                logger.info(
-                    f"[{i}/{len(test_concepts)}] {proper_name}: "
-                    f"quality={result.quality_metrics.quality_score:.1f}, "
-                    f"latency={total_latency_ms:.0f}ms, "
-                    f"cached={cached}"
-                )
-                
-            except Exception as e:
-                logger.error(f"Failed to evaluate '{concept}': {e}")
-                # Continue with other concepts
-        
-        # Check if we have results
-        if not query_results:
-            raise HTTPException(
-                status_code=500,
-                detail="No successful evaluations. All queries failed."
-            )
-        
-        # Aggregate metrics
-        quality_metrics = eval_service.aggregate_quality_metrics(query_results)
-        latency_metrics = eval_service.aggregate_latency_metrics(query_results)
-        cost_metrics = eval_service.estimate_token_cost(query_results)
-        
-        # Create summary
-        eval_id = f"eval_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}"
-        
-        summary = EvaluationSummary(
-            evaluation_id=eval_id,
-            timestamp=datetime.utcnow(),
-            total_queries=len(query_results),
-            cached_queries=cached_count,
-            fresh_queries=fresh_count,
-            ground_truth_concepts=len(eval_service.ground_truth),
-            quality_metrics=quality_metrics,
-            latency_metrics=latency_metrics,
-            cost_metrics=cost_metrics
-        )
-        
-        # Generate markdown report
-        report_markdown = eval_service.generate_markdown_report(
-            summary,
-            query_results
-        )
-        
-        # Save to GCS if requested
-        gcs_path = None
-        if request.save_to_gcs:
-            try:
-                from google.cloud import storage
-                
-                client = storage.Client()
-                bucket = client.bucket(settings.gcs_bucket)
-                
-                # GCS path: evaluations/YYYY-MM-DD/eval_id/
-                date_str = datetime.utcnow().strftime('%Y-%m-%d')
-                gcs_prefix = f"evaluations/{date_str}/{eval_id}"
-                
-                # Upload summary
-                blob = bucket.blob(f"{gcs_prefix}/summary.json")
-                blob.upload_from_string(
-                    json.dumps(summary.model_dump(), indent=2, default=str),
-                    content_type='application/json'
-                )
-                
-                # Upload detailed results
-                blob = bucket.blob(f"{gcs_prefix}/detailed_results.json")
-                blob.upload_from_string(
-                    json.dumps([r.model_dump() for r in query_results], indent=2, default=str),
-                    content_type='application/json'
-                )
-                
-                # Upload report
-                blob = bucket.blob(f"{gcs_prefix}/evaluation_report.md")
-                blob.upload_from_string(report_markdown, content_type='text/markdown')
-                
-                gcs_path = f"gs://{settings.gcs_bucket}/{gcs_prefix}/"
-                logger.info(f"Saved to GCS: {gcs_path}")
-                
-            except Exception as e:
-                logger.warning(f"GCS upload failed: {e}")
-        
-        logger.info("="*70)
-        logger.info(f"EVALUATION COMPLETE: Quality={quality_metrics.avg_quality_score:.1f}/100")
-        logger.info("="*70)
-        
-        return EvaluateResponse(
-            evaluation_id=eval_id,
-            timestamp=datetime.utcnow(),
-            summary=summary,
-            detailed_results=query_results,
-            report_markdown=report_markdown,
-            gcs_path=gcs_path
-        )
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Evaluation failed: {e}")
-        import traceback
-        traceback.print_exc()
-        raise HTTPException(
-            status_code=500,
-            detail=f"Evaluation failed: {str(e)}"
-        )
 
 # ============================================================================
 # Startup and Shutdown Events
