@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # API URL
-API_BASE_URL = "http://localhost:8000"
+API_BASE_URL = "https://aurelia-financial-rag-475403.ue.r.appspot.com"
 
 # Modern vibrant CSS
 st.markdown("""
