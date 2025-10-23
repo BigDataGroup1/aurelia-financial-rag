@@ -1,0 +1,109 @@
+[
+  {
+    "concept": "Duration",
+    "generated_note": {
+      "concept_name": "Duration",
+      "definition": "Duration is a measure of the sensitivity of the price of a fixed-income investment to changes in interest rates, often used to assess interest rate risk. It reflects the weighted average time until cash flows are received and is essential for bond valuation and portfolio management.",
+      "key_components": [
+        "Macaulay Duration",
+        "Modified Duration",
+        "Effective Duration"
+      ],
+      "formula": "D = \\frac{\\sum_{t=1}^{n} t \\cdot PV(CF_t)}{P}",
+      "example": "For a bond with cash flows of $100 at the end of year 1, $100 at year 2, and $1000 at year 3, and a discount rate of 10%, the present values are $90.91, $82.64, and $751.31 respectively, giving a total present value (P) of $924.86 and a duration of around 2.43 years.",
+      "use_cases": [
+        "Portfolio management to assess interest rate risk.",
+        "Bond pricing and valuation for fixed income securities.",
+        "Risk management strategies to balance interest rate exposure."
+      ],
+      "related_concepts": [
+        "Interest Rate Risk",
+        "Bond Valuation",
+        "Fixed-Income Securities"
+      ],
+      "source": "wikipedia",
+      "page_references": null,
+      "confidence": 0.56
+    },
+    "cached": true,
+    "quality_metrics": {
+      "concept": "Duration",
+      "definition_similarity": 0.7111839864949124,
+      "has_definition": true,
+      "has_key_components": true,
+      "has_example": true,
+      "has_use_cases": true,
+      "has_formula": true,
+      "completeness_score": 1.0,
+      "page_refs_correct": 0,
+      "page_refs_total": 0,
+      "page_refs_extra": 0,
+      "citation_fidelity": 0.7,
+      "quality_score": 79.4473594597965,
+      "accuracy_weight": 0.4,
+      "completeness_weight": 0.3,
+      "citation_weight": 0.3
+    },
+    "total_latency_ms": 29.92701530456543,
+    "retrieval_latency_ms": null,
+    "generation_latency_ms": null,
+    "embedding_tokens": 0,
+    "llm_input_tokens": 0,
+    "llm_output_tokens": 0
+  },
+  {
+    "concept": "Beta",
+    "generated_note": {
+      "concept_name": "Beta",
+      "definition": "Beta is a measure of a stock's volatility in relation to the overall market. It quantifies the systematic risk of a security or portfolio compared to the market as a whole, indicating how much the stock's price is expected to move relative to market movements.",
+      "key_components": [
+        "Volatility",
+        "Market Comparison",
+        "Risk Assessment",
+        "Systematic vs. Unsystematic Risk",
+        "Capital Asset Pricing Model (CAPM)"
+      ],
+      "formula": "\\beta = \\frac{Cov(R_i, R_m)}{Var(R_m)}",
+      "example": "Consider a stock with a beta of 1.5. If the overall market increases by 10%, the stock is expected to increase by 15%. Conversely, if the market decreases by 10%, the stock would likely decrease by 15%. This illustrates the stock's greater volatility compared to the market.",
+      "use_cases": [
+        "Portfolio Management: Investors use beta to understand how adding a stock might affect the risk of their overall portfolio.",
+        "Investment Strategy: Traders may use beta to identify stocks that are more or less risky compared to the market, aligning their investment strategies accordingly.",
+        "Risk Assessment: Financial analysts use beta to assess the risk of a stock or portfolio, guiding investment decisions based on expected volatility."
+      ],
+      "related_concepts": [
+        "Volatility",
+        "Capital Asset Pricing Model (CAPM)",
+        "Risk Premium",
+        "Systematic Risk"
+      ],
+      "source": "fintbx.pdf",
+      "page_references": null,
+      "confidence": 0.36
+    },
+    "cached": true,
+    "quality_metrics": {
+      "concept": "Beta",
+      "definition_similarity": 0.8675358674567996,
+      "has_definition": true,
+      "has_key_components": true,
+      "has_example": true,
+      "has_use_cases": true,
+      "has_formula": true,
+      "completeness_score": 1.0,
+      "page_refs_correct": 0,
+      "page_refs_total": 4,
+      "page_refs_extra": 0,
+      "citation_fidelity": 0.0,
+      "quality_score": 64.70143469827198,
+      "accuracy_weight": 0.4,
+      "completeness_weight": 0.3,
+      "citation_weight": 0.3
+    },
+    "total_latency_ms": 4.5719146728515625,
+    "retrieval_latency_ms": null,
+    "generation_latency_ms": null,
+    "embedding_tokens": 0,
+    "llm_input_tokens": 0,
+    "llm_output_tokens": 0
+  }
+]
