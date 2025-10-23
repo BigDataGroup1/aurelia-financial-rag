@@ -1,0 +1,41 @@
+# Google App Engine Configuration for AURELIA Streamlit Frontend
+runtime: python311
+service: frontend 
+# Entry point for Streamlit
+entrypoint: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+
+# Instance class
+instance_class: F1
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 0
+  max_instances: 3
+  target_cpu_utilization: 0.65
+
+# Environment variables
+env_variables:
+  # API URL - points to your FastAPI backend
+  API_BASE_URL: "https://aurelia-financial-rag-475403.ue.r.appspot.com"
+
+
+# Handlers
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
+# Health check
+readiness_check:
+  path: "/_stcore/health"
+  check_interval_sec: 30
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
+
+liveness_check:
+  path: "/_stcore/health"
+  check_interval_sec: 300
+  timeout_sec: 10
+  failure_threshold: 3
+  success_threshold: 1
