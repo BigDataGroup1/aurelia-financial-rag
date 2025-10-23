@@ -2,23 +2,16 @@
 AURELIA Financial RAG Service - Main FastAPI Application
 Lab 3: FastAPI RAG Service with Retrieval, Generation, and Caching
 """
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+import sys
 import time
 import logging
 from pathlib import Path
-# Add these imports after your existing ones
-try:
-    # Import Lab 5 evaluation modules
-    sys.path.insert(0, str(Path(__file__).parent.parent / "lab5"))
-    from evaluation_models import EvaluateRequest, EvaluateResponse, QueryEvaluationResult
-    from evaluation_service import get_evaluation_service
-    EVALUATION_ENABLED = True
-    logger.info("✓ Lab 5 Evaluation module loaded")
-except ImportError as e:
-    EVALUATION_ENABLED = False
-    logger.warning(f"Lab 5 Evaluation module not available: {e}")
 
+# FASTAPI IMPORTS
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+
+# YOUR EXISTING IMPORTS
 from config import settings
 from models import (
     QueryRequest, QueryResponse,
@@ -34,7 +27,19 @@ from services import (
 )
 from database.cache import get_cache_service
 
-# Configure logging
+# LAB 5 EVALUATION IMPORTS (ADD AFTER ALL OTHER IMPORTS)
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent / "lab5"))
+    from evaluation_models import EvaluateRequest, EvaluateResponse, QueryEvaluationResult
+    from evaluation_service import get_evaluation_service
+    EVALUATION_ENABLED = True
+    logger = logging.getLogger(__name__)  # Get logger before using it
+except ImportError as e:
+    EVALUATION_ENABLED = False
+    logger = logging.getLogger(__name__)
+    logger.warning(f"Lab 5 Evaluation module not available: {e}")
+
+# Configure logging (your existing code)
 logging.basicConfig(
     level=getattr(logging, settings.log_level),
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
