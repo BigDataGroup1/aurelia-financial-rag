@@ -1,0 +1,308 @@
+# Chunking Strategy Comparison Report
+_Generated: 2025-10-20 12:38:37_
+
+## Executive Summary
+
+Tested 6 chunking strategies on the Financial Toolbox PDF corpus.
+Goal: Find optimal balance between chunk granularity, content preservation, and retrieval efficiency.
+
+---
+
+## 1. Overall Statistics
+
+| Strategy | Chunks | Avg Size | Min | Max | Median | Processing Time |
+|----------|--------|----------|-----|-----|--------|-----------------|
+| 1_recursive_small_500_100      | 2,460 | 383 | 21 | 499 | 443 | 0.07s |
+| 2_recursive_medium_1000_200    | 1,417 | 683 | 21 | 999 | 914 | 0.05s |
+| 3_recursive_large_1500_300     | 996 | 960 | 21 | 1,499 | 1270 | 0.04s |
+| 4_markdown_header              | 400 | 2136 | 10 | 10,200 | 18 | 0.10s |
+| 5_hybrid_structure_size        | 1,110 | 871 | 10 | 1,200 | 1139 | 0.15s |
+| 6_code_aware_1200_200          | 1,613 | 580 | 3 | 1,199 | 532 | 0.06s |
+
+
+## 2. Content Preservation
+
+| Strategy | Code Blocks | Tables | Formulas | Headers |
+|----------|-------------|--------|----------|---------|
+| 1_recursive_small_500_100      | 40 | 200 | 851 | 0 |
+| 2_recursive_medium_1000_200    | 45 | 198 | 614 | 0 |
+| 3_recursive_large_1500_300     | 46 | 196 | 473 | 0 |
+| 4_markdown_header              | 33 | 195 | 130 | 200 |
+| 5_hybrid_structure_size        | 47 | 222 | 486 | 200 |
+| 6_code_aware_1200_200          | 71 | 197 | 547 | 159 |
+
+
+## 3. Metadata Preservation
+
+Critical for citations and source attribution in RAG.
+
+| Strategy | Page Numbers | Source Info | Preservation Rate |
+|----------|--------------|-------------|-------------------|
+| 1_recursive_small_500_100      | 2460/2460 | 2460/2460 | ✅ 100.0% |
+| 2_recursive_medium_1000_200    | 1417/1417 | 1417/1417 | ✅ 100.0% |
+| 3_recursive_large_1500_300     | 996/996 | 996/996 | ✅ 100.0% |
+| 4_markdown_header              | 400/400 | 400/400 | ✅ 100.0% |
+| 5_hybrid_structure_size        | 220/1110 | 220/1110 | ❌ 19.8% |
+| 6_code_aware_1200_200          | 1613/1613 | 1613/1613 | ✅ 100.0% |
+
+
+## 4. Chunk Size Distribution
+
+| Strategy | 0-500 | 501-1000 | 1001-1500 | 1501+ |
+|----------|-------|----------|-----------|-------|
+| 1_recursive_small_500_100      | 2460 | 0 | 0 | 0 |
+| 2_recursive_medium_1000_200    | 448 | 969 | 0 | 0 |
+| 3_recursive_large_1500_300     | 288 | 134 | 574 | 0 |
+| 4_markdown_header              | 209 | 9 | 7 | 175 |
+| 5_hybrid_structure_size        | 266 | 94 | 750 | 0 |
+| 6_code_aware_1200_200          | 798 | 188 | 627 | 0 |
+
+
+## 5. Visual Comparison: Chunk Count
+
+```
+1_recursive_small_500_100           | ██████████████████████████████████████████████████ 2,460
+2_recursive_medium_1000_200         | ████████████████████████████ 1,417
+3_recursive_large_1500_300          | ████████████████████ 996
+4_markdown_header                   | ████████ 400
+5_hybrid_structure_size             | ██████████████████████ 1,110
+6_code_aware_1200_200               | ████████████████████████████████ 1,613
+```
+
+
+## 6. Visual Comparison: Code Block Preservation
+
+```
+1_recursive_small_500_100           | ████████████████████████████ 40
+2_recursive_medium_1000_200         | ███████████████████████████████ 45
+3_recursive_large_1500_300          | ████████████████████████████████ 46
+4_markdown_header                   | ███████████████████████ 33
+5_hybrid_structure_size             | █████████████████████████████████ 47
+6_code_aware_1200_200               | ██████████████████████████████████████████████████ 71
+```
+
+
+## 7. Multi-Criteria Scoring
+
+Weighted scoring across key dimensions:
+- Code Preservation: 25%
+- Metadata Integrity: 25%
+- Size Consistency: 20%
+- Table Preservation: 15%
+- Chunk Count (lower is better): 15%
+
+| Strategy | Code | Metadata | Size | Tables | Count | **Total** |
+|----------|------|----------|------|--------|-------|-----------|
+| 1_recursive_small_500_100      | 14.1 | 25.0 | 20.0 | 13.5 | 0.0 | **72.6** |
+| 2_recursive_medium_1000_200    | 15.8 | 25.0 | 20.0 | 13.4 | 7.6 | **81.8** |
+| 3_recursive_large_1500_300     | 16.2 | 25.0 | 15.0 | 13.2 | 10.7 | **80.1** |
+| 4_markdown_header              | 11.6 | 25.0 | 5.0 | 13.2 | 15.0 | **69.8** |
+| 5_hybrid_structure_size        | 16.5 | 5.0 | 15.0 | 15.0 | 9.8 | **61.3** |
+| 6_code_aware_1200_200          | 25.0 | 25.0 | 15.0 | 13.3 | 6.2 | **84.5** |
+
+
+## 8. Recommendation
+
+### 🏆 Winner: `6_code_aware_1200_200`
+
+**Total Score: 84.5/100**
+
+**Strengths:**
+- ✅ Best code preservation (71 blocks)
+- ✅ Perfect metadata preservation (100%)
+
+**Why this matters for RAG:**
+- Code integrity ensures technical queries get complete function definitions
+- Metadata preservation enables accurate citations (page numbers)
+- Balanced chunk sizes optimize retrieval precision vs. context
+
+---
+
+## 9. Detailed Strategy Analysis
+
+### Recursive Small
+
+**Description:** 500 char chunks, 100 overlap
+
+**Metrics:**
+- Chunks: 2,460
+- Avg Size: 383 chars
+- Size Range: 21-499 chars
+- Code Blocks: 40
+- Tables: 200
+- Metadata: 2460/2460 (100.0%)
+
+**Best For:** Precise fact retrieval, Q&A
+
+**Pros:**
+- High granularity
+- Fast retrieval
+- Large result set
+
+**Cons:**
+- Loss of context
+- Many chunks (overhead)
+- Code fragmentation
+
+---
+
+### Recursive Medium
+
+**Description:** 1000 char chunks, 200 overlap
+
+**Metrics:**
+- Chunks: 1,417
+- Avg Size: 683 chars
+- Size Range: 21-999 chars
+- Code Blocks: 45
+- Tables: 198
+- Metadata: 1417/1417 (100.0%)
+
+**Best For:** Balanced retrieval
+
+**Pros:**
+- Good context
+- Manageable chunk count
+- Balanced performance
+
+**Cons:**
+- May still split code
+- Generic approach
+
+---
+
+### Recursive Large
+
+**Description:** 1500 char chunks, 300 overlap
+
+**Metrics:**
+- Chunks: 996
+- Avg Size: 960 chars
+- Size Range: 21-1,499 chars
+- Code Blocks: 46
+- Tables: 196
+- Metadata: 996/996 (100.0%)
+
+**Best For:** Complex queries needing context
+
+**Pros:**
+- Maximum context
+- Fewer chunks
+- Good for explanations
+
+**Cons:**
+- May miss specific facts
+- Slower retrieval
+- Larger tokens
+
+---
+
+### Markdown Header
+
+**Description:** Split only at headers
+
+**Metrics:**
+- Chunks: 400
+- Avg Size: 2136 chars
+- Size Range: 10-10,200 chars
+- Code Blocks: 33
+- Tables: 195
+- Metadata: 400/400 (100.0%)
+
+**Best For:** Structure-aware retrieval
+
+**Pros:**
+- Preserves hierarchy
+- Conceptual boundaries
+- Header metadata
+
+**Cons:**
+- Extreme size variance
+- Inconsistent embedding quality
+- Poor code preservation
+
+---
+
+### Hybrid
+
+**Description:** Headers + recursive split
+
+**Metrics:**
+- Chunks: 1,110
+- Avg Size: 871 chars
+- Size Range: 10-1,200 chars
+- Code Blocks: 47
+- Tables: 222
+- Metadata: 220/1110 (19.8%)
+
+**Best For:** Best of both worlds (theory)
+
+**Pros:**
+- Structure + size control
+- Good balance
+
+**Cons:**
+- CRITICAL: 80% metadata loss
+- Complex pipeline
+- Breaks citations
+
+---
+
+### Code-Aware
+
+**Description:** Custom separators for code
+
+**Metrics:**
+- Chunks: 1,613
+- Avg Size: 580 chars
+- Size Range: 3-1,199 chars
+- Code Blocks: 71
+- Tables: 197
+- Metadata: 1613/1613 (100.0%)
+
+**Best For:** Code-heavy technical docs
+
+**Pros:**
+- Preserves code blocks
+- Perfect metadata
+- Header awareness
+
+**Cons:**
+- Slightly complex
+- Custom tuning needed
+
+---
+
+## 10. Implementation Guidance
+
+To use the recommended strategy (6_code_aware_1200_200), run:
+
+$env:CHUNK_STRATEGY="6_code_aware_1200_200"
+python generate_embeddings.py
+
+This will:
+1. Load the optimized chunks
+2. Generate embeddings using text-embedding-3-large
+3. Store in ChromaDB/Pinecone for retrieval
+
+---
+
+## 11. For Your Codelab
+
+Include this analysis in your Lab 1 documentation:
+
+========================================
+Chunking Strategy Selection
+
+After testing 6 strategies, selected 6_code_aware_1200_200 based on:
+- Superior code preservation (71 blocks)
+- Perfect metadata retention (100%)
+- Optimal size balance (580 avg chars)
+
+This ensures accurate retrieval for code-heavy technical content
+while maintaining citation capability for RAG responses.
+========================================
+
+---
+
+Report Generated: 2025-10-20 12:38:37
