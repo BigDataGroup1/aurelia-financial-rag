@@ -1,0 +1,129 @@
+{
+  "timestamp": "20251023_195025",
+  "api_url": "https://aurelia-financial-rag-475403.ue.r.appspot.com",
+  "test_concepts": [
+    "Duration",
+    "Beta",
+    "Sharpe Ratio"
+  ],
+  "results": [
+    {
+      "concept": "Duration",
+      "success": true,
+      "data": {
+        "concept_note": {
+          "concept_name": "Duration",
+          "definition": "Duration is a measure of the sensitivity of the price of a fixed-income security to changes in interest rates, representing the time it takes to recoup the investment in the bond, considering cash flows. It generally indicates the average time until cash flows are received and can be used to compare the interest rate risk of different bonds.",
+          "key_components": [
+            "Macaulay Duration",
+            "Modified Duration",
+            "Effective Duration",
+            "Cash Flow Timing"
+          ],
+          "formula": "D = \\frac{\\sum (PV(CF_t) \\cdot t)}{P}",
+          "example": "Consider a bond that pays $100 in cash flows for 5 years and then $1,000 at maturity. If the yield to maturity is 5%, the present value of the cash flows would be calculated. The duration can be found by weighting each cash flow by the time until receipt. For example, if the durations of cash flows are taken into account, and after calculation, the overall duration is found to be 4.5 years, this indicates that the bond's price is likely to change approximately 4.5% for a 1% change in interest rates.",
+          "use_cases": [
+            "Portfolio Management",
+            "Risk Assessment",
+            "Bond Pricing",
+            "Investment Strategy"
+          ],
+          "related_concepts": [
+            "Macaulay Duration",
+            "Modified Duration",
+            "Effective Duration",
+            "Interest Rate Risk"
+          ],
+          "source": "wikipedia",
+          "page_references": null,
+          "confidence": 0.5599999999999999
+        },
+        "retrieved_chunks": 1,
+        "generation_time_ms": 8380.305051803589,
+        "cached": false,
+        "timestamp": "2025-10-23T19:50:08.584051"
+      }
+    },
+    {
+      "concept": "Beta",
+      "success": true,
+      "data": {
+        "concept_note": {
+          "concept_name": "Beta",
+          "definition": "In finance, beta is a metric that measures the risk of an investment portfolio in relation to the market as a whole. It indicates how much the asset's price is expected to move relative to the movements of a benchmark index, typically the stock market.",
+          "key_components": [
+            "Measurement of risk",
+            "Relative to market movements",
+            "Volatility comparison",
+            "Benchmark index"
+          ],
+          "formula": "\\beta = \\frac{Covariance(R_i, R_m)}{Variance(R_m)}",
+          "example": "For instance, if a stock has a beta of 1.5, this indicates that, historically, the stock has been 50% more volatile than the overall market. If the market increases by 1%, you can expect the stock to rise by about 1.5%.",
+          "use_cases": [
+            "Portfolio management to balance risk and return",
+            "Investment strategy formulation by comparing asset volatilities",
+            "Risk assessment for capital budgeting decisions"
+          ],
+          "related_concepts": [
+            "Alpha",
+            "Standard Deviation",
+            "Sharpe Ratio",
+            "Capital Asset Pricing Model (CAPM)"
+          ],
+          "source": "wikipedia",
+          "page_references": null,
+          "confidence": 0.5599999999999999
+        },
+        "retrieved_chunks": 1,
+        "generation_time_ms": 6042.463302612305,
+        "cached": false,
+        "timestamp": "2025-10-23T19:50:14.810214"
+      }
+    },
+    {
+      "concept": "Sharpe Ratio",
+      "success": true,
+      "data": {
+        "concept_note": {
+          "concept_name": "Sharpe Ratio",
+          "definition": "The Sharpe Ratio is a measure used to evaluate the risk-adjusted return of an investment. It is calculated by taking the difference between the return of the investment and the risk-free rate, divided by the standard deviation of the investment's returns.",
+          "key_components": [
+            "Return of the investment",
+            "Risk-free rate",
+            "Standard deviation of the investment's return",
+            "Risk-adjusted performance measurement"
+          ],
+          "formula": "\\text{Sharpe Ratio} = \\frac{R_p - R_f}{\\sigma_p}",
+          "example": "For example, if an investment has an annual return of 8%, the risk-free rate is 2%, and the standard deviation of the investment's returns is 5%, the Sharpe Ratio would be calculated as follows: Sharpe Ratio = (0.08 - 0.02) / 0.05 = 1.2.",
+          "use_cases": [
+            "Portfolio optimization by selecting investments with a higher Sharpe Ratio to maximize return for a given level of risk.",
+            "Comparison of the performance of different mutual funds or assets to identify which has provided better returns per unit of risk.",
+            "Assessment of investment strategies to ensure that return goals are achieved without taking on excessive risk."
+          ],
+          "related_concepts": [
+            "Risk-Adjusted Return",
+            "Information Ratio",
+            "Tracking Error"
+          ],
+          "source": "fintbx.pdf",
+          "page_references": [
+            10,
+            19,
+            34
+          ],
+          "confidence": 0.37028110880494103
+        },
+        "retrieved_chunks": 4,
+        "generation_time_ms": 10974.872350692749,
+        "cached": false,
+        "timestamp": "2025-10-23T19:50:26.185738"
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "successful": 3,
+    "failed": 0,
+    "elapsed_seconds": 40.13303279876709
+  }
+}
