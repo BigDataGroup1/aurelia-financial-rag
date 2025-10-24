@@ -8,7 +8,7 @@ This project builds a complete cloud-native RAG pipeline that parses the 4000-pa
 * **Google Codelab**: [Link to your Codelab]
 * **YouTube Demo**: [Link to your demo video]
 * **Cloud Deployment**: [Link to your Cloud Run service]
-* **GitHub Repository**: https://github.com/[your-username]/aurelia-financial-rag
+
 
 ## Technologies
 
@@ -20,7 +20,8 @@ This project builds a complete cloud-native RAG pipeline that parses the 4000-pa
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="GCP"/>
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
   <img src="https://img.shields.io/badge/ChromaDB-FF6B6B?style=for-the-badge" alt="ChromaDB"/>
-  <img src="https://img.shields.io/badge/Pinecone-000000?style=for-the-badge" alt="Pinecone"/>
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
+
 </p>
 
 ## Architecture Diagram
@@ -173,7 +174,7 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 
 | **Name** | **Contribution** |
 |----------|------------------|
-| [Your Name] | 33.3% - PDF parsing & chunking, Cloud Composer orchestration |
+| [Your Name] | 33.3% - PDF parsing & chunking, embedding, Cloud Composer orchestration , GCP airflow orchestration|
 | [Teammate 2] | 33.3% - FastAPI RAG service, Streamlit frontend |
 | [Teammate 3] | 33.3% - Evaluation & benchmarking, performance analysis |
 
