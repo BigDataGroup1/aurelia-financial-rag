@@ -5,9 +5,9 @@ This project builds a complete cloud-native RAG pipeline that parses the 4000-pa
 
 ## Project Resources
 
-* **Google Codelab**: [Link to your Codelab]
+* **Google Codelab**: [[Link to your Codelab]](https://codelabs-preview.appspot.com/?file_id=https://docs.google.com/document/d/12F6iGYe5HWg1EgEF-2Tt6-EebgWqpQOL3BV3eS_8SM0/edit?tab=t.0#0)
 * **YouTube Demo**: [Link to your demo video]
-* **Cloud Deployment**: [Link to your Cloud Run service]
+
 
 
 ## Technologies
