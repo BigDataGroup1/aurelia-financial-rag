@@ -175,7 +175,7 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 | **Name** | **Contribution** |
 |----------|------------------|
 | [Swathi Jinka Radhakrishna] | 33.3% - PDF parsing & chunking, embedding, Cloud Composer orchestration , GCP airflow orchestration|
-| [Teammate 2] | 33.3% - FastAPI RAG service, Streamlit frontend |
+| [Aksh Ashish Talati] | 33.3% - PDF parsing, FastAPI development, evaluation pipeline implementation, and deployment on Google App Engine (including endpoint integration and service testing) |
 | [Teammate 3] | 33.3% - Evaluation & benchmarking, performance analysis |
 
 ## Attestation
