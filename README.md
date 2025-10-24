@@ -176,7 +176,7 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 |----------|------------------|
 | [Swathi Jinka Radhakrishna] | 33.3% - PDF parsing & chunking, embedding, Cloud Composer orchestration , GCP airflow orchestration|
 | [Aksh Ashish Talati] | 33.3% - PDF parsing, FastAPI development, evaluation pipeline implementation, and deployment on Google App Engine (including endpoint integration and service testing) |
-| [Teammate 3] | 33.3% - Evaluation & benchmarking, performance analysis |
+| [Tapas Desai] | 33.3% - Streamlit Frontend Ui and Evaluation & benchmarking, performance analysis |
 
 ## Attestation
 WE ATTEST THAT WE HAVEN'T USED ANY OTHER STUDENTS' WORK IN OUR ASSIGNMENT AND ABIDE BY THE POLICIES LISTED IN THE STUDENT HANDBOOK.
