@@ -1,0 +1,332 @@
+[
+  {
+    "concept_name": "Duration",
+    "definition": "Duration measures how long, on average, an investor waits before receiving payments from a bond. It is the weighted average of the times payments are made, with weights equal to the present value of money received at each time. Modified duration is the Macaulay duration discounted by the per-period interest rate.",
+    "key_components": [
+      "Macaulay duration - weighted average time to maturity measured in years",
+      "Modified duration - Macaulay duration divided by (1 + rate/frequency)",
+      "Periodic duration - duration measured in payment periods rather than years",
+      "Used as a measure of price sensitivity to yield changes"
+    ],
+    "formula": "ModDuration = \\frac{MacaulayDuration}{1 + \\frac{rate}{frequency}}",
+    "example": "For a bond with settlement date January 12, 2000 and maturity October 1, 2001, with 5% coupon rate and 4.5% yield, the modified duration is 1.6107 years, the annualized Macaulay duration is 1.6470 years, and the periodic Macaulay duration is 3.2940 semiannual periods.",
+    "use_cases": [
+      "Measuring interest rate risk in bond portfolios",
+      "Hedging strategies for fixed-income securities",
+      "Portfolio immunization against interest rate changes",
+      "Comparing price sensitivity across different bonds"
+    ],
+    "related_concepts": ["Convexity", "Yield to Maturity", "Modified Duration", "Key Rate Duration"],
+    "source": "fintbx.pdf",
+    "page_references": [22, 23, 24],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Convexity",
+    "definition": "Convexity is a measure of the curvature in the relationship between bond prices and yields. It measures the rate of change of duration relative to changes in yield, serving as a second-order measure of price sensitivity to interest rate changes.",
+    "key_components": [
+      "Second derivative of bond price with respect to yield",
+      "Measures curvature of price-yield relationship",
+      "Used alongside duration for more accurate price change estimation",
+      "Always positive for standard bonds"
+    ],
+    "formula": null,
+    "example": "When interest rates change, duration provides a linear approximation of price changes, while convexity accounts for the curvature. A bond with high convexity experiences larger price increases when yields fall and smaller price decreases when yields rise compared to a bond with low convexity.",
+    "use_cases": [
+      "Improving accuracy of bond price change predictions",
+      "Hedging portfolios against large interest rate movements",
+      "Identifying bonds with favorable price-yield characteristics",
+      "Portfolio risk management"
+    ],
+    "related_concepts": ["Duration", "Yield to Maturity", "Interest Rate Risk", "Modified Duration"],
+    "source": "fintbx.pdf",
+    "page_references": [22],
+    "confidence": 0.95
+  },
+  {
+    "concept_name": "Internal Rate of Return",
+    "definition": "The internal rate of return (IRR) is the discount rate that makes the net present value of all cash flows from an investment equal to zero. It represents the annualized effective compounded return rate that can be earned on invested capital.",
+    "key_components": [
+      "Solves for the rate where NPV equals zero",
+      "Requires solving a polynomial equation",
+      "May have multiple solutions if cash flows change signs multiple times",
+      "Assumes cash flows can be reinvested at the IRR rate"
+    ],
+    "formula": "Investment + \\sum_{n=1}^{N} \\frac{CF_n}{(1+r)^n} = 0",
+    "example": "For an initial investment of $20,000 followed by annual returns of $2,000, $2,500, $3,500, then another investment of $5,000, followed by returns of $6,500, $9,500, $9,500, and $9,500, the internal rate of return is 11.72%.",
+    "use_cases": [
+      "Evaluating profitability of investments and projects",
+      "Comparing returns across different investment opportunities",
+      "Capital budgeting decisions",
+      "Performance measurement for investment portfolios"
+    ],
+    "related_concepts": ["Net Present Value", "Discount Rate", "Cash Flow Analysis", "Return on Investment"],
+    "source": "fintbx.pdf",
+    "page_references": [11, 12],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Sharpe Ratio",
+    "definition": "The Sharpe Ratio measures the excess return per unit of risk in an investment or portfolio. It is calculated as the difference between the portfolio return and risk-free rate, divided by the standard deviation of portfolio returns. Higher values indicate better risk-adjusted performance.",
+    "key_components": [
+      "Measures risk-adjusted return",
+      "Uses standard deviation as the risk measure",
+      "Subtracts risk-free rate from portfolio return",
+      "Enables comparison across different investments"
+    ],
+    "formula": "SharpeRatio = \\frac{R_p - R_f}{\\sigma_p}",
+    "example": "If a portfolio has an expected return of 15%, the risk-free rate is 3%, and the portfolio standard deviation is 10%, the Sharpe Ratio is (0.15 - 0.03) / 0.10 = 1.2, indicating the portfolio earns 1.2 units of excess return per unit of risk.",
+    "use_cases": [
+      "Comparing performance of different portfolios or funds",
+      "Evaluating risk-adjusted returns in portfolio optimization",
+      "Performance measurement and attribution",
+      "Investment strategy selection"
+    ],
+    "related_concepts": ["Information Ratio", "Risk-Adjusted Return", "Efficient Frontier", "Standard Deviation"],
+    "source": "fintbx.pdf",
+    "page_references": [111],
+    "confidence": 0.90
+  },
+  {
+    "concept_name": "Efficient Frontier",
+    "definition": "The efficient frontier is the set of optimal portfolios that offer the highest expected return for a given level of risk or the lowest risk for a given level of return. Portfolios on the efficient frontier dominate all other possible portfolios in the risk-return space.",
+    "key_components": [
+      "Represents optimal risk-return combinations",
+      "Portfolios below the frontier are suboptimal",
+      "Derived from mean-variance optimization",
+      "Forms a curve in risk-return space"
+    ],
+    "formula": null,
+    "example": "Given three assets with different expected returns and correlations, the efficient frontier shows all possible portfolio combinations that maximize return for each risk level. An investor can select a portfolio on this frontier based on their risk tolerance.",
+    "use_cases": [
+      "Portfolio construction and asset allocation",
+      "Identifying optimal portfolios for different risk preferences",
+      "Visual representation of risk-return tradeoffs",
+      "Benchmark for portfolio performance evaluation"
+    ],
+    "related_concepts": ["Mean-Variance Optimization", "Portfolio Optimization", "Sharpe Ratio", "Capital Allocation Line"],
+    "source": "fintbx.pdf",
+    "page_references": [5, 98, 99, 102, 122, 125],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Treasury Bills",
+    "definition": "Treasury bills are short-term discount securities issued by the United States Treasury with maturities of one year or less. Unlike bonds, T-bills do not pay periodic interest; instead, they are sold at a discount to face value and redeemed at maturity for full face value.",
+    "key_components": [
+      "Discount securities with no periodic coupon payments",
+      "Maturities of one year or less",
+      "Interest calculated on actual/360 day-count basis",
+      "Issued by U.S. Treasury through frequent weekly sales"
+    ],
+    "formula": null,
+    "example": "A Treasury bill with 53 days to maturity, a bid discount rate of 5.03%, and an ask discount rate of 4.99% is sold below its face value. At maturity, the holder redeems it for the full face value, realizing a return from the discount.",
+    "use_cases": [
+      "Short-term cash management and liquidity",
+      "Risk-free investment benchmarking",
+      "Collateral for repurchase agreements",
+      "Building blocks for term structure analysis"
+    ],
+    "related_concepts": ["Discount Rate", "Yield", "Money Market", "Term Structure"],
+    "source": "fintbx.pdf",
+    "page_references": [25, 26, 27, 28],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Yield to Maturity",
+    "definition": "Yield to maturity is the nominal compound rate of return that equates the present value of all future cash flows (coupon payments and principal repayment) from a bond to its current market price. It represents the total return anticipated on a bond if held until maturity.",
+    "key_components": [
+      "Compound rate equating present value to market price",
+      "Assumes all coupons are reinvested at the YTM rate",
+      "Accounts for coupon payments and principal repayment",
+      "Solved iteratively using nonlinear methods"
+    ],
+    "formula": "Price = \\sum_{t=1}^{n} \\frac{Coupon_t}{(1+YTM)^t} + \\frac{Principal}{(1+YTM)^n}",
+    "example": "For a bond with settlement January 12, 2000, maturity October 1, 2001, issue January 1, 2000, first coupon January 15, 2000, last coupon April 15, 2000, purchase price $95.70, coupon rate 4%, the yield to maturity is 6.59%.",
+    "use_cases": [
+      "Comparing returns across different bonds",
+      "Assessing bond valuation relative to market price",
+      "Fixed-income portfolio performance measurement",
+      "Determining fair value of bonds"
+    ],
+    "related_concepts": ["Bond Price", "Coupon Rate", "Duration", "Term Structure"],
+    "source": "fintbx.pdf",
+    "page_references": [16, 21, 22],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Black-Scholes Model",
+    "definition": "The Black-Scholes model is a mathematical framework for pricing European options. It calculates the theoretical price of options based on factors including current stock price, strike price, time to expiration, volatility, and risk-free interest rate, under several key assumptions about market behavior.",
+    "key_components": [
+      "Assumes asset prices follow geometric Brownian motion",
+      "Applies only to European options (exercisable only at expiration)",
+      "Requires constant volatility and risk-free rate",
+      "Assumes no transaction costs and perfect liquidity"
+    ],
+    "formula": null,
+    "example": "For a European option with asset price $100, exercise price $95, risk-free rate 10%, time to maturity 0.25 years, and volatility 0.50, the Black-Scholes model calculates a call option price of $13.70 and put option price of $6.35.",
+    "use_cases": [
+      "Pricing European call and put options",
+      "Computing option sensitivities (Greeks: delta, gamma, vega, theta, rho)",
+      "Risk management for options portfolios",
+      "Implied volatility estimation"
+    ],
+    "related_concepts": ["Options Pricing", "Volatility", "Greeks", "European Options"],
+    "source": "fintbx.pdf",
+    "page_references": [40, 41, 42],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Delta",
+    "definition": "Delta is the rate of change of an option's price with respect to changes in the price of the underlying asset. It represents the first derivative of the option price curve and indicates how sensitive the option price is to movements in the underlying security.",
+    "key_components": [
+      "First derivative of option price relative to asset price",
+      "Ranges from 0 to 1 for calls, -1 to 0 for puts",
+      "Measures directional risk exposure",
+      "Used for hedging and portfolio risk management"
+    ],
+    "formula": "\\Delta = \\frac{\\partial V}{\\partial S}",
+    "example": "For a call option with delta of 0.6665, a $1 increase in the underlying stock price results in approximately a $0.67 increase in the option price. For a put option with delta of -0.3335, the same $1 stock price increase results in approximately a $0.33 decrease in option price.",
+    "use_cases": [
+      "Hedging option positions to achieve delta neutrality",
+      "Estimating option price changes for small stock moves",
+      "Portfolio risk assessment",
+      "Dynamic hedging strategies"
+    ],
+    "related_concepts": ["Gamma", "Vega", "Theta", "Rho", "Options Greeks"],
+    "source": "fintbx.pdf",
+    "page_references": [39],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Gamma",
+    "definition": "Gamma is the rate of change of delta relative to changes in the price of the underlying asset. It is the second derivative of the option price with respect to the security price and measures the curvature of the option's value.",
+    "key_components": [
+      "Second derivative of option price relative to asset price",
+      "Measures rate of change in delta",
+      "Important for determining hedge adjustment frequency",
+      "Highest for at-the-money options near expiration"
+    ],
+    "formula": "\\Gamma = \\frac{\\partial^2 V}{\\partial S^2}",
+    "example": "For an option with gamma of 0.0145, when gamma is small, changes in delta are gradual. This sensitivity measure helps traders decide how frequently to rebalance hedge positions.",
+    "use_cases": [
+      "Determining optimal hedge rebalancing frequency",
+      "Assessing convexity risk in options portfolios",
+      "Managing delta-hedged positions",
+      "Options trading strategy development"
+    ],
+    "related_concepts": ["Delta", "Vega", "Options Greeks", "Hedging"],
+    "source": "fintbx.pdf",
+    "page_references": [39],
+    "confidence": 0.95
+  },
+  {
+    "concept_name": "Vega",
+    "definition": "Vega measures the rate of change in an option's price relative to changes in the volatility of the underlying security. When vega is large, the option price is highly sensitive to small changes in volatility.",
+    "key_components": [
+      "Sensitivity to volatility changes",
+      "Largest for at-the-money options",
+      "Same value for calls and puts with identical parameters",
+      "Decreases as option approaches expiration"
+    ],
+    "formula": "\\nu = \\frac{\\partial V}{\\partial \\sigma}",
+    "example": "An option with vega of 18.18 means that a 1% increase in volatility (from 50% to 51%) would increase the option price by approximately $0.18. Options traders often must decide whether to hedge against vega or gamma based on how frequently they can rebalance and current volatility levels.",
+    "use_cases": [
+      "Managing volatility risk in options portfolios",
+      "Volatility trading strategies",
+      "Determining sensitivity to implied volatility changes",
+      "Hedging strategies during periods of changing market volatility"
+    ],
+    "related_concepts": ["Implied Volatility", "Delta", "Gamma", "Options Greeks"],
+    "source": "fintbx.pdf",
+    "page_references": [40],
+    "confidence": 0.95
+  },
+  {
+    "concept_name": "Net Present Value",
+    "definition": "Net present value is the sum of the present values of all cash inflows and outflows over a period, discounted at a specified rate. It represents the value in today's dollars of a series of future cash flows.",
+    "key_components": [
+      "Discounts all future cash flows to present value",
+      "Uses a specified discount rate",
+      "Positive NPV indicates profitable investment",
+      "At internal rate of return, NPV equals zero"
+    ],
+    "formula": "NPV = \\sum_{t=0}^{n} \\frac{CF_t}{(1+r)^t}",
+    "example": "For a cash stream with initial investment of $20,000 followed by returns of $2,000, $2,500, $3,500, another investment of $5,000, then returns of $6,500, $9,500, $9,500, $9,500, evaluated at the internal rate of return of 11.72%, the NPV is effectively zero (5.91e-12).",
+    "use_cases": [
+      "Capital budgeting and investment decisions",
+      "Project valuation and comparison",
+      "Determining fair value of investment opportunities",
+      "Financial feasibility analysis"
+    ],
+    "related_concepts": ["Internal Rate of Return", "Discount Rate", "Future Value", "Present Value"],
+    "source": "fintbx.pdf",
+    "page_references": [12],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Tracking Error",
+    "definition": "Tracking error, also known as active risk, measures the standard deviation of the difference between a portfolio's returns and its benchmark index returns. It quantifies how closely a portfolio follows its benchmark.",
+    "key_components": [
+      "Standard deviation of active returns",
+      "Measures deviation from benchmark performance",
+      "Lower values indicate closer index tracking",
+      "Used in passive and enhanced index strategies"
+    ],
+    "formula": "TrackingError = \\sqrt{(x - x_T)^T C (x - x_T)}",
+    "example": "An index fund with a tracking error of 0.5% closely follows its benchmark, while an actively managed fund might have a tracking error of 5-10%. The tracking error efficient frontier shows portfolios that minimize this measure for different expected excess returns.",
+    "use_cases": [
+      "Evaluating index fund performance",
+      "Measuring active management effectiveness",
+      "Portfolio construction with benchmark constraints",
+      "Risk budgeting in asset management"
+    ],
+    "related_concepts": ["Active Return", "Benchmark", "Information Ratio", "Portfolio Optimization"],
+    "source": "fintbx.pdf",
+    "page_references": [27, 28, 29, 30, 15, 91],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "CAPM",
+    "definition": "The Capital Asset Pricing Model (CAPM) is a model that describes the relationship between systematic risk and expected return for assets. It establishes that the expected return of an asset equals the risk-free rate plus a risk premium based on the asset's beta and the market risk premium.",
+    "key_components": [
+      "Links expected return to systematic risk (beta)",
+      "Assumes investors hold diversified portfolios",
+      "Uses market portfolio as benchmark",
+      "Foundation for modern portfolio theory"
+    ],
+    "formula": "E(R_i) = R_f + \\beta_i (E(R_m) - R_f)",
+    "example": "If the risk-free rate is 3%, the expected market return is 10%, and a stock has a beta of 1.2, the CAPM predicts an expected return of 3% + 1.2(10% - 3%) = 11.4% for that stock.",
+    "use_cases": [
+      "Estimating required returns for capital budgeting",
+      "Valuing securities and portfolios",
+      "Performance evaluation and attribution",
+      "Determining cost of equity capital"
+    ],
+    "related_concepts": ["Beta", "Market Risk Premium", "Systematic Risk", "Security Market Line"],
+    "source": "fintbx.pdf",
+    "page_references": [26, 27, 34],
+    "confidence": 1.0
+  },
+  {
+    "concept_name": "Beta",
+    "definition": "Beta is a measure of an asset's systematic risk relative to the market portfolio. It quantifies how much an asset's returns tend to move relative to market returns, with beta of 1 indicating the asset moves in line with the market.",
+    "key_components": [
+      "Measures systematic or market risk",
+      "Calculated as covariance of asset returns with market divided by market variance",
+      "Beta > 1 indicates higher volatility than market",
+      "Beta < 1 indicates lower volatility than market"
+    ],
+    "formula": "\\beta_i = \\frac{Cov(R_i, R_m)}{Var(R_m)}",
+    "example": "A technology stock with beta of 1.5 is expected to move 1.5% for every 1% move in the market. If the market rises 10%, the stock is expected to rise 15%. Conversely, if the market falls 10%, the stock would be expected to fall 15%.",
+    "use_cases": [
+      "Measuring systematic risk exposure",
+      "Portfolio risk assessment",
+      "CAPM calculations for expected returns",
+      "Hedging and risk management strategies"
+    ],
+    "related_concepts": ["CAPM", "Systematic Risk", "Market Portfolio", "Alpha"],
+    "source": "fintbx.pdf",
+    "page_references": [26, 27, 30, 32],
+    "confidence": 0.95
+  }
+]
