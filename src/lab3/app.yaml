@@ -12,7 +12,7 @@ automatic_scaling:
   target_throughput_utilization: 0.75
 
 env_variables:
-  OPENAI_API_KEY: "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"
+  OPENAI_API_KEY: "Need to be put in manually while running" ##################################################################################################################################################
   CHROMADB_GCS_BUCKET: "aurelia-rag-data"
   DATABASE_URL: "sqlite:////tmp/concept_notes.db"
   SIMILARITY_THRESHOLD: "0.45"
