@@ -140,7 +140,7 @@ def download_and_build_chromadb_from_gcs(
         client = storage.Client()
         bucket = client.bucket(bucket_name)
         
-        embeddings_path = f'embeddings/{date}/embeddings.json'
+        embeddings_path = f'embeddings/{date}/6_code_aware_1200_200_embeddings.json'
         blob = bucket.blob(embeddings_path)
 
         if not blob.exists():
