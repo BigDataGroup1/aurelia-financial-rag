@@ -143,11 +143,10 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 - Streamlit: Cloud Run
 - Airflow: Cloud Composer
 - Vector DB: ChromaDB (26,985 vectors)
-```
 
 ---
 
-
+## Quick Start
 **No installation required - fully cloud-deployed!**
 
 **Open the application:**
