@@ -129,7 +129,40 @@ LLM_MODEL=gpt-4o-mini
 ```bash
 gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 ```
+## Live Deployment
 
+**Production URLs:**
+
+- **Streamlit Frontend:** https://aurelia-streamlit-211853118717.us-east1.run.app
+- **FastAPI Backend:** https://aurelia-financial-rag-475403.ue.r.appspot.com
+- **API Documentation:** https://aurelia-financial-rag-475403.ue.r.appspot.com/docs
+- **Health Check:** https://aurelia-financial-rag-475403.ue.r.appspot.com/health
+
+**Cloud Infrastructure:**
+- FastAPI: App Engine F4
+- Streamlit: Cloud Run
+- Airflow: Cloud Composer
+- Vector DB: ChromaDB (26,985 vectors)
+```
+
+---
+
+### **2. Add Before "Project Flow":**
+```
+## Quick Start
+
+**No installation required - fully cloud-deployed!**
+
+**Open the application:**
+https://aurelia-streamlit-211853118717.us-east1.run.app
+
+**Test queries:**
+- "Duration" (fintbx.pdf source)
+- "Sharpe Ratio" (fintbx.pdf source)
+- "Geometric Mean" (Wikipedia fallback)
+
+**API Testing:**
+https://aurelia-financial-rag-475403.ue.r.appspot.com/docs
 ## Project Flow
 
 ### Step 1: PDF Processing & Embeddings
