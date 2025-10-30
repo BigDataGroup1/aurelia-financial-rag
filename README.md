@@ -147,9 +147,6 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 
 ---
 
-### **2. Add Before "Project Flow":**
-```
-## Quick Start
 
 **No installation required - fully cloud-deployed!**
 
