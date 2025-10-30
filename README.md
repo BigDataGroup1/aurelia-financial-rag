@@ -129,6 +129,79 @@ LLM_MODEL=gpt-4o-mini
 ```bash
 gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 ```
+
+## Cloud Deployment
+
+**Our application is fully deployed on Google Cloud Platform. To replicate in your own GCP project:**
+
+### Prerequisites
+- Google Cloud project with billing enabled
+- OpenAI API key
+- gcloud CLI installed and authenticated
+
+### 1. Deploy FastAPI Backend (App Engine)
+```bash
+cd src/lab3
+
+# Update app.yaml with your OpenAI API key
+# Then deploy:
+gcloud app deploy --project YOUR-PROJECT-ID
+```
+
+### 2. Deploy Streamlit Frontend (Cloud Run)
+```bash
+cd src/aurelia-streamlit
+
+gcloud run deploy aurelia-streamlit \
+  --source . \
+  --region us-east1 \
+  --allow-unauthenticated \
+  --project YOUR-PROJECT-ID
+```
+
+### 3. Setup Cloud Composer (Airflow)
+```bash
+# Create Composer environment
+gcloud composer environments create aurelia-airflow \
+  --location us-east1 \
+  --python-version 3.11 \
+  --project YOUR-PROJECT-ID
+
+# Upload DAGs
+gcloud composer environments storage dags import \
+  --environment aurelia-airflow \
+  --location us-east1 \
+  --source airflow/dags/ \
+  --project YOUR-PROJECT-ID
+```
+
+### 4. Build and Upload ChromaDB
+```bash
+# In Google Cloud Shell:
+cd src/lab3
+
+# Install dependencies
+pip install --user chromadb==0.4.22 google-cloud-storage 'numpy<2.0'
+
+# Run build script
+python build_chromadb.py
+
+# Verify upload
+gsutil ls gs://YOUR-BUCKET-NAME/chromadb/2025-10-24/
+```
+
+### 5. Verify Deployment
+```bash
+# Check FastAPI health
+curl https://YOUR-PROJECT-ID.ue.r.appspot.com/health
+
+# Open Streamlit
+# Visit your Cloud Run URL in browser
+```
+
+---
+
+**Note:** Replace `YOUR-PROJECT-ID` and `YOUR-BUCKET-NAME` with your actual GCP project details.
 ## Live Deployment
 
 **Production URLs:**
