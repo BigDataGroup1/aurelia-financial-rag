@@ -137,6 +137,7 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 - **FastAPI Backend:** https://aurelia-financial-rag-475403.ue.r.appspot.com
 - **API Documentation:** https://aurelia-financial-rag-475403.ue.r.appspot.com/docs
 - **Health Check:** https://aurelia-financial-rag-475403.ue.r.appspot.com/health
+- **Airflow Web UI:** Access via GCP Console → Cloud Composer → aurelia-airflow environment
 
 **Cloud Infrastructure:**
 - FastAPI: App Engine F4
