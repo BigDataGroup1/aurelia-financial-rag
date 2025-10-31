@@ -132,71 +132,94 @@ gsutil cp data/raw_pdfs/fintbx.pdf gs://aurelia-rag-data/raw_pdfs/
 
 ## Cloud Deployment
 
-**Our application is fully deployed on Google Cloud Platform. To replicate in your own GCP project:**
+**Our application is deployed on GCP project: `aurelia-financial-rag-475403`**
+
+**To replicate in your own GCP project:**
 
 ### Prerequisites
 - Google Cloud project with billing enabled
-- OpenAI API key
+- OpenAI API key from https://platform.openai.com/api-keys
 - gcloud CLI installed and authenticated
 
-### 1. Deploy FastAPI Backend (App Engine)
+### 1. Setup Your Project
+```bash
+# Set your project (example uses our project ID)
+gcloud config set project aurelia-financial-rag-475403
+
+# Or use your own:
+# gcloud config set project YOUR-PROJECT-ID
+```
+
+### 2. Create GCS Bucket
+```bash
+# Our bucket: aurelia-rag-data
+# Create your own:
+gsutil mb -l us-east1 gs://your-bucket-name
+
+# Upload PDF
+gsutil cp data/raw_pdfs/fintbx.pdf gs://your-bucket-name/raw_pdfs/
+```
+
+### 3. Deploy FastAPI Backend (App Engine)
 ```bash
 cd src/lab3
 
-# Update app.yaml with your OpenAI API key
-# Then deploy:
-gcloud app deploy --project YOUR-PROJECT-ID
+# Update app.yaml:
+# - OPENAI_API_KEY: "your-openai-key"
+# - CHROMADB_GCS_BUCKET: "your-bucket-name"
+
+# Deploy
+gcloud app deploy
 ```
 
-### 2. Deploy Streamlit Frontend (Cloud Run)
+**Our deployed endpoint:** https://aurelia-financial-rag-475403.ue.r.appspot.com
+
+### 4. Deploy Streamlit Frontend (Cloud Run)
 ```bash
 cd src/aurelia-streamlit
 
 gcloud run deploy aurelia-streamlit \
   --source . \
   --region us-east1 \
-  --allow-unauthenticated \
-  --project YOUR-PROJECT-ID
+  --allow-unauthenticated
 ```
 
-### 3. Setup Cloud Composer (Airflow)
+**Our deployed endpoint:** https://aurelia-streamlit-211853118717.us-east1.run.app
+
+### 5. Setup Cloud Composer (Airflow)
 ```bash
-# Create Composer environment
+# Create environment
 gcloud composer environments create aurelia-airflow \
   --location us-east1 \
-  --python-version 3.11 \
-  --project YOUR-PROJECT-ID
+  --python-version 3.11
 
 # Upload DAGs
 gcloud composer environments storage dags import \
   --environment aurelia-airflow \
   --location us-east1 \
-  --source airflow/dags/ \
-  --project YOUR-PROJECT-ID
+  --source airflow/dags/
 ```
 
-### 4. Build and Upload ChromaDB
+**Access:** GCP Console → Cloud Composer → aurelia-airflow
+
+### 6. Build ChromaDB
 ```bash
 # In Google Cloud Shell:
-cd src/lab3
-
-# Install dependencies
 pip install --user chromadb==0.4.22 google-cloud-storage 'numpy<2.0'
 
-# Run build script
+# Update build_chromadb.py with your bucket name
 python build_chromadb.py
 
-# Verify upload
-gsutil ls gs://YOUR-BUCKET-NAME/chromadb/2025-10-24/
+# Verify
+gsutil ls gs://aurelia-rag-data/chromadb/2025-10-24/
 ```
 
-### 5. Verify Deployment
+### 7. Verify Deployment
 ```bash
-# Check FastAPI health
-curl https://YOUR-PROJECT-ID.ue.r.appspot.com/health
+# Check health
+curl https://aurelia-financial-rag-475403.ue.r.appspot.com/health
 
-# Open Streamlit
-# Visit your Cloud Run URL in browser
+# Expected: {"status":"healthy","openai_status":"connected"}
 ```
 
 ---
